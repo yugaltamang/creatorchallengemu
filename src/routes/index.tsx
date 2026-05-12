@@ -65,10 +65,10 @@ function Header() {
   return (
     <header className="relative z-30 border-b border-border">
       {/* Nav row */}
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-8 border-b border-border px-8 py-4">
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 border-b border-border px-4 py-3 sm:gap-8 sm:px-6 sm:py-4 lg:px-8">
         {/* Logo block */}
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="Creator Challenge 2026" className="h-10 w-auto invert" />
+          <img src={logo} alt="Creator Challenge 2026" className="h-8 w-auto invert sm:h-10" />
         </Link>
 
         <nav className="hidden flex-wrap items-center gap-7 text-[14px] md:flex">
@@ -81,15 +81,15 @@ function Header() {
 
         <a
           href="#signup"
-          className="grid h-14 w-14 place-items-center rounded-full border border-primary text-center text-[11px] leading-tight text-primary transition hover:bg-primary hover:text-primary-foreground"
+          className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-primary text-center text-[10px] leading-tight text-primary transition hover:bg-primary hover:text-primary-foreground sm:h-14 sm:w-14 sm:text-[11px]"
         >
           Enter<br />Now
         </a>
       </div>
 
-      <div className="mx-auto flex max-w-[1400px] items-start justify-end gap-8 px-8 pt-5 pb-5">
+      <div className="mx-auto hidden max-w-[1400px] items-start justify-end gap-8 px-4 pt-5 pb-5 sm:px-6 md:flex lg:px-8">
         {/* Right meta */}
-        <div className="hidden text-right text-[13px] leading-tight md:block">
+        <div className="text-right text-[13px] leading-tight">
           <p>India · 3 Campuses</p>
           <p className="text-muted-foreground">Feb 14 – Mar 30, 2026</p>
         </div>
