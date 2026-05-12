@@ -480,7 +480,7 @@ function SignupSection() {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="md:col-span-7">
+            <form onSubmit={handleSubmit} method="post" action="#" className="md:col-span-7">
               <div className="rounded-3xl border border-white/10 bg-background/70 p-6 backdrop-blur-md md:p-8 space-y-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_30px_80px_-20px_rgba(0,0,0,0.8)]">
                 <div className="grid gap-5 md:grid-cols-2">
                   <Field label="Full name" icon={User} withInputIcon>
