@@ -407,10 +407,10 @@ function SignupSection() {
             <form onSubmit={handleSubmit} className="md:col-span-7">
               <div className="rounded-3xl border border-border bg-background/50 p-6 backdrop-blur-md md:p-8 space-y-6">
                 <div className="grid gap-5 md:grid-cols-2">
-                  <Field label="Full name" icon={User}>
+                  <Field label="Full name" icon={User} withInputIcon>
                     <Input name="full_name" required placeholder="Your name" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
                   </Field>
-                  <Field label="University email" icon={Mail}>
+                  <Field label="University email" icon={Mail} withInputIcon>
                     <Input name="email" type="email" required placeholder="you@university.edu" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
                   </Field>
                 </div>
@@ -444,7 +444,7 @@ function SignupSection() {
                   </div>
                 </Field>
 
-                <Field label="Instagram handle" icon={AtSign}>
+                <Field label="Instagram handle" icon={AtSign} withInputIcon>
                   <Input name="instagram_handle" required placeholder="yourhandle" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
                 </Field>
 
