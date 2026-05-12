@@ -182,12 +182,12 @@ function ImageStrip() {
   ];
   const loop = [...items, ...items];
   return (
-    <section className="relative overflow-hidden border-y border-border tape py-5">
-      <div className="flex w-max animate-marquee gap-12 whitespace-nowrap font-display text-2xl text-primary-foreground">
+    <section className="relative overflow-hidden border-y border-border tape py-4 sm:py-5">
+      <div className="flex w-max animate-marquee gap-8 whitespace-nowrap font-display text-lg text-primary-foreground sm:gap-12 sm:text-2xl">
         {loop.map((t, i) => (
           <span key={i} className="flex items-center gap-3">
             {t}
-            <span className="font-mono text-[14px] opacity-70">/</span>
+            <span className="font-mono text-[12px] opacity-70 sm:text-[14px]">/</span>
           </span>
         ))}
       </div>
