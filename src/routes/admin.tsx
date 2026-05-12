@@ -89,7 +89,23 @@ function Admin() {
   const brands = ["All", "NOIR Audio", "PULSE Energy"];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div
+      className="min-h-screen bg-background text-foreground"
+      style={{
+        ['--background' as any]: 'hsl(0 0% 100%)',
+        ['--foreground' as any]: 'hsl(0 0% 9%)',
+        ['--card' as any]: 'hsl(0 0% 100%)',
+        ['--card-foreground' as any]: 'hsl(0 0% 9%)',
+        ['--popover' as any]: 'hsl(0 0% 100%)',
+        ['--popover-foreground' as any]: 'hsl(0 0% 9%)',
+        ['--secondary' as any]: 'hsl(0 0% 96%)',
+        ['--secondary-foreground' as any]: 'hsl(0 0% 9%)',
+        ['--muted' as any]: 'hsl(0 0% 96%)',
+        ['--muted-foreground' as any]: 'hsl(0 0% 40%)',
+        ['--border' as any]: 'hsl(0 0% 88%)',
+        ['--input' as any]: 'hsl(0 0% 88%)',
+      }}
+    >
       <header className="border-b border-border">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
           <div>
