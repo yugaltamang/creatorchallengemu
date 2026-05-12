@@ -352,7 +352,7 @@ function Guidelines() {
             return (
               <article
                 key={r.n}
-                className="relative flex min-h-[320px] flex-col justify-between rounded-3xl p-7 transition-transform duration-300 hover:-translate-y-1"
+                className="relative flex min-h-[320px] flex-col justify-between p-7 transition-transform duration-300 hover:-translate-y-1"
                 style={{ background: bg, color: "#fff" }}
               >
                 <div className="flex items-start justify-between">
