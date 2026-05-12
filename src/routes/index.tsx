@@ -474,7 +474,7 @@ function SignupSection() {
   );
 }
 
-function Field({ label, icon: Icon, children }: { label: string; icon?: React.ComponentType<{ className?: string }>; children: React.ReactNode }) {
+function Field({ label, icon: Icon, withInputIcon = false, children }: { label: string; icon?: React.ComponentType<{ className?: string }>; withInputIcon?: boolean; children: React.ReactNode }) {
   return (
     <div className="space-y-2">
       <Label className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
@@ -482,7 +482,7 @@ function Field({ label, icon: Icon, children }: { label: string; icon?: React.Co
         {label}
       </Label>
       <div className="relative">
-        {Icon ? <Icon className="pointer-events-none absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-muted-foreground" /> : null}
+        {Icon && withInputIcon ? <Icon className="pointer-events-none absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-muted-foreground" /> : null}
         {children}
       </div>
     </div>
