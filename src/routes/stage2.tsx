@@ -46,19 +46,19 @@ function Stage2() {
 function Header() {
   return (
     <header className="relative z-30 border-b border-border">
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-8 border-b border-border px-8 py-4">
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 border-b border-border px-4 py-3 sm:gap-8 sm:px-6 sm:py-4 lg:px-8">
         <div className="flex items-center">
-          <img src={logo} alt="Creator Challenge 2026" className="h-10 w-auto invert" />
+          <img src={logo} alt="Creator Challenge 2026" className="h-8 w-auto invert sm:h-10" />
         </div>
         <nav className="hidden items-center gap-7 text-[14px] md:flex">
           <span className="text-primary">Stage 2</span>
         </nav>
-        <div className="grid h-14 w-14 place-items-center rounded-full border border-primary text-center text-[11px] leading-tight text-primary">
+        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-primary text-center text-[10px] leading-tight text-primary sm:h-14 sm:w-14 sm:text-[11px]">
           Stage<br />02
         </div>
       </div>
-      <div className="mx-auto flex max-w-[1400px] items-start justify-end gap-8 px-8 pt-5 pb-5">
-        <div className="hidden text-right text-[13px] leading-tight md:block">
+      <div className="mx-auto hidden max-w-[1400px] items-start justify-end gap-8 px-4 pt-5 pb-5 sm:px-6 md:flex lg:px-8">
+        <div className="text-right text-[13px] leading-tight">
           <p>Final Submission</p>
           <p className="text-muted-foreground">Up to 3 reels per entry</p>
         </div>
