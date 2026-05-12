@@ -312,33 +312,30 @@ function Guidelines() {
     { n: "06", t: "Deadline", d: "Submit by midnight, March 30. Winners announced April 15 across all three campuses.", chip: "Timeline" },
   ];
 
-  // Editorial palette — locked, to match the reference aesthetic.
+  // Editorial palette — AIGA-style dark + red.
   const ink = "#0E1116";
-  const blue = "#1F4BFF";
-  const lime = "#D7FF4A";
+  const blue = "#FF2D55"; // red accent matches primary
+  const lime = "#FFFFFF";
   const muted = "rgba(255,255,255,0.62)";
 
   return (
-    <section id="rules" className="border-b border-border bg-[#EDEDF1]">
+    <section id="rules" className="border-y border-border bg-background">
       <div className="mx-auto max-w-[1400px] px-8 py-28">
         {/* Header */}
         <div className="mb-12 grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
             <span
               className="inline-flex items-center gap-2 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-white"
-              style={{ background: ink }}
+              style={{ background: blue }}
             >
               <Sparkles className="h-3.5 w-3.5" /> The Playbook
             </span>
-            <h2
-              className="mt-6 font-display text-[clamp(48px,7.5vw,108px)] leading-[0.95]"
-              style={{ color: ink }}
-            >
+            <h2 className="mt-6 font-display text-[clamp(48px,7.5vw,108px)] leading-[0.95] text-foreground">
               Rules of <span className="font-serif italic">play</span>
               <span style={{ color: blue }}>.</span>
             </h2>
           </div>
-          <p className="lg:col-span-4 text-[14px] leading-relaxed" style={{ color: "#4B5160" }}>
+          <p className="lg:col-span-4 text-[14px] leading-relaxed text-muted-foreground">
             Six things to keep in mind before you hit submit. Read once. Then go make something worth watching.
           </p>
         </div>
