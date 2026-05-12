@@ -115,6 +115,11 @@ function Hero() {
                   <span>REEL · 0:23</span>
                 </div>
                 <div className="relative aspect-[3/4] overflow-hidden bg-primary/20">
+                  <img
+                    src={creatorGirl}
+                    alt="Student creating an Instagram reel"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
                   <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/80 to-transparent p-3">
                     <p className="text-[11px] text-foreground">@maya.shoots</p>
                     <p className="text-[10px] text-muted-foreground">making it for NOIR Audio</p>
