@@ -410,7 +410,7 @@ function Guidelines() {
           </div>
           <a
             href="#signup"
-            className="inline-flex items-center gap-3 rounded-full px-6 py-3 text-[13px] font-bold uppercase tracking-[0.18em] transition hover:opacity-90"
+            className="inline-flex items-center gap-3 px-6 py-3 text-[13px] font-bold uppercase tracking-[0.18em] transition hover:opacity-90"
             style={{ background: blue, color: "#fff" }}
           >
             I'm in <span aria-hidden>→</span>
