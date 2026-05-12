@@ -444,6 +444,19 @@ function SignupSection() {
       return;
     }
     setSubmitting(true);
+
+    // Pre-check: if this email or handle has already entered for every brand, block.
+    const { data: existing } = await supabase
+      .from("submissions")
+      .select("brand_choice")
+      .or(`email.eq.${payload.email},instagram_handle.eq.${handle}`);
+    const enteredBrands = new Set((existing || []).map((r) => r.brand_choice));
+    if (enteredBrands.size >= BRANDS.length) {
+      setSubmitting(false);
+      toast.error("You have already submitted for both products.");
+      return;
+    }
+
     const { error } = await supabase.from("submissions").insert(payload);
     setSubmitting(false);
     if (error) {
