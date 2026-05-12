@@ -89,6 +89,23 @@ function Admin() {
     });
   }, [rows, q, uni, brand]);
 
+  const filteredFinals = useMemo(() => {
+    return finals.filter((r) => {
+      if (uni !== "All" && r.university !== uni) return false;
+      if (brand !== "All" && r.brand_choice !== brand) return false;
+      if (q) {
+        const s = q.toLowerCase();
+        if (
+          !r.full_name.toLowerCase().includes(s) &&
+          !r.email.toLowerCase().includes(s) &&
+          !r.instagram_handle.toLowerCase().includes(s)
+        )
+          return false;
+      }
+      return true;
+    });
+  }, [finals, q, uni, brand]);
+
   const shortlisted = useMemo(() => rows.filter((r) => r.shortlisted), [rows]);
 
   const stats = useMemo(() => {
