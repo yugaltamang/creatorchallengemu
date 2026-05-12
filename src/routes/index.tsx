@@ -203,7 +203,7 @@ function SocialBar() {
   ];
   return (
     <section id="about" className="relative border-b border-border bp-grid">
-      <div className="mx-auto max-w-[1400px] px-8 py-20">
+      <div className="mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <span className="ticker-dot inline-flex items-center font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
