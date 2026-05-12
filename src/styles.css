@@ -111,15 +111,15 @@
 .shadow-pop { box-shadow: var(--shadow-pop); }
 .shadow-soft { box-shadow: var(--shadow-soft); }
 
-/* MU signature gradient text — replaces solid pink for headlines */
+/* Headline highlight — solid red block behind word, like the poster set */
 .mu-gradient-text {
-  background: var(--gradient-pop);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  background: var(--primary);
+  color: #fff;
+  padding: 0 0.18em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
-.mu-gradient-border { border-image: var(--gradient-pop) 1; }
+.mu-gradient-border { border-color: var(--primary); }
 
 .pink-arc {
   position: absolute;
