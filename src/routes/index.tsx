@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
-import { Twitter, Sparkles, Instagram, Trophy, Calendar, Users, Music2, Zap, User, Mail, AtSign, MessageSquare, GraduationCap, Check, ArrowRight } from "lucide-react";
+import { Twitter, Sparkles, Instagram, Heart, MessageCircle, Send, Bookmark, MoreHorizontal, ArrowRight } from "lucide-react";
 import brand1 from "@/assets/brand-1.jpg";
 import brand2 from "@/assets/brand-2.jpg";
 import creatorGirl from "@/assets/creator-girl.png";
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Creator Challenge 2026 — MU × LPU × Tetr" },
-      { name: "description", content: "Content creator challenge for students of Masters' Union, LPU and Tetr." },
+      { name: "description", content: "An editorial creator competition for students of Masters' Union, LPU and Tetr." },
     ],
   }),
 });
@@ -25,15 +25,21 @@ export const Route = createFileRoute("/")({
 const UNIVERSITIES = ["Masters' Union", "LPU", "Tetr"] as const;
 const BRANDS = ["NOIR Audio", "PULSE Energy"] as const;
 
+const INK = "#16181D";
+const CREAM = "#EFE8DA";
+const RED = "#E33C2B";
+const GREEN = "#1F8A4C";
+const BLUE = "#3D7BD9";
+
 function Landing() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
-      <Toaster theme="dark" />
+    <div className="relative min-h-screen overflow-hidden" style={{ background: CREAM, color: INK }}>
+      <Toaster theme="light" />
       <Header />
       <Hero />
-      <ImageStrip />
-      <SocialBar />
+      <Marquee />
       <Brands />
+      <Stats />
       <Guidelines />
       <SignupSection />
       <Footer />
@@ -41,126 +47,180 @@ function Landing() {
   );
 }
 
+/* ---------------- Instagram-style card ---------------- */
+function IGCard({
+  bg,
+  caption,
+  username = "creatorchallenge",
+  rotate = 0,
+  className = "",
+  children,
+}: {
+  bg: string;
+  caption?: string;
+  username?: string;
+  rotate?: number;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      className={"relative bg-white shadow-[6px_6px_0_0_#16181D] " + className}
+      style={{ transform: `rotate(${rotate}deg)`, border: `1px solid ${INK}` }}
+    >
+      {/* Header */}
+      <div className="flex items-center justify-between border-b px-3 py-2" style={{ borderColor: INK }}>
+        <div className="flex items-center gap-2">
+          <div className="grid h-6 w-6 place-items-center rounded-full" style={{ background: INK, color: CREAM }}>
+            <span className="font-serif text-[11px] italic">cc</span>
+          </div>
+          <span className="font-serif text-[15px] italic" style={{ color: INK }}>Instagram</span>
+        </div>
+        <MoreHorizontal className="h-4 w-4" style={{ color: INK }} />
+      </div>
+
+      {/* Body */}
+      <div className="relative aspect-square overflow-hidden" style={{ background: bg }}>
+        {children}
+        {caption && (
+          <div className="absolute left-3 top-3 max-w-[70%]">
+            <h3 className="font-display text-[20px] leading-[0.95] tracking-tight text-white">
+              {caption}
+            </h3>
+          </div>
+        )}
+        <span className="absolute bottom-2 right-3 text-[10px] font-medium uppercase tracking-[0.18em] text-white/85">
+          @{username}
+        </span>
+      </div>
+
+      {/* Footer actions */}
+      <div className="flex items-center gap-3 px-3 py-2" style={{ color: INK }}>
+        <Heart className="h-4 w-4" />
+        <MessageCircle className="h-4 w-4" />
+        <Send className="h-4 w-4" />
+        <Bookmark className="ml-auto h-4 w-4" />
+      </div>
+    </div>
+  );
+}
+
+/* ---------------- Header ---------------- */
 function Header() {
   return (
-    <header className="relative z-30 border-b border-border">
-      {/* Nav row */}
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-8 border-b border-border px-8 py-4">
-        {/* Logo block */}
+    <header className="relative z-30" style={{ borderBottom: `1px solid ${INK}` }}>
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-8 px-6 py-5 md:px-10">
         <div className="flex items-center gap-3">
-          <div className="grid h-10 w-10 place-items-center bg-primary">
-            <span className="font-serif text-base italic text-primary-foreground">CC</span>
+          <div className="grid h-10 w-10 place-items-center" style={{ background: INK, color: CREAM }}>
+            <span className="font-serif text-[15px] italic">cc</span>
           </div>
-          <h1 className="font-display text-[18px] leading-[0.95] tracking-tight">
-            creator<br />
-            challenge 2026
-          </h1>
+          <div className="leading-[0.95]">
+            <p className="font-display text-[15px] uppercase tracking-tight">Creator Challenge</p>
+            <p className="font-serif text-[14px] italic" style={{ color: RED }}>vol. 2026</p>
+          </div>
         </div>
 
-        <nav className="hidden flex-wrap items-center gap-7 text-[14px] md:flex">
-          <a href="#brands" className="hover:text-primary">Brands</a>
-          <a href="#rules" className="hover:text-primary">Rules</a>
-          <a href="#prizes" className="hover:text-primary">Prizes</a>
-          <a href="#about" className="hover:text-primary">About</a>
-          <a href="#signup" className="hover:text-primary">Submit</a>
-          <Link to="/admin" className="text-muted-foreground hover:text-primary">Admin</Link>
+        <nav className="hidden items-center gap-8 text-[13px] font-medium md:flex">
+          <a href="#brands" className="hover:underline">Brands</a>
+          <a href="#stats" className="hover:underline">Numbers</a>
+          <a href="#rules" className="hover:underline">Rules</a>
+          <a href="#signup" className="hover:underline">Submit</a>
+          <Link to="/admin" className="opacity-60 hover:underline">Admin</Link>
         </nav>
 
         <a
           href="#signup"
-          className="grid h-14 w-14 place-items-center rounded-full border border-primary text-center text-[11px] leading-tight text-primary transition hover:bg-primary hover:text-primary-foreground"
+          className="hidden items-center gap-2 px-4 py-2 text-[12px] font-bold uppercase tracking-[0.18em] md:inline-flex"
+          style={{ background: RED, color: CREAM }}
         >
-          Enter<br />Now
+          Enter Now <ArrowRight className="h-3.5 w-3.5" />
         </a>
       </div>
 
-      <div className="mx-auto flex max-w-[1400px] items-start justify-end gap-8 px-8 pt-5 pb-5">
-        {/* Right meta */}
-        <div className="hidden text-right text-[13px] leading-tight md:block">
-          <p>India · 3 Campuses</p>
-          <p className="text-muted-foreground">Feb 14 – Mar 30, 2026</p>
-        </div>
+      {/* Top thin meta bar */}
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-6 py-2 text-[11px] uppercase tracking-[0.22em] md:px-10" style={{ borderTop: `1px solid ${INK}`, background: INK, color: CREAM }}>
+        <span>Issue 02 — Spring '26</span>
+        <span className="hidden md:inline">A reel-making contest for India's most chaotic students</span>
+        <span>Feb 14 — Mar 30</span>
       </div>
     </header>
   );
 }
 
+/* ---------------- Hero ---------------- */
 function Hero() {
   return (
     <section className="relative">
-      {/* Sweeping pink arc — AIGA-style */}
-      <svg
-        className="pointer-events-none absolute -bottom-40 -left-40 h-[1100px] w-[1100px] text-primary opacity-90"
-        viewBox="0 0 600 600"
-        fill="none"
-        aria-hidden
-      >
-        <path d="M 600 0 A 600 600 0 0 0 0 600" stroke="currentColor" strokeWidth="3" />
-      </svg>
-
-      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-8 pt-16 pb-24 md:pt-24 md:pb-32">
-        {/* Phone mock / left visual */}
-        <div className="col-span-12 md:col-span-4">
-          <div className="relative mx-auto w-[260px]">
-            {/* Girl image breaking out of phone */}
-            <img
-              src={creatorGirl}
-              alt="Student creating an Instagram reel"
-              className="pointer-events-none absolute left-1/2 bottom-[58px] z-20 w-[140%] max-w-none -translate-x-1/2 drop-shadow-[0_25px_40px_rgba(0,0,0,0.6)]"
-            />
-            <div className="relative rounded-[36px] border-[3px] border-primary bg-card p-2 shadow-[0_0_0_1px_var(--color-primary)]">
-              <div className="overflow-hidden rounded-[28px] bg-black">
-                <div className="flex items-center justify-between px-4 py-3 text-[11px] tracking-widest text-primary">
-                  <span>● LIVE</span>
-                  <span>REEL · 0:23</span>
-                </div>
-                <div className="relative aspect-[3/4] overflow-hidden bg-primary/20">
-                  <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/80 to-transparent p-3">
-                    <p className="text-[11px] text-foreground">@maya.shoots</p>
-                    <p className="text-[10px] text-muted-foreground">making it for NOIR Audio</p>
-                  </div>
-                </div>
-                <div className="flex justify-around px-4 py-3 text-primary text-[10px]">
-                  <span>≡</span><span>♡</span><span>▤</span><span>★</span><span>⌕</span>
-                </div>
-              </div>
-            </div>
+      <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-6 pb-20 pt-14 md:px-10 md:pb-28 md:pt-20">
+        {/* Left — headline */}
+        <div className="col-span-12 lg:col-span-7">
+          <p className="mb-6 font-serif text-[18px] italic" style={{ color: RED }}>
+            Featuring — Masters' Union · LPU · Tetr
+          </p>
+          <h1 className="font-display text-[clamp(56px,9vw,150px)] leading-[0.86] tracking-tight" style={{ color: INK }}>
+            Make a reel.<br />
+            <span className="font-serif italic" style={{ color: RED }}>Get</span> picked.<br />
+            <span style={{ color: GREEN }}>Get</span> <span style={{ color: BLUE }}>paid</span>.
+          </h1>
+          <p className="mt-8 max-w-md text-[15px] leading-relaxed" style={{ color: INK }}>
+            A 45-day creator competition styled like a magazine you'd actually keep.
+            Two real brands, three campuses, one shot at the cover.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a href="#signup" className="inline-flex items-center gap-2 px-6 py-3 text-[13px] font-bold uppercase tracking-[0.18em]" style={{ background: INK, color: CREAM }}>
+              Enter the contest <ArrowRight className="h-4 w-4" />
+            </a>
+            <a href="#brands" className="inline-flex items-center gap-2 px-6 py-3 text-[13px] font-bold uppercase tracking-[0.18em]" style={{ border: `1px solid ${INK}` }}>
+              See the briefs
+            </a>
           </div>
         </div>
 
-        {/* Big headline */}
-        <div className="col-span-12 md:col-span-8 md:pt-6">
-          <h2 className="font-display text-[clamp(64px,10vw,160px)] leading-[0.86]">
-            <span className="text-primary">Let's</span>{" "}<br className="hidden sm:block" />
-            <span className="text-primary">build</span>{" "}<br className="hidden sm:block" />
-            <span className="text-primary">stories,</span><br />
-            <span className="text-foreground">together.</span>
-          </h2>
+        {/* Right — IG card grid */}
+        <div className="col-span-12 lg:col-span-5">
+          <div className="grid grid-cols-2 gap-4">
+            <IGCard bg={RED} username="maya.shoots" rotate={-2} className="mt-6">
+              <div className="absolute inset-0" style={{ background: BLUE, clipPath: "polygon(0 0, 55% 0, 0 100%)" }} />
+              <img src={creatorGirl} alt="Creator" className="duotone-red absolute inset-0 h-full w-full object-cover object-top" />
+              <div className="absolute left-3 top-3 max-w-[80%]">
+                <h3 className="font-display text-[22px] leading-[0.95] text-white">Creator<br/>Challenge<br/>2026</h3>
+                <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-white/90">3 campuses · India</p>
+              </div>
+            </IGCard>
+
+            <IGCard bg={GREEN} username="noir.audio" rotate={1.5} className="mt-16">
+              <div className="absolute inset-0" style={{ background: RED, clipPath: "polygon(45% 0, 100% 0, 100% 100%, 70% 100%)" }} />
+              <img src={brand1} alt="NOIR Audio" className="duotone-green absolute inset-0 h-full w-full object-cover" />
+              <div className="absolute bottom-10 left-3">
+                <p className="font-display text-[18px] text-white leading-tight">NOIR<br/>Audio</p>
+              </div>
+            </IGCard>
+
+            <IGCard bg={BLUE} username="pulse.energy" rotate={1} className="-mt-2 col-span-2 mx-auto w-2/3">
+              <div className="absolute inset-0" style={{ background: GREEN, clipPath: "polygon(0 60%, 100% 30%, 100% 100%, 0 100%)" }} />
+              <img src={brand2} alt="PULSE Energy" className="duotone-blue absolute inset-0 h-full w-full object-cover" />
+              <div className="absolute right-3 top-3 max-w-[60%] text-right">
+                <p className="font-display text-[18px] text-white leading-tight">PULSE<br/>Energy</p>
+              </div>
+            </IGCard>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function ImageStrip() {
-  const items = [
-    "🎬 Lights",
-    "✨ Camera",
-    "📱 Action",
-    "🎵 Trending audio",
-    "💖 1M views",
-    
-    "🔥 #CreatorChallenge26",
-    "🎤 Brand collabs",
-  ];
-  const loop = [...items, ...items];
+/* ---------------- Marquee ---------------- */
+function Marquee() {
+  const items = ["Lights", "Camera", "Action", "Trending audio", "Brand collabs", "#CreatorChallenge26", "Cover story", "Front page energy"];
+  const loop = [...items, ...items, ...items];
   return (
-    <section className="relative overflow-hidden border-y border-border gradient-pop py-5">
-      <div className="flex w-max animate-marquee gap-12 whitespace-nowrap font-display text-2xl text-primary-foreground">
+    <section className="overflow-hidden" style={{ background: INK, color: CREAM, borderTop: `1px solid ${INK}`, borderBottom: `1px solid ${INK}` }}>
+      <div className="flex w-max animate-marquee gap-10 whitespace-nowrap py-5 font-serif text-[34px] italic">
         {loop.map((t, i) => (
-          <span key={i} className="flex items-center gap-3">
+          <span key={i} className="flex items-center gap-10">
             {t}
-            <Sparkles className="h-5 w-5" />
+            <span style={{ color: RED }}>★</span>
           </span>
         ))}
       </div>
@@ -168,53 +228,7 @@ function ImageStrip() {
   );
 }
 
-function SocialBar() {
-  const stats = [
-    { n: "3", l: "Campuses", icon: Users, accent: "text-pop-cyan" },
-    { n: "2", l: "Real brands", icon: Zap, accent: "text-pop-yellow" },
-    { n: "₹5L", l: "Prize pool", icon: Trophy, accent: "text-pop-lime" },
-    { n: "45d", l: "To create", icon: Calendar, accent: "text-pop-violet" },
-  ];
-  return (
-    <section id="about" className="border-b border-border">
-      <div className="mx-auto max-w-[1400px] px-8 py-20">
-        <div className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-5">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[12px] uppercase tracking-[0.18em] text-primary">
-              <Instagram className="h-3.5 w-3.5" /> @CreatorChallenge
-            </span>
-            <h2 className="mt-6 font-display text-[clamp(40px,5vw,68px)] leading-[0.92]">
-              The 2026<br />
-              <span className="bg-gradient-to-r from-primary to-pop-violet bg-clip-text text-transparent">
-                Creator Challenge.
-              </span>
-            </h2>
-            <p className="mt-6 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-              Students from <span className="text-foreground">Masters' Union</span>,{" "}
-              <span className="text-foreground">LPU</span> and{" "}
-              <span className="text-foreground">Tetr</span> create reels for two real brands.
-              Winners get cash, mentorship, and a feature on the brand handles.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4 md:col-span-7">
-            {stats.map((s) => (
-              <div
-                key={s.l}
-                className="gradient-card group relative overflow-hidden rounded-2xl border border-border p-6 shadow-soft transition hover:-translate-y-1 hover:border-primary/50"
-              >
-                <s.icon className={`h-6 w-6 ${s.accent}`} />
-                <div className="mt-6 font-display text-5xl">{s.n}</div>
-                <p className="mt-2 text-[13px] uppercase tracking-widest text-muted-foreground">{s.l}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
+/* ---------------- Brands ---------------- */
 function Brands() {
   const brands = [
     {
@@ -224,9 +238,10 @@ function Brands() {
       summary:
         "Premium over-ear headphones for late-night creators. Active noise cancellation, 40-hour battery, studio-grade drivers.",
       angles: ["Late-night workflow", "Studio aesthetic", "Travel + commute"],
-      icon: Music2,
-      accent: "from-pop-violet to-primary",
-      chip: "bg-pop-violet/15 text-pop-violet border-pop-violet/30",
+      bg: GREEN,
+      block: RED,
+      duotone: "duotone-green",
+      issue: "Brief 01",
     },
     {
       name: "PULSE Energy",
@@ -235,64 +250,53 @@ function Brands() {
       summary:
         "Sugar-free sparkling energy drink. 150mg natural caffeine, zero crash. Make your reel feel like the first sip.",
       angles: ["Workout / fitness", "Study + hustle", "Friends + nightlife"],
-      icon: Zap,
-      accent: "from-pop-yellow to-primary",
-      chip: "bg-pop-yellow/15 text-pop-yellow border-pop-yellow/30",
+      bg: BLUE,
+      block: RED,
+      duotone: "duotone-blue",
+      issue: "Brief 02",
     },
   ];
 
   return (
-    <section id="brands" className="border-b border-border">
-      <div className="mx-auto max-w-[1400px] px-8 py-24">
-        <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-[12px] uppercase tracking-[0.18em] text-muted-foreground">
-              <Sparkles className="h-3.5 w-3.5" /> The Brief
-            </span>
-            <h2 className="mt-5 font-display text-[clamp(48px,7vw,100px)]">
-              Two brands.{" "}
-              <span className="bg-gradient-to-r from-primary via-pop-violet to-pop-cyan bg-clip-text text-transparent">
-                One reel.
-              </span>
+    <section id="brands" style={{ borderBottom: `1px solid ${INK}` }}>
+      <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
+        <div className="mb-14 grid items-end gap-6 md:grid-cols-12">
+          <div className="md:col-span-8">
+            <p className="font-serif text-[18px] italic" style={{ color: RED }}>The Brief — pick one.</p>
+            <h2 className="mt-4 font-display text-[clamp(48px,7vw,108px)] leading-[0.9]">
+              Two brands.<br />
+              <span className="font-serif italic" style={{ color: BLUE }}>One</span> reel.
             </h2>
           </div>
-          <p className="max-w-xs text-[14px] text-muted-foreground">
-            Pick one. Build a 15–30s vertical reel. Make it impossible to scroll past.
+          <p className="md:col-span-4 text-[14px] leading-relaxed">
+            Build a 15–30s vertical reel for the brand of your choice. Make it impossible to scroll past.
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-10 md:grid-cols-2">
           {brands.map((b, i) => (
-            <article
-              key={b.name}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-card transition hover:-translate-y-1 hover:shadow-pop"
-            >
-              <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${b.accent}`} />
-              <div className="relative aspect-[5/4] overflow-hidden">
-                <img
-                  src={b.image}
-                  alt={b.name}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.05]"
-                />
-                <div className="absolute left-4 top-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-background/80 backdrop-blur">
-                  <b.icon className="h-5 w-5 text-primary" />
+            <article key={b.name} className="group">
+              <IGCard bg={b.bg} username={b.name.toLowerCase().replace(" ", ".")} rotate={i === 0 ? -1 : 1}>
+                <div className="absolute inset-0" style={{ background: b.block, clipPath: i === 0 ? "polygon(0 0, 45% 0, 0 100%)" : "polygon(55% 0, 100% 0, 100% 100%, 80% 100%)" }} />
+                <img src={b.image} alt={b.name} className={`${b.duotone} absolute inset-0 h-full w-full object-cover`} />
+                <div className={`absolute ${i === 0 ? "right-4 top-4 text-right" : "left-4 top-4"} max-w-[60%]`}>
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-white/85">{b.issue}</p>
+                  <h3 className="mt-1 font-display text-[28px] leading-[0.92] text-white">{b.name}</h3>
                 </div>
-                <span className="absolute right-4 top-4 rounded-full bg-background/80 px-3 py-1 text-[11px] uppercase tracking-widest backdrop-blur">
-                  Brief 0{i + 1}
-                </span>
-              </div>
-              <div className="p-7">
-                <h3 className="font-display text-4xl">{b.name}</h3>
-                <p className="mt-2 text-primary text-[15px]">{b.tagline}</p>
-                <p className="mt-4 text-[14px] leading-relaxed text-muted-foreground">{b.summary}</p>
-                <div className="mt-5 flex flex-wrap gap-2">
+              </IGCard>
+
+              <div className="mt-6 grid grid-cols-12 gap-4">
+                <div className="col-span-12 md:col-span-8">
+                  <p className="font-serif text-[20px] italic" style={{ color: RED }}>"{b.tagline}"</p>
+                  <p className="mt-3 text-[14px] leading-relaxed">{b.summary}</p>
+                </div>
+                <ul className="col-span-12 space-y-1 text-[12px] uppercase tracking-[0.16em] md:col-span-4">
                   {b.angles.map((a) => (
-                    <span key={a} className={`rounded-full border px-3 py-1 text-[12px] ${b.chip}`}>
-                      {a}
-                    </span>
+                    <li key={a} className="flex items-center gap-2 border-b py-1.5" style={{ borderColor: INK }}>
+                      <span style={{ color: RED }}>→</span> {a}
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </article>
           ))}
@@ -302,6 +306,38 @@ function Brands() {
   );
 }
 
+/* ---------------- Stats strip ---------------- */
+function Stats() {
+  const stats = [
+    { n: "3", l: "Campuses", color: RED },
+    { n: "2", l: "Real Brands", color: GREEN },
+    { n: "₹5L", l: "Prize Pool", color: BLUE },
+    { n: "45d", l: "To Create", color: INK },
+  ];
+  return (
+    <section id="stats" style={{ borderBottom: `1px solid ${INK}` }}>
+      <div className="mx-auto grid max-w-[1400px] grid-cols-2 md:grid-cols-4">
+        {stats.map((s, i) => (
+          <div
+            key={s.l}
+            className="flex flex-col justify-between p-8 md:p-10"
+            style={{
+              background: s.color,
+              color: s.color === INK ? CREAM : "white",
+              borderRight: i < 3 ? `1px solid ${INK}` : undefined,
+              borderBottom: i < 2 ? `1px solid ${INK}` : undefined,
+            }}
+          >
+            <p className="font-serif text-[14px] italic">— {s.l}</p>
+            <p className="mt-10 font-display text-[clamp(56px,8vw,120px)] leading-[0.85] tracking-tight">{s.n}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Guidelines (editorial dark bento) ---------------- */
 function Guidelines() {
   const rules = [
     { n: "01", t: "Eligibility", d: "Open to currently enrolled students of Masters' Union, LPU, or Tetr. Verify with your university email.", chip: "Who can enter" },
@@ -312,108 +348,61 @@ function Guidelines() {
     { n: "06", t: "Deadline", d: "Submit by midnight, March 30. Winners announced April 15 across all three campuses.", chip: "Timeline" },
   ];
 
-  // Editorial palette — locked, to match the reference aesthetic.
-  const ink = "#0E1116";
-  const blue = "#1F4BFF";
-  const lime = "#D7FF4A";
-  const muted = "rgba(255,255,255,0.62)";
+  const accents = [RED, INK, BLUE, INK, GREEN, INK];
 
   return (
-    <section id="rules" className="border-b border-border bg-[#EDEDF1]">
-      <div className="mx-auto max-w-[1400px] px-8 py-28">
-        {/* Header */}
-        <div className="mb-12 grid gap-8 lg:grid-cols-12 lg:items-end">
+    <section id="rules" style={{ background: INK, color: CREAM, borderBottom: `1px solid ${INK}` }}>
+      <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-10">
+        <div className="mb-14 grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
-            <span
-              className="inline-flex items-center gap-2 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-white"
-              style={{ background: ink }}
-            >
-              <Sparkles className="h-3.5 w-3.5" /> The Playbook
-            </span>
-            <h2
-              className="mt-6 font-display text-[clamp(48px,7.5vw,108px)] leading-[0.95]"
-              style={{ color: ink }}
-            >
-              Rules of <span className="font-serif italic">play</span>
-              <span style={{ color: blue }}>.</span>
+            <p className="font-serif text-[18px] italic" style={{ color: RED }}>The Playbook</p>
+            <h2 className="mt-4 font-display text-[clamp(48px,7.5vw,108px)] leading-[0.92]">
+              Rules of <span className="font-serif italic" style={{ color: BLUE }}>play</span>
+              <span style={{ color: RED }}>.</span>
             </h2>
           </div>
-          <p className="lg:col-span-4 text-[14px] leading-relaxed" style={{ color: "#4B5160" }}>
+          <p className="lg:col-span-4 text-[14px] leading-relaxed text-white/70">
             Six things to keep in mind before you hit submit. Read once. Then go make something worth watching.
           </p>
         </div>
 
-        {/* Bento grid */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-3" style={{ border: `1px solid ${CREAM}` }}>
           {rules.map((r, i) => {
-            const isAccent = i === 2;
-            const bg = isAccent ? blue : ink;
-            const pillBg = isAccent ? "#FFFFFF" : lime;
+            const accent = accents[i];
             return (
               <article
                 key={r.n}
-                className="relative flex min-h-[320px] flex-col justify-between p-7 transition-transform duration-300 hover:-translate-y-1"
-                style={{ background: bg, color: "#fff" }}
+                className="relative flex min-h-[300px] flex-col justify-between p-7"
+                style={{
+                  borderRight: (i + 1) % 3 !== 0 ? `1px solid ${CREAM}` : undefined,
+                  borderBottom: i < 3 ? `1px solid ${CREAM}` : undefined,
+                }}
               >
                 <div className="flex items-start justify-between">
-                  <span
-                    className="font-display text-[13px] tracking-[0.2em]"
-                    style={{ color: isAccent ? "rgba(255,255,255,0.7)" : muted }}
-                  >
-                    / {r.n}
-                  </span>
-                  <span
-                    className="px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em]"
-                    style={{ background: pillBg, color: ink }}
-                  >
+                  <span className="font-serif text-[16px] italic text-white/60">/ {r.n}</span>
+                  <span className="px-2 py-1 text-[10px] font-bold uppercase tracking-[0.16em]" style={{ background: accent, color: accent === INK ? CREAM : "white" }}>
                     {r.chip}
                   </span>
                 </div>
-
                 <div className="mt-12">
                   <h3 className="font-display text-[34px] leading-[1.02] tracking-tight">
-                    {r.t}
-                    <span style={{ color: isAccent ? "#fff" : lime }}>.</span>
+                    {r.t}<span style={{ color: accent === INK ? RED : accent }}>.</span>
                   </h3>
-                  <div
-                    className="mt-3 h-[6px] w-16"
-                    style={{ background: isAccent ? "#fff" : lime, opacity: isAccent ? 0.9 : 1 }}
-                  />
+                  <div className="mt-3 h-[3px] w-16" style={{ background: accent === INK ? RED : accent }} />
                 </div>
-
-                <p
-                  className="mt-6 text-[14px] leading-relaxed"
-                  style={{ color: isAccent ? "rgba(255,255,255,0.85)" : muted }}
-                >
-                  {r.d}
-                </p>
+                <p className="mt-6 text-[14px] leading-relaxed text-white/70">{r.d}</p>
               </article>
             );
           })}
         </div>
 
-        {/* Footer strip */}
-        <div
-          className="mt-10 flex flex-wrap items-center justify-between gap-6 px-8 py-7"
-          style={{ background: ink, color: "#fff" }}
-        >
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-6 px-8 py-6" style={{ background: CREAM, color: INK }}>
           <div className="flex items-center gap-4">
-            <span
-              className="px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em]"
-              style={{ background: lime, color: ink }}
-            >
-              Heads up
-            </span>
-            <p className="font-display text-[20px] leading-tight">
-              Miss a rule, miss the prize. We disqualify quietly.
-            </p>
+            <span className="px-2 py-1 text-[10px] font-bold uppercase tracking-[0.2em]" style={{ background: RED, color: CREAM }}>Heads up</span>
+            <p className="font-serif text-[22px] italic">Miss a rule, miss the prize. We disqualify quietly.</p>
           </div>
-          <a
-            href="#signup"
-            className="inline-flex items-center gap-3 px-6 py-3 text-[13px] font-bold uppercase tracking-[0.18em] transition hover:opacity-90"
-            style={{ background: blue, color: "#fff" }}
-          >
-            I'm in <span aria-hidden>→</span>
+          <a href="#signup" className="inline-flex items-center gap-2 px-6 py-3 text-[13px] font-bold uppercase tracking-[0.18em]" style={{ background: INK, color: CREAM }}>
+            I'm in <ArrowRight className="h-4 w-4" />
           </a>
         </div>
       </div>
@@ -421,6 +410,7 @@ function Guidelines() {
   );
 }
 
+/* ---------------- Signup ---------------- */
 function SignupSection() {
   const [submitting, setSubmitting] = useState(false);
 
@@ -452,151 +442,152 @@ function SignupSection() {
     toast.success("You're in. We'll review your profile soon.");
   }
 
+  const inputCls = "h-12 w-full bg-white px-4 text-[14px] focus:outline-none focus:ring-2";
+  const inputStyle = { border: `1px solid ${INK}`, color: INK } as React.CSSProperties;
+
   return (
-    <section id="signup" className="border-b border-border">
-      <div className="mx-auto max-w-[1400px] px-8 py-24">
-        <div className="relative overflow-hidden rounded-[32px] border border-border gradient-card p-8 shadow-pop md:p-14">
-          <div className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full bg-primary/30 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-pop-violet/30 blur-3xl" />
+    <section id="signup" style={{ borderBottom: `1px solid ${INK}` }}>
+      <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
+        <div className="grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <p className="font-serif text-[18px] italic" style={{ color: RED }}>The application</p>
+            <h2 className="mt-4 font-display text-[clamp(44px,6.5vw,92px)] leading-[0.9]">
+              Drop your<br /><span className="font-serif italic" style={{ color: BLUE }}>handle</span>
+              <span style={{ color: RED }}>.</span>
+            </h2>
+            <p className="mt-6 max-w-sm text-[14px] leading-relaxed">
+              Submit your details and the Instagram profile we should review. Update your reel any
+              time before the deadline — we'll always pull the latest version.
+            </p>
 
-          <div className="relative grid gap-10 md:grid-cols-12">
-            <div className="md:col-span-5">
-              <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[12px] uppercase tracking-[0.18em] text-primary">
-                <Instagram className="h-3.5 w-3.5" /> Submit
-              </span>
-              <h2 className="mt-5 font-display text-[clamp(48px,7vw,96px)] leading-[0.9]">
-                Drop your{" "}
-                <span className="bg-gradient-to-r from-primary to-pop-cyan bg-clip-text text-transparent">
-                  handle.
-                </span>
-              </h2>
-              <p className="mt-6 max-w-sm text-[14px] leading-relaxed text-muted-foreground">
-                Submit your details and the Instagram profile we should review. Update your reel any
-                time before the deadline — we'll always pull the latest version.
-              </p>
+            <div className="mt-10 inline-block px-5 py-4" style={{ background: INK, color: CREAM }}>
+              <p className="font-serif text-[13px] italic">— Submission window</p>
+              <p className="mt-1 font-display text-[24px]">FEB 14 → MAR 30</p>
             </div>
-
-            <form onSubmit={handleSubmit} className="md:col-span-7">
-              <div className="rounded-3xl border border-border bg-background/50 p-6 backdrop-blur-md md:p-8 space-y-6">
-                <div className="grid gap-5 md:grid-cols-2">
-                  <Field label="Full name" icon={User} withInputIcon>
-                    <Input name="full_name" required placeholder="Your name" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
-                  </Field>
-                  <Field label="University email" icon={Mail} withInputIcon>
-                    <Input name="email" type="email" required placeholder="you@university.edu" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
-                  </Field>
-                </div>
-
-                <Field label="University" icon={GraduationCap}>
-                  <div className="grid grid-cols-3 gap-3 pt-2">
-                    {UNIVERSITIES.map((u) => (
-                      <label key={u} className="group cursor-pointer">
-                        <input type="radio" name="university" value={u} className="peer sr-only" required />
-                        <div className="relative flex h-14 items-center justify-center rounded-xl border border-border bg-background/60 px-3 text-center text-[13px] font-medium transition hover:border-primary/50 hover:-translate-y-0.5 peer-checked:border-primary peer-checked:bg-gradient-to-br peer-checked:from-primary peer-checked:to-pop-violet peer-checked:text-primary-foreground peer-checked:shadow-pop">
-                          <span className="absolute right-2 top-2 hidden h-4 w-4 items-center justify-center rounded-full bg-background/30">
-                            <Check className="h-3 w-3" />
-                          </span>
-                          {u}
-                        </div>
-                      </label>
-                    ))}
-                  </div>
-                </Field>
-
-                <Field label="Brand you're creating for" icon={Sparkles}>
-                  <div className="grid grid-cols-2 gap-3 pt-2">
-                    {BRANDS.map((b) => (
-                      <label key={b} className="group cursor-pointer">
-                        <input type="radio" name="brand_choice" value={b} className="peer sr-only" required />
-                        <div className="relative flex h-16 items-center justify-center rounded-xl border border-border bg-background/60 px-4 text-center text-[14px] font-medium transition hover:border-primary/50 hover:-translate-y-0.5 peer-checked:border-primary peer-checked:bg-gradient-to-br peer-checked:from-primary peer-checked:to-pop-violet peer-checked:text-primary-foreground peer-checked:shadow-pop">
-                          {b}
-                        </div>
-                      </label>
-                    ))}
-                  </div>
-                </Field>
-
-                <Field label="Instagram handle" icon={AtSign} withInputIcon>
-                  <Input name="instagram_handle" required placeholder="yourhandle" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
-                </Field>
-
-                <Field label="Anything we should know? (optional)" icon={MessageSquare}>
-                  <Textarea name="notes" rows={3} placeholder="Concept, experience, follower count…" className="rounded-xl border border-border bg-background/60 p-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
-                </Field>
-
-                <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
-                  <p className="text-[12px] text-muted-foreground">
-                    By submitting you agree to the contest rules.
-                  </p>
-                  <Button type="submit" disabled={submitting} className="group h-14 rounded-full gradient-pop px-8 text-[14px] font-semibold tracking-wide text-primary-foreground shadow-pop transition hover:opacity-95 hover:shadow-[0_25px_60px_-15px_var(--primary)]">
-                    {submitting ? "Submitting…" : (
-                      <span className="flex items-center gap-2">
-                        Submit my profile
-                        <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                      </span>
-                    )}
-                  </Button>
-                </div>
-              </div>
-            </form>
           </div>
+
+          <form onSubmit={handleSubmit} className="md:col-span-7">
+            <div className="space-y-5 p-8" style={{ background: CREAM, border: `1px solid ${INK}` }}>
+              <div className="grid gap-5 md:grid-cols-2">
+                <Field label="Full name">
+                  <input name="full_name" required placeholder="Your name" className={inputCls} style={inputStyle} />
+                </Field>
+                <Field label="University email">
+                  <input name="email" type="email" required placeholder="you@university.edu" className={inputCls} style={inputStyle} />
+                </Field>
+              </div>
+
+              <Field label="University">
+                <div className="grid grid-cols-3 gap-3">
+                  {UNIVERSITIES.map((u) => (
+                    <label key={u} className="cursor-pointer">
+                      <input type="radio" name="university" value={u} className="peer sr-only" required />
+                      <div
+                        className="flex h-12 items-center justify-center bg-white px-3 text-center text-[12px] font-bold uppercase tracking-[0.12em] transition peer-checked:bg-[var(--zine-ink)] peer-checked:text-[var(--zine-cream)]"
+                        style={{ border: `1px solid ${INK}` }}
+                      >
+                        {u}
+                      </div>
+                    </label>
+                  ))}
+                </div>
+              </Field>
+
+              <Field label="Brand you're creating for">
+                <div className="grid grid-cols-2 gap-3">
+                  {BRANDS.map((b, i) => (
+                    <label key={b} className="cursor-pointer">
+                      <input type="radio" name="brand_choice" value={b} className="peer sr-only" required />
+                      <div
+                        className="flex h-14 items-center justify-center bg-white px-4 text-center text-[13px] font-bold uppercase tracking-[0.14em] transition"
+                        style={{ border: `1px solid ${INK}` }}
+                        data-brand={b}
+                      >
+                        <span className="mr-2 inline-block h-3 w-3" style={{ background: i === 0 ? GREEN : BLUE }} />
+                        {b}
+                      </div>
+                    </label>
+                  ))}
+                </div>
+              </Field>
+
+              <Field label="Instagram handle">
+                <input name="instagram_handle" required placeholder="yourhandle" className={inputCls} style={inputStyle} />
+              </Field>
+
+              <Field label="Anything we should know? (optional)">
+                <Textarea name="notes" rows={3} placeholder="Concept, experience, follower count…" className="bg-white p-4 text-[14px]" style={inputStyle} />
+              </Field>
+
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+                <p className="text-[11px] uppercase tracking-[0.16em] opacity-60">By submitting you agree to the contest rules.</p>
+                <Button
+                  type="submit"
+                  disabled={submitting}
+                  className="h-12 rounded-none px-8 text-[12px] font-bold uppercase tracking-[0.2em]"
+                  style={{ background: RED, color: CREAM }}
+                >
+                  {submitting ? "Submitting…" : "Submit my profile →"}
+                </Button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </section>
   );
 }
 
-function Field({ label, icon: Icon, withInputIcon = false, children }: { label: string; icon?: React.ComponentType<{ className?: string }>; withInputIcon?: boolean; children: React.ReactNode }) {
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="space-y-2">
-      <Label className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-        {Icon ? <Icon className="h-3.5 w-3.5 text-primary" /> : null}
-        {label}
-      </Label>
-      <div className="relative">
-        {Icon && withInputIcon ? <Icon className="pointer-events-none absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-muted-foreground" /> : null}
-        {children}
-      </div>
+      <Label className="text-[11px] font-bold uppercase tracking-[0.18em]" style={{ color: INK }}>{label}</Label>
+      {children}
     </div>
   );
 }
 
+/* ---------------- Footer ---------------- */
 function Footer() {
   return (
-    <footer className="border-t border-border">
-      <div className="mx-auto max-w-[1400px] px-8 py-14">
+    <footer style={{ background: INK, color: CREAM }}>
+      <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">
             <div className="flex items-center gap-3">
-              <div className="grid h-10 w-10 place-items-center rounded-xl gradient-pop">
-                <span className="font-serif text-base italic text-primary-foreground">CC</span>
+              <div className="grid h-10 w-10 place-items-center" style={{ background: RED, color: CREAM }}>
+                <span className="font-serif italic">cc</span>
               </div>
-              <p className="font-display text-xl">creator challenge 2026</p>
+              <p className="font-display text-[20px] uppercase tracking-tight">Creator Challenge 2026</p>
             </div>
-            <p className="mt-5 max-w-sm text-[14px] leading-relaxed text-muted-foreground">
+            <p className="mt-6 max-w-md font-serif text-[24px] italic leading-tight">
+              "The cover story belongs to the bravest reel."
+            </p>
+            <p className="mt-4 max-w-sm text-[13px] leading-relaxed text-white/70">
               Built with Masters' Union, LPU and Tetr. Powered by real brands and creators who refuse to scroll past.
             </p>
           </div>
           <div className="md:col-span-3">
-            <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Explore</p>
+            <p className="text-[11px] uppercase tracking-[0.18em] text-white/60">Sections</p>
             <ul className="mt-4 space-y-2 text-[14px]">
-              <li><a href="#brands" className="hover:text-primary">Brands</a></li>
-              <li><a href="#rules" className="hover:text-primary">Rules</a></li>
-              <li><a href="#signup" className="hover:text-primary">Submit</a></li>
-              <li><Link to="/admin" className="hover:text-primary">Admin</Link></li>
+              <li><a href="#brands" className="hover:underline">Brands</a></li>
+              <li><a href="#rules" className="hover:underline">Rules</a></li>
+              <li><a href="#signup" className="hover:underline">Submit</a></li>
+              <li><Link to="/admin" className="hover:underline">Admin</Link></li>
             </ul>
           </div>
           <div className="md:col-span-3">
-            <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Follow</p>
+            <p className="text-[11px] uppercase tracking-[0.18em] text-white/60">Follow</p>
             <ul className="mt-4 space-y-2 text-[14px]">
-              <li className="flex items-center gap-2"><Instagram className="h-4 w-4 text-primary" /> @creatorchallenge</li>
-              <li className="flex items-center gap-2"><Twitter className="h-4 w-4 text-primary" /> @cc26</li>
+              <li className="flex items-center gap-2"><Instagram className="h-4 w-4" style={{ color: RED }} /> @creatorchallenge</li>
+              <li className="flex items-center gap-2"><Twitter className="h-4 w-4" style={{ color: RED }} /> @cc26</li>
+              <li className="flex items-center gap-2"><Sparkles className="h-4 w-4" style={{ color: RED }} /> #CreatorChallenge26</li>
             </ul>
           </div>
         </div>
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6 text-[13px] text-muted-foreground">
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t pt-6 text-[12px] uppercase tracking-[0.18em] text-white/60" style={{ borderColor: "rgba(255,255,255,0.15)" }}>
           <p>© 2026 Creator Challenge · MU × LPU × Tetr</p>
-          <p>Feb 14 – Mar 30, 2026</p>
+          <p>Issue 02 — Spring '26</p>
         </div>
       </div>
     </footer>
