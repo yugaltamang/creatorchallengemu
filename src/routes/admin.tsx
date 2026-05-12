@@ -612,7 +612,7 @@ function Admin() {
                                     title={r.is_winner ? "Remove from winners" : "Mark as winner"}
                                     className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border transition hover:border-primary hover:text-primary"
                                   >
-                                    <Trophy className={`h-4 w-4 ${r.is_winner ? "text-primary" : ""}`} />
+                                    <Trophy className={`h-4 w-4 ${r.is_winner ? "text-primary fill-primary" : ""}`} />
                                   </button>
                                 </td>
                                 <td className="px-4 py-3">
