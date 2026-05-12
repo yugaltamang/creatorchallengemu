@@ -2,7 +2,7 @@
 @source "../src";
 @import "tw-animate-css";
 
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;700;900&family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -30,32 +30,33 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --font-display: "Archivo Black", system-ui, sans-serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Archivo Black", "Archivo", system-ui, sans-serif;
+  --font-serif: "DM Serif Display", "Times New Roman", serif;
+  --font-sans: "Archivo", "Inter", system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.5rem;
-  /* AIGA-inspired: deep black + hot pink */
-  --background: oklch(0.14 0.005 285);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.18 0.006 285);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.18 0.006 285);
-  --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.68 0.27 0);
-  --primary-foreground: oklch(0.14 0.005 285);
-  --secondary: oklch(0.22 0.006 285);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.22 0.006 285);
-  --muted-foreground: oklch(0.7 0.01 285);
-  --accent: oklch(0.68 0.27 0);
-  --accent-foreground: oklch(0.14 0.005 285);
+  --radius: 0.25rem;
+  /* AIGA-inspired: pure black + electric hot pink */
+  --background: oklch(0.08 0 0);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0.08 0 0);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.12 0 0);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(0.66 0.27 8);
+  --primary-foreground: oklch(0.08 0 0);
+  --secondary: oklch(0.14 0 0);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.16 0 0);
+  --muted-foreground: oklch(0.72 0 0);
+  --accent: oklch(0.66 0.27 8);
+  --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.6 0.24 27);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.28 0.008 285);
-  --input: oklch(0.22 0.006 285);
-  --ring: oklch(0.68 0.27 0);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.22 0 0);
+  --input: oklch(0.16 0 0);
+  --ring: oklch(0.66 0.27 8);
 }
 
 .dark {
@@ -69,10 +70,21 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-feature-settings: "ss01";
   }
   h1, h2, h3, .font-display {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
-    line-height: 0.95;
+    letter-spacing: -0.035em;
+    line-height: 0.88;
   }
+  .font-serif { font-family: var(--font-serif); letter-spacing: -0.02em; line-height: 0.95; }
 }
+
+/* Decorative AIGA-style sweeping pink arc */
+.pink-arc {
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid var(--color-primary);
+  border-radius: 9999px;
+}
+
