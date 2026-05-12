@@ -79,10 +79,10 @@ function Hero() {
         <path d="M 600 0 A 600 600 0 0 0 0 600" stroke="currentColor" strokeWidth="3" />
       </svg>
 
-      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-8 pt-16 pb-24 md:pt-24 md:pb-32">
+      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pt-10 pb-16 sm:px-6 sm:pt-16 sm:pb-24 md:pt-24 md:pb-32 lg:px-8">
         {/* Phone mock — matches homepage hero */}
         <div className="col-span-12 md:col-span-4">
-          <div className="relative mx-auto w-[260px]">
+          <div className="relative mx-auto w-[200px] sm:w-[240px] md:w-[260px]">
             <img
               src={creatorGirl}
               alt="Student creating an Instagram reel"
