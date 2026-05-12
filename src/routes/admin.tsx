@@ -23,8 +23,22 @@ type Submission = {
   created_at: string;
 };
 
+type FinalSubmission = {
+  id: string;
+  full_name: string;
+  email: string;
+  university: string;
+  instagram_handle: string;
+  brand_choice: string;
+  reel_1: string;
+  reel_2: string | null;
+  reel_3: string | null;
+  created_at: string;
+};
+
 function Admin() {
   const [rows, setRows] = useState<Submission[]>([]);
+  const [finals, setFinals] = useState<FinalSubmission[]>([]);
   const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");
   const [uni, setUni] = useState<string>("All");
@@ -32,11 +46,12 @@ function Admin() {
 
   useEffect(() => {
     (async () => {
-      const { data, error } = await supabase
-        .from("submissions")
-        .select("*")
-        .order("created_at", { ascending: false });
+      const [{ data, error }, { data: finalData }] = await Promise.all([
+        supabase.from("submissions").select("*").order("created_at", { ascending: false }),
+        supabase.from("final_submissions").select("*").order("created_at", { ascending: false }),
+      ]);
       if (!error && data) setRows(data as Submission[]);
+      if (finalData) setFinals(finalData as FinalSubmission[]);
       setLoading(false);
     })();
   }, []);
