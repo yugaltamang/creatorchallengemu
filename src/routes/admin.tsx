@@ -77,6 +77,21 @@ function Admin() {
     }
   }
 
+  async function toggleWinner(r: FinalSubmission) {
+    const next = !r.is_winner;
+    setFinals((prev) => prev.map((x) => (x.id === r.id ? { ...x, is_winner: next } : x)));
+    const { error } = await supabase
+      .from("final_submissions")
+      .update({ is_winner: next })
+      .eq("id", r.id);
+    if (error) {
+      setFinals((prev) => prev.map((x) => (x.id === r.id ? { ...x, is_winner: !next } : x)));
+      toast.error("Could not update winners.");
+    } else {
+      toast.success(next ? `Marked ${r.full_name} as winner` : `Removed ${r.full_name} from winners`);
+    }
+  }
+
   const filtered = useMemo(() => {
     return rows.filter((r) => {
       if (uni !== "All" && r.university !== uni) return false;
