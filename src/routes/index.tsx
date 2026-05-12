@@ -519,8 +519,8 @@ function SignupSection() {
                   <Input name="instagram_handle" required placeholder="yourhandle" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
                 </Field>
 
-                <Field label="Anything we should know? (optional)" icon={MessageSquare}>
-                  <Textarea name="notes" rows={3} placeholder="Concept, experience, follower count…" className="rounded-xl border border-border bg-background/60 p-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
+                <Field label="Link to your best reel" icon={LinkIcon} withInputIcon>
+                  <Input name="notes" type="url" required placeholder="https://instagram.com/reel/…" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
                 </Field>
 
                 <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
