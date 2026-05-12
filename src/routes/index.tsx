@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
-import { ArrowLeft, ArrowRight, Twitter } from "lucide-react";
+import { Twitter, Sparkles, Instagram, Trophy, Calendar, Users, Music2, Zap } from "lucide-react";
 import brand1 from "@/assets/brand-1.jpg";
 import brand2 from "@/assets/brand-2.jpg";
 import creatorGirl from "@/assets/creator-girl.png";
@@ -143,25 +143,25 @@ function Hero() {
 }
 
 function ImageStrip() {
+  const items = [
+    "🎬 Lights",
+    "✨ Camera",
+    "📱 Action",
+    "🎵 Trending audio",
+    "💖 1M views",
+    "🏆 ₹5L prize pool",
+    "🔥 #CreatorChallenge26",
+    "🎤 Brand collabs",
+  ];
+  const loop = [...items, ...items];
   return (
-    <section className="relative border-y border-border">
-      <button className="absolute left-4 top-1/2 z-10 -translate-y-1/2 text-foreground/70 hover:text-primary">
-        <ArrowLeft className="h-5 w-5" />
-      </button>
-      <button className="absolute right-4 top-1/2 z-10 -translate-y-1/2 text-foreground/70 hover:text-primary">
-        <ArrowRight className="h-5 w-5" />
-      </button>
-      <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-6 px-16 py-16 md:grid-cols-2">
-        {[
-          { img: brand1, cap: "Submissions open. Drop your reel by midnight, March 30, 2026" },
-          { img: brand2, cap: "Connect with brand teams during reviews, mentor sessions, and the live finale" },
-        ].map((c, i) => (
-          <figure key={i} className="space-y-3">
-            <div className="aspect-[4/3] overflow-hidden bg-muted grayscale">
-              <img src={c.img} alt="" loading="lazy" className="h-full w-full object-cover" />
-            </div>
-            <figcaption className="text-[13px] leading-snug">{c.cap}</figcaption>
-          </figure>
+    <section className="relative overflow-hidden border-y border-border gradient-pop py-5">
+      <div className="flex w-max animate-marquee gap-12 whitespace-nowrap font-display text-2xl text-primary-foreground">
+        {loop.map((t, i) => (
+          <span key={i} className="flex items-center gap-3">
+            {t}
+            <Sparkles className="h-5 w-5" />
+          </span>
         ))}
       </div>
     </section>
@@ -169,33 +169,46 @@ function ImageStrip() {
 }
 
 function SocialBar() {
+  const stats = [
+    { n: "3", l: "Campuses", icon: Users, accent: "text-pop-cyan" },
+    { n: "2", l: "Real brands", icon: Zap, accent: "text-pop-yellow" },
+    { n: "₹5L", l: "Prize pool", icon: Trophy, accent: "text-pop-lime" },
+    { n: "45d", l: "To create", icon: Calendar, accent: "text-pop-violet" },
+  ];
   return (
-    <section className="border-b border-border">
-      <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-8 py-14">
-        <div className="col-span-12 md:col-span-3">
-          <div className="mb-4 h-[3px] w-32 bg-primary" />
-          <p className="font-display text-2xl leading-tight">
-            The 2026<br />Creator<br />Challenge
-          </p>
-        </div>
-        <div className="col-span-12 md:col-span-5">
-          <Twitter className="mb-3 h-5 w-5" />
-          <p className="text-[14px]">
-            Follow <span className="text-primary">@CreatorChallenge</span> for updates
-          </p>
-          <p className="mt-3 max-w-md text-[14px] leading-relaxed text-muted-foreground">
-            You're invited 🎬 Join us for the inaugural Creator Challenge where students from{" "}
-            <span className="text-foreground">Masters' Union</span>,{" "}
-            <span className="text-foreground">LPU</span>, and{" "}
-            <span className="text-foreground">Tetr</span> create reels for two real brands.{" "}
-            <span className="text-primary underline">cc26.in/brief</span>
-          </p>
-          <p className="mt-3 text-[12px] text-muted-foreground">2 DAYS AGO</p>
-        </div>
-        <div className="col-span-12 flex items-end justify-end md:col-span-4">
-          <a href="#signup" className="font-display text-5xl text-primary leading-[0.9] hover:underline">
-            Submit<br />today!
-          </a>
+    <section id="about" className="border-b border-border">
+      <div className="mx-auto max-w-[1400px] px-8 py-20">
+        <div className="grid gap-10 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[12px] uppercase tracking-[0.18em] text-primary">
+              <Instagram className="h-3.5 w-3.5" /> @CreatorChallenge
+            </span>
+            <h2 className="mt-6 font-display text-[clamp(40px,5vw,68px)] leading-[0.92]">
+              The 2026<br />
+              <span className="bg-gradient-to-r from-primary to-pop-violet bg-clip-text text-transparent">
+                Creator Challenge.
+              </span>
+            </h2>
+            <p className="mt-6 max-w-md text-[15px] leading-relaxed text-muted-foreground">
+              Students from <span className="text-foreground">Masters' Union</span>,{" "}
+              <span className="text-foreground">LPU</span> and{" "}
+              <span className="text-foreground">Tetr</span> create reels for two real brands.
+              Winners get cash, mentorship, and a feature on the brand handles.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 md:col-span-7">
+            {stats.map((s) => (
+              <div
+                key={s.l}
+                className="gradient-card group relative overflow-hidden rounded-2xl border border-border p-6 shadow-soft transition hover:-translate-y-1 hover:border-primary/50"
+              >
+                <s.icon className={`h-6 w-6 ${s.accent}`} />
+                <div className="mt-6 font-display text-5xl">{s.n}</div>
+                <p className="mt-2 text-[13px] uppercase tracking-widest text-muted-foreground">{s.l}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -209,58 +222,77 @@ function Brands() {
       tagline: "Headphones built for the dark.",
       image: brand1,
       summary:
-        "Premium over-ear headphones for late-night creators. Active noise cancellation, 40-hour battery, studio-grade drivers. Make us feel the silence before the bass.",
+        "Premium over-ear headphones for late-night creators. Active noise cancellation, 40-hour battery, studio-grade drivers.",
       angles: ["Late-night workflow", "Studio aesthetic", "Travel + commute"],
+      icon: Music2,
+      accent: "from-pop-violet to-primary",
+      chip: "bg-pop-violet/15 text-pop-violet border-pop-violet/30",
     },
     {
       name: "PULSE Energy",
       tagline: "Clean energy. Loud personality.",
       image: brand2,
       summary:
-        "Sugar-free sparkling energy drink for the gym, the desk, the all-nighter. 150mg natural caffeine, zero crash. Make your reel feel like the first sip — sharp, electric, impossible to ignore.",
+        "Sugar-free sparkling energy drink. 150mg natural caffeine, zero crash. Make your reel feel like the first sip.",
       angles: ["Workout / fitness", "Study + hustle", "Friends + nightlife"],
+      icon: Zap,
+      accent: "from-pop-yellow to-primary",
+      chip: "bg-pop-yellow/15 text-pop-yellow border-pop-yellow/30",
     },
   ];
 
   return (
     <section id="brands" className="border-b border-border">
       <div className="mx-auto max-w-[1400px] px-8 py-24">
-        <div className="mb-16 grid grid-cols-12 gap-6">
-          <p className="col-span-12 md:col-span-4 text-[13px] uppercase tracking-[0.2em] text-muted-foreground">
-            ⌐ The Brief
+        <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-[12px] uppercase tracking-[0.18em] text-muted-foreground">
+              <Sparkles className="h-3.5 w-3.5" /> The Brief
+            </span>
+            <h2 className="mt-5 font-display text-[clamp(48px,7vw,100px)]">
+              Two brands.{" "}
+              <span className="bg-gradient-to-r from-primary via-pop-violet to-pop-cyan bg-clip-text text-transparent">
+                One reel.
+              </span>
+            </h2>
+          </div>
+          <p className="max-w-xs text-[14px] text-muted-foreground">
+            Pick one. Build a 15–30s vertical reel. Make it impossible to scroll past.
           </p>
-          <h2 className="col-span-12 md:col-span-8 font-display text-[clamp(48px,7vw,110px)]">
-            <span className="text-foreground">Two brands.</span><br />
-            <span className="text-primary">One reel.</span>
-          </h2>
         </div>
 
-        <div className="grid gap-12 md:grid-cols-2">
+        <div className="grid gap-8 md:grid-cols-2">
           {brands.map((b, i) => (
-            <article key={b.name} className="group">
-              <div className="aspect-[4/5] overflow-hidden bg-muted">
+            <article
+              key={b.name}
+              className="group relative overflow-hidden rounded-3xl border border-border bg-card transition hover:-translate-y-1 hover:shadow-pop"
+            >
+              <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${b.accent}`} />
+              <div className="relative aspect-[5/4] overflow-hidden">
                 <img
                   src={b.image}
                   alt={b.name}
                   loading="lazy"
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.05]"
                 />
-              </div>
-              <div className="mt-6 grid grid-cols-12 gap-4">
-                <div className="col-span-12 sm:col-span-7">
-                  <p className="text-[12px] uppercase tracking-widest text-muted-foreground">Brief 0{i + 1}</p>
-                  <h3 className="mt-1 font-display text-4xl">{b.name}</h3>
-                  <p className="mt-2 text-primary text-[15px]">{b.tagline}</p>
+                <div className="absolute left-4 top-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-background/80 backdrop-blur">
+                  <b.icon className="h-5 w-5 text-primary" />
                 </div>
-                <div className="col-span-12 sm:col-span-5 self-end text-right text-[13px] text-muted-foreground">
-                  Featured product
-                </div>
+                <span className="absolute right-4 top-4 rounded-full bg-background/80 px-3 py-1 text-[11px] uppercase tracking-widest backdrop-blur">
+                  Brief 0{i + 1}
+                </span>
               </div>
-              <p className="mt-5 max-w-md text-[14px] leading-relaxed text-muted-foreground">{b.summary}</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {b.angles.map((a) => (
-                  <span key={a} className="border border-border px-3 py-1 text-[12px]">{a}</span>
-                ))}
+              <div className="p-7">
+                <h3 className="font-display text-4xl">{b.name}</h3>
+                <p className="mt-2 text-primary text-[15px]">{b.tagline}</p>
+                <p className="mt-4 text-[14px] leading-relaxed text-muted-foreground">{b.summary}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {b.angles.map((a) => (
+                    <span key={a} className={`rounded-full border px-3 py-1 text-[12px] ${b.chip}`}>
+                      {a}
+                    </span>
+                  ))}
+                </div>
               </div>
             </article>
           ))}
@@ -272,32 +304,43 @@ function Brands() {
 
 function Guidelines() {
   const rules = [
-    { n: "01", t: "Eligibility", d: "Open only to currently enrolled students of Masters' Union, LPU, or Tetr. Verify with your university email." },
-    { n: "02", t: "Format", d: "One Instagram reel, 15–30 seconds, vertical 9:16. Original audio or licensed music only." },
-    { n: "03", t: "The brand", d: "Feature the chosen product clearly. Tag the brand and use #CreatorChallenge26." },
-    { n: "04", t: "Originality", d: "Created by you. No reposts, no AI voiceovers without disclosure, no copyrighted footage." },
-    { n: "05", t: "Account", d: "Your Instagram profile must be public throughout the judging window." },
-    { n: "06", t: "Deadline", d: "Submit by midnight, March 30. Winners announced April 15 across all three campuses." },
+    { n: "01", t: "Eligibility", d: "Open to currently enrolled students of Masters' Union, LPU, or Tetr. Verify with your university email.", color: "text-pop-cyan", bg: "from-pop-cyan/20" },
+    { n: "02", t: "Format", d: "One Instagram reel, 15–30 seconds, vertical 9:16. Original or licensed audio only.", color: "text-pop-yellow", bg: "from-pop-yellow/20" },
+    { n: "03", t: "The brand", d: "Feature the chosen product clearly. Tag the brand and use #CreatorChallenge26.", color: "text-primary", bg: "from-primary/20" },
+    { n: "04", t: "Originality", d: "Created by you. No reposts, no AI voiceovers without disclosure, no copyrighted footage.", color: "text-pop-lime", bg: "from-pop-lime/20" },
+    { n: "05", t: "Account", d: "Your Instagram profile must be public throughout the judging window.", color: "text-pop-peach", bg: "from-pop-peach/20" },
+    { n: "06", t: "Deadline", d: "Submit by midnight, March 30. Winners announced April 15 across all three campuses.", color: "text-pop-violet", bg: "from-pop-violet/20" },
   ];
 
   return (
     <section id="rules" className="border-b border-border">
       <div className="mx-auto max-w-[1400px] px-8 py-24">
-        <div className="mb-16 grid grid-cols-12 gap-6">
-          <p className="col-span-12 md:col-span-4 text-[13px] uppercase tracking-[0.2em] text-muted-foreground">
-            ⌐ Guidelines
+        <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-[12px] uppercase tracking-[0.18em] text-muted-foreground">
+              <Sparkles className="h-3.5 w-3.5" /> Guidelines
+            </span>
+            <h2 className="mt-5 font-display text-[clamp(48px,7vw,100px)]">
+              <span className="bg-gradient-to-r from-primary to-pop-cyan bg-clip-text text-transparent">
+                Rules
+              </span>{" "}
+              of play.
+            </h2>
+          </div>
+          <p className="max-w-xs text-[14px] text-muted-foreground">
+            Six things to keep in mind. Break the algorithm, not the rules.
           </p>
-          <h2 className="col-span-12 md:col-span-8 font-display text-[clamp(48px,7vw,110px)]">
-            <span className="text-primary">Rules</span> of play.
-          </h2>
         </div>
 
-        <div className="grid gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {rules.map((r) => (
-            <div key={r.n} className="bg-background p-8">
-              <div className="mb-6 font-display text-5xl text-primary">{r.n}</div>
-              <h3 className="font-display text-xl">{r.t}</h3>
-              <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">{r.d}</p>
+            <div
+              key={r.n}
+              className={`group relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br ${r.bg} to-card p-7 transition hover:-translate-y-1 hover:border-primary/40`}
+            >
+              <div className={`font-display text-6xl ${r.color}`}>{r.n}</div>
+              <h3 className="mt-5 font-display text-xl">{r.t}</h3>
+              <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground">{r.d}</p>
             </div>
           ))}
         </div>
@@ -339,70 +382,80 @@ function SignupSection() {
 
   return (
     <section id="signup" className="border-b border-border">
-      <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-8 px-8 py-24">
-        <div className="col-span-12 md:col-span-5">
-          <p className="text-[13px] uppercase tracking-[0.2em] text-muted-foreground">⌐ Submit</p>
-          <h2 className="mt-4 font-display text-[clamp(56px,8vw,120px)]">
-            Drop<br />
-            your<br />
-            <span className="text-primary">handle.</span>
-          </h2>
-          <p className="mt-6 max-w-sm text-[14px] leading-relaxed text-muted-foreground">
-            Submit your details and the Instagram profile we should review. Update your reel any
-            time before the deadline — we'll always pull the latest version.
-          </p>
+      <div className="mx-auto max-w-[1400px] px-8 py-24">
+        <div className="relative overflow-hidden rounded-[32px] border border-border gradient-card p-8 shadow-pop md:p-14">
+          <div className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full bg-primary/30 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-pop-violet/30 blur-3xl" />
+
+          <div className="relative grid gap-10 md:grid-cols-12">
+            <div className="md:col-span-5">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[12px] uppercase tracking-[0.18em] text-primary">
+                <Instagram className="h-3.5 w-3.5" /> Submit
+              </span>
+              <h2 className="mt-5 font-display text-[clamp(48px,7vw,96px)] leading-[0.9]">
+                Drop your{" "}
+                <span className="bg-gradient-to-r from-primary to-pop-cyan bg-clip-text text-transparent">
+                  handle.
+                </span>
+              </h2>
+              <p className="mt-6 max-w-sm text-[14px] leading-relaxed text-muted-foreground">
+                Submit your details and the Instagram profile we should review. Update your reel any
+                time before the deadline — we'll always pull the latest version.
+              </p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6 md:col-span-7">
+              <div className="grid gap-5 md:grid-cols-2">
+                <Field label="Full name">
+                  <Input name="full_name" required placeholder="Your name" className="h-12 rounded-xl border border-border bg-background/40 px-4 focus-visible:ring-1 focus-visible:ring-primary" />
+                </Field>
+                <Field label="University email">
+                  <Input name="email" type="email" required placeholder="you@university.edu" className="h-12 rounded-xl border border-border bg-background/40 px-4 focus-visible:ring-1 focus-visible:ring-primary" />
+                </Field>
+              </div>
+
+              <Field label="University">
+                <div className="grid grid-cols-3 gap-3 pt-2">
+                  {UNIVERSITIES.map((u) => (
+                    <label key={u} className="cursor-pointer">
+                      <input type="radio" name="university" value={u} className="peer sr-only" required />
+                      <div className="rounded-xl border border-border bg-background/40 p-3 text-center text-[13px] transition peer-checked:border-primary peer-checked:bg-primary peer-checked:text-primary-foreground">
+                        {u}
+                      </div>
+                    </label>
+                  ))}
+                </div>
+              </Field>
+
+              <Field label="Brand you're creating for">
+                <div className="grid grid-cols-2 gap-3 pt-2">
+                  {BRANDS.map((b) => (
+                    <label key={b} className="cursor-pointer">
+                      <input type="radio" name="brand_choice" value={b} className="peer sr-only" required />
+                      <div className="rounded-xl border border-border bg-background/40 p-3 text-center text-[13px] transition peer-checked:border-primary peer-checked:bg-primary peer-checked:text-primary-foreground">
+                        {b}
+                      </div>
+                    </label>
+                  ))}
+                </div>
+              </Field>
+
+              <Field label="Instagram handle">
+                <Input name="instagram_handle" required placeholder="@yourhandle" className="h-12 rounded-xl border border-border bg-background/40 px-4 focus-visible:ring-1 focus-visible:ring-primary" />
+              </Field>
+
+              <Field label="Anything we should know? (optional)">
+                <Textarea name="notes" rows={3} placeholder="Concept, experience, follower count…" className="rounded-xl border border-border bg-background/40" />
+              </Field>
+
+              <div className="pt-2">
+                <Button type="submit" disabled={submitting} className="h-14 rounded-full gradient-pop px-10 text-[14px] tracking-wide text-primary-foreground shadow-pop hover:opacity-95">
+                  {submitting ? "Submitting…" : "Submit my profile →"}
+                </Button>
+              </div>
+            </form>
+          </div>
         </div>
-
-        <form onSubmit={handleSubmit} className="col-span-12 md:col-span-7 space-y-6 border-l border-border md:pl-12">
-          <div className="grid gap-5 md:grid-cols-2">
-            <Field label="Full name">
-              <Input name="full_name" required placeholder="Your name" className="h-12 rounded-none border-0 border-b border-border bg-transparent px-0 focus-visible:ring-0" />
-            </Field>
-            <Field label="University email">
-              <Input name="email" type="email" required placeholder="you@university.edu" className="h-12 rounded-none border-0 border-b border-border bg-transparent px-0 focus-visible:ring-0" />
-            </Field>
-          </div>
-
-          <Field label="University">
-            <div className="grid grid-cols-3 gap-3 pt-2">
-              {UNIVERSITIES.map((u) => (
-                <label key={u} className="cursor-pointer">
-                  <input type="radio" name="university" value={u} className="peer sr-only" required />
-                  <div className="border border-border bg-background p-3 text-center text-[13px] transition peer-checked:border-primary peer-checked:bg-primary peer-checked:text-primary-foreground">
-                    {u}
-                  </div>
-                </label>
-              ))}
-            </div>
-          </Field>
-
-          <Field label="Brand you're creating for">
-            <div className="grid grid-cols-2 gap-3 pt-2">
-              {BRANDS.map((b) => (
-                <label key={b} className="cursor-pointer">
-                  <input type="radio" name="brand_choice" value={b} className="peer sr-only" required />
-                  <div className="border border-border bg-background p-3 text-center text-[13px] transition peer-checked:border-primary peer-checked:bg-primary peer-checked:text-primary-foreground">
-                    {b}
-                  </div>
-                </label>
-              ))}
-            </div>
-          </Field>
-
-          <Field label="Instagram handle">
-            <Input name="instagram_handle" required placeholder="@yourhandle" className="h-12 rounded-none border-0 border-b border-border bg-transparent px-0 focus-visible:ring-0" />
-          </Field>
-
-          <Field label="Anything we should know? (optional)">
-            <Textarea name="notes" rows={3} placeholder="Concept, experience, follower count…" className="rounded-none border border-border bg-transparent" />
-          </Field>
-
-          <div className="pt-2">
-            <Button type="submit" disabled={submitting} className="h-14 rounded-full bg-primary px-10 text-[14px] tracking-wide text-primary-foreground hover:bg-primary/90">
-              {submitting ? "Submitting…" : "Submit my profile →"}
-            </Button>
-          </div>
-        </form>
       </div>
     </section>
   );
@@ -419,11 +472,41 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 
 function Footer() {
   return (
-    <footer className="mx-auto max-w-[1400px] px-8 py-10 text-[13px] text-muted-foreground">
-      <div className="mb-6 h-[3px] w-32 bg-primary" />
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <p>© 2026 Creator Challenge · MU × LPU × Tetr</p>
-        <Link to="/admin" className="hover:text-primary">Admin dashboard →</Link>
+    <footer className="border-t border-border">
+      <div className="mx-auto max-w-[1400px] px-8 py-14">
+        <div className="grid gap-10 md:grid-cols-12">
+          <div className="md:col-span-6">
+            <div className="flex items-center gap-3">
+              <div className="grid h-10 w-10 place-items-center rounded-xl gradient-pop">
+                <span className="font-serif text-base italic text-primary-foreground">CC</span>
+              </div>
+              <p className="font-display text-xl">creator challenge 2026</p>
+            </div>
+            <p className="mt-5 max-w-sm text-[14px] leading-relaxed text-muted-foreground">
+              Built with Masters' Union, LPU and Tetr. Powered by real brands and creators who refuse to scroll past.
+            </p>
+          </div>
+          <div className="md:col-span-3">
+            <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Explore</p>
+            <ul className="mt-4 space-y-2 text-[14px]">
+              <li><a href="#brands" className="hover:text-primary">Brands</a></li>
+              <li><a href="#rules" className="hover:text-primary">Rules</a></li>
+              <li><a href="#signup" className="hover:text-primary">Submit</a></li>
+              <li><Link to="/admin" className="hover:text-primary">Admin</Link></li>
+            </ul>
+          </div>
+          <div className="md:col-span-3">
+            <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Follow</p>
+            <ul className="mt-4 space-y-2 text-[14px]">
+              <li className="flex items-center gap-2"><Instagram className="h-4 w-4 text-primary" /> @creatorchallenge</li>
+              <li className="flex items-center gap-2"><Twitter className="h-4 w-4 text-primary" /> @cc26</li>
+            </ul>
+          </div>
+        </div>
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6 text-[13px] text-muted-foreground">
+          <p>© 2026 Creator Challenge · MU × LPU × Tetr</p>
+          <p>Feb 14 – Mar 30, 2026</p>
+        </div>
       </div>
     </footer>
   );
