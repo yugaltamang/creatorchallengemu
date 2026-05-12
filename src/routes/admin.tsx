@@ -514,9 +514,9 @@ function Admin() {
                   <BrandCard label="PULSE Energy" value={finalStats.byBrand["PULSE Energy"] || 0} total={finals.length} />
                 </section>
 
-                <section className="border border-border bg-card p-6">
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground">Total reels submitted</p>
-                  <p className="mt-2 font-display text-4xl text-primary">{finalStats.reelCount}</p>
+                <section className="border border-border bg-card p-4 sm:p-6">
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground sm:text-xs">Total reels submitted</p>
+                  <p className="mt-2 font-display text-3xl text-primary sm:text-4xl">{finalStats.reelCount}</p>
                 </section>
 
                 <section className="border border-border bg-card">
