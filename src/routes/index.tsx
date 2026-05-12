@@ -77,7 +77,6 @@ function Header() {
           <a href="#prizes" className="hover:text-primary">Prizes</a>
           <a href="#about" className="hover:text-primary">About</a>
           <a href="#signup" className="hover:text-primary">Submit</a>
-          <Link to="/admin" className="text-muted-foreground hover:text-primary">Admin</Link>
         </nav>
 
         <a
@@ -655,7 +654,6 @@ function Footer() {
               <li><a href="#brands" className="hover:text-primary">Brands</a></li>
               <li><a href="#rules" className="hover:text-primary">Rules</a></li>
               <li><a href="#signup" className="hover:text-primary">Submit</a></li>
-              <li><Link to="/admin" className="hover:text-primary">Admin</Link></li>
             </ul>
           </div>
           <div className="md:col-span-3">
