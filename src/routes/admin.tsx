@@ -44,6 +44,8 @@ function Admin() {
   const [uni, setUni] = useState<string>("All");
   const [brand, setBrand] = useState<string>("All");
   const [view, setView] = useState<"first" | "final">("first");
+  const [page, setPage] = useState(1);
+  const PAGE_SIZE = 10;
 
   useEffect(() => {
     (async () => {
