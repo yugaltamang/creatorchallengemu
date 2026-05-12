@@ -4,7 +4,12 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Search, Download, Star, Copy, Trophy } from "lucide-react";
+import ExternalLink from "lucide-react/dist/esm/icons/external-link";
+import Search from "lucide-react/dist/esm/icons/search";
+import Download from "lucide-react/dist/esm/icons/download";
+import Star from "lucide-react/dist/esm/icons/star";
+import Copy from "lucide-react/dist/esm/icons/copy";
+import Trophy from "lucide-react/dist/esm/icons/trophy";
 import { toast } from "sonner";
 
 const SUBMISSION_COLS = "id,full_name,email,university,instagram_handle,brand_choice,notes,whatsapp_number,shortlisted,created_at";
@@ -13,34 +18,6 @@ const FINAL_COLS = "id,full_name,email,university,instagram_handle,brand_choice,
 export const Route = createFileRoute("/admin")({
   component: Admin,
   head: () => ({ meta: [{ title: "Admin · Creator Challenge" }] }),
-  loader: ({ context }) => {
-    const qc = (context as { queryClient?: import("@tanstack/react-query").QueryClient }).queryClient;
-    if (!qc) return;
-    qc.prefetchQuery({
-      queryKey: ["admin", "submissions"],
-      queryFn: async () => {
-        const { data, error } = await supabase
-          .from("submissions")
-          .select(SUBMISSION_COLS)
-          .order("created_at", { ascending: false });
-        if (error) throw error;
-        return (data ?? []) as Submission[];
-      },
-      staleTime: 30_000,
-    });
-    qc.prefetchQuery({
-      queryKey: ["admin", "final_submissions"],
-      queryFn: async () => {
-        const { data, error } = await supabase
-          .from("final_submissions")
-          .select(FINAL_COLS)
-          .order("created_at", { ascending: false });
-        if (error) throw error;
-        return (data ?? []) as FinalSubmission[];
-      },
-      staleTime: 30_000,
-    });
-  },
 });
 
 type Submission = {
@@ -90,7 +67,9 @@ function Admin() {
       if (error) throw error;
       return (data ?? []) as Submission[];
     },
-    staleTime: 30_000,
+    enabled: view === "first",
+    staleTime: 2 * 60_000,
+    refetchOnWindowFocus: false,
   });
 
   const finalsQuery = useQuery({
@@ -103,12 +82,14 @@ function Admin() {
       if (error) throw error;
       return (data ?? []) as FinalSubmission[];
     },
-    staleTime: 30_000,
+    enabled: view === "final",
+    staleTime: 2 * 60_000,
+    refetchOnWindowFocus: false,
   });
 
   const rows = submissionsQuery.data ?? [];
   const finals = finalsQuery.data ?? [];
-  const loading = submissionsQuery.isLoading || finalsQuery.isLoading;
+  const loading = view === "first" ? submissionsQuery.isLoading : finalsQuery.isLoading;
 
   async function toggleShortlist(r: Submission) {
     const next = !r.shortlisted;
