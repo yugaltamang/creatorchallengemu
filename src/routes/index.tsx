@@ -325,7 +325,7 @@ function Guidelines() {
         <div className="mb-12 grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
             <span
-              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-white"
+              className="inline-flex items-center gap-2 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-white"
               style={{ background: ink }}
             >
               <Sparkles className="h-3.5 w-3.5" /> The Playbook
