@@ -468,7 +468,7 @@ function SignupSection() {
             </div>
 
             <form onSubmit={handleSubmit} className="md:col-span-7">
-              <div className="rounded-3xl border border-border bg-background/50 p-6 backdrop-blur-md md:p-8 space-y-6">
+              <div className="rounded-3xl border border-white/10 bg-background/70 p-6 backdrop-blur-md md:p-8 space-y-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_30px_80px_-20px_rgba(0,0,0,0.8)]">
                 <div className="grid gap-5 md:grid-cols-2">
                   <Field label="Full name" icon={User} withInputIcon>
                     <Input name="full_name" required placeholder="Your name" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
