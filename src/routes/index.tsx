@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
+import { ArrowLeft, ArrowRight, Twitter } from "lucide-react";
 import brand1 from "@/assets/brand-1.jpg";
 import brand2 from "@/assets/brand-2.jpg";
 
@@ -15,7 +16,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Creator Challenge 2026 — MU × LPU × Tetr" },
-      { name: "description", content: "Content creator challenge for students of Masters' Union, LPU and Tetr. Pick a brand. Make a reel. Win." },
+      { name: "description", content: "Content creator challenge for students of Masters' Union, LPU and Tetr." },
     ],
   }),
 });
@@ -25,10 +26,12 @@ const BRANDS = ["NOIR Audio", "PULSE Energy"] as const;
 
 function Landing() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
       <Toaster theme="dark" />
       <Header />
       <Hero />
+      <ImageStrip />
+      <SocialBar />
       <Brands />
       <Guidelines />
       <SignupSection />
@@ -39,20 +42,42 @@ function Landing() {
 
 function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link to="/" className="flex items-center gap-3">
-          <span className="grid h-9 w-9 place-items-center bg-primary font-display text-primary-foreground">CC</span>
-          <span className="font-display text-lg leading-none">creator<br />challenge</span>
-        </Link>
-        <nav className="hidden gap-7 text-sm md:flex">
+    <header className="relative z-30 border-b border-border">
+      <div className="mx-auto flex max-w-[1400px] items-start justify-between gap-8 px-8 pt-7 pb-5">
+        {/* Logo block */}
+        <div className="flex items-start gap-5">
+          <div className="grid h-12 w-12 place-items-center bg-primary">
+            <span className="font-serif text-lg italic text-primary-foreground">CC</span>
+          </div>
+          <h1 className="font-display text-[26px] leading-[0.92] tracking-tight">
+            creator<br />
+            challenge<br />
+            2026
+          </h1>
+        </div>
+
+        {/* Right meta */}
+        <div className="hidden text-right text-[13px] leading-tight md:block">
+          <p>India · 3 Campuses</p>
+          <p className="text-muted-foreground">Feb 14 – Mar 30, 2026</p>
+        </div>
+      </div>
+
+      {/* Nav row */}
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between border-t border-border px-8 py-4">
+        <nav className="flex flex-wrap items-center gap-7 text-[14px]">
           <a href="#brands" className="hover:text-primary">Brands</a>
           <a href="#rules" className="hover:text-primary">Rules</a>
-          <a href="#signup" className="hover:text-primary">Sign up</a>
+          <a href="#prizes" className="hover:text-primary">Prizes</a>
+          <a href="#about" className="hover:text-primary">About</a>
+          <a href="#signup" className="hover:text-primary">Submit</a>
           <Link to="/admin" className="text-muted-foreground hover:text-primary">Admin</Link>
         </nav>
-        <a href="#signup" className="hidden rounded-full border border-primary px-5 py-2 text-sm text-primary transition hover:bg-primary hover:text-primary-foreground md:inline-block">
-          Enter now
+        <a
+          href="#signup"
+          className="grid h-20 w-20 place-items-center rounded-full border border-primary text-center text-[12px] leading-tight text-primary transition hover:bg-primary hover:text-primary-foreground"
+        >
+          Enter<br />Now
         </a>
       </div>
     </header>
@@ -61,33 +86,109 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-border">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
-        <div className="flex flex-col justify-end">
-          <p className="mb-4 text-sm uppercase tracking-widest text-muted-foreground">India · Spring 2026</p>
-          <p className="text-sm text-muted-foreground">Open to students of</p>
-          <p className="mt-2 font-display text-2xl text-foreground">Masters' Union · LPU · Tetr</p>
-        </div>
-        <div>
-          <h1 className="font-display text-6xl text-primary md:text-8xl">
-            Make<br />the reel<br /><span className="text-foreground">that wins.</span>
-          </h1>
-          <p className="mt-8 max-w-md text-lg text-muted-foreground">
-            Pick one of two brands. Create a 30-second Instagram reel. Submit your handle.
-            The best creators get cash, gear, and a campaign credit.
-          </p>
-          <div className="mt-8 flex gap-4">
-            <a href="#signup">
-              <Button size="lg" className="rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90">
-                Submit your profile
-              </Button>
-            </a>
-            <a href="#brands">
-              <Button size="lg" variant="outline" className="rounded-full border-foreground/20 px-8">
-                See the brands
-              </Button>
-            </a>
+    <section className="relative">
+      {/* Sweeping pink arc — AIGA-style */}
+      <svg
+        className="pointer-events-none absolute -bottom-40 -left-40 h-[1100px] w-[1100px] text-primary opacity-90"
+        viewBox="0 0 600 600"
+        fill="none"
+        aria-hidden
+      >
+        <path d="M 600 0 A 600 600 0 0 0 0 600" stroke="currentColor" strokeWidth="3" />
+      </svg>
+
+      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-8 pt-16 pb-24 md:pt-24 md:pb-32">
+        {/* Phone mock / left visual */}
+        <div className="col-span-12 md:col-span-4">
+          <p className="mb-4 text-[13px] text-foreground">The submission portal is live</p>
+          <div className="relative mx-auto w-[260px] rounded-[36px] border-[3px] border-primary bg-card p-2 shadow-[0_0_0_1px_var(--color-primary)]">
+            <div className="overflow-hidden rounded-[28px] bg-black">
+              <div className="px-4 py-3 text-center text-[11px] tracking-widest text-primary">CREATORS</div>
+              <div className="grid grid-cols-2 gap-[2px] px-[2px]">
+                {[brand1, brand2, brand2, brand1].map((src, i) => (
+                  <div key={i} className="relative aspect-square overflow-hidden bg-primary/30">
+                    <img src={src} alt="" className="h-full w-full object-cover mix-blend-luminosity opacity-70" />
+                    <div className="absolute inset-0 bg-primary/40" />
+                    <p className="absolute bottom-1 left-2 text-[10px] text-primary-foreground">@user.0{i + 1}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex justify-around px-4 py-3 text-primary text-[10px]">
+                <span>≡</span><span>♡</span><span>▤</span><span>★</span><span>⌕</span>
+              </div>
+            </div>
           </div>
+          <p className="mt-4 text-center text-[13px]">What you can expect</p>
+        </div>
+
+        {/* Big headline */}
+        <div className="col-span-12 md:col-span-8 md:pt-6">
+          <h2 className="font-display text-[clamp(64px,10vw,160px)] leading-[0.86]">
+            <span className="text-primary">Let's</span>{" "}<br className="hidden sm:block" />
+            <span className="text-primary">build</span>{" "}<br className="hidden sm:block" />
+            <span className="text-primary">stories,</span><br />
+            <span className="text-foreground">together.</span>
+          </h2>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ImageStrip() {
+  return (
+    <section className="relative border-y border-border">
+      <button className="absolute left-4 top-1/2 z-10 -translate-y-1/2 text-foreground/70 hover:text-primary">
+        <ArrowLeft className="h-5 w-5" />
+      </button>
+      <button className="absolute right-4 top-1/2 z-10 -translate-y-1/2 text-foreground/70 hover:text-primary">
+        <ArrowRight className="h-5 w-5" />
+      </button>
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-6 px-16 py-16 md:grid-cols-2">
+        {[
+          { img: brand1, cap: "Submissions open. Drop your reel by midnight, March 30, 2026" },
+          { img: brand2, cap: "Connect with brand teams during reviews, mentor sessions, and the live finale" },
+        ].map((c, i) => (
+          <figure key={i} className="space-y-3">
+            <div className="aspect-[4/3] overflow-hidden bg-muted grayscale">
+              <img src={c.img} alt="" loading="lazy" className="h-full w-full object-cover" />
+            </div>
+            <figcaption className="text-[13px] leading-snug">{c.cap}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function SocialBar() {
+  return (
+    <section className="border-b border-border">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-8 py-14">
+        <div className="col-span-12 md:col-span-3">
+          <div className="mb-4 h-[3px] w-32 bg-primary" />
+          <p className="font-display text-2xl leading-tight">
+            The 2026<br />Creator<br />Challenge
+          </p>
+        </div>
+        <div className="col-span-12 md:col-span-5">
+          <Twitter className="mb-3 h-5 w-5" />
+          <p className="text-[14px]">
+            Follow <span className="text-primary">@CreatorChallenge</span> for updates
+          </p>
+          <p className="mt-3 max-w-md text-[14px] leading-relaxed text-muted-foreground">
+            You're invited 🎬 Join us for the inaugural Creator Challenge where students from{" "}
+            <span className="text-foreground">Masters' Union</span>,{" "}
+            <span className="text-foreground">LPU</span>, and{" "}
+            <span className="text-foreground">Tetr</span> create reels for two real brands.{" "}
+            <span className="text-primary underline">cc26.in/brief</span>
+          </p>
+          <p className="mt-3 text-[12px] text-muted-foreground">2 DAYS AGO</p>
+        </div>
+        <div className="col-span-12 flex items-end justify-end md:col-span-4">
+          <a href="#signup" className="font-display text-5xl text-primary leading-[0.9] hover:underline">
+            Submit<br />today!
+          </a>
         </div>
       </div>
     </section>
@@ -101,60 +202,58 @@ function Brands() {
       tagline: "Headphones built for the dark.",
       image: brand1,
       summary:
-        "NOIR makes premium over-ear headphones engineered for late-night creators. Active noise cancellation, 40-hour battery, studio-grade drivers. Your reel should make us feel the silence before the bass.",
-      angles: ["Late-night creator workflow", "Studio / producer aesthetic", "Travel + commute"],
+        "Premium over-ear headphones for late-night creators. Active noise cancellation, 40-hour battery, studio-grade drivers. Make us feel the silence before the bass.",
+      angles: ["Late-night workflow", "Studio aesthetic", "Travel + commute"],
     },
     {
       name: "PULSE Energy",
       tagline: "Clean energy. Loud personality.",
       image: brand2,
       summary:
-        "PULSE is a sugar-free sparkling energy drink built for the gym, the desk, and the all-nighter. 150mg natural caffeine, zero crash. Your reel should feel like the first sip — sharp, electric, and impossible to ignore.",
-      angles: ["Workout / fitness", "Study / hustle culture", "Friends + nightlife"],
+        "Sugar-free sparkling energy drink for the gym, the desk, the all-nighter. 150mg natural caffeine, zero crash. Make your reel feel like the first sip — sharp, electric, impossible to ignore.",
+      angles: ["Workout / fitness", "Study + hustle", "Friends + nightlife"],
     },
   ];
 
   return (
     <section id="brands" className="border-b border-border">
-      <div className="mx-auto max-w-7xl px-6 py-20">
-        <div className="mb-14 flex items-end justify-between">
-          <h2 className="font-display text-5xl md:text-7xl">
-            Two brands.<br />
+      <div className="mx-auto max-w-[1400px] px-8 py-24">
+        <div className="mb-16 grid grid-cols-12 gap-6">
+          <p className="col-span-12 md:col-span-4 text-[13px] uppercase tracking-[0.2em] text-muted-foreground">
+            ⌐ The Brief
+          </p>
+          <h2 className="col-span-12 md:col-span-8 font-display text-[clamp(48px,7vw,110px)]">
+            <span className="text-foreground">Two brands.</span><br />
             <span className="text-primary">One reel.</span>
           </h2>
-          <p className="hidden max-w-sm text-muted-foreground md:block">
-            Choose the brand you want to create for. Your reel must feature the product naturally and tell a story in under 30 seconds.
-          </p>
         </div>
 
-        <div className="grid gap-10 md:grid-cols-2">
+        <div className="grid gap-12 md:grid-cols-2">
           {brands.map((b, i) => (
-            <article key={b.name} className="group overflow-hidden border border-border bg-card">
-              <div className="aspect-square overflow-hidden bg-muted">
+            <article key={b.name} className="group">
+              <div className="aspect-[4/5] overflow-hidden bg-muted">
                 <img
                   src={b.image}
                   alt={b.name}
                   loading="lazy"
-                  width={1024}
-                  height={1024}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
                 />
               </div>
-              <div className="p-8">
-                <div className="mb-3 flex items-baseline justify-between">
-                  <h3 className="font-display text-3xl">{b.name}</h3>
-                  <span className="text-sm text-muted-foreground">Brief 0{i + 1}</span>
+              <div className="mt-6 grid grid-cols-12 gap-4">
+                <div className="col-span-12 sm:col-span-7">
+                  <p className="text-[12px] uppercase tracking-widest text-muted-foreground">Brief 0{i + 1}</p>
+                  <h3 className="mt-1 font-display text-4xl">{b.name}</h3>
+                  <p className="mt-2 text-primary text-[15px]">{b.tagline}</p>
                 </div>
-                <p className="text-primary">{b.tagline}</p>
-                <p className="mt-4 text-muted-foreground">{b.summary}</p>
-                <div className="mt-6">
-                  <p className="mb-2 text-xs uppercase tracking-wider text-muted-foreground">Suggested angles</p>
-                  <div className="flex flex-wrap gap-2">
-                    {b.angles.map((a) => (
-                      <span key={a} className="border border-border px-3 py-1 text-sm">{a}</span>
-                    ))}
-                  </div>
+                <div className="col-span-12 sm:col-span-5 self-end text-right text-[13px] text-muted-foreground">
+                  Featured product
                 </div>
+              </div>
+              <p className="mt-5 max-w-md text-[14px] leading-relaxed text-muted-foreground">{b.summary}</p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {b.angles.map((a) => (
+                  <span key={a} className="border border-border px-3 py-1 text-[12px]">{a}</span>
+                ))}
               </div>
             </article>
           ))}
@@ -166,27 +265,32 @@ function Brands() {
 
 function Guidelines() {
   const rules = [
-    { n: "01", t: "Eligibility", d: "Open only to currently enrolled students of Masters' Union, LPU, or Tetr. You must verify with your university email." },
+    { n: "01", t: "Eligibility", d: "Open only to currently enrolled students of Masters' Union, LPU, or Tetr. Verify with your university email." },
     { n: "02", t: "Format", d: "One Instagram reel, 15–30 seconds, vertical 9:16. Original audio or licensed music only." },
-    { n: "03", t: "The brand", d: "Feature the chosen product clearly. Tag the brand and use the campaign hashtag #CreatorChallenge26." },
-    { n: "04", t: "Originality", d: "Content must be created by you. No reposts, no AI-generated voiceovers without disclosure, no copyrighted footage." },
-    { n: "05", t: "Account", d: "Your Instagram profile must be public throughout the judging window so the team can review submissions." },
-    { n: "06", t: "Deadline", d: "Submit your handle by midnight, March 30. Winners announced April 15 across all three campuses." },
+    { n: "03", t: "The brand", d: "Feature the chosen product clearly. Tag the brand and use #CreatorChallenge26." },
+    { n: "04", t: "Originality", d: "Created by you. No reposts, no AI voiceovers without disclosure, no copyrighted footage." },
+    { n: "05", t: "Account", d: "Your Instagram profile must be public throughout the judging window." },
+    { n: "06", t: "Deadline", d: "Submit by midnight, March 30. Winners announced April 15 across all three campuses." },
   ];
 
   return (
-    <section id="rules" className="border-b border-border bg-card/30">
-      <div className="mx-auto max-w-7xl px-6 py-20">
-        <h2 className="mb-3 font-display text-5xl md:text-7xl">Rules of play.</h2>
-        <p className="mb-12 max-w-xl text-muted-foreground">
-          Read this carefully before you submit. Entries that don't follow the brief will be removed during the first review pass.
-        </p>
+    <section id="rules" className="border-b border-border">
+      <div className="mx-auto max-w-[1400px] px-8 py-24">
+        <div className="mb-16 grid grid-cols-12 gap-6">
+          <p className="col-span-12 md:col-span-4 text-[13px] uppercase tracking-[0.2em] text-muted-foreground">
+            ⌐ Guidelines
+          </p>
+          <h2 className="col-span-12 md:col-span-8 font-display text-[clamp(48px,7vw,110px)]">
+            <span className="text-primary">Rules</span> of play.
+          </h2>
+        </div>
+
         <div className="grid gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
           {rules.map((r) => (
             <div key={r.n} className="bg-background p-8">
-              <div className="mb-4 font-display text-4xl text-primary">{r.n}</div>
-              <h3 className="mb-2 font-display text-xl">{r.t}</h3>
-              <p className="text-sm text-muted-foreground">{r.d}</p>
+              <div className="mb-6 font-display text-5xl text-primary">{r.n}</div>
+              <h3 className="font-display text-xl">{r.t}</h3>
+              <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">{r.d}</p>
             </div>
           ))}
         </div>
@@ -197,7 +301,6 @@ function Guidelines() {
 
 function SignupSection() {
   const [submitting, setSubmitting] = useState(false);
-  const [done, setDone] = useState(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -223,40 +326,42 @@ function SignupSection() {
       toast.error("Could not submit. Try again.");
       return;
     }
-    setDone(true);
     form.reset();
-    toast.success("You're in. We'll be reviewing your profile soon.");
+    toast.success("You're in. We'll review your profile soon.");
   }
 
   return (
     <section id="signup" className="border-b border-border">
-      <div className="mx-auto grid max-w-7xl gap-16 px-6 py-20 md:grid-cols-2">
-        <div>
-          <h2 className="font-display text-5xl md:text-7xl">
-            Drop your<br />
+      <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-8 px-8 py-24">
+        <div className="col-span-12 md:col-span-5">
+          <p className="text-[13px] uppercase tracking-[0.2em] text-muted-foreground">⌐ Submit</p>
+          <h2 className="mt-4 font-display text-[clamp(56px,8vw,120px)]">
+            Drop<br />
+            your<br />
             <span className="text-primary">handle.</span>
           </h2>
-          <p className="mt-6 max-w-md text-muted-foreground">
-            Submit your details and the Instagram profile we should review. You can update your reel any time before the deadline — we'll always pull the latest version of your account.
+          <p className="mt-6 max-w-sm text-[14px] leading-relaxed text-muted-foreground">
+            Submit your details and the Instagram profile we should review. Update your reel any
+            time before the deadline — we'll always pull the latest version.
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-5 border border-border bg-card p-8">
-          <div className="grid gap-4 md:grid-cols-2">
-            <Field label="Full name *">
-              <Input name="full_name" required placeholder="Your name" />
+        <form onSubmit={handleSubmit} className="col-span-12 md:col-span-7 space-y-6 border-l border-border md:pl-12">
+          <div className="grid gap-5 md:grid-cols-2">
+            <Field label="Full name">
+              <Input name="full_name" required placeholder="Your name" className="h-12 rounded-none border-0 border-b border-border bg-transparent px-0 focus-visible:ring-0" />
             </Field>
-            <Field label="University email *">
-              <Input name="email" type="email" required placeholder="you@university.edu" />
+            <Field label="University email">
+              <Input name="email" type="email" required placeholder="you@university.edu" className="h-12 rounded-none border-0 border-b border-border bg-transparent px-0 focus-visible:ring-0" />
             </Field>
           </div>
 
-          <Field label="University *">
-            <div className="grid grid-cols-3 gap-2">
+          <Field label="University">
+            <div className="grid grid-cols-3 gap-3 pt-2">
               {UNIVERSITIES.map((u) => (
                 <label key={u} className="cursor-pointer">
                   <input type="radio" name="university" value={u} className="peer sr-only" required />
-                  <div className="border border-border bg-background p-3 text-center text-sm transition peer-checked:border-primary peer-checked:text-primary">
+                  <div className="border border-border bg-background p-3 text-center text-[13px] transition peer-checked:border-primary peer-checked:bg-primary peer-checked:text-primary-foreground">
                     {u}
                   </div>
                 </label>
@@ -264,12 +369,12 @@ function SignupSection() {
             </div>
           </Field>
 
-          <Field label="Brand you're creating for *">
-            <div className="grid grid-cols-2 gap-2">
+          <Field label="Brand you're creating for">
+            <div className="grid grid-cols-2 gap-3 pt-2">
               {BRANDS.map((b) => (
                 <label key={b} className="cursor-pointer">
                   <input type="radio" name="brand_choice" value={b} className="peer sr-only" required />
-                  <div className="border border-border bg-background p-3 text-center text-sm transition peer-checked:border-primary peer-checked:text-primary">
+                  <div className="border border-border bg-background p-3 text-center text-[13px] transition peer-checked:border-primary peer-checked:bg-primary peer-checked:text-primary-foreground">
                     {b}
                   </div>
                 </label>
@@ -277,17 +382,19 @@ function SignupSection() {
             </div>
           </Field>
 
-          <Field label="Instagram handle *">
-            <Input name="instagram_handle" required placeholder="@yourhandle" />
+          <Field label="Instagram handle">
+            <Input name="instagram_handle" required placeholder="@yourhandle" className="h-12 rounded-none border-0 border-b border-border bg-transparent px-0 focus-visible:ring-0" />
           </Field>
 
           <Field label="Anything we should know? (optional)">
-            <Textarea name="notes" rows={3} placeholder="A note about your concept, experience, or follower count." />
+            <Textarea name="notes" rows={3} placeholder="Concept, experience, follower count…" className="rounded-none border border-border bg-transparent" />
           </Field>
 
-          <Button type="submit" disabled={submitting} size="lg" className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
-            {submitting ? "Submitting…" : done ? "Submit another entry" : "Submit my profile"}
-          </Button>
+          <div className="pt-2">
+            <Button type="submit" disabled={submitting} className="h-14 rounded-full bg-primary px-10 text-[14px] tracking-wide text-primary-foreground hover:bg-primary/90">
+              {submitting ? "Submitting…" : "Submit my profile →"}
+            </Button>
+          </div>
         </form>
       </div>
     </section>
@@ -296,8 +403,8 @@ function SignupSection() {
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div className="space-y-2">
-      <Label className="text-xs uppercase tracking-wider text-muted-foreground">{label}</Label>
+    <div className="space-y-1">
+      <Label className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">{label}</Label>
       {children}
     </div>
   );
@@ -305,9 +412,10 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 
 function Footer() {
   return (
-    <footer className="mx-auto max-w-7xl px-6 py-10 text-sm text-muted-foreground">
+    <footer className="mx-auto max-w-[1400px] px-8 py-10 text-[13px] text-muted-foreground">
+      <div className="mb-6 h-[3px] w-32 bg-primary" />
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <p>© 2026 Creator Challenge. All briefs by participating brands.</p>
+        <p>© 2026 Creator Challenge · MU × LPU × Tetr</p>
         <Link to="/admin" className="hover:text-primary">Admin dashboard →</Link>
       </div>
     </footer>
