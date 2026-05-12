@@ -272,7 +272,7 @@ function Admin() {
 
         <div className="flex-1 min-w-0">
           <header className="border-b border-border">
-            <div className="flex items-center justify-between gap-4 px-6 py-5">
+            <div className="flex items-center justify-between gap-3 px-4 py-4 sm:gap-4 sm:px-6 sm:py-5">
               <div className="flex items-center gap-3">
                 <div className="md:hidden flex gap-1 rounded-full border border-border p-1">
                   <button
@@ -285,21 +285,21 @@ function Admin() {
                   >Final</button>
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                  <p className="text-[10px] uppercase tracking-widest text-muted-foreground sm:text-xs">
                     {view === "first" ? "First Stage" : "Final Stage"}
                   </p>
-                  <h1 className="font-display text-2xl">
+                  <h1 className="font-display text-xl sm:text-2xl">
                     {view === "first" ? "Entries" : "Final Submissions"}
                   </h1>
                 </div>
               </div>
-              <Button variant="outline" onClick={exportCSV} className="gap-2 rounded-full">
-                <Download className="h-4 w-4" /> Export CSV
+              <Button variant="outline" onClick={exportCSV} size="sm" className="gap-2 rounded-full sm:size-default">
+                <Download className="h-4 w-4" /> <span className="hidden sm:inline">Export CSV</span><span className="sm:hidden">CSV</span>
               </Button>
             </div>
           </header>
 
-          <div className="mx-auto max-w-7xl space-y-8 px-6 py-10">
+          <div className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:space-y-8 sm:px-6 sm:py-10">
             {view === "first" ? (
               <>
                 <section className="grid gap-4 md:grid-cols-4">
