@@ -11,6 +11,7 @@ import { Twitter, Sparkles, Instagram, Trophy, Calendar, Users, Music2, Zap, Use
 import brand1 from "@/assets/brand-1.jpg";
 import brand2 from "@/assets/brand-2.jpg";
 import creatorGirl from "@/assets/creator-girl.png";
+import logo from "@/assets/logo.svg";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -47,15 +48,9 @@ function Header() {
       {/* Nav row */}
       <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-8 border-b border-border px-8 py-4">
         {/* Logo block */}
-        <div className="flex items-center gap-3">
-          <div className="grid h-10 w-10 place-items-center bg-primary">
-            <span className="font-serif text-base italic text-primary-foreground">CC</span>
-          </div>
-          <h1 className="font-display text-[18px] leading-[0.95] tracking-tight">
-            creator<br />
-            challenge 2026
-          </h1>
-        </div>
+        <Link to="/" className="flex items-center">
+          <img src={logo} alt="Creator Challenge 2026" className="h-10 w-auto invert" />
+        </Link>
 
         <nav className="hidden flex-wrap items-center gap-7 text-[14px] md:flex">
           <a href="#brands" className="hover:text-primary">Brands</a>
@@ -577,11 +572,8 @@ function Footer() {
       <div className="mx-auto max-w-[1400px] px-8 py-14">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">
-            <div className="flex items-center gap-3">
-              <div className="grid h-10 w-10 place-items-center rounded-xl gradient-pop">
-                <span className="font-serif text-base italic text-primary-foreground">CC</span>
-              </div>
-              <p className="font-display text-xl">creator challenge 2026</p>
+            <div className="flex items-center">
+              <img src={logo} alt="Creator Challenge 2026" className="h-12 w-auto invert" />
             </div>
             <p className="mt-5 max-w-sm text-[14px] leading-relaxed text-muted-foreground">
               Built with Masters' Union, LPU and Tetr. Powered by real brands and creators who refuse to scroll past.
