@@ -182,6 +182,7 @@ function Admin() {
               <table className="w-full text-sm">
                 <thead className="bg-muted/40 text-left text-xs uppercase tracking-wider text-muted-foreground">
                   <tr>
+                    <th className="px-4 py-3 w-10"></th>
                     <th className="px-4 py-3">Creator</th>
                     <th className="px-4 py-3">University</th>
                     <th className="px-4 py-3">Brand</th>
