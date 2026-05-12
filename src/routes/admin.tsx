@@ -329,6 +329,83 @@ function Admin() {
             </div>
           )}
         </section>
+
+        <section className="border border-border bg-card">
+          <div className="flex items-center justify-between border-b border-border p-4">
+            <div>
+              <h2 className="font-display text-lg">Final Submission</h2>
+              <p className="text-xs text-muted-foreground">Stage 2 entries with up to 3 reels each</p>
+            </div>
+            <span className="text-sm text-muted-foreground">{finals.length} entries</span>
+          </div>
+          {finals.length === 0 ? (
+            <div className="p-8 text-center text-sm text-muted-foreground">
+              No final submissions yet.
+            </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-muted/40 text-left text-xs uppercase tracking-wider text-muted-foreground">
+                  <tr>
+                    <th className="px-4 py-3">Creator</th>
+                    <th className="px-4 py-3">University</th>
+                    <th className="px-4 py-3">Brand</th>
+                    <th className="px-4 py-3">Instagram</th>
+                    <th className="px-4 py-3">Reels</th>
+                    <th className="px-4 py-3">Submitted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {finals.map((r) => {
+                    const reels = [r.reel_1, r.reel_2, r.reel_3].filter(Boolean) as string[];
+                    return (
+                      <tr key={r.id} className="border-t border-border hover:bg-muted/20 align-top">
+                        <td className="px-4 py-3">
+                          <div className="font-medium">{r.full_name}</div>
+                          <div className="text-xs text-muted-foreground">{r.email}</div>
+                        </td>
+                        <td className="px-4 py-3">{r.university}</td>
+                        <td className="px-4 py-3">
+                          <span className="border border-primary/40 px-2 py-1 text-xs text-primary">{r.brand_choice}</span>
+                        </td>
+                        <td className="px-4 py-3">
+                          <a
+                            href={`https://instagram.com/${r.instagram_handle}`}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-1 text-primary hover:underline"
+                          >
+                            @{r.instagram_handle}
+                            <ExternalLink className="h-3 w-3" />
+                          </a>
+                        </td>
+                        <td className="px-4 py-3">
+                          <div className="flex flex-col gap-1">
+                            {reels.map((url, i) => (
+                              <a
+                                key={i}
+                                href={url}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center gap-1 text-primary hover:underline"
+                              >
+                                Reel {i + 1} <ExternalLink className="h-3 w-3" />
+                              </a>
+                            ))}
+                          </div>
+                        </td>
+                        <td className="px-4 py-3 text-muted-foreground">
+                          {new Date(r.created_at).toLocaleDateString()}{" "}
+                          <span className="text-xs">{new Date(r.created_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </section>
       </div>
     </div>
   );
