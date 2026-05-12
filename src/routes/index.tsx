@@ -430,10 +430,10 @@ function SignupSection() {
     e.preventDefault();
     const form = e.currentTarget;
     const fd = new FormData(form);
-    const handle = String(fd.get("instagram_handle") || "").replace(/^@/, "").trim();
+    const handle = String(fd.get("instagram_handle") || "").replace(/^@/, "").trim().toLowerCase();
     const payload = {
       full_name: String(fd.get("full_name") || "").trim(),
-      email: String(fd.get("email") || "").trim(),
+      email: String(fd.get("email") || "").trim().toLowerCase(),
       university: String(fd.get("university") || ""),
       brand_choice: String(fd.get("brand_choice") || ""),
       instagram_handle: handle,
@@ -447,7 +447,12 @@ function SignupSection() {
     const { error } = await supabase.from("submissions").insert(payload);
     setSubmitting(false);
     if (error) {
-      toast.error("Could not submit. Try again.");
+      if (error.code === "23505") {
+        const dupField = error.message?.toLowerCase().includes("instagram") ? "Instagram handle" : "email";
+        toast.error(`This ${dupField} has already been submitted.`);
+      } else {
+        toast.error("Could not submit. Try again.");
+      }
       return;
     }
     setSubmittedName(payload.full_name.split(" ")[0]);
