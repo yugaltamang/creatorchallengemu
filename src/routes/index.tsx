@@ -499,8 +499,8 @@ function SignupSection() {
 
   return (
     <section id="signup" className="border-b border-border">
-      <div className="mx-auto max-w-[1400px] px-8 py-24">
-        <div className="relative overflow-hidden rounded-[32px] border-2 border-primary/30 gradient-card p-8 md:p-14 shadow-[0_50px_120px_-20px_rgba(0,0,0,0.95),0_0_0_1px_rgba(255,255,255,0.04),0_25px_60px_-15px_var(--primary)] ring-1 ring-white/5">
+      <div className="mx-auto max-w-[1400px] px-4 py-14 sm:px-6 sm:py-20 md:py-24 lg:px-8">
+        <div className="relative overflow-hidden rounded-2xl border-2 border-primary/30 gradient-card p-5 sm:rounded-[32px] sm:p-8 md:p-14 shadow-[0_50px_120px_-20px_rgba(0,0,0,0.95),0_0_0_1px_rgba(255,255,255,0.04),0_25px_60px_-15px_var(--primary)] ring-1 ring-white/5">
           <div className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full bg-primary/30 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-pop-violet/30 blur-3xl" />
 
