@@ -309,8 +309,8 @@ function Brands() {
                   Brief / 0{i + 1}
                 </span>
               </div>
-              <div className="p-7">
-                <h3 className="font-display text-4xl">{b.name}</h3>
+              <div className="p-5 sm:p-7">
+                <h3 className="font-display text-3xl sm:text-4xl">{b.name}</h3>
                 <p className="mt-2 text-primary text-[15px]">{b.tagline}</p>
                 <p className="mt-4 text-[14px] leading-relaxed text-muted-foreground">{b.summary}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
