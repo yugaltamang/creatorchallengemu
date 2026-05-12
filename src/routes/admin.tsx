@@ -483,6 +483,81 @@ function Admin() {
                 </section>
 
                 <section className="border border-border bg-card">
+                  <div className="flex items-center justify-between border-b border-border p-4">
+                    <div className="flex items-center gap-2">
+                      <Trophy className="h-4 w-4 text-primary" />
+                      <h2 className="font-display text-lg">Winners</h2>
+                    </div>
+                    <span className="text-sm text-muted-foreground">{winners.length} selected</span>
+                  </div>
+                  {winners.length === 0 ? (
+                    <div className="p-8 text-center text-sm text-muted-foreground">
+                      No winners yet. Tap the trophy next to any final entry below to crown them.
+                    </div>
+                  ) : (
+                    <ul className="divide-y divide-border">
+                      {winners.map((r) => (
+                        <li key={r.id} className="flex flex-wrap items-center gap-4 px-4 py-3 hover:bg-muted/20">
+                          <button
+                            onClick={() => toggleWinner(r)}
+                            aria-label="Remove from winners"
+                            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-primary text-primary"
+                          >
+                            <Trophy className="h-4 w-4" />
+                          </button>
+                          <div className="min-w-[160px] flex-1">
+                            <div className="font-medium">{r.full_name}</div>
+                            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                              <span className="truncate">{r.email}</span>
+                              <button
+                                type="button"
+                                onClick={async () => {
+                                  try {
+                                    await navigator.clipboard.writeText(r.email);
+                                    toast.success("Email copied");
+                                  } catch {
+                                    toast.error("Could not copy");
+                                  }
+                                }}
+                                aria-label="Copy email"
+                                title="Copy email"
+                                className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-border text-muted-foreground transition hover:border-primary hover:text-primary"
+                              >
+                                <Copy className="h-3 w-3" />
+                              </button>
+                            </div>
+                          </div>
+                          <span className="text-sm text-muted-foreground">{r.university}</span>
+                          <span className="border border-primary/40 px-2 py-1 text-xs text-primary">{r.brand_choice}</span>
+                          <a
+                            href={`https://instagram.com/${r.instagram_handle}`}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                          >
+                            @{r.instagram_handle}
+                            <ExternalLink className="h-3 w-3" />
+                          </a>
+                          <div className="flex flex-wrap gap-2">
+                            {[r.reel_1, r.reel_2, r.reel_3].filter(Boolean).map((url, i) => (
+                              <a
+                                key={i}
+                                href={url as string}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                              >
+                                Reel {i + 1} <ExternalLink className="h-3 w-3" />
+                              </a>
+                            ))}
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </section>
+
+                <section className="border border-border bg-card">
                   <div className="border-b border-border p-4">
                     <div className="mb-3 flex items-center justify-between">
                       <div>
