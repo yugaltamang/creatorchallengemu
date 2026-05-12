@@ -112,6 +112,16 @@
 .shadow-pop { box-shadow: var(--shadow-pop); }
 .shadow-soft { box-shadow: var(--shadow-soft); }
 
+/* MU signature gradient text — replaces solid pink for headlines */
+.mu-gradient-text {
+  background: var(--gradient-pop);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.mu-gradient-border { border-image: var(--gradient-pop) 1; }
+
 .pink-arc {
   position: absolute;
   pointer-events: none;
