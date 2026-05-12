@@ -416,6 +416,32 @@ function Admin() {
                       </table>
                     </div>
                   )}
+                  {filtered.length > PAGE_SIZE && (
+                    <div className="flex items-center justify-between gap-3 border-t border-border p-3 text-sm">
+                      <span className="text-muted-foreground">
+                        Showing {(currentPage - 1) * PAGE_SIZE + 1}–{Math.min(currentPage * PAGE_SIZE, filtered.length)} of {filtered.length}
+                      </span>
+                      <div className="flex items-center gap-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setPage((p) => Math.max(1, p - 1))}
+                          disabled={currentPage <= 1}
+                        >
+                          Previous
+                        </Button>
+                        <span className="text-muted-foreground">Page {currentPage} of {totalPages}</span>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                          disabled={currentPage >= totalPages}
+                        >
+                          Next
+                        </Button>
+                      </div>
+                    </div>
+                  )}
                 </section>
               </>
             ) : (
