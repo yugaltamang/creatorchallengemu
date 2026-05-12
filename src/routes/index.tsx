@@ -126,7 +126,6 @@ function Hero() {
               </div>
             </div>
           </div>
-          <p className="mt-4 text-center text-[13px]">What you can expect</p>
         </div>
 
         {/* Big headline */}
