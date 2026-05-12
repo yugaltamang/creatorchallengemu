@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      final_submissions: {
+        Row: {
+          brand_choice: string
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          instagram_handle: string
+          reel_1: string
+          reel_2: string | null
+          reel_3: string | null
+          shortlisted: boolean
+          university: string
+        }
+        Insert: {
+          brand_choice: string
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          instagram_handle: string
+          reel_1: string
+          reel_2?: string | null
+          reel_3?: string | null
+          shortlisted?: boolean
+          university: string
+        }
+        Update: {
+          brand_choice?: string
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          instagram_handle?: string
+          reel_1?: string
+          reel_2?: string | null
+          reel_3?: string | null
+          shortlisted?: boolean
+          university?: string
+        }
+        Relationships: []
+      }
       submissions: {
         Row: {
           brand_choice: string
