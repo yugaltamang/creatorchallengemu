@@ -37,43 +37,42 @@
 
 :root {
   --radius: 0rem;
-  /* AIGA editorial — dark bg, white type, MU signature gradient as accent */
-  --background: oklch(0.13 0.01 280);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.16 0.012 280);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.16 0.012 280);
-  --popover-foreground: oklch(0.98 0 0);
-  /* Primary = warm orange from gradient (works for solid borders/text) */
-  --primary: oklch(0.74 0.15 55);
-  --primary-foreground: oklch(0.13 0.01 280);
-  --secondary: oklch(0.2 0.01 280);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.2 0.01 280);
-  --muted-foreground: oklch(0.7 0.02 280);
-  --accent: oklch(0.74 0.15 55);
-  --accent-foreground: oklch(0.13 0.01 280);
-  --destructive: oklch(0.6 0.25 25);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.28 0.01 280);
-  --input: oklch(0.2 0.01 280);
-  --ring: oklch(0.74 0.15 55);
+  /* Editorial poster — pure black, pure white, signature red */
+  --background: oklch(0 0 0);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0.08 0 0);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.08 0 0);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(0.58 0.245 25);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.14 0 0);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.14 0 0);
+  --muted-foreground: oklch(0.7 0 0);
+  --accent: oklch(0.58 0.245 25);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.58 0.245 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.22 0 0);
+  --input: oklch(0.14 0 0);
+  --ring: oklch(0.58 0.245 25);
 
-  /* Accent stops from the MU gradient */
-  --pop-cyan: #39B5D7;
-  --pop-lime: #F7D544;
-  --pop-yellow: #F7D544;
-  --pop-violet: #E38330;
-  --pop-peach: #E38330;
+  /* Mono accent palette — only red breaks the grayscale */
+  --pop-cyan: #FFFFFF;
+  --pop-lime: #FFFFFF;
+  --pop-yellow: #FFFFFF;
+  --pop-violet: #ED1C24;
+  --pop-peach: #ED1C24;
 
-  /* MU signature gradient — used everywhere pink used to live */
-  --gradient-pop: linear-gradient(91deg, #39B5D7 -6.14%, #F7D544 47.02%, #E38330 99.71%);
-  --gradient-sun: linear-gradient(91deg, #39B5D7 -6.14%, #F7D544 47.02%, #E38330 99.71%);
-  --gradient-ocean: linear-gradient(91deg, #39B5D7 -6.14%, #F7D544 47.02%, #E38330 99.71%);
-  --gradient-card: linear-gradient(160deg, oklch(0.16 0.012 280), oklch(0.13 0.01 280));
+  /* Solid red, no gradients */
+  --gradient-pop: #ED1C24;
+  --gradient-sun: #ED1C24;
+  --gradient-ocean: #ED1C24;
+  --gradient-card: linear-gradient(160deg, oklch(0.08 0 0), oklch(0 0 0));
 
-  --shadow-pop: 0 20px 50px -20px rgba(247, 213, 68, 0.35);
-  --shadow-soft: 0 10px 30px -15px oklch(0 0 0 / 0.5);
+  --shadow-pop: 0 20px 50px -20px rgba(237, 28, 36, 0.45);
+  --shadow-soft: 0 10px 30px -15px rgba(0, 0, 0, 0.7);
 }
 
 @theme inline {
@@ -112,15 +111,15 @@
 .shadow-pop { box-shadow: var(--shadow-pop); }
 .shadow-soft { box-shadow: var(--shadow-soft); }
 
-/* MU signature gradient text — replaces solid pink for headlines */
+/* Headline highlight — solid red block behind word, like the poster set */
 .mu-gradient-text {
-  background: var(--gradient-pop);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  background: var(--primary);
+  color: #fff;
+  padding: 0 0.18em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
-.mu-gradient-border { border-image: var(--gradient-pop) 1; }
+.mu-gradient-border { border-color: var(--primary); }
 
 .pink-arc {
   position: absolute;

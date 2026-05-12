@@ -312,9 +312,9 @@ function Guidelines() {
     { n: "06", t: "Deadline", d: "Submit by midnight, March 30. Winners announced April 15 across all three campuses.", chip: "Timeline" },
   ];
 
-  // Editorial palette — AIGA-style dark + MU gradient accent.
-  const ink = "#0E1116";
-  const blue = "#F7D544"; // mid-stop of MU gradient for solid uses
+  // Editorial poster — pure black, white, signature red.
+  const ink = "#000000";
+  const blue = "#ED1C24";
   const lime = "#FFFFFF";
   const muted = "rgba(255,255,255,0.62)";
 
