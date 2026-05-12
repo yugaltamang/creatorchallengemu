@@ -156,6 +156,60 @@ function Admin() {
         </section>
 
         <section className="border border-border bg-card">
+          <div className="flex items-center justify-between border-b border-border p-4">
+            <div className="flex items-center gap-2">
+              <Star className="h-4 w-4 fill-primary text-primary" />
+              <h2 className="font-display text-lg">Shortlisted Entries</h2>
+            </div>
+            <span className="text-sm text-muted-foreground">{shortlisted.length} selected</span>
+          </div>
+          {shortlisted.length === 0 ? (
+            <div className="p-8 text-center text-sm text-muted-foreground">
+              No entries shortlisted yet. Tap the star next to any entry below to add it here.
+            </div>
+          ) : (
+            <ul className="divide-y divide-border">
+              {shortlisted.map((r) => (
+                <li key={r.id} className="flex flex-wrap items-center gap-4 px-4 py-3 hover:bg-muted/20">
+                  <button
+                    onClick={() => toggleShortlist(r)}
+                    aria-label="Remove from shortlist"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-primary text-primary"
+                  >
+                    <Star className="h-4 w-4 fill-primary" />
+                  </button>
+                  <div className="min-w-[160px] flex-1">
+                    <div className="font-medium">{r.full_name}</div>
+                    <div className="text-xs text-muted-foreground">{r.email}</div>
+                  </div>
+                  <span className="text-sm text-muted-foreground">{r.university}</span>
+                  <span className="border border-primary/40 px-2 py-1 text-xs text-primary">{r.brand_choice}</span>
+                  <a
+                    href={`https://instagram.com/${r.instagram_handle}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                  >
+                    @{r.instagram_handle}
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                  {r.notes && (
+                    <a
+                      href={r.notes}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                    >
+                      View reel <ExternalLink className="h-3 w-3" />
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+
+        <section className="border border-border bg-card">
           <div className="flex flex-wrap items-center gap-3 border-b border-border p-4">
             <div className="relative flex-1 min-w-[220px]">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
