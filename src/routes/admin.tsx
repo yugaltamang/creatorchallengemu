@@ -615,6 +615,7 @@ function Admin() {
                                     <Trophy className={`h-4 w-4 ${r.is_winner ? "text-primary" : ""}`} />
                                   </button>
                                 </td>
+                                <td className="px-4 py-3">
                                   <div className="font-medium">{r.full_name}</div>
                                   <div className="text-xs text-muted-foreground">{r.email}</div>
                                 </td>
