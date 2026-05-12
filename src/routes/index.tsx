@@ -551,6 +551,25 @@ function SignupSection() {
           </div>
         </div>
       </div>
+
+      <Dialog open={successOpen} onOpenChange={setSuccessOpen}>
+        <DialogContent className="sm:max-w-md rounded-3xl border border-white/10 bg-background/95 backdrop-blur-xl">
+          <DialogHeader className="items-center text-center">
+            <div className="mx-auto mb-2 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-primary to-pop-violet shadow-pop">
+              <PartyPopper className="h-7 w-7 text-primary-foreground" />
+            </div>
+            <DialogTitle className="text-2xl">You're in{submittedName ? `, ${submittedName}` : ""}!</DialogTitle>
+            <DialogDescription className="text-balance pt-1">
+              Your profile is locked in. Our team will review your reel and reach out on Instagram or email with the next steps.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="sm:justify-center">
+            <Button onClick={() => setSuccessOpen(false)} className="h-11 rounded-full gradient-pop px-6 font-semibold text-primary-foreground shadow-pop">
+              Got it
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
