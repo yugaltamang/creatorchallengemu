@@ -3,7 +3,8 @@ import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Search, Download } from "lucide-react";
+import { ExternalLink, Search, Download, Star } from "lucide-react";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/admin")({
   component: Admin,
@@ -18,6 +19,7 @@ type Submission = {
   instagram_handle: string;
   brand_choice: string;
   notes: string | null;
+  shortlisted: boolean;
   created_at: string;
 };
 
@@ -39,6 +41,21 @@ function Admin() {
     })();
   }, []);
 
+  async function toggleShortlist(r: Submission) {
+    const next = !r.shortlisted;
+    setRows((prev) => prev.map((x) => (x.id === r.id ? { ...x, shortlisted: next } : x)));
+    const { error } = await supabase
+      .from("submissions")
+      .update({ shortlisted: next })
+      .eq("id", r.id);
+    if (error) {
+      setRows((prev) => prev.map((x) => (x.id === r.id ? { ...x, shortlisted: !next } : x)));
+      toast.error("Could not update shortlist.");
+    } else {
+      toast.success(next ? `Shortlisted ${r.full_name}` : `Removed ${r.full_name} from shortlist`);
+    }
+  }
+
   const filtered = useMemo(() => {
     return rows.filter((r) => {
       if (uni !== "All" && r.university !== uni) return false;
@@ -55,6 +72,8 @@ function Admin() {
       return true;
     });
   }, [rows, q, uni, brand]);
+
+  const shortlisted = useMemo(() => rows.filter((r) => r.shortlisted), [rows]);
 
   const stats = useMemo(() => {
     const byUni: Record<string, number> = {};
@@ -137,6 +156,60 @@ function Admin() {
         </section>
 
         <section className="border border-border bg-card">
+          <div className="flex items-center justify-between border-b border-border p-4">
+            <div className="flex items-center gap-2">
+              <Star className="h-4 w-4 fill-primary text-primary" />
+              <h2 className="font-display text-lg">Shortlisted Entries</h2>
+            </div>
+            <span className="text-sm text-muted-foreground">{shortlisted.length} selected</span>
+          </div>
+          {shortlisted.length === 0 ? (
+            <div className="p-8 text-center text-sm text-muted-foreground">
+              No entries shortlisted yet. Tap the star next to any entry below to add it here.
+            </div>
+          ) : (
+            <ul className="divide-y divide-border">
+              {shortlisted.map((r) => (
+                <li key={r.id} className="flex flex-wrap items-center gap-4 px-4 py-3 hover:bg-muted/20">
+                  <button
+                    onClick={() => toggleShortlist(r)}
+                    aria-label="Remove from shortlist"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-primary text-primary"
+                  >
+                    <Star className="h-4 w-4 fill-primary" />
+                  </button>
+                  <div className="min-w-[160px] flex-1">
+                    <div className="font-medium">{r.full_name}</div>
+                    <div className="text-xs text-muted-foreground">{r.email}</div>
+                  </div>
+                  <span className="text-sm text-muted-foreground">{r.university}</span>
+                  <span className="border border-primary/40 px-2 py-1 text-xs text-primary">{r.brand_choice}</span>
+                  <a
+                    href={`https://instagram.com/${r.instagram_handle}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                  >
+                    @{r.instagram_handle}
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                  {r.notes && (
+                    <a
+                      href={r.notes}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                    >
+                      View reel <ExternalLink className="h-3 w-3" />
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+
+        <section className="border border-border bg-card">
           <div className="flex flex-wrap items-center gap-3 border-b border-border p-4">
             <div className="relative flex-1 min-w-[220px]">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -163,6 +236,7 @@ function Admin() {
               <table className="w-full text-sm">
                 <thead className="bg-muted/40 text-left text-xs uppercase tracking-wider text-muted-foreground">
                   <tr>
+                    <th className="px-4 py-3 w-10"></th>
                     <th className="px-4 py-3">Creator</th>
                     <th className="px-4 py-3">University</th>
                     <th className="px-4 py-3">Brand</th>
@@ -174,6 +248,15 @@ function Admin() {
                 <tbody>
                   {filtered.map((r) => (
                     <tr key={r.id} className="border-t border-border hover:bg-muted/20">
+                      <td className="px-4 py-3">
+                        <button
+                          onClick={() => toggleShortlist(r)}
+                          aria-label={r.shortlisted ? "Remove from shortlist" : "Add to shortlist"}
+                          className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border transition hover:border-primary hover:text-primary"
+                        >
+                          <Star className={`h-4 w-4 ${r.shortlisted ? "fill-primary text-primary" : ""}`} />
+                        </button>
+                      </td>
                       <td className="px-4 py-3">
                         <div className="font-medium">{r.full_name}</div>
                         <div className="text-xs text-muted-foreground">{r.email}</div>
