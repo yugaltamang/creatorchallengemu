@@ -106,6 +106,13 @@ function Hero() {
             <span className="h-px w-10 bg-primary" />
             <span>Stage 02 · Final Submission</span>
           </div>
+          <div className="mb-6 rounded-2xl border border-primary/30 bg-primary/10 p-5 backdrop-blur-md">
+            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-primary">🎉 Congratulations</p>
+            <h2 className="mt-2 text-2xl font-semibold text-foreground md:text-3xl">You've been shortlisted!</h2>
+            <p className="mt-2 text-sm text-muted-foreground md:text-base">
+              You've made it to the final stage. Drop up to 3 of your best reels below for your shot at the win.
+            </p>
+          </div>
           <Stage2Form />
         </div>
       </div>
