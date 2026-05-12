@@ -108,6 +108,14 @@ function Admin() {
     });
   }, [finals, q, uni, brand]);
 
+  useEffect(() => { setPage(1); }, [q, uni, brand, view]);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const paginated = useMemo(
+    () => filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE),
+    [filtered, currentPage]
+  );
+
   const shortlisted = useMemo(() => rows.filter((r) => r.shortlisted), [rows]);
 
   const stats = useMemo(() => {
