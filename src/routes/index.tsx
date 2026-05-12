@@ -176,18 +176,16 @@ function SocialBar() {
     { n: "45d", l: "To create", icon: Calendar, accent: "text-pop-violet" },
   ];
   return (
-    <section id="about" className="border-b border-border">
+    <section id="about" className="relative border-b border-border bp-grid">
       <div className="mx-auto max-w-[1400px] px-8 py-20">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[12px] uppercase tracking-[0.18em] text-primary">
-              <Instagram className="h-3.5 w-3.5" /> @CreatorChallenge
+            <span className="ticker-dot inline-flex items-center font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+              @CreatorChallenge / live
             </span>
             <h2 className="mt-6 font-display text-[clamp(40px,5vw,68px)] leading-[0.92]">
               The 2026<br />
-              <span className="bg-gradient-to-r from-primary to-pop-violet bg-clip-text text-transparent">
-                Creator Challenge.
-              </span>
+              <span className="text-primary">Creator Challenge.</span>
             </h2>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-muted-foreground">
               Students from <span className="text-foreground">Masters' Union</span>,{" "}
@@ -198,14 +196,19 @@ function SocialBar() {
           </div>
 
           <div className="grid grid-cols-2 gap-4 md:col-span-7">
-            {stats.map((s) => (
+            {stats.map((s, i) => (
               <div
                 key={s.l}
-                className="gradient-card group relative overflow-hidden rounded-2xl border border-border p-6 shadow-soft transition hover:-translate-y-1 hover:border-primary/50"
+                className="corner-tick group relative overflow-hidden border border-border bg-card p-6 shadow-soft transition hover:border-primary/60"
               >
-                <s.icon className={`h-6 w-6 ${s.accent}`} />
-                <div className="mt-6 font-display text-5xl">{s.n}</div>
-                <p className="mt-2 text-[13px] uppercase tracking-widest text-muted-foreground">{s.l}</p>
+                <div className="flex items-center justify-between">
+                  <s.icon className="h-5 w-5 text-primary" />
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                    / {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <div className="mt-8 font-display text-5xl">{s.n}</div>
+                <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">{s.l}</p>
               </div>
             ))}
           </div>
