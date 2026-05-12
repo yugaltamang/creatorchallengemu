@@ -44,6 +44,8 @@ function Admin() {
   const [uni, setUni] = useState<string>("All");
   const [brand, setBrand] = useState<string>("All");
   const [view, setView] = useState<"first" | "final">("first");
+  const [page, setPage] = useState(1);
+  const PAGE_SIZE = 10;
 
   useEffect(() => {
     (async () => {
@@ -105,6 +107,14 @@ function Admin() {
       return true;
     });
   }, [finals, q, uni, brand]);
+
+  useEffect(() => { setPage(1); }, [q, uni, brand, view]);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const paginated = useMemo(
+    () => filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE),
+    [filtered, currentPage]
+  );
 
   const shortlisted = useMemo(() => rows.filter((r) => r.shortlisted), [rows]);
 
@@ -357,7 +367,7 @@ function Admin() {
                           </tr>
                         </thead>
                         <tbody>
-                          {filtered.map((r) => (
+                          {paginated.map((r) => (
                             <tr key={r.id} className="border-t border-border hover:bg-muted/20">
                               <td className="px-4 py-3">
                                 <button
@@ -404,6 +414,32 @@ function Admin() {
                           ))}
                         </tbody>
                       </table>
+                    </div>
+                  )}
+                  {filtered.length > PAGE_SIZE && (
+                    <div className="flex items-center justify-between gap-3 border-t border-border p-3 text-sm">
+                      <span className="text-muted-foreground">
+                        Showing {(currentPage - 1) * PAGE_SIZE + 1}–{Math.min(currentPage * PAGE_SIZE, filtered.length)} of {filtered.length}
+                      </span>
+                      <div className="flex items-center gap-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setPage((p) => Math.max(1, p - 1))}
+                          disabled={currentPage <= 1}
+                        >
+                          Previous
+                        </Button>
+                        <span className="text-muted-foreground">Page {currentPage} of {totalPages}</span>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                          disabled={currentPage >= totalPages}
+                        >
+                          Next
+                        </Button>
+                      </div>
                     </div>
                   )}
                 </section>
