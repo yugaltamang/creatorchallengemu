@@ -174,9 +174,6 @@ function ImageStrip() {
     "🎬 Lights",
     "✨ Camera",
     "📱 Action",
-    "🎵 Trending audio",
-    "💖 1M views",
-    
     "🔥 #CreatorChallenge26",
     "🎤 Brand collabs",
   ];
