@@ -10,7 +10,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { ArrowLeft, ArrowRight, Twitter } from "lucide-react";
 import brand1 from "@/assets/brand-1.jpg";
 import brand2 from "@/assets/brand-2.jpg";
-import creatorGirl from "@/assets/creator-girl.png";
+import creatorGirl from "@/assets/creator-girl.jpg";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -99,15 +99,34 @@ function Hero() {
       </svg>
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-8 pt-16 pb-24 md:pt-24 md:pb-32">
-        {/* Creator visual */}
-        <div className="col-span-12 md:col-span-4 flex items-end">
-          <img
-            src={creatorGirl}
-            alt="Student creating an Instagram reel"
-            className="mx-auto h-auto w-full max-w-[420px] object-contain"
-          />
-        </div>
+        {/* Phone mock / left visual */}
+        <div className="col-span-12 md:col-span-4">
+          <p className="mb-4 text-[13px] text-foreground">The submission portal is live</p>
+          <div className="relative mx-auto w-[260px] rounded-[36px] border-[3px] border-primary bg-card p-2 shadow-[0_0_0_1px_var(--color-primary)]">
+            <div className="overflow-hidden rounded-[28px] bg-black">
+              <div className="flex items-center justify-between px-4 py-3 text-[11px] tracking-widest text-primary">
+                <span>● LIVE</span>
+                <span>REEL · 0:23</span>
+              </div>
+              <div className="relative aspect-[3/4] overflow-hidden bg-primary/20">
+                <img
+                  src={creatorGirl}
+                  alt="Student creating an Instagram reel"
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                  <p className="text-[11px] text-foreground">@maya.shoots</p>
+                  <p className="text-[10px] text-muted-foreground">making it for NOIR Audio</p>
+                </div>
+              </div>
+              <div className="flex justify-around px-4 py-3 text-primary text-[10px]">
+                <span>≡</span><span>♡</span><span>▤</span><span>★</span><span>⌕</span>
+              </div>
+            </div>
 
+          </div>
+          <p className="mt-4 text-center text-[13px]">What you can expect</p>
+        </div>
 
         {/* Big headline */}
         <div className="col-span-12 md:col-span-8 md:pt-6">
