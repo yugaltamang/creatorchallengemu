@@ -149,7 +149,7 @@ function ImageStrip() {
     "📱 Action",
     "🎵 Trending audio",
     "💖 1M views",
-    "🏆 ₹5L prize pool",
+    
     "🔥 #CreatorChallenge26",
     "🎤 Brand collabs",
   ];
