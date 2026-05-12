@@ -233,7 +233,7 @@ function SocialBar() {
                     / {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <div className="mt-8 font-display text-5xl">{s.n}</div>
+                <div className="mt-6 font-display text-4xl sm:mt-8 sm:text-5xl">{s.n}</div>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">{s.l}</p>
               </div>
             ))}
