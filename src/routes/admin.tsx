@@ -67,7 +67,9 @@ function Admin() {
       if (error) throw error;
       return (data ?? []) as Submission[];
     },
-    staleTime: 30_000,
+    enabled: view === "first",
+    staleTime: 2 * 60_000,
+    refetchOnWindowFocus: false,
   });
 
   const finalsQuery = useQuery({
@@ -80,12 +82,14 @@ function Admin() {
       if (error) throw error;
       return (data ?? []) as FinalSubmission[];
     },
-    staleTime: 30_000,
+    enabled: view === "final",
+    staleTime: 2 * 60_000,
+    refetchOnWindowFocus: false,
   });
 
   const rows = submissionsQuery.data ?? [];
   const finals = finalsQuery.data ?? [];
-  const loading = submissionsQuery.isLoading || finalsQuery.isLoading;
+  const loading = view === "first" ? submissionsQuery.isLoading : finalsQuery.isLoading;
 
   async function toggleShortlist(r: Submission) {
     const next = !r.shortlisted;
