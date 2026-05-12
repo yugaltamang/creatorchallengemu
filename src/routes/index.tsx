@@ -304,45 +304,95 @@ function Brands() {
 
 function Guidelines() {
   const rules = [
-    { n: "01", t: "Eligibility", d: "Open to currently enrolled students of Masters' Union, LPU, or Tetr. Verify with your university email.", color: "text-pop-cyan", bg: "from-pop-cyan/20" },
-    { n: "02", t: "Format", d: "One Instagram reel, 15–30 seconds, vertical 9:16. Original or licensed audio only.", color: "text-pop-yellow", bg: "from-pop-yellow/20" },
-    { n: "03", t: "The brand", d: "Feature the chosen product clearly. Tag the brand and use #CreatorChallenge26.", color: "text-primary", bg: "from-primary/20" },
-    { n: "04", t: "Originality", d: "Created by you. No reposts, no AI voiceovers without disclosure, no copyrighted footage.", color: "text-pop-lime", bg: "from-pop-lime/20" },
-    { n: "05", t: "Account", d: "Your Instagram profile must be public throughout the judging window.", color: "text-pop-peach", bg: "from-pop-peach/20" },
-    { n: "06", t: "Deadline", d: "Submit by midnight, March 30. Winners announced April 15 across all three campuses.", color: "text-pop-violet", bg: "from-pop-violet/20" },
+    { n: "01", t: "Eligibility", d: "Open to currently enrolled students of Masters' Union, LPU, or Tetr. Verify with your university email.", chip: "Who", swatch: "bg-pop-cyan", rotate: "-rotate-3" },
+    { n: "02", t: "Format", d: "One Instagram reel, 15–30 seconds, vertical 9:16. Original or licensed audio only.", chip: "What", swatch: "bg-pop-yellow", rotate: "rotate-2" },
+    { n: "03", t: "The brand", d: "Feature the chosen product clearly. Tag the brand and use #CreatorChallenge26.", chip: "How", swatch: "bg-primary", rotate: "-rotate-2" },
+    { n: "04", t: "Originality", d: "Created by you. No reposts, no AI voiceovers without disclosure, no copyrighted footage.", chip: "Vibe", swatch: "bg-pop-lime", rotate: "rotate-3" },
+    { n: "05", t: "Account", d: "Your Instagram profile must be public throughout the judging window.", chip: "Setup", swatch: "bg-pop-peach", rotate: "-rotate-1" },
+    { n: "06", t: "Deadline", d: "Submit by midnight, March 30. Winners announced April 15 across all three campuses.", chip: "When", swatch: "bg-pop-violet", rotate: "rotate-2" },
   ];
 
   return (
-    <section id="rules" className="border-b border-border">
-      <div className="mx-auto max-w-[1400px] px-8 py-24">
-        <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-[12px] uppercase tracking-[0.18em] text-muted-foreground">
-              <Sparkles className="h-3.5 w-3.5" /> Guidelines
+    <section id="rules" className="relative overflow-hidden border-b border-border bg-gradient-card">
+      {/* decorative blobs */}
+      <div className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-pop-cyan/30 blur-3xl" />
+      <div className="pointer-events-none absolute -right-32 bottom-10 h-80 w-80 rounded-full bg-pop-violet/30 blur-3xl" />
+      <div className="pointer-events-none absolute left-1/3 top-1/2 h-64 w-64 rounded-full bg-pop-yellow/30 blur-3xl" />
+
+      <div className="relative mx-auto max-w-[1400px] px-8 py-28">
+        {/* Header */}
+        <div className="mb-20 grid gap-10 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-8">
+            <span className="inline-flex items-center gap-2 rounded-full border-2 border-foreground bg-card px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em]">
+              <Sparkles className="h-3.5 w-3.5" /> The Playbook
             </span>
-            <h2 className="mt-5 font-display text-[clamp(48px,7vw,100px)]">
-              <span className="bg-gradient-to-r from-primary to-pop-cyan bg-clip-text text-transparent">
-                Rules
-              </span>{" "}
-              of play.
+            <h2 className="mt-6 font-display text-[clamp(56px,9vw,140px)]">
+              Rules{" "}
+              <span className="italic font-serif bg-gradient-to-r from-primary via-pop-violet to-pop-cyan bg-clip-text text-transparent">
+                of play
+              </span>
+              <span className="text-primary">.</span>
             </h2>
           </div>
-          <p className="max-w-xs text-[14px] text-muted-foreground">
-            Six things to keep in mind. Break the algorithm, not the rules.
-          </p>
+          <div className="lg:col-span-4">
+            <div className="rounded-2xl border-2 border-foreground bg-card p-5 shadow-pop">
+              <p className="font-display text-2xl leading-tight">
+                Six rules.
+                <br />
+                <span className="text-primary">Zero excuses.</span>
+              </p>
+              <p className="mt-3 text-[13px] text-muted-foreground">
+                Break the algorithm — not the rules. Skim before you submit.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {rules.map((r) => (
-            <div
-              key={r.n}
-              className={`group relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br ${r.bg} to-card p-7 transition hover:-translate-y-1 hover:border-primary/40`}
-            >
-              <div className={`font-display text-6xl ${r.color}`}>{r.n}</div>
-              <h3 className="mt-5 font-display text-xl">{r.t}</h3>
-              <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground">{r.d}</p>
+        {/* Rule cards — sticker stack */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {rules.map((r, i) => (
+            <div key={r.n} className="group relative">
+              {/* shadow plate */}
+              <div className="absolute inset-0 translate-x-2 translate-y-2 rounded-3xl bg-foreground" />
+              {/* card */}
+              <div className="relative rounded-3xl border-2 border-foreground bg-card p-7 transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1">
+                {/* sticker number */}
+                <div className={`absolute -top-5 -left-3 ${r.swatch} ${r.rotate} flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-foreground font-display text-2xl text-foreground shadow-md`}>
+                  {r.n}
+                </div>
+                {/* chip */}
+                <div className="flex justify-end">
+                  <span className="rounded-full border border-foreground/20 bg-background px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
+                    {r.chip}
+                  </span>
+                </div>
+
+                <h3 className="mt-8 font-display text-2xl leading-tight">{r.t}</h3>
+                <div className={`mt-3 h-[3px] w-12 ${r.swatch} rounded-full`} />
+                <p className="mt-4 text-[14px] leading-relaxed text-muted-foreground">{r.d}</p>
+
+                <div className="mt-6 flex items-center justify-between text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+                  <span>Rule {i + 1} / {rules.length}</span>
+                  <span className="text-primary">●</span>
+                </div>
+              </div>
             </div>
           ))}
+        </div>
+
+        {/* Footer note */}
+        <div className="mt-16 flex flex-wrap items-center justify-center gap-3 text-center">
+          <span className="rounded-full bg-foreground px-5 py-2 font-display text-sm uppercase tracking-wider text-background">
+            Read it
+          </span>
+          <span className="font-display text-2xl">→</span>
+          <span className="rounded-full bg-primary px-5 py-2 font-display text-sm uppercase tracking-wider text-primary-foreground">
+            Live it
+          </span>
+          <span className="font-display text-2xl">→</span>
+          <span className="rounded-full bg-pop-lime px-5 py-2 font-display text-sm uppercase tracking-wider text-foreground">
+            Win it
+          </span>
         </div>
       </div>
     </section>
