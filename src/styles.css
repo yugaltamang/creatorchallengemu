@@ -100,6 +100,8 @@
     font-family: var(--font-display);
     letter-spacing: -0.035em;
     line-height: 0.88;
+    -webkit-text-stroke: 0.6px currentColor;
+    text-stroke: 0.6px currentColor;
   }
   .font-serif { font-family: var(--font-serif); letter-spacing: -0.02em; line-height: 0.95; }
 }
