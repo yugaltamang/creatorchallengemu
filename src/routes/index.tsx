@@ -131,9 +131,9 @@ function Hero() {
         {/* Big headline */}
         <div className="col-span-12 md:col-span-8 md:pt-6">
           <h2 className="font-display text-[clamp(64px,10vw,160px)] leading-[0.86]">
-            <span className="text-primary">Let's</span>{" "}<br className="hidden sm:block" />
-            <span className="text-primary">build</span>{" "}<br className="hidden sm:block" />
-            <span className="text-primary">stories,</span><br />
+            <span className="mu-gradient-text">Let's</span>{" "}<br className="hidden sm:block" />
+            <span className="mu-gradient-text">build</span>{" "}<br className="hidden sm:block" />
+            <span className="mu-gradient-text">stories,</span><br />
             <span className="text-foreground">together.</span>
           </h2>
         </div>
@@ -312,9 +312,9 @@ function Guidelines() {
     { n: "06", t: "Deadline", d: "Submit by midnight, March 30. Winners announced April 15 across all three campuses.", chip: "Timeline" },
   ];
 
-  // Editorial palette — AIGA-style dark + red.
+  // Editorial palette — AIGA-style dark + MU gradient accent.
   const ink = "#0E1116";
-  const blue = "#FF2D55"; // red accent matches primary
+  const blue = "#F7D544"; // mid-stop of MU gradient for solid uses
   const lime = "#FFFFFF";
   const muted = "rgba(255,255,255,0.62)";
 
