@@ -167,7 +167,7 @@ function Admin() {
                     <th className="px-4 py-3">University</th>
                     <th className="px-4 py-3">Brand</th>
                     <th className="px-4 py-3">Instagram</th>
-                    <th className="px-4 py-3">Notes</th>
+                    <th className="px-4 py-3">Reel</th>
                     <th className="px-4 py-3">Submitted</th>
                   </tr>
                 </thead>
