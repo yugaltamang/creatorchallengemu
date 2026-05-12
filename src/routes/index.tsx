@@ -304,95 +304,117 @@ function Brands() {
 
 function Guidelines() {
   const rules = [
-    { n: "01", t: "Eligibility", d: "Open to currently enrolled students of Masters' Union, LPU, or Tetr. Verify with your university email.", chip: "Who", swatch: "bg-pop-cyan", rotate: "-rotate-3" },
-    { n: "02", t: "Format", d: "One Instagram reel, 15–30 seconds, vertical 9:16. Original or licensed audio only.", chip: "What", swatch: "bg-pop-yellow", rotate: "rotate-2" },
-    { n: "03", t: "The brand", d: "Feature the chosen product clearly. Tag the brand and use #CreatorChallenge26.", chip: "How", swatch: "bg-primary", rotate: "-rotate-2" },
-    { n: "04", t: "Originality", d: "Created by you. No reposts, no AI voiceovers without disclosure, no copyrighted footage.", chip: "Vibe", swatch: "bg-pop-lime", rotate: "rotate-3" },
-    { n: "05", t: "Account", d: "Your Instagram profile must be public throughout the judging window.", chip: "Setup", swatch: "bg-pop-peach", rotate: "-rotate-1" },
-    { n: "06", t: "Deadline", d: "Submit by midnight, March 30. Winners announced April 15 across all three campuses.", chip: "When", swatch: "bg-pop-violet", rotate: "rotate-2" },
+    { n: "01", t: "Eligibility", d: "Open to currently enrolled students of Masters' Union, LPU, or Tetr. Verify with your university email.", chip: "Who can enter" },
+    { n: "02", t: "Format", d: "One Instagram reel, 15–30 seconds, vertical 9:16. Original or licensed audio only.", chip: "Spec sheet" },
+    { n: "03", t: "The brand", d: "Feature the chosen product clearly. Tag the brand and use #CreatorChallenge26.", chip: "Brand brief" },
+    { n: "04", t: "Originality", d: "Created by you. No reposts, no AI voiceovers without disclosure, no copyrighted footage.", chip: "Be original" },
+    { n: "05", t: "Account", d: "Your Instagram profile must be public throughout the judging window.", chip: "Visibility" },
+    { n: "06", t: "Deadline", d: "Submit by midnight, March 30. Winners announced April 15 across all three campuses.", chip: "Timeline" },
   ];
 
-  return (
-    <section id="rules" className="relative overflow-hidden border-b border-border bg-gradient-card">
-      {/* decorative blobs */}
-      <div className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-pop-cyan/30 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 bottom-10 h-80 w-80 rounded-full bg-pop-violet/30 blur-3xl" />
-      <div className="pointer-events-none absolute left-1/3 top-1/2 h-64 w-64 rounded-full bg-pop-yellow/30 blur-3xl" />
+  // Editorial palette — locked, to match the reference aesthetic.
+  const ink = "#0E1116";
+  const blue = "#1F4BFF";
+  const lime = "#D7FF4A";
+  const muted = "rgba(255,255,255,0.62)";
 
-      <div className="relative mx-auto max-w-[1400px] px-8 py-28">
+  return (
+    <section id="rules" className="border-b border-border bg-[#EDEDF1]">
+      <div className="mx-auto max-w-[1400px] px-8 py-28">
         {/* Header */}
-        <div className="mb-20 grid gap-10 lg:grid-cols-12 lg:items-end">
+        <div className="mb-12 grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
-            <span className="inline-flex items-center gap-2 rounded-full border-2 border-foreground bg-card px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em]">
+            <span
+              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-white"
+              style={{ background: ink }}
+            >
               <Sparkles className="h-3.5 w-3.5" /> The Playbook
             </span>
-            <h2 className="mt-6 font-display text-[clamp(56px,9vw,140px)]">
-              Rules{" "}
-              <span className="italic font-serif bg-gradient-to-r from-primary via-pop-violet to-pop-cyan bg-clip-text text-transparent">
-                of play
-              </span>
-              <span className="text-primary">.</span>
+            <h2
+              className="mt-6 font-display text-[clamp(48px,7.5vw,108px)] leading-[0.95]"
+              style={{ color: ink }}
+            >
+              Rules of <span className="font-serif italic">play</span>
+              <span style={{ color: blue }}>.</span>
             </h2>
           </div>
-          <div className="lg:col-span-4">
-            <div className="rounded-2xl border-2 border-foreground bg-card p-5 shadow-pop">
-              <p className="font-display text-2xl leading-tight">
-                Six rules.
-                <br />
-                <span className="text-primary">Zero excuses.</span>
-              </p>
-              <p className="mt-3 text-[13px] text-muted-foreground">
-                Break the algorithm — not the rules. Skim before you submit.
-              </p>
-            </div>
-          </div>
+          <p className="lg:col-span-4 text-[14px] leading-relaxed" style={{ color: "#4B5160" }}>
+            Six things to keep in mind before you hit submit. Read once. Then go make something worth watching.
+          </p>
         </div>
 
-        {/* Rule cards — sticker stack */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {rules.map((r, i) => (
-            <div key={r.n} className="group relative">
-              {/* shadow plate */}
-              <div className="absolute inset-0 translate-x-2 translate-y-2 rounded-3xl bg-foreground" />
-              {/* card */}
-              <div className="relative rounded-3xl border-2 border-foreground bg-card p-7 transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1">
-                {/* sticker number */}
-                <div className={`absolute -top-5 -left-3 ${r.swatch} ${r.rotate} flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-foreground font-display text-2xl text-foreground shadow-md`}>
-                  {r.n}
-                </div>
-                {/* chip */}
-                <div className="flex justify-end">
-                  <span className="rounded-full border border-foreground/20 bg-background px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
+        {/* Bento grid */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {rules.map((r, i) => {
+            const isAccent = i === 2;
+            const bg = isAccent ? blue : ink;
+            const pillBg = isAccent ? "#FFFFFF" : lime;
+            return (
+              <article
+                key={r.n}
+                className="relative flex min-h-[320px] flex-col justify-between rounded-3xl p-7 transition-transform duration-300 hover:-translate-y-1"
+                style={{ background: bg, color: "#fff" }}
+              >
+                <div className="flex items-start justify-between">
+                  <span
+                    className="font-display text-[13px] tracking-[0.2em]"
+                    style={{ color: isAccent ? "rgba(255,255,255,0.7)" : muted }}
+                  >
+                    / {r.n}
+                  </span>
+                  <span
+                    className="rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em]"
+                    style={{ background: pillBg, color: ink }}
+                  >
                     {r.chip}
                   </span>
                 </div>
 
-                <h3 className="mt-8 font-display text-2xl leading-tight">{r.t}</h3>
-                <div className={`mt-3 h-[3px] w-12 ${r.swatch} rounded-full`} />
-                <p className="mt-4 text-[14px] leading-relaxed text-muted-foreground">{r.d}</p>
-
-                <div className="mt-6 flex items-center justify-between text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
-                  <span>Rule {i + 1} / {rules.length}</span>
-                  <span className="text-primary">●</span>
+                <div className="mt-12">
+                  <h3 className="font-display text-[34px] leading-[1.02] tracking-tight">
+                    {r.t}
+                    <span style={{ color: isAccent ? "#fff" : lime }}>.</span>
+                  </h3>
+                  <div
+                    className="mt-3 h-[6px] w-16 rounded-full"
+                    style={{ background: isAccent ? "#fff" : lime, opacity: isAccent ? 0.9 : 1 }}
+                  />
                 </div>
-              </div>
-            </div>
-          ))}
+
+                <p
+                  className="mt-6 text-[14px] leading-relaxed"
+                  style={{ color: isAccent ? "rgba(255,255,255,0.85)" : muted }}
+                >
+                  {r.d}
+                </p>
+              </article>
+            );
+          })}
         </div>
 
-        {/* Footer note */}
-        <div className="mt-16 flex flex-wrap items-center justify-center gap-3 text-center">
-          <span className="rounded-full bg-foreground px-5 py-2 font-display text-sm uppercase tracking-wider text-background">
-            Read it
-          </span>
-          <span className="font-display text-2xl">→</span>
-          <span className="rounded-full bg-primary px-5 py-2 font-display text-sm uppercase tracking-wider text-primary-foreground">
-            Live it
-          </span>
-          <span className="font-display text-2xl">→</span>
-          <span className="rounded-full bg-pop-lime px-5 py-2 font-display text-sm uppercase tracking-wider text-foreground">
-            Win it
-          </span>
+        {/* Footer strip */}
+        <div
+          className="mt-10 flex flex-wrap items-center justify-between gap-6 rounded-3xl px-8 py-7"
+          style={{ background: ink, color: "#fff" }}
+        >
+          <div className="flex items-center gap-4">
+            <span
+              className="rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em]"
+              style={{ background: lime, color: ink }}
+            >
+              Heads up
+            </span>
+            <p className="font-display text-[20px] leading-tight">
+              Miss a rule, miss the prize. We disqualify quietly.
+            </p>
+          </div>
+          <a
+            href="#signup"
+            className="inline-flex items-center gap-3 rounded-full px-6 py-3 text-[13px] font-bold uppercase tracking-[0.18em] transition hover:opacity-90"
+            style={{ background: blue, color: "#fff" }}
+          >
+            I'm in <span aria-hidden>→</span>
+          </a>
         </div>
       </div>
     </section>
