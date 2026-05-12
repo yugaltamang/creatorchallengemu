@@ -19,6 +19,7 @@ type Submission = {
   instagram_handle: string;
   brand_choice: string;
   notes: string | null;
+  shortlisted: boolean;
   created_at: string;
 };
 
