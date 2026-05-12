@@ -249,14 +249,12 @@ function Brands() {
       <div className="mx-auto max-w-[1400px] px-8 py-24">
         <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-[12px] uppercase tracking-[0.18em] text-muted-foreground">
-              <Sparkles className="h-3.5 w-3.5" /> The Brief
+            <span className="ticker-dot inline-flex items-center font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+              The Brief / 02
             </span>
             <h2 className="mt-5 font-display text-[clamp(48px,7vw,100px)]">
               Two brands.{" "}
-              <span className="bg-gradient-to-r from-primary via-pop-violet to-pop-cyan bg-clip-text text-transparent">
-                One reel.
-              </span>
+              <span className="text-primary">One reel.</span>
             </h2>
           </div>
           <p className="max-w-xs text-[14px] text-muted-foreground">
@@ -268,21 +266,21 @@ function Brands() {
           {brands.map((b, i) => (
             <article
               key={b.name}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-card transition hover:-translate-y-1 hover:shadow-pop"
+              className="corner-tick group relative overflow-hidden border border-border bg-card transition hover:border-primary/60"
             >
-              <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${b.accent}`} />
+              <div className="absolute inset-x-0 top-0 h-1 bg-primary z-10" />
               <div className="relative aspect-[5/4] overflow-hidden">
                 <img
                   src={b.image}
                   alt={b.name}
                   loading="lazy"
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.05]"
+                  className="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-[1.04] group-hover:grayscale-0"
                 />
-                <div className="absolute left-4 top-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-background/80 backdrop-blur">
-                  <b.icon className="h-5 w-5 text-primary" />
+                <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center bg-background/85 backdrop-blur">
+                  <b.icon className="h-4 w-4 text-primary" />
                 </div>
-                <span className="absolute right-4 top-4 rounded-full bg-background/80 px-3 py-1 text-[11px] uppercase tracking-widest backdrop-blur">
-                  Brief 0{i + 1}
+                <span className="absolute right-4 top-4 bg-background/85 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] backdrop-blur">
+                  Brief / 0{i + 1}
                 </span>
               </div>
               <div className="p-7">
@@ -291,7 +289,7 @@ function Brands() {
                 <p className="mt-4 text-[14px] leading-relaxed text-muted-foreground">{b.summary}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {b.angles.map((a) => (
-                    <span key={a} className={`rounded-full border px-3 py-1 text-[12px] ${b.chip}`}>
+                    <span key={a} className="border border-border px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
                       {a}
                     </span>
                   ))}
