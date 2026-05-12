@@ -128,6 +128,7 @@ function Stage2Form() {
     const form = e.currentTarget;
     const fd = new FormData(form);
     const handle = String(fd.get("instagram_handle") || "").replace(/^@/, "").trim().toLowerCase();
+    const whatsapp = String(fd.get("whatsapp_number") || "").trim();
     const reel1 = String(fd.get("reel_1") || "").trim();
     const reel2 = String(fd.get("reel_2") || "").trim();
     const reel3 = String(fd.get("reel_3") || "").trim();
@@ -137,12 +138,17 @@ function Stage2Form() {
       university: String(fd.get("university") || ""),
       brand_choice: String(fd.get("brand_choice") || ""),
       instagram_handle: handle,
+      whatsapp_number: whatsapp,
       reel_1: reel1,
       reel_2: reel2 || null,
       reel_3: reel3 || null,
     };
-    if (!payload.full_name || !payload.email || !payload.university || !payload.brand_choice || !handle || !reel1) {
+    if (!payload.full_name || !payload.email || !payload.university || !payload.brand_choice || !handle || !whatsapp || !reel1) {
       toast.error("Please fill in all required fields.");
+      return;
+    }
+    if (!/^\+?[0-9\s\-()]{7,20}$/.test(whatsapp)) {
+      toast.error("Please enter a valid WhatsApp number.");
       return;
     }
 
