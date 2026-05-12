@@ -10,7 +10,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { ArrowLeft, ArrowRight, Twitter } from "lucide-react";
 import brand1 from "@/assets/brand-1.jpg";
 import brand2 from "@/assets/brand-2.jpg";
-import creatorGirl from "@/assets/creator-girl.jpg";
+import creatorGirl from "@/assets/creator-girl.png";
 
 export const Route = createFileRoute("/")({
   component: Landing,
