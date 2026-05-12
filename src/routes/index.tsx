@@ -347,7 +347,7 @@ function Guidelines() {
 
   return (
     <section id="rules" className="border-y border-border bg-background">
-      <div className="mx-auto max-w-[1400px] px-8 py-16">
+      <div className="mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         {/* Single compact box */}
         <div className="border border-white/15">
           {/* Header bar */}
