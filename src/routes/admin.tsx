@@ -13,6 +13,34 @@ const FINAL_COLS = "id,full_name,email,university,instagram_handle,brand_choice,
 export const Route = createFileRoute("/admin")({
   component: Admin,
   head: () => ({ meta: [{ title: "Admin · Creator Challenge" }] }),
+  loader: ({ context }) => {
+    const qc = (context as { queryClient?: import("@tanstack/react-query").QueryClient }).queryClient;
+    if (!qc) return;
+    qc.prefetchQuery({
+      queryKey: ["admin", "submissions"],
+      queryFn: async () => {
+        const { data, error } = await supabase
+          .from("submissions")
+          .select(SUBMISSION_COLS)
+          .order("created_at", { ascending: false });
+        if (error) throw error;
+        return (data ?? []) as Submission[];
+      },
+      staleTime: 30_000,
+    });
+    qc.prefetchQuery({
+      queryKey: ["admin", "final_submissions"],
+      queryFn: async () => {
+        const { data, error } = await supabase
+          .from("final_submissions")
+          .select(FINAL_COLS)
+          .order("created_at", { ascending: false });
+        if (error) throw error;
+        return (data ?? []) as FinalSubmission[];
+      },
+      staleTime: 30_000,
+    });
+  },
 });
 
 type Submission = {
