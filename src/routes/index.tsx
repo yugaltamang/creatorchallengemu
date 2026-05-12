@@ -44,6 +44,24 @@ function Landing() {
 function Header() {
   return (
     <header className="relative z-30 border-b border-border">
+      {/* Nav row */}
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between border-b border-border px-8 py-4">
+        <nav className="flex flex-wrap items-center gap-7 text-[14px]">
+          <a href="#brands" className="hover:text-primary">Brands</a>
+          <a href="#rules" className="hover:text-primary">Rules</a>
+          <a href="#prizes" className="hover:text-primary">Prizes</a>
+          <a href="#about" className="hover:text-primary">About</a>
+          <a href="#signup" className="hover:text-primary">Submit</a>
+          <Link to="/admin" className="text-muted-foreground hover:text-primary">Admin</Link>
+        </nav>
+        <a
+          href="#signup"
+          className="grid h-16 w-16 place-items-center rounded-full border border-primary text-center text-[11px] leading-tight text-primary transition hover:bg-primary hover:text-primary-foreground"
+        >
+          Enter<br />Now
+        </a>
+      </div>
+
       <div className="mx-auto flex max-w-[1400px] items-start justify-between gap-8 px-8 pt-7 pb-5">
         {/* Logo block */}
         <div className="flex items-start gap-5">
@@ -62,24 +80,6 @@ function Header() {
           <p>India · 3 Campuses</p>
           <p className="text-muted-foreground">Feb 14 – Mar 30, 2026</p>
         </div>
-      </div>
-
-      {/* Nav row */}
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between border-t border-border px-8 py-4">
-        <nav className="flex flex-wrap items-center gap-7 text-[14px]">
-          <a href="#brands" className="hover:text-primary">Brands</a>
-          <a href="#rules" className="hover:text-primary">Rules</a>
-          <a href="#prizes" className="hover:text-primary">Prizes</a>
-          <a href="#about" className="hover:text-primary">About</a>
-          <a href="#signup" className="hover:text-primary">Submit</a>
-          <Link to="/admin" className="text-muted-foreground hover:text-primary">Admin</Link>
-        </nav>
-        <a
-          href="#signup"
-          className="grid h-20 w-20 place-items-center rounded-full border border-primary text-center text-[12px] leading-tight text-primary transition hover:bg-primary hover:text-primary-foreground"
-        >
-          Enter<br />Now
-        </a>
       </div>
     </header>
   );
