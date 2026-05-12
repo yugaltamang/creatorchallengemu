@@ -325,7 +325,7 @@ function Guidelines() {
         <div className="mb-12 grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
             <span
-              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-white"
+              className="inline-flex items-center gap-2 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-white"
               style={{ background: ink }}
             >
               <Sparkles className="h-3.5 w-3.5" /> The Playbook
@@ -352,7 +352,7 @@ function Guidelines() {
             return (
               <article
                 key={r.n}
-                className="relative flex min-h-[320px] flex-col justify-between rounded-3xl p-7 transition-transform duration-300 hover:-translate-y-1"
+                className="relative flex min-h-[320px] flex-col justify-between p-7 transition-transform duration-300 hover:-translate-y-1"
                 style={{ background: bg, color: "#fff" }}
               >
                 <div className="flex items-start justify-between">
@@ -363,7 +363,7 @@ function Guidelines() {
                     / {r.n}
                   </span>
                   <span
-                    className="rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em]"
+                    className="px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em]"
                     style={{ background: pillBg, color: ink }}
                   >
                     {r.chip}
@@ -376,7 +376,7 @@ function Guidelines() {
                     <span style={{ color: isAccent ? "#fff" : lime }}>.</span>
                   </h3>
                   <div
-                    className="mt-3 h-[6px] w-16 rounded-full"
+                    className="mt-3 h-[6px] w-16"
                     style={{ background: isAccent ? "#fff" : lime, opacity: isAccent ? 0.9 : 1 }}
                   />
                 </div>
@@ -394,12 +394,12 @@ function Guidelines() {
 
         {/* Footer strip */}
         <div
-          className="mt-10 flex flex-wrap items-center justify-between gap-6 rounded-3xl px-8 py-7"
+          className="mt-10 flex flex-wrap items-center justify-between gap-6 px-8 py-7"
           style={{ background: ink, color: "#fff" }}
         >
           <div className="flex items-center gap-4">
             <span
-              className="rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em]"
+              className="px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em]"
               style={{ background: lime, color: ink }}
             >
               Heads up
@@ -410,7 +410,7 @@ function Guidelines() {
           </div>
           <a
             href="#signup"
-            className="inline-flex items-center gap-3 rounded-full px-6 py-3 text-[13px] font-bold uppercase tracking-[0.18em] transition hover:opacity-90"
+            className="inline-flex items-center gap-3 px-6 py-3 text-[13px] font-bold uppercase tracking-[0.18em] transition hover:opacity-90"
             style={{ background: blue, color: "#fff" }}
           >
             I'm in <span aria-hidden>→</span>
