@@ -421,7 +421,7 @@ function SignupSection() {
                       <label key={u} className="group cursor-pointer">
                         <input type="radio" name="university" value={u} className="peer sr-only" required />
                         <div className="relative flex h-14 items-center justify-center rounded-xl border border-border bg-background/60 px-3 text-center text-[13px] font-medium transition hover:border-primary/50 hover:-translate-y-0.5 peer-checked:border-primary peer-checked:bg-gradient-to-br peer-checked:from-primary peer-checked:to-pop-violet peer-checked:text-primary-foreground peer-checked:shadow-pop">
-                          <span className="absolute right-2 top-2 hidden h-4 w-4 items-center justify-center rounded-full bg-background/30 peer-checked:group-[]:flex">
+                          <span className="absolute right-2 top-2 hidden h-4 w-4 items-center justify-center rounded-full bg-background/30">
                             <Check className="h-3 w-3" />
                           </span>
                           {u}
