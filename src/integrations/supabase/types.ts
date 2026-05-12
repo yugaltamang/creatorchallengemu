@@ -27,6 +27,7 @@ export type Database = {
           reel_3: string | null
           shortlisted: boolean
           university: string
+          whatsapp_number: string | null
         }
         Insert: {
           brand_choice: string
@@ -40,6 +41,7 @@ export type Database = {
           reel_3?: string | null
           shortlisted?: boolean
           university: string
+          whatsapp_number?: string | null
         }
         Update: {
           brand_choice?: string
@@ -53,6 +55,7 @@ export type Database = {
           reel_3?: string | null
           shortlisted?: boolean
           university?: string
+          whatsapp_number?: string | null
         }
         Relationships: []
       }
