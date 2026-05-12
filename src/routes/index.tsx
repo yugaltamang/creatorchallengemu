@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
-import { Twitter, Sparkles, Instagram, Trophy, Calendar, Users, Music2, Zap, User, Mail, AtSign, MessageSquare, GraduationCap, Check, ArrowRight } from "lucide-react";
+import { Twitter, Sparkles, Instagram, Trophy, Calendar, Users, Music2, Zap, User, Mail, AtSign, MessageSquare, GraduationCap, Check, ArrowRight, Link as LinkIcon } from "lucide-react";
 import brand1 from "@/assets/brand-1.jpg";
 import brand2 from "@/assets/brand-2.jpg";
 import creatorGirl from "@/assets/creator-girl.webp";
@@ -434,9 +434,9 @@ function SignupSection() {
       university: String(fd.get("university") || ""),
       brand_choice: String(fd.get("brand_choice") || ""),
       instagram_handle: handle,
-      notes: String(fd.get("notes") || "").trim() || null,
+      notes: String(fd.get("notes") || "").trim(),
     };
-    if (!payload.full_name || !payload.email || !payload.university || !payload.brand_choice || !handle) {
+    if (!payload.full_name || !payload.email || !payload.university || !payload.brand_choice || !handle || !payload.notes) {
       toast.error("Please fill in all required fields.");
       return;
     }
@@ -519,8 +519,8 @@ function SignupSection() {
                   <Input name="instagram_handle" required placeholder="yourhandle" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
                 </Field>
 
-                <Field label="Anything we should know? (optional)" icon={MessageSquare}>
-                  <Textarea name="notes" rows={3} placeholder="Concept, experience, follower count…" className="rounded-xl border border-border bg-background/60 p-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
+                <Field label="Link to your best reel" icon={LinkIcon} withInputIcon>
+                  <Input name="notes" type="url" required placeholder="https://instagram.com/reel/…" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
                 </Field>
 
                 <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
