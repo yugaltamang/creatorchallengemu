@@ -418,7 +418,7 @@ function Guidelines() {
 
           {/* Footer strip */}
           <div
-            className="flex flex-wrap items-center justify-between gap-4 border-t border-white/15 px-6 py-4"
+            className="flex flex-wrap items-center justify-between gap-3 border-t border-white/15 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4"
             style={{ background: ink, color: "#fff" }}
           >
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
