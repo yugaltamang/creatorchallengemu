@@ -7,10 +7,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-xl: 0px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -36,43 +36,51 @@
 }
 
 :root {
-  --radius: 0;
-  /* Editorial Pitchfork-zine palette */
-  --background: oklch(0.94 0.018 80);            /* cream */
-  --foreground: oklch(0.16 0.01 250);            /* ink */
-  --card: oklch(0.97 0.012 85);
-  --card-foreground: oklch(0.16 0.01 250);
-  --popover: oklch(0.97 0.012 85);
-  --popover-foreground: oklch(0.16 0.01 250);
+  --radius: 0.875rem;
+  /* Editorial poster palette — saturated card colors on near-black bg */
+  --background: oklch(0.18 0.01 260);
+  --foreground: oklch(0.97 0.01 90);
+  --card: oklch(0.22 0.012 260);
+  --card-foreground: oklch(0.97 0.01 90);
+  --popover: oklch(0.22 0.012 260);
+  --popover-foreground: oklch(0.97 0.01 90);
 
-  --primary: oklch(0.6 0.22 27);                 /* poster red */
-  --primary-foreground: oklch(0.97 0.012 85);
-  --secondary: oklch(0.55 0.16 250);             /* cobalt blue */
-  --secondary-foreground: oklch(0.97 0.012 85);
-  --muted: oklch(0.9 0.018 80);
-  --muted-foreground: oklch(0.4 0.015 250);
-  --accent: oklch(0.55 0.14 150);                /* forest green */
-  --accent-foreground: oklch(0.97 0.012 85);
-  --destructive: oklch(0.6 0.22 27);
-  --destructive-foreground: oklch(0.97 0.012 85);
-  --border: oklch(0.16 0.01 250);
-  --input: oklch(0.97 0.012 85);
-  --ring: oklch(0.6 0.22 27);
+  --primary: oklch(0.66 0.22 27);
+  --primary-foreground: oklch(0.98 0.01 90);
+  --secondary: oklch(0.62 0.18 250);
+  --secondary-foreground: oklch(0.98 0.01 90);
+  --muted: oklch(0.28 0.012 260);
+  --muted-foreground: oklch(0.7 0.015 260);
+  --accent: oklch(0.65 0.16 150);
+  --accent-foreground: oklch(0.18 0.01 260);
+  --destructive: oklch(0.66 0.22 27);
+  --destructive-foreground: oklch(0.98 0.01 90);
+  --border: oklch(0.32 0.012 260);
+  --input: oklch(0.24 0.012 260);
+  --ring: oklch(0.66 0.22 27);
 
-  /* Editorial accent palette */
-  --zine-red: oklch(0.6 0.22 27);
-  --zine-green: oklch(0.55 0.14 150);
-  --zine-blue: oklch(0.55 0.16 250);
-  --zine-cream: oklch(0.94 0.018 80);
-  --zine-ink: oklch(0.16 0.01 250);
+  /* Poster palette */
+  --poster-orange: oklch(0.78 0.18 55);
+  --poster-blue:   oklch(0.62 0.2 250);
+  --poster-red:    oklch(0.68 0.22 25);
+  --poster-mint:   oklch(0.88 0.08 165);
+  --poster-olive:  oklch(0.45 0.08 130);
+  --poster-peach:  oklch(0.82 0.13 60);
+  --poster-pink:   oklch(0.82 0.12 340);
+  --poster-ink:    oklch(0.16 0.01 260);
+  --poster-cream:  oklch(0.96 0.02 90);
 }
 
 @theme inline {
-  --color-zine-red: var(--zine-red);
-  --color-zine-green: var(--zine-green);
-  --color-zine-blue: var(--zine-blue);
-  --color-zine-cream: var(--zine-cream);
-  --color-zine-ink: var(--zine-ink);
+  --color-poster-orange: var(--poster-orange);
+  --color-poster-blue: var(--poster-blue);
+  --color-poster-red: var(--poster-red);
+  --color-poster-mint: var(--poster-mint);
+  --color-poster-olive: var(--poster-olive);
+  --color-poster-peach: var(--poster-peach);
+  --color-poster-pink: var(--poster-pink);
+  --color-poster-ink: var(--poster-ink);
+  --color-poster-cream: var(--poster-cream);
 }
 
 .dark {
@@ -96,13 +104,25 @@
   .font-serif { font-family: var(--font-serif); letter-spacing: -0.01em; line-height: 0.95; }
 }
 
-/* Duotone photo treatments — monochrome on color block */
-.duotone-red   { filter: grayscale(1) contrast(1.1); mix-blend-mode: multiply; }
-.duotone-green { filter: grayscale(1) contrast(1.1); mix-blend-mode: multiply; }
-.duotone-blue  { filter: grayscale(1) contrast(1.1); mix-blend-mode: multiply; }
+/* Subtle grain on poster cards */
+.poster-grain {
+  position: relative;
+  isolation: isolate;
+}
+.poster-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(0,0,0,0.18) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: multiply;
+  opacity: 0.18;
+  border-radius: inherit;
+}
 
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
-.animate-marquee { animation: marquee 40s linear infinite; }
+.animate-marquee { animation: marquee 45s linear infinite; }
