@@ -225,7 +225,7 @@ function SocialBar() {
             {stats.map((s, i) => (
               <div
                 key={s.l}
-                className="corner-tick group relative overflow-hidden border border-border bg-card p-6 shadow-soft transition hover:border-primary/60"
+                className="corner-tick group relative overflow-hidden border border-border bg-card p-4 shadow-soft transition hover:border-primary/60 sm:p-6"
               >
                 <div className="flex items-center justify-between">
                   <s.icon className="h-5 w-5 text-primary" />
