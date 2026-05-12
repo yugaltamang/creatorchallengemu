@@ -189,7 +189,6 @@ function Admin() {
               className={`block w-full rounded-md px-3 py-2 text-left text-sm transition ${view === "first" ? "bg-primary text-primary-foreground" : "hover:bg-muted"}`}
             >
               First Stage
-              <span className="ml-2 text-xs opacity-70">{rows.length}</span>
             </button>
             <button
               onClick={() => setView("final")}
