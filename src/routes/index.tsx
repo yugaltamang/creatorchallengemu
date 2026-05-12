@@ -431,16 +431,22 @@ function SignupSection() {
     const form = e.currentTarget;
     const fd = new FormData(form);
     const handle = String(fd.get("instagram_handle") || "").replace(/^@/, "").trim().toLowerCase();
+    const whatsapp = String(fd.get("whatsapp_number") || "").trim();
     const payload = {
       full_name: String(fd.get("full_name") || "").trim(),
       email: String(fd.get("email") || "").trim().toLowerCase(),
       university: String(fd.get("university") || ""),
       brand_choice: String(fd.get("brand_choice") || ""),
       instagram_handle: handle,
+      whatsapp_number: whatsapp,
       notes: String(fd.get("notes") || "").trim(),
     };
-    if (!payload.full_name || !payload.email || !payload.university || !payload.brand_choice || !handle || !payload.notes) {
+    if (!payload.full_name || !payload.email || !payload.university || !payload.brand_choice || !handle || !whatsapp || !payload.notes) {
       toast.error("Please fill in all required fields.");
+      return;
+    }
+    if (!/^\+?[0-9\s\-()]{7,20}$/.test(whatsapp)) {
+      toast.error("Please enter a valid WhatsApp number.");
       return;
     }
     setSubmitting(true);
