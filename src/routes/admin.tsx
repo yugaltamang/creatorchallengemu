@@ -134,7 +134,7 @@ function Admin() {
     if (view === "final") {
       const head = ["Name", "Email", "University", "Brand", "Instagram", "Reel 1", "Reel 2", "Reel 3", "Submitted"];
       const lines = [head.join(",")];
-      for (const r of finals) {
+      for (const r of filteredFinals) {
         lines.push(
           [r.full_name, r.email, r.university, r.brand_choice, r.instagram_handle, r.reel_1, r.reel_2 ?? "", r.reel_3 ?? "", r.created_at]
             .map((v) => `"${String(v).replace(/"/g, '""')}"`)
