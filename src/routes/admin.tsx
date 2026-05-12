@@ -729,12 +729,12 @@ function StatCard({ label, value, accent }: { label: string; value: number; acce
 function BrandCard({ label, value, total }: { label: string; value: number; total: number }) {
   const pct = total ? Math.round((value / total) * 100) : 0;
   return (
-    <div className="border border-border bg-card p-6">
+    <div className="border border-border bg-card p-4 sm:p-6">
       <div className="flex items-baseline justify-between">
-        <p className="font-display text-xl">{label}</p>
+        <p className="font-display text-lg sm:text-xl">{label}</p>
         <p className="text-sm text-muted-foreground">{pct}%</p>
       </div>
-      <p className="mt-2 font-display text-4xl text-primary">{value}</p>
+      <p className="mt-2 font-display text-3xl text-primary sm:text-4xl">{value}</p>
       <div className="mt-4 h-2 bg-muted">
         <div className="h-full bg-primary transition-all" style={{ width: `${pct}%` }} />
       </div>
