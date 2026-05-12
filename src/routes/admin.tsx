@@ -180,7 +180,25 @@ function Admin() {
                   </button>
                   <div className="min-w-[160px] flex-1">
                     <div className="font-medium">{r.full_name}</div>
-                    <div className="text-xs text-muted-foreground">{r.email}</div>
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <span className="truncate">{r.email}</span>
+                      <button
+                        type="button"
+                        onClick={async () => {
+                          try {
+                            await navigator.clipboard.writeText(r.email);
+                            toast.success("Email copied");
+                          } catch {
+                            toast.error("Could not copy");
+                          }
+                        }}
+                        aria-label="Copy email"
+                        title="Copy email"
+                        className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-border text-muted-foreground transition hover:border-primary hover:text-primary"
+                      >
+                        <Copy className="h-3 w-3" />
+                      </button>
+                    </div>
                   </div>
                   <span className="text-sm text-muted-foreground">{r.university}</span>
                   <span className="border border-primary/40 px-2 py-1 text-xs text-primary">{r.brand_choice}</span>
