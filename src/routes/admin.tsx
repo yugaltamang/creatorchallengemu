@@ -719,9 +719,9 @@ function downloadCSV(content: string, filename: string) {
 
 function StatCard({ label, value, accent }: { label: string; value: number; accent?: boolean }) {
   return (
-    <div className={`border p-6 ${accent ? "border-primary bg-primary/10" : "border-border bg-card"}`}>
-      <p className="text-xs uppercase tracking-wider text-muted-foreground">{label}</p>
-      <p className={`mt-2 font-display text-4xl ${accent ? "text-primary" : ""}`}>{value}</p>
+    <div className={`border p-4 sm:p-6 ${accent ? "border-primary bg-primary/10" : "border-border bg-card"}`}>
+      <p className="text-[10px] uppercase tracking-wider text-muted-foreground sm:text-xs">{label}</p>
+      <p className={`mt-2 font-display text-3xl sm:text-4xl ${accent ? "text-primary" : ""}`}>{value}</p>
     </div>
   );
 }
