@@ -34,6 +34,8 @@ type FinalSubmission = {
   reel_1: string;
   reel_2: string | null;
   reel_3: string | null;
+  whatsapp_number: string | null;
+  is_winner: boolean;
   created_at: string;
 };
 
