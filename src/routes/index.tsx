@@ -423,6 +423,8 @@ function Guidelines() {
 
 function SignupSection() {
   const [submitting, setSubmitting] = useState(false);
+  const [successOpen, setSuccessOpen] = useState(false);
+  const [submittedName, setSubmittedName] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -448,7 +450,9 @@ function SignupSection() {
       toast.error("Could not submit. Try again.");
       return;
     }
+    setSubmittedName(payload.full_name.split(" ")[0]);
     form.reset();
+    setSuccessOpen(true);
     toast.success("You're in. We'll review your profile soon.");
   }
 
