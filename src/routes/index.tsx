@@ -130,12 +130,26 @@ function Hero() {
 
         {/* Big headline */}
         <div className="col-span-12 md:col-span-8 md:pt-6">
-          <h2 className="font-display text-[clamp(64px,10vw,160px)] leading-[0.86]">
-            <span className="mu-gradient-text">Let's</span>{" "}<br className="hidden sm:block" />
-            <span className="mu-gradient-text">build</span>{" "}<br className="hidden sm:block" />
-            <span className="mu-gradient-text">stories,</span><br />
-            <span className="text-foreground">together.</span>
+          <div className="mb-6 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
+            <span className="h-px w-10 bg-primary" />
+            <span>Issue 01 · Creator Challenge 26</span>
+          </div>
+          <h2 className="font-display text-[clamp(64px,10.5vw,180px)] leading-[0.82] tracking-[-0.04em]">
+            <span className="block">Let<span className="text-primary">'</span>s</span>
+            <span className="block">
+              <span className="mu-gradient-text">build</span>
+            </span>
+            <span className="block font-serif italic font-normal tracking-[-0.02em] text-foreground">
+              stories<span className="text-primary">,</span>
+            </span>
+            <span className="block text-outline-strong">together.</span>
           </h2>
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+            <span className="ticker-dot text-foreground">Live now</span>
+            <span>3 campuses</span>
+            <span>2 brands</span>
+            <span className="text-primary">→ scroll</span>
+          </div>
         </div>
       </div>
     </section>
