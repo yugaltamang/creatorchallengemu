@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
-import { Twitter, Sparkles, Instagram, Trophy, Calendar, Users, Music2, Zap } from "lucide-react";
+import { Twitter, Sparkles, Instagram, Trophy, Calendar, Users, Music2, Zap, User, Mail, AtSign, MessageSquare, GraduationCap, Check, ArrowRight } from "lucide-react";
 import brand1 from "@/assets/brand-1.jpg";
 import brand2 from "@/assets/brand-2.jpg";
 import creatorGirl from "@/assets/creator-girl.png";
@@ -404,54 +404,67 @@ function SignupSection() {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6 md:col-span-7">
-              <div className="grid gap-5 md:grid-cols-2">
-                <Field label="Full name">
-                  <Input name="full_name" required placeholder="Your name" className="h-12 rounded-xl border border-border bg-background/40 px-4 focus-visible:ring-1 focus-visible:ring-primary" />
-                </Field>
-                <Field label="University email">
-                  <Input name="email" type="email" required placeholder="you@university.edu" className="h-12 rounded-xl border border-border bg-background/40 px-4 focus-visible:ring-1 focus-visible:ring-primary" />
-                </Field>
-              </div>
-
-              <Field label="University">
-                <div className="grid grid-cols-3 gap-3 pt-2">
-                  {UNIVERSITIES.map((u) => (
-                    <label key={u} className="cursor-pointer">
-                      <input type="radio" name="university" value={u} className="peer sr-only" required />
-                      <div className="rounded-xl border border-border bg-background/40 p-3 text-center text-[13px] transition peer-checked:border-primary peer-checked:bg-primary peer-checked:text-primary-foreground">
-                        {u}
-                      </div>
-                    </label>
-                  ))}
+            <form onSubmit={handleSubmit} className="md:col-span-7">
+              <div className="rounded-3xl border border-border bg-background/50 p-6 backdrop-blur-md md:p-8 space-y-6">
+                <div className="grid gap-5 md:grid-cols-2">
+                  <Field label="Full name" icon={User} withInputIcon>
+                    <Input name="full_name" required placeholder="Your name" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
+                  </Field>
+                  <Field label="University email" icon={Mail} withInputIcon>
+                    <Input name="email" type="email" required placeholder="you@university.edu" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
+                  </Field>
                 </div>
-              </Field>
 
-              <Field label="Brand you're creating for">
-                <div className="grid grid-cols-2 gap-3 pt-2">
-                  {BRANDS.map((b) => (
-                    <label key={b} className="cursor-pointer">
-                      <input type="radio" name="brand_choice" value={b} className="peer sr-only" required />
-                      <div className="rounded-xl border border-border bg-background/40 p-3 text-center text-[13px] transition peer-checked:border-primary peer-checked:bg-primary peer-checked:text-primary-foreground">
-                        {b}
-                      </div>
-                    </label>
-                  ))}
+                <Field label="University" icon={GraduationCap}>
+                  <div className="grid grid-cols-3 gap-3 pt-2">
+                    {UNIVERSITIES.map((u) => (
+                      <label key={u} className="group cursor-pointer">
+                        <input type="radio" name="university" value={u} className="peer sr-only" required />
+                        <div className="relative flex h-14 items-center justify-center rounded-xl border border-border bg-background/60 px-3 text-center text-[13px] font-medium transition hover:border-primary/50 hover:-translate-y-0.5 peer-checked:border-primary peer-checked:bg-gradient-to-br peer-checked:from-primary peer-checked:to-pop-violet peer-checked:text-primary-foreground peer-checked:shadow-pop">
+                          <span className="absolute right-2 top-2 hidden h-4 w-4 items-center justify-center rounded-full bg-background/30">
+                            <Check className="h-3 w-3" />
+                          </span>
+                          {u}
+                        </div>
+                      </label>
+                    ))}
+                  </div>
+                </Field>
+
+                <Field label="Brand you're creating for" icon={Sparkles}>
+                  <div className="grid grid-cols-2 gap-3 pt-2">
+                    {BRANDS.map((b) => (
+                      <label key={b} className="group cursor-pointer">
+                        <input type="radio" name="brand_choice" value={b} className="peer sr-only" required />
+                        <div className="relative flex h-16 items-center justify-center rounded-xl border border-border bg-background/60 px-4 text-center text-[14px] font-medium transition hover:border-primary/50 hover:-translate-y-0.5 peer-checked:border-primary peer-checked:bg-gradient-to-br peer-checked:from-primary peer-checked:to-pop-violet peer-checked:text-primary-foreground peer-checked:shadow-pop">
+                          {b}
+                        </div>
+                      </label>
+                    ))}
+                  </div>
+                </Field>
+
+                <Field label="Instagram handle" icon={AtSign} withInputIcon>
+                  <Input name="instagram_handle" required placeholder="yourhandle" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
+                </Field>
+
+                <Field label="Anything we should know? (optional)" icon={MessageSquare}>
+                  <Textarea name="notes" rows={3} placeholder="Concept, experience, follower count…" className="rounded-xl border border-border bg-background/60 p-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
+                </Field>
+
+                <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+                  <p className="text-[12px] text-muted-foreground">
+                    By submitting you agree to the contest rules.
+                  </p>
+                  <Button type="submit" disabled={submitting} className="group h-14 rounded-full gradient-pop px-8 text-[14px] font-semibold tracking-wide text-primary-foreground shadow-pop transition hover:opacity-95 hover:shadow-[0_25px_60px_-15px_var(--primary)]">
+                    {submitting ? "Submitting…" : (
+                      <span className="flex items-center gap-2">
+                        Submit my profile
+                        <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                      </span>
+                    )}
+                  </Button>
                 </div>
-              </Field>
-
-              <Field label="Instagram handle">
-                <Input name="instagram_handle" required placeholder="@yourhandle" className="h-12 rounded-xl border border-border bg-background/40 px-4 focus-visible:ring-1 focus-visible:ring-primary" />
-              </Field>
-
-              <Field label="Anything we should know? (optional)">
-                <Textarea name="notes" rows={3} placeholder="Concept, experience, follower count…" className="rounded-xl border border-border bg-background/40" />
-              </Field>
-
-              <div className="pt-2">
-                <Button type="submit" disabled={submitting} className="h-14 rounded-full gradient-pop px-10 text-[14px] tracking-wide text-primary-foreground shadow-pop hover:opacity-95">
-                  {submitting ? "Submitting…" : "Submit my profile →"}
-                </Button>
               </div>
             </form>
           </div>
@@ -461,11 +474,17 @@ function SignupSection() {
   );
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+function Field({ label, icon: Icon, withInputIcon = false, children }: { label: string; icon?: React.ComponentType<{ className?: string }>; withInputIcon?: boolean; children: React.ReactNode }) {
   return (
-    <div className="space-y-1">
-      <Label className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">{label}</Label>
-      {children}
+    <div className="space-y-2">
+      <Label className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+        {Icon ? <Icon className="h-3.5 w-3.5 text-primary" /> : null}
+        {label}
+      </Label>
+      <div className="relative">
+        {Icon && withInputIcon ? <Icon className="pointer-events-none absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-muted-foreground" /> : null}
+        {children}
+      </div>
     </div>
   );
 }
