@@ -1,0 +1,1 @@
+ALTER TABLE public.final_submissions ADD COLUMN is_winner BOOLEAN NOT NULL DEFAULT false;
