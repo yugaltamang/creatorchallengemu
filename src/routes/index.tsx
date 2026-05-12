@@ -2,49 +2,38 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
-import { Twitter, Instagram, ArrowRight, ArrowUpRight } from "lucide-react";
+import { Twitter, Sparkles, Instagram, Trophy, Calendar, Users, Music2, Zap, User, Mail, AtSign, MessageSquare, GraduationCap, Check, ArrowRight } from "lucide-react";
+import brand1 from "@/assets/brand-1.jpg";
+import brand2 from "@/assets/brand-2.jpg";
+import creatorGirl from "@/assets/creator-girl.png";
 
 export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
     meta: [
       { title: "Creator Challenge 2026 — MU × LPU × Tetr" },
-      { name: "description", content: "A typographic creator competition for students of Masters' Union, LPU and Tetr." },
+      { name: "description", content: "Content creator challenge for students of Masters' Union, LPU and Tetr." },
     ],
   }),
 });
 
 const UNIVERSITIES = ["Masters' Union", "LPU", "Tetr"] as const;
 const BRANDS = ["NOIR Audio", "PULSE Energy"] as const;
-const HANDLE = "@creatorchallenge26";
-
-/* Poster color tokens */
-const C = {
-  ink: "#15171C",
-  cream: "#F2EBDD",
-  orange: "#E8853A",
-  blue: "#2E5BE8",
-  red: "#F0413E",
-  mint: "#C8E6CB",
-  olive: "#4A5A2E",
-  peach: "#F2B27A",
-  pink: "#E9B7E0",
-  black: "#0E0F12",
-};
 
 function Landing() {
   return (
-    <div className="relative min-h-screen overflow-hidden" style={{ background: C.ink, color: C.cream }}>
+    <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
       <Toaster theme="dark" />
       <Header />
       <Hero />
-      <Marquee />
+      <ImageStrip />
+      <SocialBar />
       <Brands />
-      <Stats />
       <Guidelines />
       <SignupSection />
       <Footer />
@@ -52,158 +41,126 @@ function Landing() {
   );
 }
 
-/* ================= POSTER CARD ================= */
-type PosterProps = {
-  bg: string;
-  fg?: string;
-  className?: string;
-  rotate?: number;
-  handle?: string;
-  arrow?: boolean;
-  children: React.ReactNode;
-};
-function Poster({ bg, fg = C.ink, className = "", rotate = 0, handle = HANDLE, arrow = true, children }: PosterProps) {
-  return (
-    <div
-      className={"poster-grain relative flex flex-col overflow-hidden rounded-[14px] " + className}
-      style={{ background: bg, color: fg, transform: `rotate(${rotate}deg)`, boxShadow: "0 30px 60px -25px rgba(0,0,0,0.5)" }}
-    >
-      <div className="flex items-center justify-between px-5 pt-4">
-        <span className="text-[12px] tracking-tight" style={{ color: fg, opacity: 0.85 }}>{handle}</span>
-      </div>
-      <div className="mx-5 mt-2 h-px" style={{ background: fg, opacity: 0.35 }} />
-      <div className="relative z-[1] flex flex-1 flex-col justify-center px-6 py-7">
-        {children}
-      </div>
-      {arrow && (
-        <div className="px-5 pb-4">
-          <ArrowRight className="h-4 w-4" style={{ color: fg, opacity: 0.6 }} />
-        </div>
-      )}
-    </div>
-  );
-}
-
-/* ================= HEADER ================= */
 function Header() {
   return (
-    <header className="relative z-30" style={{ borderBottom: `1px solid ${C.cream}22` }}>
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-8 px-6 py-5 md:px-10">
+    <header className="relative z-30 border-b border-border">
+      {/* Nav row */}
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-8 border-b border-border px-8 py-4">
+        {/* Logo block */}
         <div className="flex items-center gap-3">
-          <div className="grid h-10 w-10 place-items-center rounded-md" style={{ background: C.red, color: C.cream }}>
-            <span className="font-serif text-[15px] italic">cc</span>
+          <div className="grid h-10 w-10 place-items-center bg-primary">
+            <span className="font-serif text-base italic text-primary-foreground">CC</span>
           </div>
-          <div className="leading-[0.95]">
-            <p className="font-display text-[14px] uppercase tracking-tight" style={{ color: C.cream }}>Creator Challenge</p>
-            <p className="font-serif text-[14px] italic" style={{ color: C.peach }}>vol. 2026</p>
-          </div>
+          <h1 className="font-display text-[18px] leading-[0.95] tracking-tight">
+            creator<br />
+            challenge 2026
+          </h1>
         </div>
 
-        <nav className="hidden items-center gap-7 text-[13px] md:flex" style={{ color: C.cream }}>
-          <a href="#brands" className="hover:opacity-70">Brands</a>
-          <a href="#stats" className="hover:opacity-70">Numbers</a>
-          <a href="#rules" className="hover:opacity-70">Rules</a>
-          <a href="#signup" className="hover:opacity-70">Submit</a>
-          <Link to="/admin" className="opacity-50 hover:opacity-100">Admin</Link>
+        <nav className="hidden flex-wrap items-center gap-7 text-[14px] md:flex">
+          <a href="#brands" className="hover:text-primary">Brands</a>
+          <a href="#rules" className="hover:text-primary">Rules</a>
+          <a href="#prizes" className="hover:text-primary">Prizes</a>
+          <a href="#about" className="hover:text-primary">About</a>
+          <a href="#signup" className="hover:text-primary">Submit</a>
+          <Link to="/admin" className="text-muted-foreground hover:text-primary">Admin</Link>
         </nav>
 
         <a
           href="#signup"
-          className="hidden items-center gap-2 rounded-full px-4 py-2 text-[12px] font-bold uppercase tracking-[0.16em] md:inline-flex"
-          style={{ background: C.cream, color: C.ink }}
+          className="grid h-14 w-14 place-items-center rounded-full border border-primary text-center text-[11px] leading-tight text-primary transition hover:bg-primary hover:text-primary-foreground"
         >
-          Enter Now <ArrowUpRight className="h-3.5 w-3.5" />
+          Enter<br />Now
         </a>
+      </div>
+
+      <div className="mx-auto flex max-w-[1400px] items-start justify-end gap-8 px-8 pt-5 pb-5">
+        {/* Right meta */}
+        <div className="hidden text-right text-[13px] leading-tight md:block">
+          <p>India · 3 Campuses</p>
+          <p className="text-muted-foreground">Feb 14 – Mar 30, 2026</p>
+        </div>
       </div>
     </header>
   );
 }
 
-/* ================= HERO ================= */
 function Hero() {
   return (
     <section className="relative">
-      <div className="mx-auto max-w-[1400px] px-6 pt-16 pb-24 md:px-10 md:pt-24 md:pb-32">
-        <div className="grid grid-cols-12 gap-8 lg:gap-10">
-          {/* Left text */}
-          <div className="col-span-12 lg:col-span-6">
-            <p className="font-serif text-[18px] italic" style={{ color: C.peach }}>
-              — Issue 02 / Spring 2026
-            </p>
-            <h1 className="mt-6 font-display text-[clamp(56px,9vw,140px)] leading-[0.86] tracking-tight" style={{ color: C.cream }}>
-              Make a<br />
-              <span className="font-serif italic" style={{ color: C.peach }}>reel</span> that's<br />
-              <span style={{ color: C.red }}>impossible</span><br />
-              to scroll.
-            </h1>
-            <p className="mt-8 max-w-md text-[15px] leading-relaxed" style={{ color: C.cream, opacity: 0.8 }}>
-              A 45-day typographic-poster competition styled like a magazine cover.
-              Two real brands. Three campuses. One feed-stopping reel.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a href="#signup" className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-[12px] font-bold uppercase tracking-[0.18em]" style={{ background: C.red, color: C.cream }}>
-                Enter the contest <ArrowUpRight className="h-4 w-4" />
-              </a>
-              <a href="#brands" className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-[12px] font-bold uppercase tracking-[0.18em]" style={{ border: `1px solid ${C.cream}55`, color: C.cream }}>
-                See the briefs
-              </a>
+      {/* Sweeping pink arc — AIGA-style */}
+      <svg
+        className="pointer-events-none absolute -bottom-40 -left-40 h-[1100px] w-[1100px] text-primary opacity-90"
+        viewBox="0 0 600 600"
+        fill="none"
+        aria-hidden
+      >
+        <path d="M 600 0 A 600 600 0 0 0 0 600" stroke="currentColor" strokeWidth="3" />
+      </svg>
+
+      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-8 pt-16 pb-24 md:pt-24 md:pb-32">
+        {/* Phone mock / left visual */}
+        <div className="col-span-12 md:col-span-4">
+          <div className="relative mx-auto w-[260px]">
+            {/* Girl image breaking out of phone */}
+            <img
+              src={creatorGirl}
+              alt="Student creating an Instagram reel"
+              className="pointer-events-none absolute left-1/2 bottom-[58px] z-20 w-[140%] max-w-none -translate-x-1/2 drop-shadow-[0_25px_40px_rgba(0,0,0,0.6)]"
+            />
+            <div className="relative rounded-[36px] border-[3px] border-primary bg-card p-2 shadow-[0_0_0_1px_var(--color-primary)]">
+              <div className="overflow-hidden rounded-[28px] bg-black">
+                <div className="flex items-center justify-between px-4 py-3 text-[11px] tracking-widest text-primary">
+                  <span>● LIVE</span>
+                  <span>REEL · 0:23</span>
+                </div>
+                <div className="relative aspect-[3/4] overflow-hidden bg-primary/20">
+                  <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/80 to-transparent p-3">
+                    <p className="text-[11px] text-foreground">@maya.shoots</p>
+                    <p className="text-[10px] text-muted-foreground">making it for NOIR Audio</p>
+                  </div>
+                </div>
+                <div className="flex justify-around px-4 py-3 text-primary text-[10px]">
+                  <span>≡</span><span>♡</span><span>▤</span><span>★</span><span>⌕</span>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
 
-          {/* Right poster collage */}
-          <div className="col-span-12 lg:col-span-6">
-            <div className="grid grid-cols-2 gap-5">
-              <Poster bg={C.orange} rotate={-2} className="aspect-[4/5]">
-                <p className="font-display text-[44px] leading-[0.9]" style={{ color: C.ink }}>
-                  3<br />Campuses
-                </p>
-                <p className="mt-2 font-serif text-[18px] italic" style={{ color: C.ink }}>
-                  one stage.
-                </p>
-              </Poster>
-
-              <Poster bg={C.blue} fg={C.cream} rotate={2} className="mt-10 aspect-[4/5]">
-                <p className="font-display text-[40px] leading-[0.9]">
-                  Your reel<br />
-                  <span className="font-serif italic" style={{ color: C.mint }}>is not</span><br />
-                  a draft
-                </p>
-              </Poster>
-
-              <Poster bg={C.red} fg={C.cream} rotate={1.5} className="-mt-2 aspect-[4/5]">
-                <p className="font-serif text-[28px] italic">Safeword:</p>
-                <p className="font-serif text-[28px] italic">Permission</p>
-                <p className="font-serif text-[28px] italic">to <span className="font-display not-italic">post</span></p>
-                <p className="mt-3 font-display text-[64px] leading-[0.85]">EP.02</p>
-              </Poster>
-
-              <Poster bg={C.mint} rotate={-1.5} className="mt-6 aspect-[4/5]">
-                <p className="font-display text-[80px] leading-[0.85]" style={{ color: C.olive }}>
-                  45
-                </p>
-                <p className="mt-2 font-serif text-[18px] italic" style={{ color: C.olive }}>
-                  days to make<br />the cover story.
-                </p>
-              </Poster>
-            </div>
-          </div>
+        {/* Big headline */}
+        <div className="col-span-12 md:col-span-8 md:pt-6">
+          <h2 className="font-display text-[clamp(64px,10vw,160px)] leading-[0.86]">
+            <span className="text-primary">Let's</span>{" "}<br className="hidden sm:block" />
+            <span className="text-primary">build</span>{" "}<br className="hidden sm:block" />
+            <span className="text-primary">stories,</span><br />
+            <span className="text-foreground">together.</span>
+          </h2>
         </div>
       </div>
     </section>
   );
 }
 
-/* ================= MARQUEE ================= */
-function Marquee() {
-  const items = ["Lights", "Camera", "Action", "Cover story", "Trending audio", "Brand collabs", "#CreatorChallenge26", "Front page energy"];
-  const loop = [...items, ...items, ...items];
+function ImageStrip() {
+  const items = [
+    "🎬 Lights",
+    "✨ Camera",
+    "📱 Action",
+    "🎵 Trending audio",
+    "💖 1M views",
+    
+    "🔥 #CreatorChallenge26",
+    "🎤 Brand collabs",
+  ];
+  const loop = [...items, ...items];
   return (
-    <section className="overflow-hidden" style={{ background: C.cream, color: C.ink, borderTop: `1px solid ${C.cream}22`, borderBottom: `1px solid ${C.cream}22` }}>
-      <div className="flex w-max animate-marquee gap-10 whitespace-nowrap py-5 font-serif text-[34px] italic">
+    <section className="relative overflow-hidden border-y border-border gradient-pop py-5">
+      <div className="flex w-max animate-marquee gap-12 whitespace-nowrap font-display text-2xl text-primary-foreground">
         {loop.map((t, i) => (
-          <span key={i} className="flex items-center gap-10">
+          <span key={i} className="flex items-center gap-3">
             {t}
-            <span style={{ color: C.red }}>★</span>
+            <Sparkles className="h-5 w-5" />
           </span>
         ))}
       </div>
@@ -211,68 +168,131 @@ function Marquee() {
   );
 }
 
-/* ================= BRANDS ================= */
+function SocialBar() {
+  const stats = [
+    { n: "3", l: "Campuses", icon: Users, accent: "text-pop-cyan" },
+    { n: "2", l: "Real brands", icon: Zap, accent: "text-pop-yellow" },
+    { n: "₹5L", l: "Prize pool", icon: Trophy, accent: "text-pop-lime" },
+    { n: "45d", l: "To create", icon: Calendar, accent: "text-pop-violet" },
+  ];
+  return (
+    <section id="about" className="border-b border-border">
+      <div className="mx-auto max-w-[1400px] px-8 py-20">
+        <div className="grid gap-10 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[12px] uppercase tracking-[0.18em] text-primary">
+              <Instagram className="h-3.5 w-3.5" /> @CreatorChallenge
+            </span>
+            <h2 className="mt-6 font-display text-[clamp(40px,5vw,68px)] leading-[0.92]">
+              The 2026<br />
+              <span className="bg-gradient-to-r from-primary to-pop-violet bg-clip-text text-transparent">
+                Creator Challenge.
+              </span>
+            </h2>
+            <p className="mt-6 max-w-md text-[15px] leading-relaxed text-muted-foreground">
+              Students from <span className="text-foreground">Masters' Union</span>,{" "}
+              <span className="text-foreground">LPU</span> and{" "}
+              <span className="text-foreground">Tetr</span> create reels for two real brands.
+              Winners get cash, mentorship, and a feature on the brand handles.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 md:col-span-7">
+            {stats.map((s) => (
+              <div
+                key={s.l}
+                className="gradient-card group relative overflow-hidden rounded-2xl border border-border p-6 shadow-soft transition hover:-translate-y-1 hover:border-primary/50"
+              >
+                <s.icon className={`h-6 w-6 ${s.accent}`} />
+                <div className="mt-6 font-display text-5xl">{s.n}</div>
+                <p className="mt-2 text-[13px] uppercase tracking-widest text-muted-foreground">{s.l}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Brands() {
-  const briefs = [
+  const brands = [
     {
       name: "NOIR Audio",
       tagline: "Headphones built for the dark.",
-      summary: "Premium over-ear headphones for late-night creators. Active noise cancellation, 40-hour battery, studio-grade drivers.",
+      image: brand1,
+      summary:
+        "Premium over-ear headphones for late-night creators. Active noise cancellation, 40-hour battery, studio-grade drivers.",
       angles: ["Late-night workflow", "Studio aesthetic", "Travel + commute"],
-      bg: C.olive, fg: C.mint, accent: C.mint, issue: "BRIEF / 01", rotate: -1.5,
+      icon: Music2,
+      accent: "from-pop-violet to-primary",
+      chip: "bg-pop-violet/15 text-pop-violet border-pop-violet/30",
     },
     {
       name: "PULSE Energy",
       tagline: "Clean energy. Loud personality.",
-      summary: "Sugar-free sparkling energy drink. 150mg natural caffeine, zero crash. Make your reel feel like the first sip.",
+      image: brand2,
+      summary:
+        "Sugar-free sparkling energy drink. 150mg natural caffeine, zero crash. Make your reel feel like the first sip.",
       angles: ["Workout / fitness", "Study + hustle", "Friends + nightlife"],
-      bg: C.pink, fg: C.blue, accent: C.blue, issue: "BRIEF / 02", rotate: 1.5,
+      icon: Zap,
+      accent: "from-pop-yellow to-primary",
+      chip: "bg-pop-yellow/15 text-pop-yellow border-pop-yellow/30",
     },
   ];
 
   return (
-    <section id="brands" className="relative" style={{ background: C.ink }}>
-      <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-36">
-        <div className="mb-16 grid items-end gap-6 md:grid-cols-12">
-          <div className="md:col-span-8">
-            <p className="font-serif text-[18px] italic" style={{ color: C.peach }}>The brief — pick one.</p>
-            <h2 className="mt-4 font-display text-[clamp(48px,7vw,108px)] leading-[0.9]" style={{ color: C.cream }}>
-              Two brands.<br />
-              <span className="font-serif italic" style={{ color: C.red }}>One</span> reel.
+    <section id="brands" className="border-b border-border">
+      <div className="mx-auto max-w-[1400px] px-8 py-24">
+        <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-[12px] uppercase tracking-[0.18em] text-muted-foreground">
+              <Sparkles className="h-3.5 w-3.5" /> The Brief
+            </span>
+            <h2 className="mt-5 font-display text-[clamp(48px,7vw,100px)]">
+              Two brands.{" "}
+              <span className="bg-gradient-to-r from-primary via-pop-violet to-pop-cyan bg-clip-text text-transparent">
+                One reel.
+              </span>
             </h2>
           </div>
-          <p className="md:col-span-4 text-[14px] leading-relaxed" style={{ color: C.cream, opacity: 0.75 }}>
-            Build a 15–30s vertical reel for the brand of your choice. Make it feel like a magazine cover, not an ad.
+          <p className="max-w-xs text-[14px] text-muted-foreground">
+            Pick one. Build a 15–30s vertical reel. Make it impossible to scroll past.
           </p>
         </div>
 
-        <div className="grid gap-12 md:grid-cols-2">
-          {briefs.map((b) => (
-            <article key={b.name} className="group">
-              <Poster bg={b.bg} fg={b.fg} rotate={b.rotate} className="aspect-[4/5]" handle={`@${b.name.toLowerCase().replace(" ", "")}`}>
-                <p className="font-serif text-[22px] italic">{b.tagline.split(" ").slice(0, 3).join(" ")}</p>
-                <p className="font-serif text-[22px] italic">{b.tagline.split(" ").slice(3).join(" ")}</p>
-                <p className="mt-6 font-display text-[clamp(56px,8vw,96px)] leading-[0.85]" style={{ color: b.accent }}>
-                  {b.name.split(" ")[0]}
-                </p>
-                <p className="font-display text-[clamp(56px,8vw,96px)] leading-[0.85]" style={{ color: b.fg }}>
-                  {b.name.split(" ")[1]}
-                </p>
-                <p className="mt-4 text-[11px] uppercase tracking-[0.22em]" style={{ color: b.fg, opacity: 0.7 }}>{b.issue}</p>
-              </Poster>
-
-              <div className="mt-8 grid grid-cols-12 gap-5">
-                <div className="col-span-12 md:col-span-7">
-                  <p className="font-serif text-[22px] italic" style={{ color: C.peach }}>"{b.tagline}"</p>
-                  <p className="mt-3 text-[14px] leading-relaxed" style={{ color: C.cream, opacity: 0.8 }}>{b.summary}</p>
+        <div className="grid gap-8 md:grid-cols-2">
+          {brands.map((b, i) => (
+            <article
+              key={b.name}
+              className="group relative overflow-hidden rounded-3xl border border-border bg-card transition hover:-translate-y-1 hover:shadow-pop"
+            >
+              <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${b.accent}`} />
+              <div className="relative aspect-[5/4] overflow-hidden">
+                <img
+                  src={b.image}
+                  alt={b.name}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.05]"
+                />
+                <div className="absolute left-4 top-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-background/80 backdrop-blur">
+                  <b.icon className="h-5 w-5 text-primary" />
                 </div>
-                <ul className="col-span-12 space-y-1 text-[12px] uppercase tracking-[0.16em] md:col-span-5" style={{ color: C.cream }}>
+                <span className="absolute right-4 top-4 rounded-full bg-background/80 px-3 py-1 text-[11px] uppercase tracking-widest backdrop-blur">
+                  Brief 0{i + 1}
+                </span>
+              </div>
+              <div className="p-7">
+                <h3 className="font-display text-4xl">{b.name}</h3>
+                <p className="mt-2 text-primary text-[15px]">{b.tagline}</p>
+                <p className="mt-4 text-[14px] leading-relaxed text-muted-foreground">{b.summary}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
                   {b.angles.map((a) => (
-                    <li key={a} className="flex items-center gap-2 border-b py-2" style={{ borderColor: `${C.cream}22` }}>
-                      <span style={{ color: C.red }}>→</span> {a}
-                    </li>
+                    <span key={a} className={`rounded-full border px-3 py-1 text-[12px] ${b.chip}`}>
+                      {a}
+                    </span>
                   ))}
-                </ul>
+                </div>
               </div>
             </article>
           ))}
@@ -282,92 +302,118 @@ function Brands() {
   );
 }
 
-/* ================= STATS ================= */
-function Stats() {
-  const stats = [
-    { n: "3", l: "Campuses", bg: C.orange, fg: C.ink },
-    { n: "2", l: "Real Brands", bg: C.mint, fg: C.olive },
-    { n: "₹5L", l: "Prize Pool", bg: C.red, fg: C.cream },
-    { n: "45d", l: "To Create", bg: C.blue, fg: C.cream },
-  ];
-  return (
-    <section id="stats" style={{ background: C.ink }}>
-      <div className="mx-auto max-w-[1400px] px-6 pb-24 md:px-10">
-        <p className="mb-8 font-serif text-[18px] italic" style={{ color: C.peach }}>— By the numbers</p>
-        <div className="grid grid-cols-2 gap-5 md:grid-cols-4">
-          {stats.map((s, i) => (
-            <Poster key={s.l} bg={s.bg} fg={s.fg} rotate={i % 2 === 0 ? -1 : 1} className="aspect-[4/5]" handle={HANDLE} arrow={false}>
-              <p className="font-display text-[clamp(64px,10vw,140px)] leading-[0.82]" style={{ color: s.fg }}>{s.n}</p>
-              <p className="mt-3 font-serif text-[20px] italic" style={{ color: s.fg }}>{s.l}</p>
-            </Poster>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ================= GUIDELINES ================= */
 function Guidelines() {
   const rules = [
-    { n: "01", t: "Eligibility", d: "Open to enrolled students of Masters' Union, LPU, or Tetr. Verify with your university email.", bg: C.peach, fg: C.ink, accent: C.red },
-    { n: "02", t: "Format", d: "One Instagram reel, 15–30 seconds, vertical 9:16. Original or licensed audio only.", bg: C.blue, fg: C.cream, accent: C.mint },
-    { n: "03", t: "The brand", d: "Feature the chosen product clearly. Tag the brand and use #CreatorChallenge26.", bg: C.red, fg: C.cream, accent: C.peach },
-    { n: "04", t: "Originality", d: "Created by you. No reposts, no AI voiceovers without disclosure, no copyrighted footage.", bg: C.olive, fg: C.mint, accent: C.peach },
-    { n: "05", t: "Account", d: "Your Instagram profile must be public throughout the judging window.", bg: C.pink, fg: C.ink, accent: C.blue },
-    { n: "06", t: "Deadline", d: "Submit by midnight, March 30. Winners announced April 15 across all three campuses.", bg: C.mint, fg: C.olive, accent: C.red },
+    { n: "01", t: "Eligibility", d: "Open to currently enrolled students of Masters' Union, LPU, or Tetr. Verify with your university email.", chip: "Who can enter" },
+    { n: "02", t: "Format", d: "One Instagram reel, 15–30 seconds, vertical 9:16. Original or licensed audio only.", chip: "Spec sheet" },
+    { n: "03", t: "The brand", d: "Feature the chosen product clearly. Tag the brand and use #CreatorChallenge26.", chip: "Brand brief" },
+    { n: "04", t: "Originality", d: "Created by you. No reposts, no AI voiceovers without disclosure, no copyrighted footage.", chip: "Be original" },
+    { n: "05", t: "Account", d: "Your Instagram profile must be public throughout the judging window.", chip: "Visibility" },
+    { n: "06", t: "Deadline", d: "Submit by midnight, March 30. Winners announced April 15 across all three campuses.", chip: "Timeline" },
   ];
 
+  // Editorial palette — locked, to match the reference aesthetic.
+  const ink = "#0E1116";
+  const blue = "#1F4BFF";
+  const lime = "#D7FF4A";
+  const muted = "rgba(255,255,255,0.62)";
+
   return (
-    <section id="rules" style={{ background: C.cream, color: C.ink }}>
-      <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-36">
-        <div className="mb-14 grid gap-8 lg:grid-cols-12 lg:items-end">
+    <section id="rules" className="border-b border-border bg-[#EDEDF1]">
+      <div className="mx-auto max-w-[1400px] px-8 py-28">
+        {/* Header */}
+        <div className="mb-12 grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
-            <p className="font-serif text-[18px] italic" style={{ color: C.red }}>The playbook</p>
-            <h2 className="mt-4 font-display text-[clamp(48px,7.5vw,108px)] leading-[0.92]" style={{ color: C.ink }}>
-              Rules of <span className="font-serif italic" style={{ color: C.blue }}>play</span>
-              <span style={{ color: C.red }}>.</span>
+            <span
+              className="inline-flex items-center gap-2 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-white"
+              style={{ background: ink }}
+            >
+              <Sparkles className="h-3.5 w-3.5" /> The Playbook
+            </span>
+            <h2
+              className="mt-6 font-display text-[clamp(48px,7.5vw,108px)] leading-[0.95]"
+              style={{ color: ink }}
+            >
+              Rules of <span className="font-serif italic">play</span>
+              <span style={{ color: blue }}>.</span>
             </h2>
           </div>
-          <p className="lg:col-span-4 text-[14px] leading-relaxed" style={{ color: C.ink, opacity: 0.7 }}>
+          <p className="lg:col-span-4 text-[14px] leading-relaxed" style={{ color: "#4B5160" }}>
             Six things to keep in mind before you hit submit. Read once. Then go make something worth watching.
           </p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {rules.map((r, i) => (
-            <Poster
-              key={r.n}
-              bg={r.bg}
-              fg={r.fg}
-              rotate={[-1.5, 1, -1, 1.5, -1, 1][i]}
-              className="aspect-[4/5]"
-              arrow={false}
-            >
-              <div className="flex items-center justify-between">
-                <span className="font-serif text-[16px] italic" style={{ color: r.fg, opacity: 0.7 }}>/ {r.n}</span>
-                <span className="rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em]" style={{ background: r.accent, color: r.bg }}>
-                  Rule
-                </span>
-              </div>
-              <h3 className="mt-8 font-display text-[clamp(36px,4.5vw,56px)] leading-[0.95]" style={{ color: r.fg }}>
-                {r.t}
-                <span style={{ color: r.accent }}>.</span>
-              </h3>
-              <p className="mt-4 font-serif text-[18px] italic leading-snug" style={{ color: r.fg, opacity: 0.85 }}>
-                {r.d}
-              </p>
-            </Poster>
-          ))}
+        {/* Bento grid */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {rules.map((r, i) => {
+            const isAccent = i === 2;
+            const bg = isAccent ? blue : ink;
+            const pillBg = isAccent ? "#FFFFFF" : lime;
+            return (
+              <article
+                key={r.n}
+                className="relative flex min-h-[320px] flex-col justify-between p-7 transition-transform duration-300 hover:-translate-y-1"
+                style={{ background: bg, color: "#fff" }}
+              >
+                <div className="flex items-start justify-between">
+                  <span
+                    className="font-display text-[13px] tracking-[0.2em]"
+                    style={{ color: isAccent ? "rgba(255,255,255,0.7)" : muted }}
+                  >
+                    / {r.n}
+                  </span>
+                  <span
+                    className="px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em]"
+                    style={{ background: pillBg, color: ink }}
+                  >
+                    {r.chip}
+                  </span>
+                </div>
+
+                <div className="mt-12">
+                  <h3 className="font-display text-[34px] leading-[1.02] tracking-tight">
+                    {r.t}
+                    <span style={{ color: isAccent ? "#fff" : lime }}>.</span>
+                  </h3>
+                  <div
+                    className="mt-3 h-[6px] w-16"
+                    style={{ background: isAccent ? "#fff" : lime, opacity: isAccent ? 0.9 : 1 }}
+                  />
+                </div>
+
+                <p
+                  className="mt-6 text-[14px] leading-relaxed"
+                  style={{ color: isAccent ? "rgba(255,255,255,0.85)" : muted }}
+                >
+                  {r.d}
+                </p>
+              </article>
+            );
+          })}
         </div>
 
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-6 rounded-2xl px-8 py-7" style={{ background: C.ink, color: C.cream }}>
+        {/* Footer strip */}
+        <div
+          className="mt-10 flex flex-wrap items-center justify-between gap-6 px-8 py-7"
+          style={{ background: ink, color: "#fff" }}
+        >
           <div className="flex items-center gap-4">
-            <span className="rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em]" style={{ background: C.red, color: C.cream }}>Heads up</span>
-            <p className="font-serif text-[22px] italic">Miss a rule, miss the prize. We disqualify quietly.</p>
+            <span
+              className="px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em]"
+              style={{ background: lime, color: ink }}
+            >
+              Heads up
+            </span>
+            <p className="font-display text-[20px] leading-tight">
+              Miss a rule, miss the prize. We disqualify quietly.
+            </p>
           </div>
-          <a href="#signup" className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-[12px] font-bold uppercase tracking-[0.18em]" style={{ background: C.cream, color: C.ink }}>
-            I'm in <ArrowUpRight className="h-4 w-4" />
+          <a
+            href="#signup"
+            className="inline-flex items-center gap-3 px-6 py-3 text-[13px] font-bold uppercase tracking-[0.18em] transition hover:opacity-90"
+            style={{ background: blue, color: "#fff" }}
+          >
+            I'm in <span aria-hidden>→</span>
           </a>
         </div>
       </div>
@@ -375,7 +421,6 @@ function Guidelines() {
   );
 }
 
-/* ================= SIGNUP ================= */
 function SignupSection() {
   const [submitting, setSubmitting] = useState(false);
 
@@ -407,148 +452,151 @@ function SignupSection() {
     toast.success("You're in. We'll review your profile soon.");
   }
 
-  const inputCls = "h-12 w-full rounded-lg bg-white px-4 text-[14px] text-[#15171C] placeholder:text-black/40 focus:outline-none focus:ring-2 focus:ring-black/40";
-
   return (
-    <section id="signup" style={{ background: C.ink }}>
-      <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-36">
-        <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-5">
-            <p className="font-serif text-[18px] italic" style={{ color: C.peach }}>The application</p>
-            <h2 className="mt-4 font-display text-[clamp(44px,6.5vw,92px)] leading-[0.9]" style={{ color: C.cream }}>
-              Drop your<br />
-              <span className="font-serif italic" style={{ color: C.red }}>handle</span>
-              <span style={{ color: C.peach }}>.</span>
-            </h2>
-            <p className="mt-6 max-w-sm text-[14px] leading-relaxed" style={{ color: C.cream, opacity: 0.75 }}>
-              Submit your details and the Instagram profile we should review. Update your reel any
-              time before the deadline — we'll always pull the latest version.
-            </p>
+    <section id="signup" className="border-b border-border">
+      <div className="mx-auto max-w-[1400px] px-8 py-24">
+        <div className="relative overflow-hidden rounded-[32px] border border-border gradient-card p-8 shadow-pop md:p-14">
+          <div className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full bg-primary/30 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-pop-violet/30 blur-3xl" />
 
-            <div className="mt-8 inline-block rounded-2xl px-5 py-4" style={{ background: C.red, color: C.cream }}>
-              <p className="font-serif text-[13px] italic">— Submission window</p>
-              <p className="mt-1 font-display text-[24px]">FEB 14 → MAR 30</p>
+          <div className="relative grid gap-10 md:grid-cols-12">
+            <div className="md:col-span-5">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[12px] uppercase tracking-[0.18em] text-primary">
+                <Instagram className="h-3.5 w-3.5" /> Submit
+              </span>
+              <h2 className="mt-5 font-display text-[clamp(48px,7vw,96px)] leading-[0.9]">
+                Drop your{" "}
+                <span className="bg-gradient-to-r from-primary to-pop-cyan bg-clip-text text-transparent">
+                  handle.
+                </span>
+              </h2>
+              <p className="mt-6 max-w-sm text-[14px] leading-relaxed text-muted-foreground">
+                Submit your details and the Instagram profile we should review. Update your reel any
+                time before the deadline — we'll always pull the latest version.
+              </p>
             </div>
+
+            <form onSubmit={handleSubmit} className="md:col-span-7">
+              <div className="rounded-3xl border border-border bg-background/50 p-6 backdrop-blur-md md:p-8 space-y-6">
+                <div className="grid gap-5 md:grid-cols-2">
+                  <Field label="Full name" icon={User} withInputIcon>
+                    <Input name="full_name" required placeholder="Your name" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
+                  </Field>
+                  <Field label="University email" icon={Mail} withInputIcon>
+                    <Input name="email" type="email" required placeholder="you@university.edu" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
+                  </Field>
+                </div>
+
+                <Field label="University" icon={GraduationCap}>
+                  <div className="grid grid-cols-3 gap-3 pt-2">
+                    {UNIVERSITIES.map((u) => (
+                      <label key={u} className="group cursor-pointer">
+                        <input type="radio" name="university" value={u} className="peer sr-only" required />
+                        <div className="relative flex h-14 items-center justify-center rounded-xl border border-border bg-background/60 px-3 text-center text-[13px] font-medium transition hover:border-primary/50 hover:-translate-y-0.5 peer-checked:border-primary peer-checked:bg-gradient-to-br peer-checked:from-primary peer-checked:to-pop-violet peer-checked:text-primary-foreground peer-checked:shadow-pop">
+                          <span className="absolute right-2 top-2 hidden h-4 w-4 items-center justify-center rounded-full bg-background/30">
+                            <Check className="h-3 w-3" />
+                          </span>
+                          {u}
+                        </div>
+                      </label>
+                    ))}
+                  </div>
+                </Field>
+
+                <Field label="Brand you're creating for" icon={Sparkles}>
+                  <div className="grid grid-cols-2 gap-3 pt-2">
+                    {BRANDS.map((b) => (
+                      <label key={b} className="group cursor-pointer">
+                        <input type="radio" name="brand_choice" value={b} className="peer sr-only" required />
+                        <div className="relative flex h-16 items-center justify-center rounded-xl border border-border bg-background/60 px-4 text-center text-[14px] font-medium transition hover:border-primary/50 hover:-translate-y-0.5 peer-checked:border-primary peer-checked:bg-gradient-to-br peer-checked:from-primary peer-checked:to-pop-violet peer-checked:text-primary-foreground peer-checked:shadow-pop">
+                          {b}
+                        </div>
+                      </label>
+                    ))}
+                  </div>
+                </Field>
+
+                <Field label="Instagram handle" icon={AtSign} withInputIcon>
+                  <Input name="instagram_handle" required placeholder="yourhandle" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
+                </Field>
+
+                <Field label="Anything we should know? (optional)" icon={MessageSquare}>
+                  <Textarea name="notes" rows={3} placeholder="Concept, experience, follower count…" className="rounded-xl border border-border bg-background/60 p-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
+                </Field>
+
+                <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+                  <p className="text-[12px] text-muted-foreground">
+                    By submitting you agree to the contest rules.
+                  </p>
+                  <Button type="submit" disabled={submitting} className="group h-14 rounded-full gradient-pop px-8 text-[14px] font-semibold tracking-wide text-primary-foreground shadow-pop transition hover:opacity-95 hover:shadow-[0_25px_60px_-15px_var(--primary)]">
+                    {submitting ? "Submitting…" : (
+                      <span className="flex items-center gap-2">
+                        Submit my profile
+                        <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                      </span>
+                    )}
+                  </Button>
+                </div>
+              </div>
+            </form>
           </div>
-
-          <form onSubmit={handleSubmit} className="md:col-span-7">
-            <div className="space-y-5 rounded-3xl p-8" style={{ background: C.cream }}>
-              <div className="grid gap-5 md:grid-cols-2">
-                <Field label="Full name">
-                  <input name="full_name" required placeholder="Your name" className={inputCls} />
-                </Field>
-                <Field label="University email">
-                  <input name="email" type="email" required placeholder="you@university.edu" className={inputCls} />
-                </Field>
-              </div>
-
-              <Field label="University">
-                <div className="grid grid-cols-3 gap-3">
-                  {UNIVERSITIES.map((u) => (
-                    <label key={u} className="cursor-pointer">
-                      <input type="radio" name="university" value={u} className="peer sr-only" required />
-                      <div
-                        className="flex h-12 items-center justify-center rounded-lg bg-white px-3 text-center text-[12px] font-bold uppercase tracking-[0.12em] text-[#15171C] transition peer-checked:bg-[#15171C] peer-checked:text-[#F2EBDD]"
-                      >
-                        {u}
-                      </div>
-                    </label>
-                  ))}
-                </div>
-              </Field>
-
-              <Field label="Brand you're creating for">
-                <div className="grid grid-cols-2 gap-3">
-                  {BRANDS.map((b, i) => (
-                    <label key={b} className="cursor-pointer">
-                      <input type="radio" name="brand_choice" value={b} className="peer sr-only" required />
-                      <div
-                        className="flex h-14 items-center justify-center gap-2 rounded-lg bg-white px-4 text-center text-[13px] font-bold uppercase tracking-[0.14em] text-[#15171C] transition peer-checked:ring-2 peer-checked:ring-[#15171C]"
-                      >
-                        <span className="inline-block h-3 w-3 rounded-sm" style={{ background: i === 0 ? C.olive : C.blue }} />
-                        {b}
-                      </div>
-                    </label>
-                  ))}
-                </div>
-              </Field>
-
-              <Field label="Instagram handle">
-                <input name="instagram_handle" required placeholder="yourhandle" className={inputCls} />
-              </Field>
-
-              <Field label="Anything we should know? (optional)">
-                <Textarea name="notes" rows={3} placeholder="Concept, experience, follower count…" className="rounded-lg bg-white p-4 text-[14px] text-[#15171C]" />
-              </Field>
-
-              <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
-                <p className="text-[11px] uppercase tracking-[0.16em]" style={{ color: C.ink, opacity: 0.55 }}>By submitting you agree to the contest rules.</p>
-                <Button
-                  type="submit"
-                  disabled={submitting}
-                  className="h-12 rounded-full px-8 text-[12px] font-bold uppercase tracking-[0.2em]"
-                  style={{ background: C.red, color: C.cream }}
-                >
-                  {submitting ? "Submitting…" : "Submit my profile →"}
-                </Button>
-              </div>
-            </div>
-          </form>
         </div>
       </div>
     </section>
   );
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+function Field({ label, icon: Icon, withInputIcon = false, children }: { label: string; icon?: React.ComponentType<{ className?: string }>; withInputIcon?: boolean; children: React.ReactNode }) {
   return (
     <div className="space-y-2">
-      <Label className="text-[11px] font-bold uppercase tracking-[0.18em]" style={{ color: C.ink }}>{label}</Label>
-      {children}
+      <Label className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+        {Icon ? <Icon className="h-3.5 w-3.5 text-primary" /> : null}
+        {label}
+      </Label>
+      <div className="relative">
+        {Icon && withInputIcon ? <Icon className="pointer-events-none absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-muted-foreground" /> : null}
+        {children}
+      </div>
     </div>
   );
 }
 
-/* ================= FOOTER ================= */
 function Footer() {
   return (
-    <footer style={{ background: C.black, color: C.cream }}>
-      <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10">
+    <footer className="border-t border-border">
+      <div className="mx-auto max-w-[1400px] px-8 py-14">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">
             <div className="flex items-center gap-3">
-              <div className="grid h-10 w-10 place-items-center rounded-md" style={{ background: C.red, color: C.cream }}>
-                <span className="font-serif italic">cc</span>
+              <div className="grid h-10 w-10 place-items-center rounded-xl gradient-pop">
+                <span className="font-serif text-base italic text-primary-foreground">CC</span>
               </div>
-              <p className="font-display text-[20px] uppercase tracking-tight">Creator Challenge 2026</p>
+              <p className="font-display text-xl">creator challenge 2026</p>
             </div>
-            <p className="mt-6 max-w-md font-serif text-[28px] italic leading-tight" style={{ color: C.peach }}>
-              "The cover story belongs to the bravest reel."
-            </p>
-            <p className="mt-4 max-w-sm text-[13px] leading-relaxed opacity-70">
+            <p className="mt-5 max-w-sm text-[14px] leading-relaxed text-muted-foreground">
               Built with Masters' Union, LPU and Tetr. Powered by real brands and creators who refuse to scroll past.
             </p>
           </div>
           <div className="md:col-span-3">
-            <p className="text-[11px] uppercase tracking-[0.18em] opacity-60">Sections</p>
+            <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Explore</p>
             <ul className="mt-4 space-y-2 text-[14px]">
-              <li><a href="#brands" className="hover:opacity-70">Brands</a></li>
-              <li><a href="#rules" className="hover:opacity-70">Rules</a></li>
-              <li><a href="#signup" className="hover:opacity-70">Submit</a></li>
-              <li><Link to="/admin" className="hover:opacity-70">Admin</Link></li>
+              <li><a href="#brands" className="hover:text-primary">Brands</a></li>
+              <li><a href="#rules" className="hover:text-primary">Rules</a></li>
+              <li><a href="#signup" className="hover:text-primary">Submit</a></li>
+              <li><Link to="/admin" className="hover:text-primary">Admin</Link></li>
             </ul>
           </div>
           <div className="md:col-span-3">
-            <p className="text-[11px] uppercase tracking-[0.18em] opacity-60">Follow</p>
+            <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Follow</p>
             <ul className="mt-4 space-y-2 text-[14px]">
-              <li className="flex items-center gap-2"><Instagram className="h-4 w-4" style={{ color: C.red }} /> @creatorchallenge</li>
-              <li className="flex items-center gap-2"><Twitter className="h-4 w-4" style={{ color: C.red }} /> @cc26</li>
+              <li className="flex items-center gap-2"><Instagram className="h-4 w-4 text-primary" /> @creatorchallenge</li>
+              <li className="flex items-center gap-2"><Twitter className="h-4 w-4 text-primary" /> @cc26</li>
             </ul>
           </div>
         </div>
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t pt-6 text-[12px] uppercase tracking-[0.18em] opacity-60" style={{ borderColor: "rgba(255,255,255,0.12)" }}>
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6 text-[13px] text-muted-foreground">
           <p>© 2026 Creator Challenge · MU × LPU × Tetr</p>
-          <p>Issue 02 — Spring '26</p>
+          <p>Feb 14 – Mar 30, 2026</p>
         </div>
       </div>
     </footer>
