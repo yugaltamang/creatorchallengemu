@@ -272,7 +272,7 @@ function Brands() {
 
   return (
     <section id="brands" className="border-b border-border">
-      <div className="mx-auto max-w-[1400px] px-8 py-24">
+      <div className="mx-auto max-w-[1400px] px-4 py-14 sm:px-6 sm:py-20 md:py-24 lg:px-8">
         <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
           <div>
             <span className="ticker-dot inline-flex items-center font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
