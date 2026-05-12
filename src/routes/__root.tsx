@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Creator Challenge by Masters' Union" },
+      { name: "description", content: "App for content creators to submit Instagram profiles for a challenge, featuring brand collaborations and an admin dashboard." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Creator Challenge by Masters' Union" },
+      { property: "og:description", content: "App for content creators to submit Instagram profiles for a challenge, featuring brand collaborations and an admin dashboard." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Creator Challenge by Masters' Union" },
+      { name: "twitter:description", content: "App for content creators to submit Instagram profiles for a challenge, featuring brand collaborations and an admin dashboard." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5b84d258-a114-4115-9f45-50c49f830e67/id-preview-7adc6263--da226bd7-7af7-4c7e-b86b-86b22dd7126b.lovable.app-1778617299398.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5b84d258-a114-4115-9f45-50c49f830e67/id-preview-7adc6263--da226bd7-7af7-4c7e-b86b-86b22dd7126b.lovable.app-1778617299398.png" },
     ],
     links: [
       {
