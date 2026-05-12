@@ -46,19 +46,19 @@ function Stage2() {
 function Header() {
   return (
     <header className="relative z-30 border-b border-border">
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-8 border-b border-border px-8 py-4">
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 border-b border-border px-4 py-3 sm:gap-8 sm:px-6 sm:py-4 lg:px-8">
         <div className="flex items-center">
-          <img src={logo} alt="Creator Challenge 2026" className="h-10 w-auto invert" />
+          <img src={logo} alt="Creator Challenge 2026" className="h-8 w-auto invert sm:h-10" />
         </div>
         <nav className="hidden items-center gap-7 text-[14px] md:flex">
           <span className="text-primary">Stage 2</span>
         </nav>
-        <div className="grid h-14 w-14 place-items-center rounded-full border border-primary text-center text-[11px] leading-tight text-primary">
+        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-primary text-center text-[10px] leading-tight text-primary sm:h-14 sm:w-14 sm:text-[11px]">
           Stage<br />02
         </div>
       </div>
-      <div className="mx-auto flex max-w-[1400px] items-start justify-end gap-8 px-8 pt-5 pb-5">
-        <div className="hidden text-right text-[13px] leading-tight md:block">
+      <div className="mx-auto hidden max-w-[1400px] items-start justify-end gap-8 px-4 pt-5 pb-5 sm:px-6 md:flex lg:px-8">
+        <div className="text-right text-[13px] leading-tight">
           <p>Final Submission</p>
           <p className="text-muted-foreground">Up to 3 reels per entry</p>
         </div>
@@ -79,10 +79,10 @@ function Hero() {
         <path d="M 600 0 A 600 600 0 0 0 0 600" stroke="currentColor" strokeWidth="3" />
       </svg>
 
-      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-8 pt-16 pb-24 md:pt-24 md:pb-32">
+      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pt-10 pb-16 sm:px-6 sm:pt-16 sm:pb-24 md:pt-24 md:pb-32 lg:px-8">
         {/* Phone mock — matches homepage hero */}
         <div className="col-span-12 md:col-span-4">
-          <div className="relative mx-auto w-[260px]">
+          <div className="relative mx-auto w-[200px] sm:w-[240px] md:w-[260px]">
             <img
               src={creatorGirl}
               alt="Student creating an Instagram reel"
@@ -114,7 +114,7 @@ function Hero() {
             <span className="h-px w-10 bg-primary" />
             <span>Stage 02 · Final Submission</span>
           </div>
-          <div className="mb-6 rounded-2xl border border-primary/30 bg-primary/10 p-5 backdrop-blur-md">
+          <div className="mb-6 rounded-2xl border border-primary/30 bg-primary/10 p-4 backdrop-blur-md sm:p-5">
             <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-primary">🎉 Congratulations</p>
             <h2 className="mt-2 text-2xl font-semibold text-foreground md:text-3xl">You've been shortlisted!</h2>
             <p className="mt-2 text-sm text-muted-foreground md:text-base">
@@ -194,7 +194,7 @@ function Stage2Form() {
   return (
     <>
       <form onSubmit={handleSubmit} method="post" action="#">
-        <div className="rounded-3xl border border-white/10 bg-background/70 p-6 backdrop-blur-md md:p-8 space-y-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_30px_80px_-20px_rgba(0,0,0,0.8)]">
+        <div className="rounded-2xl border border-white/10 bg-background/70 p-4 backdrop-blur-md sm:rounded-3xl sm:p-6 md:p-8 space-y-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_30px_80px_-20px_rgba(0,0,0,0.8)]">
           <div className="grid gap-5 md:grid-cols-2">
             <Field label="Full name" icon={User} withInputIcon>
               <Input name="full_name" required placeholder="Your name" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />

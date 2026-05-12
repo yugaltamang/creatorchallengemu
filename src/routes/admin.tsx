@@ -272,7 +272,7 @@ function Admin() {
 
         <div className="flex-1 min-w-0">
           <header className="border-b border-border">
-            <div className="flex items-center justify-between gap-4 px-6 py-5">
+            <div className="flex items-center justify-between gap-3 px-4 py-4 sm:gap-4 sm:px-6 sm:py-5">
               <div className="flex items-center gap-3">
                 <div className="md:hidden flex gap-1 rounded-full border border-border p-1">
                   <button
@@ -285,21 +285,21 @@ function Admin() {
                   >Final</button>
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                  <p className="text-[10px] uppercase tracking-widest text-muted-foreground sm:text-xs">
                     {view === "first" ? "First Stage" : "Final Stage"}
                   </p>
-                  <h1 className="font-display text-2xl">
+                  <h1 className="font-display text-xl sm:text-2xl">
                     {view === "first" ? "Entries" : "Final Submissions"}
                   </h1>
                 </div>
               </div>
-              <Button variant="outline" onClick={exportCSV} className="gap-2 rounded-full">
-                <Download className="h-4 w-4" /> Export CSV
+              <Button variant="outline" onClick={exportCSV} size="sm" className="gap-2 rounded-full sm:size-default">
+                <Download className="h-4 w-4" /> <span className="hidden sm:inline">Export CSV</span><span className="sm:hidden">CSV</span>
               </Button>
             </div>
           </header>
 
-          <div className="mx-auto max-w-7xl space-y-8 px-6 py-10">
+          <div className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:space-y-8 sm:px-6 sm:py-10">
             {view === "first" ? (
               <>
                 <section className="grid gap-4 md:grid-cols-4">
@@ -514,9 +514,9 @@ function Admin() {
                   <BrandCard label="PULSE Energy" value={finalStats.byBrand["PULSE Energy"] || 0} total={finals.length} />
                 </section>
 
-                <section className="border border-border bg-card p-6">
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground">Total reels submitted</p>
-                  <p className="mt-2 font-display text-4xl text-primary">{finalStats.reelCount}</p>
+                <section className="border border-border bg-card p-4 sm:p-6">
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground sm:text-xs">Total reels submitted</p>
+                  <p className="mt-2 font-display text-3xl text-primary sm:text-4xl">{finalStats.reelCount}</p>
                 </section>
 
                 <section className="border border-border bg-card">
@@ -719,9 +719,9 @@ function downloadCSV(content: string, filename: string) {
 
 function StatCard({ label, value, accent }: { label: string; value: number; accent?: boolean }) {
   return (
-    <div className={`border p-6 ${accent ? "border-primary bg-primary/10" : "border-border bg-card"}`}>
-      <p className="text-xs uppercase tracking-wider text-muted-foreground">{label}</p>
-      <p className={`mt-2 font-display text-4xl ${accent ? "text-primary" : ""}`}>{value}</p>
+    <div className={`border p-4 sm:p-6 ${accent ? "border-primary bg-primary/10" : "border-border bg-card"}`}>
+      <p className="text-[10px] uppercase tracking-wider text-muted-foreground sm:text-xs">{label}</p>
+      <p className={`mt-2 font-display text-3xl sm:text-4xl ${accent ? "text-primary" : ""}`}>{value}</p>
     </div>
   );
 }
@@ -729,12 +729,12 @@ function StatCard({ label, value, accent }: { label: string; value: number; acce
 function BrandCard({ label, value, total }: { label: string; value: number; total: number }) {
   const pct = total ? Math.round((value / total) * 100) : 0;
   return (
-    <div className="border border-border bg-card p-6">
+    <div className="border border-border bg-card p-4 sm:p-6">
       <div className="flex items-baseline justify-between">
-        <p className="font-display text-xl">{label}</p>
+        <p className="font-display text-lg sm:text-xl">{label}</p>
         <p className="text-sm text-muted-foreground">{pct}%</p>
       </div>
-      <p className="mt-2 font-display text-4xl text-primary">{value}</p>
+      <p className="mt-2 font-display text-3xl text-primary sm:text-4xl">{value}</p>
       <div className="mt-4 h-2 bg-muted">
         <div className="h-full bg-primary transition-all" style={{ width: `${pct}%` }} />
       </div>

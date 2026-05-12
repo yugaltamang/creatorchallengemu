@@ -65,10 +65,10 @@ function Header() {
   return (
     <header className="relative z-30 border-b border-border">
       {/* Nav row */}
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-8 border-b border-border px-8 py-4">
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 border-b border-border px-4 py-3 sm:gap-8 sm:px-6 sm:py-4 lg:px-8">
         {/* Logo block */}
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="Creator Challenge 2026" className="h-10 w-auto invert" />
+          <img src={logo} alt="Creator Challenge 2026" className="h-8 w-auto invert sm:h-10" />
         </Link>
 
         <nav className="hidden flex-wrap items-center gap-7 text-[14px] md:flex">
@@ -81,15 +81,15 @@ function Header() {
 
         <a
           href="#signup"
-          className="grid h-14 w-14 place-items-center rounded-full border border-primary text-center text-[11px] leading-tight text-primary transition hover:bg-primary hover:text-primary-foreground"
+          className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-primary text-center text-[10px] leading-tight text-primary transition hover:bg-primary hover:text-primary-foreground sm:h-14 sm:w-14 sm:text-[11px]"
         >
           Enter<br />Now
         </a>
       </div>
 
-      <div className="mx-auto flex max-w-[1400px] items-start justify-end gap-8 px-8 pt-5 pb-5">
+      <div className="mx-auto hidden max-w-[1400px] items-start justify-end gap-8 px-4 pt-5 pb-5 sm:px-6 md:flex lg:px-8">
         {/* Right meta */}
-        <div className="hidden text-right text-[13px] leading-tight md:block">
+        <div className="text-right text-[13px] leading-tight">
           <p>India · 3 Campuses</p>
           <p className="text-muted-foreground">Feb 14 – Mar 30, 2026</p>
         </div>
@@ -111,10 +111,10 @@ function Hero() {
         <path d="M 600 0 A 600 600 0 0 0 0 600" stroke="currentColor" strokeWidth="3" />
       </svg>
 
-      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-8 pt-16 pb-24 md:pt-24 md:pb-32">
+      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pt-10 pb-16 sm:px-6 sm:pt-16 sm:pb-24 md:pt-24 md:pb-32 lg:px-8">
         {/* Phone mock / left visual */}
         <div className="col-span-12 md:col-span-4">
-          <div className="relative mx-auto w-[260px]">
+          <div className="relative mx-auto w-[200px] sm:w-[240px] md:w-[260px]">
             {/* Girl image breaking out of phone */}
             <img
               src={creatorGirl}
@@ -147,7 +147,7 @@ function Hero() {
             <span className="h-px w-10 bg-primary" />
             <span>Issue 01 · Creator Challenge 26</span>
           </div>
-          <h2 className="font-display text-[clamp(64px,10.5vw,180px)] leading-[0.82] tracking-[-0.04em]">
+          <h2 className="font-display text-[clamp(56px,12vw,180px)] leading-[0.82] tracking-[-0.04em]">
             <span className="block relative z-10 mb-2 md:mb-4">Let<span className="text-primary">'</span>s</span>
             <span className="block">
               <span className="mu-gradient-text">build</span>
@@ -182,12 +182,12 @@ function ImageStrip() {
   ];
   const loop = [...items, ...items];
   return (
-    <section className="relative overflow-hidden border-y border-border tape py-5">
-      <div className="flex w-max animate-marquee gap-12 whitespace-nowrap font-display text-2xl text-primary-foreground">
+    <section className="relative overflow-hidden border-y border-border tape py-4 sm:py-5">
+      <div className="flex w-max animate-marquee gap-8 whitespace-nowrap font-display text-lg text-primary-foreground sm:gap-12 sm:text-2xl">
         {loop.map((t, i) => (
           <span key={i} className="flex items-center gap-3">
             {t}
-            <span className="font-mono text-[14px] opacity-70">/</span>
+            <span className="font-mono text-[12px] opacity-70 sm:text-[14px]">/</span>
           </span>
         ))}
       </div>
@@ -203,7 +203,7 @@ function SocialBar() {
   ];
   return (
     <section id="about" className="relative border-b border-border bp-grid">
-      <div className="mx-auto max-w-[1400px] px-8 py-20">
+      <div className="mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <span className="ticker-dot inline-flex items-center font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
@@ -225,7 +225,7 @@ function SocialBar() {
             {stats.map((s, i) => (
               <div
                 key={s.l}
-                className="corner-tick group relative overflow-hidden border border-border bg-card p-6 shadow-soft transition hover:border-primary/60"
+                className="corner-tick group relative overflow-hidden border border-border bg-card p-4 shadow-soft transition hover:border-primary/60 sm:p-6"
               >
                 <div className="flex items-center justify-between">
                   <s.icon className="h-5 w-5 text-primary" />
@@ -233,7 +233,7 @@ function SocialBar() {
                     / {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <div className="mt-8 font-display text-5xl">{s.n}</div>
+                <div className="mt-6 font-display text-4xl sm:mt-8 sm:text-5xl">{s.n}</div>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">{s.l}</p>
               </div>
             ))}
@@ -272,7 +272,7 @@ function Brands() {
 
   return (
     <section id="brands" className="border-b border-border">
-      <div className="mx-auto max-w-[1400px] px-8 py-24">
+      <div className="mx-auto max-w-[1400px] px-4 py-14 sm:px-6 sm:py-20 md:py-24 lg:px-8">
         <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
           <div>
             <span className="ticker-dot inline-flex items-center font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
@@ -309,8 +309,8 @@ function Brands() {
                   Brief / 0{i + 1}
                 </span>
               </div>
-              <div className="p-7">
-                <h3 className="font-display text-4xl">{b.name}</h3>
+              <div className="p-5 sm:p-7">
+                <h3 className="font-display text-3xl sm:text-4xl">{b.name}</h3>
                 <p className="mt-2 text-primary text-[15px]">{b.tagline}</p>
                 <p className="mt-4 text-[14px] leading-relaxed text-muted-foreground">{b.summary}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
@@ -347,11 +347,11 @@ function Guidelines() {
 
   return (
     <section id="rules" className="border-y border-border bg-background">
-      <div className="mx-auto max-w-[1400px] px-8 py-16">
+      <div className="mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         {/* Single compact box */}
         <div className="border border-white/15">
           {/* Header bar */}
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/15 px-6 py-4">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/15 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
             <div className="flex items-center gap-4">
               <span
                 className="inline-flex items-center gap-2 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white"
@@ -418,7 +418,7 @@ function Guidelines() {
 
           {/* Footer strip */}
           <div
-            className="flex flex-wrap items-center justify-between gap-4 border-t border-white/15 px-6 py-4"
+            className="flex flex-wrap items-center justify-between gap-3 border-t border-white/15 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4"
             style={{ background: ink, color: "#fff" }}
           >
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
@@ -499,8 +499,8 @@ function SignupSection() {
 
   return (
     <section id="signup" className="border-b border-border">
-      <div className="mx-auto max-w-[1400px] px-8 py-24">
-        <div className="relative overflow-hidden rounded-[32px] border-2 border-primary/30 gradient-card p-8 md:p-14 shadow-[0_50px_120px_-20px_rgba(0,0,0,0.95),0_0_0_1px_rgba(255,255,255,0.04),0_25px_60px_-15px_var(--primary)] ring-1 ring-white/5">
+      <div className="mx-auto max-w-[1400px] px-4 py-14 sm:px-6 sm:py-20 md:py-24 lg:px-8">
+        <div className="relative overflow-hidden rounded-2xl border-2 border-primary/30 gradient-card p-5 sm:rounded-[32px] sm:p-8 md:p-14 shadow-[0_50px_120px_-20px_rgba(0,0,0,0.95),0_0_0_1px_rgba(255,255,255,0.04),0_25px_60px_-15px_var(--primary)] ring-1 ring-white/5">
           <div className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full bg-primary/30 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-pop-violet/30 blur-3xl" />
 
@@ -522,7 +522,7 @@ function SignupSection() {
             </div>
 
             <form onSubmit={handleSubmit} method="post" action="#" className="md:col-span-7">
-              <div className="rounded-3xl border border-white/10 bg-background/70 p-6 backdrop-blur-md md:p-8 space-y-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_30px_80px_-20px_rgba(0,0,0,0.8)]">
+              <div className="rounded-2xl border border-white/10 bg-background/70 p-4 backdrop-blur-md sm:rounded-3xl sm:p-6 md:p-8 space-y-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_30px_80px_-20px_rgba(0,0,0,0.8)]">
                 <div className="grid gap-5 md:grid-cols-2">
                   <Field label="Full name" icon={User} withInputIcon>
                     <Input name="full_name" required placeholder="Your name" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
@@ -638,7 +638,7 @@ function Field({ label, icon: Icon, withInputIcon = false, children }: { label: 
 function Footer() {
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto max-w-[1400px] px-8 py-14">
+      <div className="mx-auto max-w-[1400px] px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">
             <div className="flex items-center">
