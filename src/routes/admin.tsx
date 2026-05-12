@@ -41,6 +41,21 @@ function Admin() {
     })();
   }, []);
 
+  async function toggleShortlist(r: Submission) {
+    const next = !r.shortlisted;
+    setRows((prev) => prev.map((x) => (x.id === r.id ? { ...x, shortlisted: next } : x)));
+    const { error } = await supabase
+      .from("submissions")
+      .update({ shortlisted: next })
+      .eq("id", r.id);
+    if (error) {
+      setRows((prev) => prev.map((x) => (x.id === r.id ? { ...x, shortlisted: !next } : x)));
+      toast.error("Could not update shortlist.");
+    } else {
+      toast.success(next ? `Shortlisted ${r.full_name}` : `Removed ${r.full_name} from shortlist`);
+    }
+  }
+
   const filtered = useMemo(() => {
     return rows.filter((r) => {
       if (uni !== "All" && r.university !== uni) return false;
@@ -57,6 +72,8 @@ function Admin() {
       return true;
     });
   }, [rows, q, uni, brand]);
+
+  const shortlisted = useMemo(() => rows.filter((r) => r.shortlisted), [rows]);
 
   const stats = useMemo(() => {
     const byUni: Record<string, number> = {};
