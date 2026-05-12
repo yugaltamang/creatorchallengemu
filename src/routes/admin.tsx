@@ -367,7 +367,7 @@ function Admin() {
                           </tr>
                         </thead>
                         <tbody>
-                          {filtered.map((r) => (
+                          {paginated.map((r) => (
                             <tr key={r.id} className="border-t border-border hover:bg-muted/20">
                               <td className="px-4 py-3">
                                 <button
