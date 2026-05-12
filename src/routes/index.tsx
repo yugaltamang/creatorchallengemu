@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
-import { Twitter, Sparkles, Instagram, Trophy, Calendar, Users, Music2, Zap, User, Mail, AtSign, MessageSquare, GraduationCap, Check, ArrowRight, Link as LinkIcon, Loader2, PartyPopper } from "lucide-react";
+import { Twitter, Sparkles, Instagram, Trophy, Calendar, Users, Music2, Zap, User, Mail, AtSign, MessageSquare, GraduationCap, Check, ArrowRight, Link as LinkIcon, Loader2, PartyPopper, Phone } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import brand1 from "@/assets/brand-1.jpg";
 import brand2 from "@/assets/brand-2.jpg";
