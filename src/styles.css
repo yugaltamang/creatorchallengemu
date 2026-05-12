@@ -45,31 +45,31 @@
   --card-foreground: hsl(0 0% 98%);
   --popover: hsl(0 0% 11%);
   --popover-foreground: hsl(0 0% 98%);
-  --primary: hsl(4 86% 56%);
+  --primary: hsl(158 65% 22%);
   --primary-foreground: hsl(0 0% 100%);
   --secondary: hsl(0 0% 13%);
   --secondary-foreground: hsl(0 0% 98%);
   --muted: hsl(0 0% 14%);
   --muted-foreground: hsl(0 0% 65%);
-  --accent: hsl(4 86% 56%);
+  --accent: hsl(158 65% 22%);
   --accent-foreground: hsl(0 0% 100%);
   --destructive: hsl(0 72% 51%);
   --destructive-foreground: hsl(0 0% 98%);
   --border: hsl(0 0% 18%);
   --input: hsl(0 0% 18%);
-  --ring: hsl(4 86% 56%);
+  --ring: hsl(158 65% 22%);
 
   --pop-cyan: hsl(0 0% 98%);
   --pop-lime: hsl(0 0% 98%);
   --pop-yellow: hsl(0 0% 98%);
-  --pop-violet: hsl(4 86% 56%);
-  --pop-peach: hsl(4 86% 56%);
+  --pop-violet: hsl(158 65% 22%);
+  --pop-peach: hsl(158 65% 22%);
 
-  --gradient-pop: hsl(4 86% 56%);
-  --gradient-sun: hsl(4 86% 56%);
-  --gradient-ocean: hsl(4 86% 56%);
+  --gradient-pop: hsl(158 65% 22%);
+  --gradient-sun: hsl(158 65% 22%);
+  --gradient-ocean: hsl(158 65% 22%);
   --gradient-card: linear-gradient(180deg, hsl(0 0% 10%), hsl(0 0% 7%));
-  --gradient-spotlight: radial-gradient(ellipse at top, hsl(4 86% 56% / 0.18), transparent 65%);
+  --gradient-spotlight: radial-gradient(ellipse at top, hsl(158 65% 22% / 0.18), transparent 65%);
 
   --shadow-pop: 0 30px 80px -30px hsl(0 0% 0% / 0.8);
   --shadow-soft: 0 1px 0 hsl(0 0% 100% / 0.04), 0 24px 60px -28px hsl(0 0% 0% / 0.8);
@@ -167,7 +167,7 @@
   background: var(--primary);
   margin-right: .5rem;
   transform: translateY(-2px);
-  box-shadow: 0 0 0 4px hsl(4 86% 56% / 0.18);
+  box-shadow: 0 0 0 4px hsl(158 65% 22% / 0.18);
 }
 
 .corner-tick { position: relative; }
