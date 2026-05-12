@@ -67,7 +67,7 @@ function Admin() {
   }, [rows]);
 
   function exportCSV() {
-    const head = ["Name", "Email", "University", "Brand", "Instagram", "Notes", "Submitted"];
+    const head = ["Name", "Email", "University", "Brand", "Instagram", "Reel", "Submitted"];
     const lines = [head.join(",")];
     for (const r of filtered) {
       lines.push(
@@ -167,7 +167,7 @@ function Admin() {
                     <th className="px-4 py-3">University</th>
                     <th className="px-4 py-3">Brand</th>
                     <th className="px-4 py-3">Instagram</th>
-                    <th className="px-4 py-3">Notes</th>
+                    <th className="px-4 py-3">Reel</th>
                     <th className="px-4 py-3">Submitted</th>
                   </tr>
                 </thead>
@@ -193,7 +193,15 @@ function Admin() {
                           <ExternalLink className="h-3 w-3" />
                         </a>
                       </td>
-                      <td className="px-4 py-3 max-w-xs truncate text-muted-foreground">{r.notes || "—"}</td>
+                      <td className="px-4 py-3 max-w-xs truncate">
+                        {r.notes ? (
+                          <a href={r.notes} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-primary hover:underline">
+                            View reel <ExternalLink className="h-3 w-3" />
+                          </a>
+                        ) : (
+                          <span className="text-muted-foreground">—</span>
+                        )}
+                      </td>
                       <td className="px-4 py-3 text-muted-foreground">
                         {new Date(r.created_at).toLocaleDateString()}{" "}
                         <span className="text-xs">{new Date(r.created_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
