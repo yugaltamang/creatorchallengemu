@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
-import { ArrowLeft, ArrowRight, Twitter } from "lucide-react";
+import { Twitter, Sparkles, Instagram, Trophy, Calendar, Users, Music2, Zap } from "lucide-react";
 import brand1 from "@/assets/brand-1.jpg";
 import brand2 from "@/assets/brand-2.jpg";
 import creatorGirl from "@/assets/creator-girl.png";
