@@ -7,7 +7,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
-import { Twitter, Sparkles, Instagram, Trophy, Calendar, Users, Music2, Zap, User, Mail, AtSign, MessageSquare, GraduationCap, Check, ArrowRight, Link as LinkIcon } from "lucide-react";
+import { Twitter, Sparkles, Instagram, Trophy, Calendar, Users, Music2, Zap, User, Mail, AtSign, MessageSquare, GraduationCap, Check, ArrowRight, Link as LinkIcon, Loader2, PartyPopper } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import brand1 from "@/assets/brand-1.jpg";
 import brand2 from "@/assets/brand-2.jpg";
 import creatorGirl from "@/assets/creator-girl.webp";
@@ -422,6 +423,8 @@ function Guidelines() {
 
 function SignupSection() {
   const [submitting, setSubmitting] = useState(false);
+  const [successOpen, setSuccessOpen] = useState(false);
+  const [submittedName, setSubmittedName] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -447,7 +450,9 @@ function SignupSection() {
       toast.error("Could not submit. Try again.");
       return;
     }
+    setSubmittedName(payload.full_name.split(" ")[0]);
     form.reset();
+    setSuccessOpen(true);
     toast.success("You're in. We'll review your profile soon.");
   }
 
@@ -475,7 +480,7 @@ function SignupSection() {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="md:col-span-7">
+            <form onSubmit={handleSubmit} method="post" action="#" className="md:col-span-7">
               <div className="rounded-3xl border border-white/10 bg-background/70 p-6 backdrop-blur-md md:p-8 space-y-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_30px_80px_-20px_rgba(0,0,0,0.8)]">
                 <div className="grid gap-5 md:grid-cols-2">
                   <Field label="Full name" icon={User} withInputIcon>
@@ -527,8 +532,13 @@ function SignupSection() {
                   <p className="text-[12px] text-muted-foreground">
                     By submitting you agree to the contest rules.
                   </p>
-                  <Button type="submit" disabled={submitting} className="group h-14 rounded-full gradient-pop px-8 text-[14px] font-semibold tracking-wide text-primary-foreground shadow-pop transition hover:opacity-95 hover:shadow-[0_25px_60px_-15px_var(--primary)]">
-                    {submitting ? "Submitting…" : (
+                  <Button type="submit" disabled={submitting} className="group h-14 rounded-full gradient-pop px-8 text-[14px] font-semibold tracking-wide text-primary-foreground shadow-pop transition hover:opacity-95 hover:shadow-[0_25px_60px_-15px_var(--primary)] disabled:opacity-80">
+                    {submitting ? (
+                      <span className="flex items-center gap-2">
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                        Submitting…
+                      </span>
+                    ) : (
                       <span className="flex items-center gap-2">
                         Submit my profile
                         <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
@@ -541,6 +551,25 @@ function SignupSection() {
           </div>
         </div>
       </div>
+
+      <Dialog open={successOpen} onOpenChange={setSuccessOpen}>
+        <DialogContent className="sm:max-w-md rounded-3xl border border-white/10 bg-background/95 backdrop-blur-xl">
+          <DialogHeader className="items-center text-center">
+            <div className="mx-auto mb-2 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-primary to-pop-violet shadow-pop">
+              <PartyPopper className="h-7 w-7 text-primary-foreground" />
+            </div>
+            <DialogTitle className="text-2xl">You're in{submittedName ? `, ${submittedName}` : ""}!</DialogTitle>
+            <DialogDescription className="text-balance pt-1">
+              Your profile is locked in. Our team will review your reel and reach out on Instagram or email with the next steps.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="sm:justify-center">
+            <Button onClick={() => setSuccessOpen(false)} className="h-11 rounded-full gradient-pop px-6 font-semibold text-primary-foreground shadow-pop">
+              Got it
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
