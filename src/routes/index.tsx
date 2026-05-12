@@ -363,7 +363,7 @@ function Guidelines() {
                     / {r.n}
                   </span>
                   <span
-                    className="rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em]"
+                    className="px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em]"
                     style={{ background: pillBg, color: ink }}
                   >
                     {r.chip}
