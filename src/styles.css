@@ -32,7 +32,8 @@
   --color-ring: var(--ring);
   --font-display: "Archivo Black", "Archivo", system-ui, sans-serif;
   --font-serif: "DM Serif Display", "Times New Roman", serif;
-  --font-sans: "Archivo", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", "Archivo", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 :root {
