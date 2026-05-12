@@ -323,68 +323,71 @@ function Guidelines() {
     <section id="rules" className="border-y border-border bg-background">
       <div className="mx-auto max-w-[1400px] px-8 py-28">
         {/* Header */}
-        <div className="mb-12 grid gap-8 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-8">
+        <div className="mb-16 flex flex-col gap-8 border-b border-white/10 pb-12 lg:flex-row lg:items-end lg:justify-between">
+          <div className="space-y-5">
             <span
-              className="inline-flex items-center gap-2 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-white"
+              className="inline-flex items-center gap-2 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white"
               style={{ background: blue }}
             >
-              <Sparkles className="h-3.5 w-3.5" /> The Playbook
+              <span className="inline-block h-1.5 w-1.5 rotate-45 bg-white" />
+              The Playbook
             </span>
-            <h2 className="mt-6 font-display text-[clamp(48px,7.5vw,108px)] leading-[0.95] text-foreground">
-              Rules of <span className="font-serif italic">play</span>
+            <h2 className="font-display text-[clamp(48px,7.5vw,108px)] uppercase leading-[0.88] tracking-tighter text-foreground">
+              Rules of{" "}
+              <span className="font-serif italic normal-case tracking-normal" style={{ color: blue }}>
+                play
+              </span>
               <span style={{ color: blue }}>.</span>
             </h2>
           </div>
-          <p className="lg:col-span-4 text-[14px] leading-relaxed text-muted-foreground">
+          <p className="max-w-xs font-mono text-[13px] leading-relaxed text-muted-foreground">
             Six things to keep in mind before you hit submit. Read once. Then go make something worth watching.
           </p>
         </div>
 
-        {/* Bento grid */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* Full-bleed bordered grid */}
+        <div className="grid grid-cols-1 border-l border-t border-white/15 md:grid-cols-2 lg:grid-cols-3">
           {rules.map((r, i) => {
             const isAccent = i === 2;
-            const bg = isAccent ? blue : ink;
-            const pillBg = isAccent ? "#FFFFFF" : lime;
             return (
               <article
                 key={r.n}
-                className="relative flex min-h-[320px] flex-col justify-between p-7 transition-transform duration-300 hover:-translate-y-1"
-                style={{ background: bg, color: "#fff" }}
+                className={`group relative flex min-h-[340px] flex-col justify-between border-b border-r border-white/15 p-8 transition-colors ${
+                  isAccent ? "" : "hover:bg-white/[0.03]"
+                }`}
+                style={{ background: isAccent ? blue : "transparent", color: "#fff" }}
               >
                 <div className="flex items-start justify-between">
                   <span
-                    className="font-display text-[13px] tracking-[0.2em]"
-                    style={{ color: isAccent ? "rgba(255,255,255,0.7)" : muted }}
+                    className="font-mono text-[14px]"
+                    style={{ color: isAccent ? "rgba(255,255,255,0.85)" : blue }}
                   >
                     / {r.n}
                   </span>
                   <span
-                    className="px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em]"
-                    style={{ background: pillBg, color: ink }}
+                    className="px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.18em]"
+                    style={{ background: isAccent ? "#fff" : "#fff", color: isAccent ? blue : ink }}
                   >
                     {r.chip}
                   </span>
                 </div>
 
                 <div className="mt-12">
-                  <h3 className="font-display text-[34px] leading-[1.02] tracking-tight">
+                  <h3 className="font-display text-[36px] uppercase leading-[1.02] tracking-tight">
                     {r.t}
-                    <span style={{ color: isAccent ? "#fff" : lime }}>.</span>
+                    <span style={{ color: isAccent ? "#000" : blue }}>.</span>
                   </h3>
                   <div
-                    className="mt-3 h-[6px] w-16"
-                    style={{ background: isAccent ? "#fff" : lime, opacity: isAccent ? 0.9 : 1 }}
+                    className="mt-4 h-[6px] w-12 transition-all duration-500 group-hover:w-24"
+                    style={{ background: "#fff" }}
                   />
+                  <p
+                    className="mt-6 text-[14px] leading-relaxed"
+                    style={{ color: isAccent ? "rgba(255,255,255,0.95)" : muted }}
+                  >
+                    {r.d}
+                  </p>
                 </div>
-
-                <p
-                  className="mt-6 text-[14px] leading-relaxed"
-                  style={{ color: isAccent ? "rgba(255,255,255,0.85)" : muted }}
-                >
-                  {r.d}
-                </p>
               </article>
             );
           })}
