@@ -321,101 +321,91 @@ function Guidelines() {
 
   return (
     <section id="rules" className="border-y border-border bg-background">
-      <div className="mx-auto max-w-[1400px] px-8 py-28">
-        {/* Header */}
-        <div className="mb-16 flex flex-col gap-8 border-b border-white/10 pb-12 lg:flex-row lg:items-end lg:justify-between">
-          <div className="space-y-5">
-            <span
-              className="inline-flex items-center gap-2 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white"
-              style={{ background: blue }}
-            >
-              <span className="inline-block h-1.5 w-1.5 rotate-45 bg-white" />
-              The Playbook
-            </span>
-            <h2 className="font-display text-[clamp(48px,7.5vw,108px)] uppercase leading-[0.88] tracking-tighter text-foreground">
-              Rules of{" "}
-              <span className="font-serif italic normal-case tracking-normal" style={{ color: blue }}>
-                play
-              </span>
-              <span style={{ color: blue }}>.</span>
-            </h2>
-          </div>
-          <p className="max-w-xs font-mono text-[13px] leading-relaxed text-muted-foreground">
-            Six things to keep in mind before you hit submit. Read once. Then go make something worth watching.
-          </p>
-        </div>
-
-        {/* Full-bleed bordered grid */}
-        <div className="grid grid-cols-1 border-l border-t border-white/15 md:grid-cols-2 lg:grid-cols-3">
-          {rules.map((r, i) => {
-            const isAccent = i === 2;
-            return (
-              <article
-                key={r.n}
-                className={`group relative flex min-h-[340px] flex-col justify-between border-b border-r border-white/15 p-8 transition-colors ${
-                  isAccent ? "" : "hover:bg-white/[0.03]"
-                }`}
-                style={{ background: isAccent ? blue : "transparent", color: "#fff" }}
+      <div className="mx-auto max-w-[1400px] px-8 py-16">
+        {/* Single compact box */}
+        <div className="border border-white/15">
+          {/* Header bar */}
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/15 px-6 py-4">
+            <div className="flex items-center gap-4">
+              <span
+                className="inline-flex items-center gap-2 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white"
+                style={{ background: blue }}
               >
-                <div className="flex items-start justify-between">
-                  <span
-                    className="font-mono text-[14px]"
-                    style={{ color: isAccent ? "rgba(255,255,255,0.85)" : blue }}
-                  >
-                    / {r.n}
-                  </span>
-                  <span
-                    className="px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.18em]"
-                    style={{ background: isAccent ? "#fff" : "#fff", color: isAccent ? blue : ink }}
-                  >
-                    {r.chip}
-                  </span>
-                </div>
-
-                <div className="mt-12">
-                  <h3 className="font-display text-[36px] uppercase leading-[1.02] tracking-tight">
-                    {r.t}
-                    <span style={{ color: isAccent ? "#000" : blue }}>.</span>
-                  </h3>
-                  <div
-                    className="mt-4 h-[6px] w-12 transition-all duration-500 group-hover:w-24"
-                    style={{ background: "#fff" }}
-                  />
-                  <p
-                    className="mt-6 text-[14px] leading-relaxed"
-                    style={{ color: isAccent ? "rgba(255,255,255,0.95)" : muted }}
-                  >
-                    {r.d}
-                  </p>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-
-        {/* Footer strip */}
-        <div
-          className="mt-10 flex flex-wrap items-center justify-between gap-6 px-8 py-7"
-          style={{ background: ink, color: "#fff" }}
-        >
-          <div className="flex items-center gap-4">
-            <span
-              className="px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em]"
-              style={{ background: lime, color: ink }}
-            >
-              Heads up
-            </span>
-            <p className="font-display text-[20px] leading-tight">
-              Miss a rule, miss the prize. We disqualify quietly.
+                <span className="inline-block h-1.5 w-1.5 rotate-45 bg-white" />
+                Playbook
+              </span>
+              <h2 className="font-display text-[22px] uppercase leading-none tracking-tight text-foreground">
+                Rules of{" "}
+                <span className="font-serif italic normal-case" style={{ color: blue }}>
+                  play
+                </span>
+                <span style={{ color: blue }}>.</span>
+              </h2>
+            </div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+              Six things · Read once · Then ship
             </p>
           </div>
-          <a
-            href="#signup"
-            className="inline-flex items-center gap-3 px-6 py-3 text-[13px] font-bold uppercase tracking-[0.18em] transition hover:opacity-90"
-            style={{ background: blue, color: "#fff" }}
+
+          {/* Compact rule rows */}
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {rules.map((r, i) => {
+              const isAccent = i === 2;
+              return (
+                <li
+                  key={r.n}
+                  className={`group relative flex gap-4 border-white/15 p-5 [&:not(:last-child)]:border-b md:[&:nth-child(odd)]:border-r md:[&:nth-last-child(2)]:border-b-0 lg:[&]:border-b-0 lg:[&:not(:nth-child(3n))]:border-r lg:[&:nth-child(-n+3)]:border-b lg:[&:nth-child(odd)]:border-r ${
+                    isAccent ? "" : "hover:bg-white/[0.03]"
+                  }`}
+                  style={{ background: isAccent ? blue : "transparent", color: "#fff" }}
+                >
+                  <span
+                    className="font-mono text-[13px] leading-none pt-1"
+                    style={{ color: isAccent ? "rgba(255,255,255,0.9)" : blue }}
+                  >
+                    /{r.n}
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-baseline justify-between gap-3">
+                      <h3 className="font-display text-[16px] uppercase leading-tight tracking-tight">
+                        {r.t}
+                        <span style={{ color: isAccent ? "#000" : blue }}>.</span>
+                      </h3>
+                      <span
+                        className="font-mono text-[9px] font-bold uppercase tracking-[0.18em]"
+                        style={{ color: isAccent ? "rgba(255,255,255,0.85)" : muted }}
+                      >
+                        {r.chip}
+                      </span>
+                    </div>
+                    <p
+                      className="mt-1.5 text-[12.5px] leading-snug"
+                      style={{ color: isAccent ? "rgba(255,255,255,0.95)" : muted }}
+                    >
+                      {r.d}
+                    </p>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+
+          {/* Footer strip */}
+          <div
+            className="flex flex-wrap items-center justify-between gap-4 border-t border-white/15 px-6 py-4"
+            style={{ background: ink, color: "#fff" }}
           >
-            I'm in <span aria-hidden>→</span>
-          </a>
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
+              Miss a rule · We disqualify quietly
+            </p>
+            <a
+              href="#signup"
+              className="inline-flex items-center gap-2 px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] transition hover:opacity-90"
+              style={{ background: blue, color: "#fff" }}
+            >
+              I'm in <span aria-hidden>→</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
