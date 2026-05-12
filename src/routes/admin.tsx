@@ -89,6 +89,23 @@ function Admin() {
     });
   }, [rows, q, uni, brand]);
 
+  const filteredFinals = useMemo(() => {
+    return finals.filter((r) => {
+      if (uni !== "All" && r.university !== uni) return false;
+      if (brand !== "All" && r.brand_choice !== brand) return false;
+      if (q) {
+        const s = q.toLowerCase();
+        if (
+          !r.full_name.toLowerCase().includes(s) &&
+          !r.email.toLowerCase().includes(s) &&
+          !r.instagram_handle.toLowerCase().includes(s)
+        )
+          return false;
+      }
+      return true;
+    });
+  }, [finals, q, uni, brand]);
+
   const shortlisted = useMemo(() => rows.filter((r) => r.shortlisted), [rows]);
 
   const stats = useMemo(() => {
@@ -117,7 +134,7 @@ function Admin() {
     if (view === "final") {
       const head = ["Name", "Email", "University", "Brand", "Instagram", "Reel 1", "Reel 2", "Reel 3", "Submitted"];
       const lines = [head.join(",")];
-      for (const r of finals) {
+      for (const r of filteredFinals) {
         lines.push(
           [r.full_name, r.email, r.university, r.brand_choice, r.instagram_handle, r.reel_1, r.reel_2 ?? "", r.reel_3 ?? "", r.created_at]
             .map((v) => `"${String(v).replace(/"/g, '""')}"`)
@@ -413,17 +430,34 @@ function Admin() {
                 </section>
 
                 <section className="border border-border bg-card">
-                  <div className="flex items-center justify-between border-b border-border p-4">
-                    <div>
-                      <h2 className="font-display text-lg">Final Submissions</h2>
-                      <p className="text-xs text-muted-foreground">Stage 2 entries with up to 3 reels each</p>
+                  <div className="border-b border-border p-4">
+                    <div className="mb-3 flex items-center justify-between">
+                      <div>
+                        <h2 className="font-display text-lg">Final Submissions</h2>
+                        <p className="text-xs text-muted-foreground">Stage 2 entries with up to 3 reels each</p>
+                      </div>
+                      <span className="text-sm text-muted-foreground">{filteredFinals.length} of {finals.length}</span>
                     </div>
-                    <span className="text-sm text-muted-foreground">{finals.length} entries</span>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <div className="relative flex-1 min-w-[220px]">
+                        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                        <Input
+                          value={q}
+                          onChange={(e) => setQ(e.target.value)}
+                          placeholder="Search by name, email, or handle"
+                          className="pl-9"
+                        />
+                      </div>
+                      <Select value={uni} onChange={setUni} options={universities} label="University" />
+                      <Select value={brand} onChange={setBrand} options={brands} label="Brand" />
+                    </div>
                   </div>
                   {loading ? (
                     <div className="p-12 text-center text-muted-foreground">Loading entries…</div>
-                  ) : finals.length === 0 ? (
-                    <div className="p-8 text-center text-sm text-muted-foreground">No final submissions yet.</div>
+                  ) : filteredFinals.length === 0 ? (
+                    <div className="p-8 text-center text-sm text-muted-foreground">
+                      {finals.length === 0 ? "No final submissions yet." : "No entries match these filters."}
+                    </div>
                   ) : (
                     <div className="overflow-x-auto">
                       <table className="w-full text-sm">
@@ -438,7 +472,7 @@ function Admin() {
                           </tr>
                         </thead>
                         <tbody>
-                          {finals.map((r) => {
+                          {filteredFinals.map((r) => {
                             const reels = [r.reel_1, r.reel_2, r.reel_3].filter(Boolean) as string[];
                             return (
                               <tr key={r.id} className="border-t border-border hover:bg-muted/20 align-top">
