@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
-import { Twitter, Sparkles, Instagram, Trophy, Calendar, Users, Music2, Zap, User, Mail, AtSign, MessageSquare, GraduationCap, Check, ArrowRight, Link as LinkIcon, Loader2, PartyPopper } from "lucide-react";
+import { Twitter, Sparkles, Instagram, Trophy, Calendar, Users, Music2, Zap, User, Mail, AtSign, MessageSquare, GraduationCap, Check, ArrowRight, Link as LinkIcon, Loader2, PartyPopper, Phone } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import brand1 from "@/assets/brand-1.jpg";
 import brand2 from "@/assets/brand-2.jpg";
@@ -431,16 +431,22 @@ function SignupSection() {
     const form = e.currentTarget;
     const fd = new FormData(form);
     const handle = String(fd.get("instagram_handle") || "").replace(/^@/, "").trim().toLowerCase();
+    const whatsapp = String(fd.get("whatsapp_number") || "").trim();
     const payload = {
       full_name: String(fd.get("full_name") || "").trim(),
       email: String(fd.get("email") || "").trim().toLowerCase(),
       university: String(fd.get("university") || ""),
       brand_choice: String(fd.get("brand_choice") || ""),
       instagram_handle: handle,
+      whatsapp_number: whatsapp,
       notes: String(fd.get("notes") || "").trim(),
     };
-    if (!payload.full_name || !payload.email || !payload.university || !payload.brand_choice || !handle || !payload.notes) {
+    if (!payload.full_name || !payload.email || !payload.university || !payload.brand_choice || !handle || !whatsapp || !payload.notes) {
       toast.error("Please fill in all required fields.");
+      return;
+    }
+    if (!/^\+?[0-9\s\-()]{7,20}$/.test(whatsapp)) {
+      toast.error("Please enter a valid WhatsApp number.");
       return;
     }
     setSubmitting(true);
@@ -540,6 +546,11 @@ function SignupSection() {
 
                 <Field label="Instagram handle" icon={AtSign} withInputIcon>
                   <Input name="instagram_handle" required placeholder="yourhandle" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
+                </Field>
+
+                <Field label="WhatsApp number" icon={Phone} withInputIcon>
+                  <Input name="whatsapp_number" type="tel" required inputMode="tel" pattern="^\+?[0-9\s\-()]{7,20}$" placeholder="+91 98765 43210" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
+                  <p className="mt-1.5 text-[12px] text-muted-foreground">Used to intimate you if you are shortlisted.</p>
                 </Field>
 
                 <Field label="Link to your best reel" icon={LinkIcon} withInputIcon>

@@ -67,6 +67,7 @@ export type Database = {
           notes: string | null
           shortlisted: boolean
           university: string
+          whatsapp_number: string | null
         }
         Insert: {
           brand_choice: string
@@ -78,6 +79,7 @@ export type Database = {
           notes?: string | null
           shortlisted?: boolean
           university: string
+          whatsapp_number?: string | null
         }
         Update: {
           brand_choice?: string
@@ -89,6 +91,7 @@ export type Database = {
           notes?: string | null
           shortlisted?: boolean
           university?: string
+          whatsapp_number?: string | null
         }
         Relationships: []
       }
