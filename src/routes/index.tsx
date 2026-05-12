@@ -148,7 +148,7 @@ function Hero() {
             <span>Issue 01 · Creator Challenge 26</span>
           </div>
           <h2 className="font-display text-[clamp(64px,10.5vw,180px)] leading-[0.82] tracking-[-0.04em]">
-            <span className="block">Let<span className="text-primary">'</span>s</span>
+            <span className="block -mt-4 md:-mt-6">Let<span className="text-primary">'</span>s</span>
             <span className="block">
               <span className="mu-gradient-text">build</span>
             </span>
