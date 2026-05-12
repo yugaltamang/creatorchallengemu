@@ -1,10 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Search, Download, Star, Copy, Trophy } from "lucide-react";
 import { toast } from "sonner";
+
+const SUBMISSION_COLS = "id,full_name,email,university,instagram_handle,brand_choice,notes,whatsapp_number,shortlisted,created_at";
+const FINAL_COLS = "id,full_name,email,university,instagram_handle,brand_choice,reel_1,reel_2,reel_3,whatsapp_number,is_winner,created_at";
 
 export const Route = createFileRoute("/admin")({
   component: Admin,
