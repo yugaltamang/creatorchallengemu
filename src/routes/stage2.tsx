@@ -6,7 +6,17 @@ import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
-import { User, Mail, AtSign, GraduationCap, Sparkles, Check, ArrowRight, Link as LinkIcon, Loader2, PartyPopper, Phone } from "lucide-react";
+import User from "lucide-react/dist/esm/icons/user";
+import Mail from "lucide-react/dist/esm/icons/mail";
+import AtSign from "lucide-react/dist/esm/icons/at-sign";
+import GraduationCap from "lucide-react/dist/esm/icons/graduation-cap";
+import Sparkles from "lucide-react/dist/esm/icons/sparkles";
+import Check from "lucide-react/dist/esm/icons/check";
+import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
+import LinkIcon from "lucide-react/dist/esm/icons/link";
+import Loader2 from "lucide-react/dist/esm/icons/loader-2";
+import PartyPopper from "lucide-react/dist/esm/icons/party-popper";
+import Phone from "lucide-react/dist/esm/icons/phone";
 import logo from "@/assets/logo.svg";
 import creatorGirl from "@/assets/creator-girl.webp";
 
