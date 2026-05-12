@@ -376,7 +376,7 @@ function Guidelines() {
                     <span style={{ color: isAccent ? "#fff" : lime }}>.</span>
                   </h3>
                   <div
-                    className="mt-3 h-[6px] w-16 rounded-full"
+                    className="mt-3 h-[6px] w-16"
                     style={{ background: isAccent ? "#fff" : lime, opacity: isAccent ? 0.9 : 1 }}
                   />
                 </div>
