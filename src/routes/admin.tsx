@@ -44,9 +44,7 @@ type FinalSubmission = {
 };
 
 function Admin() {
-  const [rows, setRows] = useState<Submission[]>([]);
-  const [finals, setFinals] = useState<FinalSubmission[]>([]);
-  const [loading, setLoading] = useState(true);
+  const queryClient = useQueryClient();
   const [q, setQ] = useState("");
   const [uni, setUni] = useState<string>("All");
   const [brand, setBrand] = useState<string>("All");
@@ -54,27 +52,49 @@ function Admin() {
   const [page, setPage] = useState(1);
   const PAGE_SIZE = 10;
 
-  useEffect(() => {
-    (async () => {
-      const [{ data, error }, { data: finalData }] = await Promise.all([
-        supabase.from("submissions").select("*").order("created_at", { ascending: false }),
-        supabase.from("final_submissions").select("*").order("created_at", { ascending: false }),
-      ]);
-      if (!error && data) setRows(data as Submission[]);
-      if (finalData) setFinals(finalData as FinalSubmission[]);
-      setLoading(false);
-    })();
-  }, []);
+  const submissionsQuery = useQuery({
+    queryKey: ["admin", "submissions"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("submissions")
+        .select(SUBMISSION_COLS)
+        .order("created_at", { ascending: false });
+      if (error) throw error;
+      return (data ?? []) as Submission[];
+    },
+    staleTime: 30_000,
+  });
+
+  const finalsQuery = useQuery({
+    queryKey: ["admin", "final_submissions"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("final_submissions")
+        .select(FINAL_COLS)
+        .order("created_at", { ascending: false });
+      if (error) throw error;
+      return (data ?? []) as FinalSubmission[];
+    },
+    staleTime: 30_000,
+  });
+
+  const rows = submissionsQuery.data ?? [];
+  const finals = finalsQuery.data ?? [];
+  const loading = submissionsQuery.isLoading || finalsQuery.isLoading;
 
   async function toggleShortlist(r: Submission) {
     const next = !r.shortlisted;
-    setRows((prev) => prev.map((x) => (x.id === r.id ? { ...x, shortlisted: next } : x)));
+    queryClient.setQueryData<Submission[]>(["admin", "submissions"], (prev) =>
+      (prev ?? []).map((x) => (x.id === r.id ? { ...x, shortlisted: next } : x))
+    );
     const { error } = await supabase
       .from("submissions")
       .update({ shortlisted: next })
       .eq("id", r.id);
     if (error) {
-      setRows((prev) => prev.map((x) => (x.id === r.id ? { ...x, shortlisted: !next } : x)));
+      queryClient.setQueryData<Submission[]>(["admin", "submissions"], (prev) =>
+        (prev ?? []).map((x) => (x.id === r.id ? { ...x, shortlisted: !next } : x))
+      );
       toast.error("Could not update shortlist.");
     } else {
       toast.success(next ? `Shortlisted ${r.full_name}` : `Removed ${r.full_name} from shortlist`);
@@ -83,13 +103,17 @@ function Admin() {
 
   async function toggleWinner(r: FinalSubmission) {
     const next = !r.is_winner;
-    setFinals((prev) => prev.map((x) => (x.id === r.id ? { ...x, is_winner: next } : x)));
+    queryClient.setQueryData<FinalSubmission[]>(["admin", "final_submissions"], (prev) =>
+      (prev ?? []).map((x) => (x.id === r.id ? { ...x, is_winner: next } : x))
+    );
     const { error } = await supabase
       .from("final_submissions")
       .update({ is_winner: next })
       .eq("id", r.id);
     if (error) {
-      setFinals((prev) => prev.map((x) => (x.id === r.id ? { ...x, is_winner: !next } : x)));
+      queryClient.setQueryData<FinalSubmission[]>(["admin", "final_submissions"], (prev) =>
+        (prev ?? []).map((x) => (x.id === r.id ? { ...x, is_winner: !next } : x))
+      );
       toast.error("Could not update winners.");
     } else {
       toast.success(next ? `Marked ${r.full_name} as winner` : `Removed ${r.full_name} from winners`);
