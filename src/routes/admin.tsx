@@ -135,6 +135,7 @@ function Admin() {
   );
 
   const shortlisted = useMemo(() => rows.filter((r) => r.shortlisted), [rows]);
+  const winners = useMemo(() => finals.filter((r) => r.is_winner), [finals]);
 
   const stats = useMemo(() => {
     const byUni: Record<string, number> = {};
