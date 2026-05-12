@@ -67,7 +67,7 @@ function Admin() {
   }, [rows]);
 
   function exportCSV() {
-    const head = ["Name", "Email", "University", "Brand", "Instagram", "Notes", "Submitted"];
+    const head = ["Name", "Email", "University", "Brand", "Instagram", "Reel", "Submitted"];
     const lines = [head.join(",")];
     for (const r of filtered) {
       lines.push(
