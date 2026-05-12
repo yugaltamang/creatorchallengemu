@@ -638,7 +638,7 @@ function Field({ label, icon: Icon, withInputIcon = false, children }: { label: 
 function Footer() {
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto max-w-[1400px] px-8 py-14">
+      <div className="mx-auto max-w-[1400px] px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">
             <div className="flex items-center">
