@@ -22,6 +22,7 @@ export type Database = {
           full_name: string
           id: string
           instagram_handle: string
+          is_winner: boolean
           reel_1: string
           reel_2: string | null
           reel_3: string | null
@@ -36,6 +37,7 @@ export type Database = {
           full_name: string
           id?: string
           instagram_handle: string
+          is_winner?: boolean
           reel_1: string
           reel_2?: string | null
           reel_3?: string | null
@@ -50,6 +52,7 @@ export type Database = {
           full_name?: string
           id?: string
           instagram_handle?: string
+          is_winner?: boolean
           reel_1?: string
           reel_2?: string | null
           reel_3?: string | null
