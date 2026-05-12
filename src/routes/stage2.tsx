@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -37,13 +37,11 @@ function Header() {
   return (
     <header className="relative z-30 border-b border-border">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-8 border-b border-border px-8 py-4">
-        <Link to="/" className="flex items-center">
+        <div className="flex items-center">
           <img src={logo} alt="Creator Challenge 2026" className="h-10 w-auto invert" />
-        </Link>
+        </div>
         <nav className="hidden items-center gap-7 text-[14px] md:flex">
-          <Link to="/" className="hover:text-primary">Home</Link>
           <span className="text-primary">Stage 2</span>
-          <Link to="/admin" className="text-muted-foreground hover:text-primary">Admin</Link>
         </nav>
         <div className="grid h-14 w-14 place-items-center rounded-full border border-primary text-center text-[11px] leading-tight text-primary">
           Stage<br />02
