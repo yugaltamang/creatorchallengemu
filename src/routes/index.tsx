@@ -131,9 +131,9 @@ function Hero() {
         {/* Big headline */}
         <div className="col-span-12 md:col-span-8 md:pt-6">
           <h2 className="font-display text-[clamp(64px,10vw,160px)] leading-[0.86]">
-            <span className="text-primary">Let's</span>{" "}<br className="hidden sm:block" />
-            <span className="text-primary">build</span>{" "}<br className="hidden sm:block" />
-            <span className="text-primary">stories,</span><br />
+            <span className="mu-gradient-text">Let's</span>{" "}<br className="hidden sm:block" />
+            <span className="mu-gradient-text">build</span>{" "}<br className="hidden sm:block" />
+            <span className="mu-gradient-text">stories,</span><br />
             <span className="text-foreground">together.</span>
           </h2>
         </div>
