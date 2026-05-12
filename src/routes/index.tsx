@@ -434,9 +434,9 @@ function SignupSection() {
       university: String(fd.get("university") || ""),
       brand_choice: String(fd.get("brand_choice") || ""),
       instagram_handle: handle,
-      notes: String(fd.get("notes") || "").trim() || null,
+      notes: String(fd.get("notes") || "").trim(),
     };
-    if (!payload.full_name || !payload.email || !payload.university || !payload.brand_choice || !handle) {
+    if (!payload.full_name || !payload.email || !payload.university || !payload.brand_choice || !handle || !payload.notes) {
       toast.error("Please fill in all required fields.");
       return;
     }
