@@ -351,7 +351,7 @@ function Guidelines() {
         {/* Single compact box */}
         <div className="border border-white/15">
           {/* Header bar */}
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/15 px-6 py-4">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/15 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
             <div className="flex items-center gap-4">
               <span
                 className="inline-flex items-center gap-2 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white"
