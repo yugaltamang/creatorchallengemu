@@ -111,7 +111,7 @@ function Hero() {
         <path d="M 600 0 A 600 600 0 0 0 0 600" stroke="currentColor" strokeWidth="3" />
       </svg>
 
-      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pt-10 pb-16 sm:px-6 sm:pt-16 sm:pb-24 md:pt-24 md:pb-32 lg:px-8">
+      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pt-32 pb-16 sm:px-6 sm:pt-40 sm:pb-24 md:pt-24 md:pb-32 lg:px-8">
         {/* Phone mock / left visual */}
         <div className="col-span-12 md:col-span-4">
           <div className="relative mx-auto w-[200px] sm:w-[240px] md:w-[260px]">
@@ -119,7 +119,7 @@ function Hero() {
             <img
               src={creatorGirl}
               alt="Student creating an Instagram reel"
-              className="pointer-events-none absolute left-1/2 bottom-[58px] z-20 w-[140%] max-w-none -translate-x-1/2 drop-shadow-[0_25px_40px_rgba(0,0,0,0.6)]"
+              className="pointer-events-none absolute left-1/2 bottom-[58px] z-20 w-[115%] max-w-none -translate-x-1/2 drop-shadow-[0_25px_40px_rgba(0,0,0,0.6)] sm:w-[130%] md:w-[140%]"
             />
             <div className="relative rounded-[36px] border-[3px] border-primary bg-card p-2 shadow-[0_0_0_1px_var(--color-primary)]">
               <div className="overflow-hidden rounded-[28px] bg-black">
