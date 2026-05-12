@@ -448,8 +448,8 @@ function SignupSection() {
     setSubmitting(false);
     if (error) {
       if (error.code === "23505") {
-        const dupField = error.message?.toLowerCase().includes("instagram") ? "Instagram handle" : "email";
-        toast.error(`This ${dupField} has already been submitted.`);
+        const dupField = error.message?.toLowerCase().includes("handle") ? "Instagram handle" : "email";
+        toast.error(`This ${dupField} has already entered for ${payload.brand_choice}.`);
       } else {
         toast.error("Could not submit. Try again.");
       }
