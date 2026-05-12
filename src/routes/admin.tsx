@@ -195,6 +195,15 @@ function Admin() {
                   {filtered.map((r) => (
                     <tr key={r.id} className="border-t border-border hover:bg-muted/20">
                       <td className="px-4 py-3">
+                        <button
+                          onClick={() => toggleShortlist(r)}
+                          aria-label={r.shortlisted ? "Remove from shortlist" : "Add to shortlist"}
+                          className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border transition hover:border-primary hover:text-primary"
+                        >
+                          <Star className={`h-4 w-4 ${r.shortlisted ? "fill-primary text-primary" : ""}`} />
+                        </button>
+                      </td>
+                      <td className="px-4 py-3">
                         <div className="font-medium">{r.full_name}</div>
                         <div className="text-xs text-muted-foreground">{r.email}</div>
                       </td>
