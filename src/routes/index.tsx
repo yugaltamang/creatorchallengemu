@@ -186,7 +186,6 @@ function SocialBar() {
   const stats = [
     { n: "3", l: "Campuses", icon: Users, accent: "text-pop-cyan" },
     { n: "2", l: "Real brands", icon: Zap, accent: "text-pop-yellow" },
-    { n: "₹5L", l: "Prize pool", icon: Trophy, accent: "text-pop-lime" },
     { n: "45d", l: "To create", icon: Calendar, accent: "text-pop-violet" },
   ];
   return (
