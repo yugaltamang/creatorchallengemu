@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
-import { User, Mail, AtSign, GraduationCap, Sparkles, Check, ArrowRight, Link as LinkIcon, Loader2, PartyPopper } from "lucide-react";
+import { User, Mail, AtSign, GraduationCap, Sparkles, Check, ArrowRight, Link as LinkIcon, Loader2, PartyPopper, Phone } from "lucide-react";
 import logo from "@/assets/logo.svg";
 import creatorGirl from "@/assets/creator-girl.webp";
 
@@ -128,6 +128,7 @@ function Stage2Form() {
     const form = e.currentTarget;
     const fd = new FormData(form);
     const handle = String(fd.get("instagram_handle") || "").replace(/^@/, "").trim().toLowerCase();
+    const whatsapp = String(fd.get("whatsapp_number") || "").trim();
     const reel1 = String(fd.get("reel_1") || "").trim();
     const reel2 = String(fd.get("reel_2") || "").trim();
     const reel3 = String(fd.get("reel_3") || "").trim();
@@ -137,12 +138,17 @@ function Stage2Form() {
       university: String(fd.get("university") || ""),
       brand_choice: String(fd.get("brand_choice") || ""),
       instagram_handle: handle,
+      whatsapp_number: whatsapp,
       reel_1: reel1,
       reel_2: reel2 || null,
       reel_3: reel3 || null,
     };
-    if (!payload.full_name || !payload.email || !payload.university || !payload.brand_choice || !handle || !reel1) {
+    if (!payload.full_name || !payload.email || !payload.university || !payload.brand_choice || !handle || !whatsapp || !reel1) {
       toast.error("Please fill in all required fields.");
+      return;
+    }
+    if (!/^\+?[0-9\s\-()]{7,20}$/.test(whatsapp)) {
+      toast.error("Please enter a valid WhatsApp number.");
       return;
     }
 
@@ -219,6 +225,11 @@ function Stage2Form() {
 
           <Field label="Instagram handle" icon={AtSign} withInputIcon>
             <Input name="instagram_handle" required placeholder="yourhandle" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
+          </Field>
+
+          <Field label="WhatsApp number" icon={Phone} withInputIcon>
+            <Input name="whatsapp_number" type="tel" required inputMode="tel" pattern="^\+?[0-9\s\-()]{7,20}$" placeholder="+91 98765 43210" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
+            <p className="mt-1.5 text-[12px] text-muted-foreground">Used to intimate you if you are shortlisted.</p>
           </Field>
 
           <Field label="Paste your reel here" icon={LinkIcon} withInputIcon>

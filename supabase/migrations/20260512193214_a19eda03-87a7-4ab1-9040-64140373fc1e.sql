@@ -1,0 +1,1 @@
+ALTER TABLE public.final_submissions ADD COLUMN whatsapp_number TEXT;
