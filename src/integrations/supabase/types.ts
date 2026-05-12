@@ -23,6 +23,7 @@ export type Database = {
           id: string
           instagram_handle: string
           notes: string | null
+          shortlisted: boolean
           university: string
         }
         Insert: {
@@ -33,6 +34,7 @@ export type Database = {
           id?: string
           instagram_handle: string
           notes?: string | null
+          shortlisted?: boolean
           university: string
         }
         Update: {
@@ -43,6 +45,7 @@ export type Database = {
           id?: string
           instagram_handle?: string
           notes?: string | null
+          shortlisted?: boolean
           university?: string
         }
         Relationships: []
