@@ -54,6 +54,7 @@ function Landing() {
       <ImageStrip />
       <SocialBar />
       <Brands />
+      <Journey />
       <Guidelines />
       <SignupSection />
       <Footer />
