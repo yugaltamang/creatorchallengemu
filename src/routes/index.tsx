@@ -327,6 +327,80 @@ function Brands() {
   );
 }
 
+function Journey() {
+  const blue = "#ED1C24";
+  const steps = [
+    { n: "01", t: "Drop your entry", d: "Apply in under 60 seconds. Pick the brands you'd love to create for." },
+    { n: "02", t: "Make the Top 25", d: "Get shortlisted per brand by our editorial and brand jury." },
+    { n: "03", t: "Brief lands in your inbox", d: "Shortlisted creators get intimated with the brand brief and creative guardrails." },
+    { n: "04", t: "Shoot. Edit. Ship.", d: "Create your reel, tag the brand, and submit before the deadline." },
+    { n: "05", t: "Win the spotlight", d: "Cash, gear, brand deals, and campus-wide bragging rights up for grabs." },
+  ];
+
+  return (
+    <section id="journey" className="border-y border-border bg-background">
+      <div className="mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="border border-white/15">
+          {/* Header bar */}
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/15 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
+            <div className="flex items-center gap-4">
+              <span
+                className="inline-flex items-center gap-2 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white"
+                style={{ background: blue }}
+              >
+                <span className="inline-block h-1.5 w-1.5 rotate-45 bg-white" />
+                The Run
+              </span>
+              <h2 className="font-display text-[22px] uppercase leading-none tracking-tight text-foreground">
+                From apply to{" "}
+                <span className="font-serif italic normal-case" style={{ color: blue }}>
+                  applause
+                </span>
+                <span style={{ color: blue }}>.</span>
+              </h2>
+            </div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+              Five steps · One reel · All the glory
+            </p>
+          </div>
+
+          {/* Steps */}
+          <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+            {steps.map((s, i) => (
+              <li
+                key={s.n}
+                className="group relative flex flex-col gap-3 border-white/15 p-5 sm:p-6 [&:not(:last-child)]:border-b sm:[&:nth-child(odd)]:border-r sm:[&:nth-last-child(2)]:border-b-0 lg:[&]:border-b-0 lg:[&:not(:last-child)]:border-r"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: blue }}>
+                    Step {s.n}
+                  </span>
+                  <span className="font-display text-[44px] leading-none text-white/10 transition-colors group-hover:text-white/20">
+                    {i + 1}
+                  </span>
+                </div>
+                <h3 className="font-display text-[18px] uppercase leading-tight tracking-tight text-foreground">
+                  {s.t}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {s.d}
+                </p>
+                {i < steps.length - 1 && (
+                  <span
+                    aria-hidden
+                    className="hidden lg:block absolute right-[-7px] top-1/2 z-10 -translate-y-1/2 rotate-45 border-r border-t border-white/15 bg-background"
+                    style={{ width: 12, height: 12 }}
+                  />
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Guidelines() {
   const rules = [
     { n: "01", t: "Eligibility", d: "Open to currently enrolled students of Masters' Union, LPU, or Tetr. Verify with your university email.", chip: "Who can enter" },
