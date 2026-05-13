@@ -406,6 +406,57 @@ function Journey() {
               ))}
             </ol>
           </div>
+
+          {/* Timeline strip */}
+          <div className="border-t border-white/15 bg-card/40">
+            <div className="flex items-center gap-3 border-b border-white/15 px-4 py-2.5 sm:px-6">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-[0.22em]" style={{ color: blue }}>
+                ◆ Key dates
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                Feb 14 → Apr 15, 2026
+              </span>
+            </div>
+
+            <div className="relative px-4 py-8 sm:px-8 sm:py-10">
+              {/* Track line */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute left-4 right-4 top-1/2 hidden -translate-y-1/2 border-t border-dashed md:block sm:left-8 sm:right-8"
+                style={{ borderColor: blue, opacity: 0.55 }}
+              />
+              {/* Mobile vertical line */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute bottom-4 left-6 top-4 border-l border-dashed md:hidden"
+                style={{ borderColor: blue, opacity: 0.55 }}
+              />
+
+              <ol className="grid grid-cols-1 gap-6 md:grid-cols-5 md:gap-2">
+                {steps.map((s, i) => (
+                  <li
+                    key={s.n}
+                    className="group relative flex items-start gap-3 md:flex-col md:items-center md:gap-2 md:text-center"
+                  >
+                    {/* Dot */}
+                    <span
+                      aria-hidden
+                      className="relative z-10 mt-1 flex h-3 w-3 shrink-0 items-center justify-center rounded-full ring-4 ring-background transition-transform group-hover:scale-150 md:mt-0"
+                      style={{ background: blue }}
+                    />
+                    <div className="flex flex-col md:items-center">
+                      <span className="font-display text-[18px] uppercase leading-none tracking-tight text-foreground sm:text-[20px]">
+                        {s.date}
+                      </span>
+                      <span className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                        {s.phase}
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
         </div>
       </div>
     </section>
