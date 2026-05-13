@@ -374,8 +374,11 @@ function Journey() {
             />
             <ol className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-5 md:gap-4 lg:gap-6">
               {steps.map((s) => (
-                <li key={s.n} className="group relative flex flex-col items-start">
-                  {/* Giant outlined number */}
+                <li
+                  key={s.n}
+                  className="group relative grid grid-rows-[auto_auto_auto_1fr_auto] items-start"
+                >
+                  {/* Row 1 — Giant outlined number */}
                   <span
                     className="text-outline-strong font-display leading-[0.85] tracking-tight transition-colors duration-300 group-hover:text-white"
                     style={{ fontSize: "clamp(72px, 11vw, 140px)" }}
@@ -388,22 +391,22 @@ function Journey() {
                     className="absolute right-2 top-[58px] hidden h-3 w-3 rounded-full ring-4 ring-background transition-transform group-hover:scale-125 md:block lg:top-[88px]"
                     style={{ background: blue }}
                   />
-                  {/* Title */}
+                  {/* Row 2 — Title */}
                   <h3 className="mt-3 font-display text-[15px] uppercase leading-tight tracking-tight text-foreground sm:text-[16px]">
                     {s.t}
                   </h3>
-                  {/* Underline */}
+                  {/* Row 3 — Underline */}
                   <span
                     aria-hidden
                     className="mt-2 block h-[2px] w-8 transition-all duration-300 group-hover:w-16"
                     style={{ background: blue }}
                   />
-                  {/* Blurb */}
-                  <p className="mt-2 max-w-[22ch] text-[12.5px] leading-relaxed text-muted-foreground sm:text-[13px]">
+                  {/* Row 4 — Blurb (flex 1fr → fills slack so deadlines align) */}
+                  <p className="mt-2 whitespace-pre-line text-[12.5px] leading-relaxed text-muted-foreground sm:text-[13px]">
                     {s.d}
                   </p>
-                  {/* Deadline caption */}
-                  <div className="mt-3 flex items-center gap-1.5">
+                  {/* Row 5 — Deadline pinned bottom */}
+                  <div className="mt-4 flex items-center gap-1.5">
                     <span className="font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-muted-foreground">
                       Deadline
                     </span>
