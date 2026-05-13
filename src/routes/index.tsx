@@ -330,11 +330,11 @@ function Brands() {
 function Journey() {
   const blue = "#ED1C24";
   const steps = [
-    { n: "01", t: "Drop your entry", d: "Apply in under 60 seconds. Pick the brands you'd love to create for." },
-    { n: "02", t: "Make the Top 25", d: "Get shortlisted per brand by our editorial and brand jury." },
-    { n: "03", t: "Brief lands in your inbox", d: "Shortlisted creators get intimated with the brand brief and creative guardrails." },
-    { n: "04", t: "Shoot. Edit. Ship.", d: "Create your reel, tag the brand, and submit before the deadline." },
-    { n: "05", t: "Win the spotlight", d: "Cash, gear, brand deals, and campus-wide bragging rights up for grabs." },
+    { n: "01", emoji: "✍️", t: "Drop your entry", d: "Apply in 60 seconds. Pick the brands you'd love to create for.", tape: "Easy mode" },
+    { n: "02", emoji: "🏆", t: "Crack the Top 25", d: "Get shortlisted per brand by our editorial + brand jury.", tape: "Shortlist drop" },
+    { n: "03", emoji: "📩", t: "Brief in your DMs", d: "Shortlisted creators get the brand brief and creative guardrails.", tape: "Inbox ping" },
+    { n: "04", emoji: "🎬", t: "Shoot. Edit. Ship.", d: "Make the reel, tag the brand, hit submit before the buzzer.", tape: "Lights, camera" },
+    { n: "05", emoji: "🎉", t: "Win the spotlight", d: "Cash, gear, brand deals, and campus-wide bragging rights.", tape: "Big payday" },
   ];
 
   return (
@@ -364,42 +364,65 @@ function Journey() {
             </p>
           </div>
 
-          {/* Steps */}
-          <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
-            {steps.map((s, i) => (
-              <li
-                key={s.n}
-                className="group relative flex flex-col gap-3 border-white/15 p-5 sm:p-6 [&:not(:last-child)]:border-b sm:[&:nth-child(odd)]:border-r sm:[&:nth-last-child(2)]:border-b-0 lg:[&]:border-b-0 lg:[&:not(:last-child)]:border-r"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: blue }}>
-                    Step {s.n}
-                  </span>
-                  <span className="font-display text-[44px] leading-none text-white/10 transition-colors group-hover:text-white/20">
-                    {i + 1}
-                  </span>
-                </div>
-                <h3 className="font-display text-[18px] uppercase leading-tight tracking-tight text-foreground">
-                  {s.t}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {s.d}
-                </p>
-                {i < steps.length - 1 && (
-                  <span
-                    aria-hidden
-                    className="hidden lg:block absolute right-[-7px] top-1/2 z-10 -translate-y-1/2 rotate-45 border-r border-t border-white/15 bg-background"
-                    style={{ width: 12, height: 12 }}
-                  />
-                )}
-              </li>
-            ))}
-          </ol>
+          {/* Steps with arrows */}
+          <div className="p-4 sm:p-6 lg:p-8">
+            <ol className="flex flex-col items-stretch gap-4 lg:flex-row lg:items-stretch lg:gap-0">
+              {steps.map((s, i) => (
+                <li key={s.n} className="flex flex-col items-center lg:flex-row lg:flex-1">
+                  {/* Step card */}
+                  <div className="group relative flex w-full flex-1 flex-col gap-3 border border-white/15 bg-card/60 p-4 transition-all hover:-translate-y-1 hover:border-white/40 hover:bg-card sm:p-5">
+                    {/* Tape label */}
+                    <span
+                      className="absolute -top-2.5 left-3 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-white"
+                      style={{ background: blue, transform: `rotate(${i % 2 === 0 ? -2 : 2}deg)` }}
+                    >
+                      {s.tape}
+                    </span>
+                    {/* Big number outline */}
+                    <div className="flex items-start justify-between">
+                      <span className="text-outline-strong font-display text-[56px] leading-none">
+                        {s.n}
+                      </span>
+                      <span className="text-3xl transition-transform duration-300 group-hover:rotate-12 group-hover:scale-125">
+                        {s.emoji}
+                      </span>
+                    </div>
+                    <h3 className="font-display text-[16px] uppercase leading-tight tracking-tight text-foreground">
+                      {s.t}
+                    </h3>
+                    <p className="text-[13px] leading-relaxed text-muted-foreground">
+                      {s.d}
+                    </p>
+                    {/* Corner ticks */}
+                    <span aria-hidden className="absolute left-0 top-0 h-2 w-2 border-l border-t border-white/40" />
+                    <span aria-hidden className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-white/40" />
+                  </div>
+
+                  {/* Arrow connector */}
+                  {i < steps.length - 1 && (
+                    <div aria-hidden className="flex shrink-0 items-center justify-center py-2 lg:px-2 lg:py-0">
+                      {/* Mobile: down arrow */}
+                      <svg className="h-7 w-7 lg:hidden" viewBox="0 0 24 24" fill="none" stroke={blue} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 4v16" />
+                        <path d="M5 13l7 7 7-7" />
+                      </svg>
+                      {/* Desktop: right arrow */}
+                      <svg className="hidden h-7 w-10 lg:block" viewBox="0 0 40 24" fill="none" stroke={blue} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M2 12h32" strokeDasharray="3 4" />
+                        <path d="M28 5l8 7-8 7" />
+                      </svg>
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 function Guidelines() {
   const rules = [
