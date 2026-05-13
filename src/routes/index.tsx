@@ -369,7 +369,7 @@ function Journey() {
             {/* Red dashed track behind numerals */}
             <div
               aria-hidden
-              className="pointer-events-none absolute left-6 right-6 top-[108px] hidden border-t border-dashed md:block lg:top-[140px]"
+              className="pointer-events-none absolute left-6 right-6 top-[78px] hidden border-t border-dashed md:block lg:top-[110px]"
               style={{ borderColor: blue, opacity: 0.5 }}
             />
             <ol className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-5 md:gap-4 lg:gap-6">
