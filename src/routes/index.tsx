@@ -375,18 +375,6 @@ function Journey() {
             <ol className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-5 md:gap-4 lg:gap-6">
               {steps.map((s) => (
                 <li key={s.n} className="group relative flex flex-col items-start">
-                  {/* Deadline pill above number */}
-                  <div className="mb-2 flex items-center gap-1.5">
-                    <span className="font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-muted-foreground">
-                      Deadline
-                    </span>
-                    <span
-                      className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white px-1.5 py-0.5"
-                      style={{ background: blue }}
-                    >
-                      {s.date}
-                    </span>
-                  </div>
                   {/* Giant outlined number */}
                   <span
                     className="text-outline-strong font-display leading-[0.85] tracking-tight transition-colors duration-300 group-hover:text-white"
@@ -397,7 +385,7 @@ function Journey() {
                   {/* Red dot anchor on the track */}
                   <span
                     aria-hidden
-                    className="absolute right-2 top-[88px] hidden h-3 w-3 rounded-full ring-4 ring-background transition-transform group-hover:scale-125 md:block lg:top-[120px]"
+                    className="absolute right-2 top-[58px] hidden h-3 w-3 rounded-full ring-4 ring-background transition-transform group-hover:scale-125 md:block lg:top-[88px]"
                     style={{ background: blue }}
                   />
                   {/* Title */}
@@ -414,10 +402,18 @@ function Journey() {
                   <p className="mt-2 max-w-[22ch] text-[12.5px] leading-relaxed text-muted-foreground sm:text-[13px]">
                     {s.d}
                   </p>
-                  {/* Phase caption */}
-                  <span className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                    {s.phase}
-                  </span>
+                  {/* Deadline caption */}
+                  <div className="mt-3 flex items-center gap-1.5">
+                    <span className="font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-muted-foreground">
+                      Deadline
+                    </span>
+                    <span
+                      className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white px-1.5 py-0.5"
+                      style={{ background: blue }}
+                    >
+                      {s.date}
+                    </span>
+                  </div>
                 </li>
               ))}
             </ol>
