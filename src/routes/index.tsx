@@ -375,8 +375,11 @@ function Journey() {
             <ol className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-5 md:gap-4 lg:gap-6">
               {steps.map((s) => (
                 <li key={s.n} className="group relative flex flex-col items-start">
-                  {/* Date pill above number */}
-                  <div className="mb-2 flex items-center gap-2">
+                  {/* Deadline pill above number */}
+                  <div className="mb-2 flex items-center gap-1.5">
+                    <span className="font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-muted-foreground">
+                      Deadline
+                    </span>
                     <span
                       className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white px-1.5 py-0.5"
                       style={{ background: blue }}
