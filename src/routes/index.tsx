@@ -330,11 +330,11 @@ function Brands() {
 function Journey() {
   const blue = "#ED1C24";
   const steps = [
-    { n: "01", emoji: "✍️", t: "Drop your entry", d: "Apply in 60 seconds. Pick the brands you'd love to create for.", tape: "Easy mode" },
-    { n: "02", emoji: "🏆", t: "Crack the Top 25", d: "Get shortlisted per brand by our editorial + brand jury.", tape: "Shortlist drop" },
-    { n: "03", emoji: "📩", t: "Brief in your DMs", d: "Shortlisted creators get the brand brief and creative guardrails.", tape: "Inbox ping" },
-    { n: "04", emoji: "🎬", t: "Shoot. Edit. Ship.", d: "Make the reel, tag the brand, hit submit before the buzzer.", tape: "Lights, camera" },
-    { n: "05", emoji: "🎉", t: "Win the spotlight", d: "Cash, gear, brand deals, and campus-wide bragging rights.", tape: "Big payday" },
+    { n: "01", t: "Drop your entry", d: "Apply in 60 seconds. Pick the brands you'd love to create for." },
+    { n: "02", t: "Crack the Top 25", d: "Get shortlisted per brand by our editorial + brand jury." },
+    { n: "03", t: "Brief in your DMs", d: "Shortlisted creators get the brand brief and creative guardrails." },
+    { n: "04", t: "Shoot. Edit. Ship.", d: "Make the reel, tag the brand, hit submit before the buzzer." },
+    { n: "05", t: "Win the spotlight", d: "Cash, gear, brand deals, and campus-wide bragging rights." },
   ];
 
   return (
@@ -364,52 +364,44 @@ function Journey() {
             </p>
           </div>
 
-          {/* Steps with arrows */}
-          <div className="p-4 sm:p-6 lg:p-8">
-            <ol className="flex flex-col items-stretch gap-4 md:flex-row md:items-stretch md:gap-0">
-              {steps.map((s, i) => (
-                <li key={s.n} className="flex flex-col items-center md:flex-row md:flex-1">
-                  {/* Step card */}
-                  <div className="group relative flex w-full flex-1 flex-col gap-3 border border-white/15 bg-card/60 p-4 transition-all hover:-translate-y-1 hover:border-white/40 hover:bg-card sm:p-5">
-                    {/* Tape label */}
-                    <span
-                      className="absolute -top-2.5 left-3 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-white"
-                      style={{ background: blue, transform: `rotate(${i % 2 === 0 ? -2 : 2}deg)` }}
-                    >
-                      {s.tape}
-                    </span>
-                    {/* Big number outline */}
-                    <div className="flex items-start justify-between">
-                      <span className="text-outline-strong font-display text-[56px] leading-none">
-                        {s.n}
-                      </span>
-                    </div>
-                    <h3 className="font-display text-[16px] uppercase leading-tight tracking-tight text-foreground">
-                      {s.t}
-                    </h3>
-                    <p className="text-[13px] leading-relaxed text-muted-foreground">
-                      {s.d}
-                    </p>
-                    {/* Corner ticks */}
-                    <span aria-hidden className="absolute left-0 top-0 h-2 w-2 border-l border-t border-white/40" />
-                    <span aria-hidden className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-white/40" />
-                  </div>
-
-                  {/* Arrow connector */}
-                  {i < steps.length - 1 && (
-                    <div aria-hidden className="flex shrink-0 items-center justify-center py-2 md:px-2 md:py-0">
-                      {/* Mobile: down arrow */}
-                      <svg className="h-7 w-7 md:hidden" viewBox="0 0 24 24" fill="none" stroke={blue} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M12 4v16" />
-                        <path d="M5 13l7 7 7-7" />
-                      </svg>
-                      {/* Desktop: right arrow */}
-                      <svg className="hidden h-7 w-10 md:block" viewBox="0 0 40 24" fill="none" stroke={blue} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M2 12h32" strokeDasharray="3 4" />
-                        <path d="M28 5l8 7-8 7" />
-                      </svg>
-                    </div>
-                  )}
+          {/* Giant numerals poster */}
+          <div className="relative px-4 py-8 sm:px-6 sm:py-12 lg:px-10 lg:py-14">
+            {/* Red dashed track behind numerals */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute left-6 right-6 top-[78px] hidden border-t border-dashed md:block lg:top-[110px]"
+              style={{ borderColor: blue, opacity: 0.5 }}
+            />
+            <ol className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-5 md:gap-4 lg:gap-6">
+              {steps.map((s) => (
+                <li key={s.n} className="group relative flex flex-col items-start">
+                  {/* Giant outlined number */}
+                  <span
+                    className="text-outline-strong font-display leading-[0.85] tracking-tight transition-colors duration-300 group-hover:text-white"
+                    style={{ fontSize: "clamp(72px, 11vw, 140px)" }}
+                  >
+                    {s.n}
+                  </span>
+                  {/* Red dot anchor on the track */}
+                  <span
+                    aria-hidden
+                    className="absolute right-2 top-[58px] hidden h-3 w-3 rounded-full ring-4 ring-background transition-transform group-hover:scale-125 md:block lg:top-[88px]"
+                    style={{ background: blue }}
+                  />
+                  {/* Title */}
+                  <h3 className="mt-3 font-display text-[15px] uppercase leading-tight tracking-tight text-foreground sm:text-[16px]">
+                    {s.t}
+                  </h3>
+                  {/* Underline */}
+                  <span
+                    aria-hidden
+                    className="mt-2 block h-[2px] w-8 transition-all duration-300 group-hover:w-16"
+                    style={{ background: blue }}
+                  />
+                  {/* Blurb */}
+                  <p className="mt-2 max-w-[22ch] text-[12.5px] leading-relaxed text-muted-foreground sm:text-[13px]">
+                    {s.d}
+                  </p>
                 </li>
               ))}
             </ol>
