@@ -383,9 +383,6 @@ function Journey() {
                       <span className="text-outline-strong font-display text-[56px] leading-none">
                         {s.n}
                       </span>
-                      <span className="text-3xl transition-transform duration-300 group-hover:rotate-12 group-hover:scale-125">
-                        {s.emoji}
-                      </span>
                     </div>
                     <h3 className="font-display text-[16px] uppercase leading-tight tracking-tight text-foreground">
                       {s.t}
