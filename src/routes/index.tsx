@@ -330,11 +330,11 @@ function Brands() {
 function Journey() {
   const blue = "#ED1C24";
   const steps = [
-    { n: "01", t: "Drop your entry", d: "Apply in 60 seconds. Pick the brands you'd love to create for." },
-    { n: "02", t: "Crack the Top 25", d: "Get shortlisted per brand by our editorial + brand jury." },
-    { n: "03", t: "Brief in your DMs", d: "Shortlisted creators get the brand brief and creative guardrails." },
-    { n: "04", t: "Shoot. Edit. Ship.", d: "Make the reel, tag the brand, hit submit before the buzzer." },
-    { n: "05", t: "Win the spotlight", d: "Cash, gear, brand deals, and campus-wide bragging rights." },
+    { n: "01", t: "Drop your entry", d: "Apply in 60 seconds. Pick the brands you'd love to create for.", date: "Feb 14", phase: "Applications open" },
+    { n: "02", t: "Crack the Top 25", d: "Get shortlisted per brand by our editorial + brand jury.", date: "Mar 02", phase: "Shortlists drop" },
+    { n: "03", t: "Brief in your DMs", d: "Shortlisted creators get the brand brief and creative guardrails.", date: "Mar 05", phase: "Brief released" },
+    { n: "04", t: "Shoot. Edit. Ship.", d: "Make the reel, tag the brand, hit submit before the buzzer.", date: "Mar 30", phase: "Submission deadline" },
+    { n: "05", t: "Win the spotlight", d: "Cash, gear, brand deals, and campus-wide bragging rights.", date: "Apr 15", phase: "Winners announced" },
   ];
 
   return (
