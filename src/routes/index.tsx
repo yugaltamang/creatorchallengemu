@@ -366,9 +366,9 @@ function Journey() {
 
           {/* Steps with arrows */}
           <div className="p-4 sm:p-6 lg:p-8">
-            <ol className="flex flex-col items-stretch gap-4 lg:flex-row lg:items-stretch lg:gap-0">
+            <ol className="flex flex-col items-stretch gap-4 md:flex-row md:items-stretch md:gap-0">
               {steps.map((s, i) => (
-                <li key={s.n} className="flex flex-col items-center lg:flex-row lg:flex-1">
+                <li key={s.n} className="flex flex-col items-center md:flex-row md:flex-1">
                   {/* Step card */}
                   <div className="group relative flex w-full flex-1 flex-col gap-3 border border-white/15 bg-card/60 p-4 transition-all hover:-translate-y-1 hover:border-white/40 hover:bg-card sm:p-5">
                     {/* Tape label */}
@@ -400,14 +400,14 @@ function Journey() {
 
                   {/* Arrow connector */}
                   {i < steps.length - 1 && (
-                    <div aria-hidden className="flex shrink-0 items-center justify-center py-2 lg:px-2 lg:py-0">
+                    <div aria-hidden className="flex shrink-0 items-center justify-center py-2 md:px-2 md:py-0">
                       {/* Mobile: down arrow */}
-                      <svg className="h-7 w-7 lg:hidden" viewBox="0 0 24 24" fill="none" stroke={blue} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <svg className="h-7 w-7 md:hidden" viewBox="0 0 24 24" fill="none" stroke={blue} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M12 4v16" />
                         <path d="M5 13l7 7 7-7" />
                       </svg>
                       {/* Desktop: right arrow */}
-                      <svg className="hidden h-7 w-10 lg:block" viewBox="0 0 40 24" fill="none" stroke={blue} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <svg className="hidden h-7 w-10 md:block" viewBox="0 0 40 24" fill="none" stroke={blue} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M2 12h32" strokeDasharray="3 4" />
                         <path d="M28 5l8 7-8 7" />
                       </svg>
