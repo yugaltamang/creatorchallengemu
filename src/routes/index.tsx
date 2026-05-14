@@ -27,7 +27,7 @@ import Loader2 from "lucide-react/dist/esm/icons/loader-2";
 import PartyPopper from "lucide-react/dist/esm/icons/party-popper";
 import Phone from "lucide-react/dist/esm/icons/phone";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
-import brand1 from "@/assets/brand-1.jpg";
+import brand1 from "@/assets/permea-logo.jpg";
 import brand2 from "@/assets/brand-2.jpg";
 import creatorGirl from "@/assets/creator-girl.webp";
 import logo from "@/assets/logo.svg";
