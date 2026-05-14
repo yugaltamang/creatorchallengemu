@@ -43,7 +43,7 @@ export const Route = createFileRoute("/")({
 });
 
 const UNIVERSITIES = ["Masters' Union", "LPU", "Tetr"] as const;
-const BRANDS = ["PERMEA", "PULSE Energy"] as const;
+const BRANDS = ["PERMEA", "JustPour"] as const;
 
 function Landing() {
   return (
@@ -256,7 +256,7 @@ function Brands() {
       chip: "bg-pop-violet/15 text-pop-violet border-pop-violet/30",
     },
     {
-      name: "PULSE Energy",
+      name: "JustPour",
       tagline: "Clean energy. Loud personality.",
       image: brand2,
       summary:
