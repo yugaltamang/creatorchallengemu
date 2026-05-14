@@ -28,7 +28,7 @@ import PartyPopper from "lucide-react/dist/esm/icons/party-popper";
 import Phone from "lucide-react/dist/esm/icons/phone";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import brand1 from "@/assets/permea-logo.jpg";
-import brand2 from "@/assets/brand-2.jpg";
+import brand2 from "@/assets/justpour.jpg";
 import creatorGirl from "@/assets/creator-girl.webp";
 import logo from "@/assets/logo.svg";
 
@@ -43,7 +43,7 @@ export const Route = createFileRoute("/")({
 });
 
 const UNIVERSITIES = ["Masters' Union", "LPU", "Tetr"] as const;
-const BRANDS = ["PERMEA", "PULSE Energy"] as const;
+const BRANDS = ["PERMEA", "JustPour"] as const;
 
 function Landing() {
   return (
@@ -256,12 +256,12 @@ function Brands() {
       chip: "bg-pop-violet/15 text-pop-violet border-pop-violet/30",
     },
     {
-      name: "PULSE Energy",
-      tagline: "Clean energy. Loud personality.",
+      name: "JustPour",
+      tagline: "Coffee, on your terms.",
       image: brand2,
       summary:
-        "Sugar-free sparkling energy drink. 150mg natural caffeine, zero crash. Make your reel feel like the first sip.",
-      angles: ["Workout / fitness", "Study + hustle", "Friends + nightlife"],
+        "Our mission is to give people complete control over how they enjoy their coffee — without being limited by time, money, or effort.",
+      angles: ["Morning ritual", "On-the-go brew", "Cafe-quality at home"],
       icon: Zap,
       accent: "from-pop-yellow to-primary",
       chip: "bg-pop-yellow/15 text-pop-yellow border-pop-yellow/30",
