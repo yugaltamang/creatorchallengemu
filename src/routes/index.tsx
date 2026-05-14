@@ -43,7 +43,7 @@ export const Route = createFileRoute("/")({
 });
 
 const UNIVERSITIES = ["Masters' Union", "LPU", "Tetr"] as const;
-const BRANDS = ["NOIR Audio", "PULSE Energy"] as const;
+const BRANDS = ["PERMEA", "PULSE Energy"] as const;
 
 function Landing() {
   return (
