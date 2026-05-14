@@ -245,12 +245,12 @@ function SocialBar() {
 function Brands() {
   const brands = [
     {
-      name: "NOIR Audio",
-      tagline: "Headphones built for the dark.",
+      name: "PERMEA",
+      tagline: "Skincare that actually gets in.",
       image: brand1,
       summary:
-        "Premium over-ear headphones for late-night creators. Active noise cancellation, 40-hour battery, studio-grade drivers.",
-      angles: ["Late-night workflow", "Studio aesthetic", "Travel + commute"],
+        "India's first absorption-focused skincare brand. Advanced delivery tech drives actives up to 20x deeper than typical skincare — so what you apply truly absorbs and delivers visible results.",
+      angles: ["Absorption science", "Visible results", "Everyday ritual"],
       icon: Music2,
       accent: "from-pop-violet to-primary",
       chip: "bg-pop-violet/15 text-pop-violet border-pop-violet/30",
