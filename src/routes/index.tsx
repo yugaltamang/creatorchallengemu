@@ -131,7 +131,7 @@ function Hero() {
                 <div className="relative aspect-[3/4] overflow-hidden bg-primary/20">
                   <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/80 to-transparent p-3">
                     <p className="text-[11px] text-foreground">@maya.shoots</p>
-                    <p className="text-[10px] text-muted-foreground">making it for NOIR Audio</p>
+                    <p className="text-[10px] text-muted-foreground">making it for PERMEA</p>
                   </div>
                 </div>
                 <div className="flex justify-around px-4 py-3 text-primary text-[10px]">
