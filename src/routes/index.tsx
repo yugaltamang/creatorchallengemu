@@ -27,7 +27,7 @@ import Loader2 from "lucide-react/dist/esm/icons/loader-2";
 import PartyPopper from "lucide-react/dist/esm/icons/party-popper";
 import Phone from "lucide-react/dist/esm/icons/phone";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
-import brand1 from "@/assets/brand-1.jpg";
+import brand1 from "@/assets/permea-logo.jpg";
 import brand2 from "@/assets/brand-2.jpg";
 import creatorGirl from "@/assets/creator-girl.webp";
 import logo from "@/assets/logo.svg";
@@ -43,7 +43,7 @@ export const Route = createFileRoute("/")({
 });
 
 const UNIVERSITIES = ["Masters' Union", "LPU", "Tetr"] as const;
-const BRANDS = ["NOIR Audio", "PULSE Energy"] as const;
+const BRANDS = ["PERMEA", "PULSE Energy"] as const;
 
 function Landing() {
   return (
@@ -131,7 +131,7 @@ function Hero() {
                 <div className="relative aspect-[3/4] overflow-hidden bg-primary/20">
                   <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/80 to-transparent p-3">
                     <p className="text-[11px] text-foreground">@maya.shoots</p>
-                    <p className="text-[10px] text-muted-foreground">making it for NOIR Audio</p>
+                    <p className="text-[10px] text-muted-foreground">making it for PERMEA</p>
                   </div>
                 </div>
                 <div className="flex justify-around px-4 py-3 text-primary text-[10px]">
@@ -245,12 +245,12 @@ function SocialBar() {
 function Brands() {
   const brands = [
     {
-      name: "NOIR Audio",
-      tagline: "Headphones built for the dark.",
+      name: "PERMEA",
+      tagline: "Skincare that actually gets in.",
       image: brand1,
       summary:
-        "Premium over-ear headphones for late-night creators. Active noise cancellation, 40-hour battery, studio-grade drivers.",
-      angles: ["Late-night workflow", "Studio aesthetic", "Travel + commute"],
+        "India's first absorption-focused skincare brand. Advanced delivery tech drives actives up to 20x deeper than typical skincare — so what you apply truly absorbs and delivers visible results.",
+      angles: ["Absorption science", "Visible results", "Everyday ritual"],
       icon: Music2,
       accent: "from-pop-violet to-primary",
       chip: "bg-pop-violet/15 text-pop-violet border-pop-violet/30",

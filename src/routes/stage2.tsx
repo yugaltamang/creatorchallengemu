@@ -21,7 +21,7 @@ import logo from "@/assets/logo.svg";
 import creatorGirl from "@/assets/creator-girl.webp";
 
 const UNIVERSITIES = ["Masters' Union", "LPU", "Tetr"] as const;
-const BRANDS = ["NOIR Audio", "PULSE Energy"] as const;
+const BRANDS = ["PERMEA", "PULSE Energy"] as const;
 
 export const Route = createFileRoute("/stage2")({
   component: Stage2,
