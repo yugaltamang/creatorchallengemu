@@ -223,7 +223,7 @@ function Admin() {
   }
 
   const universities = ["All", "Masters' Union", "LPU", "Tetr"];
-  const brands = ["All", "NOIR Audio", "PULSE Energy"];
+  const brands = ["All", "PERMEA", "PULSE Energy"];
 
   return (
     <div
@@ -310,7 +310,7 @@ function Admin() {
                 </section>
 
                 <section className="grid gap-4 md:grid-cols-2">
-                  <BrandCard label="NOIR Audio" value={stats.byBrand["NOIR Audio"] || 0} total={rows.length} />
+                  <BrandCard label="PERMEA" value={stats.byBrand["PERMEA"] || 0} total={rows.length} />
                   <BrandCard label="PULSE Energy" value={stats.byBrand["PULSE Energy"] || 0} total={rows.length} />
                 </section>
 
@@ -510,7 +510,7 @@ function Admin() {
                 </section>
 
                 <section className="grid gap-4 md:grid-cols-2">
-                  <BrandCard label="NOIR Audio" value={finalStats.byBrand["NOIR Audio"] || 0} total={finals.length} />
+                  <BrandCard label="PERMEA" value={finalStats.byBrand["PERMEA"] || 0} total={finals.length} />
                   <BrandCard label="PULSE Energy" value={finalStats.byBrand["PULSE Energy"] || 0} total={finals.length} />
                 </section>
 
