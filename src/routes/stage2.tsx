@@ -17,7 +17,12 @@ import LinkIcon from "lucide-react/dist/esm/icons/link";
 import Loader2 from "lucide-react/dist/esm/icons/loader-2";
 import PartyPopper from "lucide-react/dist/esm/icons/party-popper";
 import Phone from "lucide-react/dist/esm/icons/phone";
+import FileText from "lucide-react/dist/esm/icons/file-text";
+import Download from "lucide-react/dist/esm/icons/download";
+import Eye from "lucide-react/dist/esm/icons/eye";
 import logo from "@/assets/logo.svg";
+import permeaImg from "@/assets/permea-logo.jpg";
+import justpourImg from "@/assets/justpour.jpg";
 import creatorGirl from "@/assets/creator-girl.webp";
 
 const UNIVERSITIES = ["Masters' Union", "LPU", "Tetr"] as const;
