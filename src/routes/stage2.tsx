@@ -44,7 +44,7 @@ function Stage2() {
       <Toaster theme="dark" />
       <Header />
       <Hero />
-      <BrandBriefs />
+      
     </div>
   );
 }
