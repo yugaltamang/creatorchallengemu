@@ -21,8 +21,6 @@ import FileText from "lucide-react/dist/esm/icons/file-text";
 import Download from "lucide-react/dist/esm/icons/download";
 import Eye from "lucide-react/dist/esm/icons/eye";
 import logo from "@/assets/logo.svg";
-import permeaImg from "@/assets/permea-logo.jpg";
-import justpourImg from "@/assets/justpour.jpg";
 import creatorGirl from "@/assets/creator-girl.webp";
 
 const UNIVERSITIES = ["Masters' Union", "LPU", "Tetr"] as const;
