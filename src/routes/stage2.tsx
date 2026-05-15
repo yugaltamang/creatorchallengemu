@@ -21,8 +21,6 @@ import FileText from "lucide-react/dist/esm/icons/file-text";
 import Download from "lucide-react/dist/esm/icons/download";
 import Eye from "lucide-react/dist/esm/icons/eye";
 import logo from "@/assets/logo.svg";
-import permeaImg from "@/assets/permea-logo.jpg";
-import justpourImg from "@/assets/justpour.jpg";
 import creatorGirl from "@/assets/creator-girl.webp";
 
 const UNIVERSITIES = ["Masters' Union", "LPU", "Tetr"] as const;
@@ -44,7 +42,7 @@ function Stage2() {
       <Toaster theme="dark" />
       <Header />
       <Hero />
-      <BrandBriefs />
+      
     </div>
   );
 }
@@ -52,91 +50,64 @@ function Stage2() {
 const BRIEFS = [
   {
     brand: "PERMEA",
-    tagline: "Skincare, decoded.",
-    description: "Dive into PERMEA's brand world, audience, tone, and the exact creative direction we want for the reels.",
-    image: permeaImg,
+    tagline: "Skincare, decoded",
     file: "/briefs/Permea_Content_Brief.pdf",
     accent: "from-pop-violet to-primary",
   },
   {
     brand: "JustPour",
-    tagline: "Coffee, on your terms.",
-    description: "Everything you need to know about JustPour — mission, audience, do's & don'ts, and the creative brief for your reels.",
-    image: justpourImg,
+    tagline: "Coffee, on your terms",
     file: "/briefs/JustPour_Creative_Brief.pdf",
     accent: "from-primary to-pop-violet",
   },
 ];
 
-function BrandBriefs() {
+function BriefWidgets() {
   return (
-    <section className="relative border-t border-border bg-background py-20 sm:py-28">
-      <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 flex flex-col items-start gap-3 sm:mb-16">
-          <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
-            <span className="h-px w-10 bg-primary" />
-            <span>Brand Content Briefs</span>
-          </div>
-          <h2 className="max-w-3xl text-3xl font-semibold leading-tight text-foreground sm:text-4xl md:text-5xl">
-            Read the brief before you<br className="hidden sm:block" /> shoot your reels.
-          </h2>
-          <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
-            Each brand has a detailed creative brief — vibe, audience, do's & don'ts, hooks, references and more. Open or download below.
-          </p>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
-          {BRIEFS.map((b) => (
-            <article
-              key={b.brand}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-card/40 backdrop-blur-md transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_30px_80px_-20px_var(--primary)]"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden bg-black">
-                <img
-                  src={b.image}
-                  alt={`${b.brand} brand visual`}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${b.accent}`} />
-                <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/50 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-foreground backdrop-blur">
-                  <FileText className="h-3 w-3" />
-                  Content Brief · PDF
-                </div>
-              </div>
-
-              <div className="p-6 sm:p-8">
-                <div className="mb-3 flex items-baseline justify-between gap-3">
-                  <h3 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">{b.brand}</h3>
-                  <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">{b.tagline}</span>
-                </div>
-                <p className="mb-6 text-sm leading-relaxed text-muted-foreground">{b.description}</p>
-
-                <div className="flex flex-wrap items-center gap-3">
-                  <a
-                    href={b.file}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="inline-flex h-11 items-center gap-2 rounded-full gradient-pop px-5 text-[13px] font-semibold text-primary-foreground shadow-pop transition hover:opacity-95"
-                  >
-                    <Eye className="h-4 w-4" />
-                    View brief
-                  </a>
-                  <a
-                    href={b.file}
-                    download
-                    className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-background/60 px-5 text-[13px] font-medium text-foreground transition hover:border-primary/60 hover:text-primary"
-                  >
-                    <Download className="h-4 w-4" />
-                    Download PDF
-                  </a>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+    <div className="mb-6">
+      <div className="mb-3 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+        <FileText className="h-3 w-3" />
+        <span>Brand Content Briefs</span>
       </div>
-    </section>
+      <div className="grid gap-3 sm:grid-cols-2">
+        {BRIEFS.map((b) => (
+          <div
+            key={b.brand}
+            className="group relative overflow-hidden rounded-xl border border-white/10 bg-card/40 p-4 backdrop-blur-md transition hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_15px_40px_-15px_var(--primary)]"
+          >
+            <div className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r ${b.accent}`} />
+            <div className="flex items-center gap-3">
+              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-gradient-to-br from-primary/20 to-pop-violet/20 text-primary">
+                <FileText className="h-4 w-4" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-[14px] font-semibold leading-tight text-foreground">{b.brand}</p>
+                <p className="truncate text-[11px] text-muted-foreground">{b.tagline}</p>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <a
+                  href={b.file}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  title="View brief"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary/15 text-primary transition hover:bg-primary hover:text-primary-foreground"
+                >
+                  <Eye className="h-3.5 w-3.5" />
+                </a>
+                <a
+                  href={b.file}
+                  download
+                  title="Download PDF"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border text-foreground transition hover:border-primary/60 hover:text-primary"
+                >
+                  <Download className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -212,6 +183,7 @@ function Hero() {
             <span className="h-px w-10 bg-primary" />
             <span>Stage 02 · Final Submission</span>
           </div>
+          <BriefWidgets />
           <div className="mb-6 rounded-2xl border border-primary/30 bg-primary/10 p-4 backdrop-blur-md sm:p-5">
             <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-primary">🎉 Congratulations</p>
             <h2 className="mt-2 text-2xl font-semibold text-foreground md:text-3xl">You've been shortlisted!</h2>
