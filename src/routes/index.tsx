@@ -140,7 +140,7 @@ function Hero() {
           <div className="relative">
             <div className="mb-4 flex items-end gap-3 sm:mb-6">
               <span className="font-display text-[clamp(56px,9vw,140px)] leading-[0.85] text-primary">
-                ₹
+                ▸
               </span>
               <span className="pb-3 font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground sm:pb-5">
                 Get paid · Get discovered · Go big
@@ -148,13 +148,14 @@ function Hero() {
             </div>
 
             <h1 className="relative z-10 -mt-2 font-display leading-[0.84] tracking-[-0.04em]">
-              <span className="block text-[clamp(64px,13vw,200px)] text-foreground">
-                MAKE REELS.
+              <span className="block text-[clamp(40px,7vw,110px)] text-foreground">
+                BECOME THE NEXT BIG
               </span>
               <span className="block text-[clamp(64px,13vw,200px)] text-primary">
-                MAKE MONEY.
+                CREATOR ON REELS
               </span>
             </h1>
+
 
             {/* Floating creator image on the right */}
             <div className="pointer-events-none absolute -right-4 -top-6 z-0 hidden w-[44%] md:block lg:-right-2 lg:w-[42%]">
