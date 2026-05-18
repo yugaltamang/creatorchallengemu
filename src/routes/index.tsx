@@ -189,65 +189,54 @@ function Hero() {
                 How it works / 01
               </span>
               <h3 className="mt-4 font-display text-[22px] uppercase leading-[1.05] tracking-tight sm:text-[26px]">
-                Pick a brand brief.
-                <br />Ship a vertical reel.
+                Begin — submit us
+                <br />your best reel.
               </h3>
               <p className="mt-3 max-w-xs text-[13px] leading-relaxed text-muted-foreground">
-                Browse live briefs from real brands. Shoot 15–30s vertical. Submit. Get paid when it ships.
+                Drop your handle and one reel you're proud of. We review every submission and unlock live brand briefs for shortlisted creators.
               </p>
               <a
-                href="#brands"
+                href="#signup"
                 className="mt-6 inline-flex items-center gap-2 border border-primary/60 px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-primary transition group-hover:bg-primary group-hover:text-primary-foreground"
               >
-                ▸ See live briefs
+                ▸ Apply now
                 <span className="ml-1 inline-grid h-5 w-5 place-items-center border border-primary/60 text-[10px]">
                   +
                 </span>
               </a>
             </article>
 
-            {/* Card 2 — white "feature" card with video preview */}
-            <article className="group relative bg-foreground p-6 text-background shadow-pop sm:col-span-4 sm:-translate-y-6">
-              <div className="relative -mx-6 -mt-6 mb-5 aspect-[4/3] overflow-hidden bg-primary/30">
-                <img
-                  src={creatorGirl}
-                  alt="Reel still"
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 grid place-items-center">
-                  <span className="grid h-14 w-14 place-items-center rounded-full border-2 border-foreground/90 bg-background/30 text-foreground backdrop-blur transition group-hover:scale-110">
-                    ▶
-                  </span>
+            {/* Card 2 — solid gold prize-pool widget */}
+            <article className="relative bg-primary p-6 text-primary-foreground shadow-pop sm:col-span-7 sm:-translate-y-6">
+              <div className="flex items-start justify-between gap-4">
+                <span className="font-mono text-[10px] uppercase tracking-[0.28em] opacity-80">
+                  Prize pool / 02
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.28em] opacity-80">
+                  Total ₹1,00,000
+                </span>
+              </div>
+              <h3 className="mt-4 font-display text-[28px] uppercase leading-[0.95] tracking-tight sm:text-[40px]">
+                Earn up to <span className="italic">₹1L</span> in
+                <br />total prize money.
+              </h3>
+              <div className="mt-6 grid grid-cols-2 gap-3 border-t border-primary-foreground/20 pt-5">
+                <div>
+                  <div className="font-display text-[28px] leading-none sm:text-[34px]">₹50K</div>
+                  <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] opacity-80">
+                    Cash payout
+                  </div>
+                </div>
+                <div>
+                  <div className="font-display text-[28px] leading-none sm:text-[34px]">₹50K</div>
+                  <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] opacity-80">
+                    Scholarships on courses
+                  </div>
                 </div>
               </div>
-              <h3 className="font-display text-[20px] uppercase leading-[1.05] tracking-tight sm:text-[22px]">
-                Your phone is the studio<span className="text-primary">.</span>
-              </h3>
-              <a
-                href="#signup"
-                className="mt-5 inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-background"
-              >
-                ▸ Start earning
-                <span className="ml-1 inline-grid h-5 w-5 place-items-center border border-background/40 text-[10px]">
-                  +
-                </span>
-              </a>
-            </article>
-
-            {/* Card 3 — solid gold "payout" card */}
-            <article className="relative bg-primary p-6 text-primary-foreground shadow-pop sm:col-span-3">
-              <span className="font-mono text-[10px] uppercase tracking-[0.28em] opacity-70">
-                What you earn
-              </span>
-              <h3 className="mt-4 font-display text-[22px] uppercase leading-[1.0] tracking-tight sm:text-[26px]">
-                Cash payouts, brand deals & a feature on the brand handle.
-              </h3>
-              <a
-                href="#journey"
-                className="mt-6 inline-flex items-center gap-2 border border-primary-foreground/40 px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.22em] transition hover:bg-primary-foreground hover:text-primary"
-              >
-                ▸ See payouts
-              </a>
+              <p className="mt-4 text-[12px] leading-relaxed opacity-80">
+                Plus brand deals, a feature on the brand handle and ongoing paid briefs after the challenge.
+              </p>
             </article>
           </div>
 
