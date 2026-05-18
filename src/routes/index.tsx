@@ -288,54 +288,126 @@ function ImageStrip() {
   );
 }
 
-function SocialBar() {
-  const stats = [
-    { n: "3", l: "Campuses", icon: Users, accent: "text-pop-cyan" },
-    { n: "2", l: "Real brands", icon: Zap, accent: "text-pop-yellow" },
-    
-  ];
+/* Shared editorial masthead — breadcrumb + sidebar nav, applied to every section */
+function SectionMast({
+  id,
+  crumb,
+  active,
+  tag,
+  title,
+  titleAccent,
+  blurb,
+  children,
+}: {
+  id: string;
+  crumb: string;
+  active: string;
+  tag: string;
+  title: string;
+  titleAccent: string;
+  blurb?: string;
+  children: React.ReactNode;
+}) {
+  const items = ["Brands", "Journey", "Rules", "Submit", "About"];
   return (
-    <section id="about" className="relative border-b border-border bp-grid">
-      <div className="mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-5">
-            <span className="ticker-dot inline-flex items-center font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-              @CreatorOnReels / live
-            </span>
-            <h2 className="mt-6 font-display text-[clamp(40px,5vw,68px)] leading-[0.92]">
-              The 2026<br />
-              <span className="text-primary">Creator on Reels.</span>
-            </h2>
-            <p className="mt-6 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-              Students from <span className="text-foreground">Masters' Union</span>,{" "}
-              <span className="text-foreground">LPU</span> and{" "}
-              <span className="text-foreground">Tetr</span> create reels for two real brands.
-              Winners get cash, mentorship, and a feature on the brand handles.
-            </p>
-          </div>
+    <section id={id} className="relative overflow-hidden border-t border-border">
+      <div className="pointer-events-none absolute inset-0 bp-grid opacity-30" aria-hidden />
+      <div className="relative mx-auto max-w-[1400px] px-4 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
+        {/* Top breadcrumb row */}
+        <div className="mb-10 flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
+          <span className="font-display text-[13px] uppercase tracking-[0.1em] sm:text-[15px]">
+            CREATOR
+            <span className="px-2 font-mono text-[12px] font-normal text-muted-foreground">\</span>
+            <span className="text-primary">{crumb}</span>
+          </span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+            {tag}
+          </span>
+        </div>
 
-          <div className="grid grid-cols-2 gap-4 md:col-span-7">
-            {stats.map((s, i) => (
-              <div
-                key={s.l}
-                className="corner-tick group relative overflow-hidden border border-border bg-card p-4 shadow-soft transition hover:border-primary/60 sm:p-6"
-              >
-                <div className="flex items-center justify-between">
-                  <s.icon className="h-5 w-5 text-primary" />
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                    / {String(i + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <div className="mt-6 font-display text-4xl sm:mt-8 sm:text-5xl">{s.n}</div>
-                <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">{s.l}</p>
-              </div>
-            ))}
+        <div className="grid grid-cols-12 gap-6">
+          {/* Sidebar mini-nav */}
+          <aside className="col-span-12 md:col-span-2">
+            <div className="relative pl-4">
+              <span aria-hidden className="absolute left-0 top-1 block h-12 w-[2px] bg-primary" />
+              <ul className="space-y-3 font-display text-[13px] uppercase tracking-[0.12em]">
+                {items.map((label) => (
+                  <li key={label}>
+                    <a
+                      href={`#${label.toLowerCase()}`}
+                      className={
+                        label.toLowerCase() === active.toLowerCase()
+                          ? "text-primary"
+                          : "text-foreground/85 transition hover:text-primary"
+                      }
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+
+          {/* Body — poster headline + content */}
+          <div className="relative col-span-12 md:col-span-10">
+            <h2 className="relative font-display leading-[0.88] tracking-[-0.03em]">
+              <span className="block text-[clamp(40px,7vw,110px)] text-foreground">{title}</span>
+              <span className="block text-[clamp(40px,7vw,110px)] text-primary">{titleAccent}</span>
+            </h2>
+            {blurb ? (
+              <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+                {blurb}
+              </p>
+            ) : null}
+            <div className="mt-12">{children}</div>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
+function SocialBar() {
+  const stats = [
+    { n: "100%", l: "Real brand briefs", icon: Zap },
+    { n: "₹", l: "Paid per reel that ships", icon: Sparkles },
+    { n: "∞", l: "Open to every creator", icon: Users },
+    { n: "9:16", l: "Instagram-first reels", icon: Music2 },
+  ];
+  return (
+    <SectionMast
+      id="about"
+      crumb="ABOUT"
+      active="about"
+      tag="The platform · Live now"
+      title="A REEL THAT PAYS."
+      titleAccent="A SHOT AT GOING BIG."
+      blurb="Creator on Reels is the platform that connects creators with real brand briefs. Pick a brief, ship a 15–30s reel, get paid when it goes live, and grow into the next big name on the feed."
+    >
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+        {stats.map((s, i) => (
+          <div
+            key={s.l}
+            className="corner-tick group relative overflow-hidden border border-border bg-card p-4 shadow-soft transition hover:border-primary/60 sm:p-6"
+          >
+            <div className="flex items-center justify-between">
+              <s.icon className="h-5 w-5 text-primary" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                / {String(i + 1).padStart(2, "0")}
+              </span>
+            </div>
+            <div className="mt-6 font-display text-4xl sm:mt-8 sm:text-5xl">{s.n}</div>
+            <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+              {s.l}
+            </p>
+          </div>
+        ))}
+      </div>
+    </SectionMast>
+  );
+}
+
 
 function Brands() {
   const brands = [
