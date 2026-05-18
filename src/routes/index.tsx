@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
     meta: [
-      { title: "Creator Challenge 2026 — MU × LPU × Tetr" },
+      { title: "Creator on Reels — Get paid to make reels" },
       { name: "description", content: "Content creator challenge for students of Masters' Union, LPU and Tetr." },
     ],
   }),
@@ -74,7 +74,7 @@ function Header() {
           </span>
           <span className="font-display text-[15px] uppercase tracking-[0.08em] sm:text-[17px]">
             CREATOR<span className="px-2 font-mono text-[13px] font-normal text-muted-foreground">\</span>
-            <span className="text-primary">CHALLENGE 26</span>
+            <span className="text-primary">ON REELS</span>
           </span>
         </Link>
 
@@ -82,7 +82,7 @@ function Header() {
           <span className="hidden font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground sm:inline">
             Feb 14 — Mar 30 · 2026
           </span>
-          <img src={logo} alt="Creator Challenge crest" className="h-9 w-auto invert sm:h-11" />
+          <img src={logo} alt="Creator on Reels" className="h-9 w-auto invert sm:h-11" />
         </div>
       </div>
     </header>
@@ -140,7 +140,7 @@ function Hero() {
           <div className="relative">
             <div className="mb-4 flex items-end gap-3 sm:mb-6">
               <span className="font-display text-[clamp(56px,9vw,140px)] leading-[0.85] text-primary">
-                ₹
+                ▸
               </span>
               <span className="pb-3 font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground sm:pb-5">
                 Get paid · Get discovered · Go big
@@ -148,13 +148,14 @@ function Hero() {
             </div>
 
             <h1 className="relative z-10 -mt-2 font-display leading-[0.84] tracking-[-0.04em]">
-              <span className="block text-[clamp(64px,13vw,200px)] text-foreground">
-                MAKE REELS.
+              <span className="block text-[clamp(40px,7vw,110px)] text-foreground">
+                BECOME THE NEXT BIG
               </span>
               <span className="block text-[clamp(64px,13vw,200px)] text-primary">
-                MAKE MONEY.
+                CREATOR ON REELS
               </span>
             </h1>
+
 
             {/* Floating creator image on the right */}
             <div className="pointer-events-none absolute -right-4 -top-6 z-0 hidden w-[44%] md:block lg:-right-2 lg:w-[42%]">
@@ -269,7 +270,7 @@ function ImageStrip() {
     "🎬 Lights",
     "✨ Camera",
     "📱 Action",
-    "🔥 #CreatorChallenge26",
+    "🔥 #CreatorOnReels",
     "🎤 Brand collabs",
   ];
   const loop = [...items, ...items];
@@ -299,11 +300,11 @@ function SocialBar() {
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <span className="ticker-dot inline-flex items-center font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-              @CreatorChallenge / live
+              @CreatorOnReels / live
             </span>
             <h2 className="mt-6 font-display text-[clamp(40px,5vw,68px)] leading-[0.92]">
               The 2026<br />
-              <span className="text-primary">Creator Challenge.</span>
+              <span className="text-primary">Creator on Reels.</span>
             </h2>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-muted-foreground">
               Students from <span className="text-foreground">Masters' Union</span>,{" "}
@@ -526,7 +527,7 @@ function Guidelines() {
   const rules = [
     { n: "01", t: "Eligibility", d: "Open to currently enrolled students of Masters' Union, LPU, or Tetr. Verify with your university email.", chip: "Who can enter" },
     { n: "02", t: "Format", d: "One Instagram reel, 15–30 seconds, vertical 9:16. Original or licensed audio only.", chip: "Spec sheet" },
-    { n: "03", t: "The brand", d: "Feature the chosen product clearly. Tag the brand and use #CreatorChallenge26.", chip: "Brand brief" },
+    { n: "03", t: "The brand", d: "Feature the chosen product clearly. Tag the brand and use #CreatorOnReels.", chip: "Brand brief" },
     { n: "04", t: "Originality", d: "Created by you. No reposts, no AI voiceovers without disclosure, no copyrighted footage.", chip: "Be original" },
     { n: "05", t: "Account", d: "Your Instagram profile must be public throughout the judging window.", chip: "Visibility" },
     { n: "06", t: "Deadline", d: "Submit by midnight, March 30. Winners announced April 15 across all three campuses.", chip: "Timeline" },
@@ -835,7 +836,7 @@ function Footer() {
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">
             <div className="flex items-center">
-              <img src={logo} alt="Creator Challenge 2026" className="h-12 w-auto invert" />
+              <img src={logo} alt="Creator on Reels" className="h-12 w-auto invert" />
             </div>
             <p className="mt-5 max-w-sm text-[14px] leading-relaxed text-muted-foreground">
               Built with Masters' Union, LPU and Tetr. Powered by real brands and creators who refuse to scroll past.
@@ -852,13 +853,13 @@ function Footer() {
           <div className="md:col-span-3">
             <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Follow</p>
             <ul className="mt-4 space-y-2 text-[14px]">
-              <li className="flex items-center gap-2"><Instagram className="h-4 w-4 text-primary" /> @creatorchallenge</li>
+              <li className="flex items-center gap-2"><Instagram className="h-4 w-4 text-primary" /> @creatoronreels</li>
               <li className="flex items-center gap-2"><Twitter className="h-4 w-4 text-primary" /> @cc26</li>
             </ul>
           </div>
         </div>
         <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6 text-[13px] text-muted-foreground">
-          <p>© 2026 Creator Challenge · MU × LPU × Tetr</p>
+          <p>© 2026 Creator on Reels</p>
           <p>Feb 14 – Mar 30, 2026</p>
         </div>
       </div>
