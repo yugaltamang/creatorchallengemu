@@ -301,22 +301,22 @@ function SectionMast({
   return (
     <section id={id} className="relative overflow-hidden border-t border-border">
       <div className="pointer-events-none absolute inset-0 bp-grid opacity-30" aria-hidden />
-      <div className="relative mx-auto max-w-[1400px] px-4 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
+      <div className="relative mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
         {/* Top breadcrumb row */}
-        <div className="mb-10 flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
-          <span className="font-display text-[13px] uppercase tracking-[0.1em] sm:text-[15px]">
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-2 border-b border-border pb-4 sm:mb-10 sm:gap-3">
+          <span className="font-display text-[12px] uppercase tracking-[0.1em] sm:text-[15px]">
             CREATOR
-            <span className="px-2 font-mono text-[12px] font-normal text-muted-foreground">\</span>
+            <span className="px-2 font-mono text-[11px] font-normal text-muted-foreground sm:text-[12px]">\</span>
             <span className="text-primary">{crumb}</span>
           </span>
-          <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">
             {tag}
           </span>
         </div>
 
         <div className="grid grid-cols-12 gap-6">
-          {/* Sidebar mini-nav */}
-          <aside className="col-span-12 md:col-span-2">
+          {/* Sidebar mini-nav — hidden on mobile */}
+          <aside className="hidden md:col-span-2 md:block">
             <div className="relative pl-4">
               <span aria-hidden className="absolute left-0 top-1 block h-12 w-[2px] bg-primary" />
               <ul className="space-y-3 font-display text-[13px] uppercase tracking-[0.12em]">
@@ -341,15 +341,15 @@ function SectionMast({
           {/* Body — poster headline + content */}
           <div className="relative col-span-12 md:col-span-10">
             <h2 className="relative font-display leading-[0.88] tracking-[-0.03em]">
-              <span className="block text-[clamp(40px,7vw,110px)] text-foreground">{title}</span>
-              <span className="block text-[clamp(40px,7vw,110px)] text-primary">{titleAccent}</span>
+              <span className="block text-[clamp(32px,7vw,110px)] text-foreground">{title}</span>
+              <span className="block text-[clamp(32px,7vw,110px)] text-primary">{titleAccent}</span>
             </h2>
             {blurb ? (
-              <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+              <p className="mt-5 max-w-xl text-[14px] leading-relaxed text-muted-foreground sm:mt-6 sm:text-[16px]">
                 {blurb}
               </p>
             ) : null}
-            <div className="mt-12">{children}</div>
+            <div className="mt-8 sm:mt-12">{children}</div>
           </div>
         </div>
       </div>
