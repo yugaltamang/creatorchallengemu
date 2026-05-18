@@ -104,9 +104,9 @@ function Hero() {
         }}
       />
 
-      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pb-20 pt-6 sm:px-6 sm:pb-28 sm:pt-8 lg:px-10 lg:pb-36">
-        {/* LEFT — vertical section nav (sidebar) */}
-        <aside className="col-span-12 md:col-span-2">
+      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pb-16 pt-4 sm:px-6 sm:pb-28 sm:pt-8 lg:px-10 lg:pb-36">
+        {/* LEFT — vertical section nav (sidebar) — hidden on mobile */}
+        <aside className="hidden md:col-span-2 md:block">
           <div className="relative pl-4">
             <span aria-hidden className="absolute left-0 top-1 block h-12 w-[2px] bg-primary" />
             <ul className="space-y-3 font-display text-[13px] uppercase tracking-[0.12em]">
@@ -148,10 +148,10 @@ function Hero() {
             </div>
 
             <h1 className="relative z-10 -mt-2 font-display leading-[0.84] tracking-[-0.04em]">
-              <span className="block text-[clamp(40px,7vw,110px)] text-foreground">
+              <span className="block text-[clamp(32px,7vw,110px)] text-foreground">
                 BECOME THE NEXT BIG
               </span>
-              <span className="block text-[clamp(64px,13vw,200px)] text-primary">
+              <span className="block text-[clamp(48px,12vw,200px)] text-primary">
                 CREATOR ON REELS
               </span>
             </h1>
@@ -241,11 +241,11 @@ function Hero() {
           </div>
 
           {/* Bottom meta strip */}
-          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-border pt-5 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          <div className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-border pt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">
             <span className="ticker-dot text-foreground">Briefs live now</span>
             <span>Open to all creators</span>
             <span>Paid per reel</span>
-            <span>Instagram-first</span>
+            <span className="hidden sm:inline">Instagram-first</span>
             <span className="ml-auto text-primary">↓ scroll</span>
           </div>
         </div>
@@ -301,22 +301,22 @@ function SectionMast({
   return (
     <section id={id} className="relative overflow-hidden border-t border-border">
       <div className="pointer-events-none absolute inset-0 bp-grid opacity-30" aria-hidden />
-      <div className="relative mx-auto max-w-[1400px] px-4 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
+      <div className="relative mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
         {/* Top breadcrumb row */}
-        <div className="mb-10 flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
-          <span className="font-display text-[13px] uppercase tracking-[0.1em] sm:text-[15px]">
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-2 border-b border-border pb-4 sm:mb-10 sm:gap-3">
+          <span className="font-display text-[12px] uppercase tracking-[0.1em] sm:text-[15px]">
             CREATOR
-            <span className="px-2 font-mono text-[12px] font-normal text-muted-foreground">\</span>
+            <span className="px-2 font-mono text-[11px] font-normal text-muted-foreground sm:text-[12px]">\</span>
             <span className="text-primary">{crumb}</span>
           </span>
-          <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">
             {tag}
           </span>
         </div>
 
         <div className="grid grid-cols-12 gap-6">
-          {/* Sidebar mini-nav */}
-          <aside className="col-span-12 md:col-span-2">
+          {/* Sidebar mini-nav — hidden on mobile */}
+          <aside className="hidden md:col-span-2 md:block">
             <div className="relative pl-4">
               <span aria-hidden className="absolute left-0 top-1 block h-12 w-[2px] bg-primary" />
               <ul className="space-y-3 font-display text-[13px] uppercase tracking-[0.12em]">
@@ -341,15 +341,15 @@ function SectionMast({
           {/* Body — poster headline + content */}
           <div className="relative col-span-12 md:col-span-10">
             <h2 className="relative font-display leading-[0.88] tracking-[-0.03em]">
-              <span className="block text-[clamp(40px,7vw,110px)] text-foreground">{title}</span>
-              <span className="block text-[clamp(40px,7vw,110px)] text-primary">{titleAccent}</span>
+              <span className="block text-[clamp(32px,7vw,110px)] text-foreground">{title}</span>
+              <span className="block text-[clamp(32px,7vw,110px)] text-primary">{titleAccent}</span>
             </h2>
             {blurb ? (
-              <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+              <p className="mt-5 max-w-xl text-[14px] leading-relaxed text-muted-foreground sm:mt-6 sm:text-[16px]">
                 {blurb}
               </p>
             ) : null}
-            <div className="mt-12">{children}</div>
+            <div className="mt-8 sm:mt-12">{children}</div>
           </div>
         </div>
       </div>
@@ -429,11 +429,11 @@ function Brands() {
       blurb="Browse the briefs. Pick the brand whose story you can tell best. Ship one 15–30s vertical reel and get paid when it goes live."
     >
       {/* Player-style portrait panels with overlay type (Messi carousel feel) */}
-      <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
+      <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
         {brands.map((b) => (
           <article
             key={b.name}
-            className="group relative aspect-[3/4] overflow-hidden border border-border bg-card transition hover:border-primary/60"
+            className="group relative aspect-[4/5] overflow-hidden border border-border bg-card transition hover:border-primary/60 sm:aspect-[3/4]"
           >
             <img
               src={b.image}
@@ -508,18 +508,18 @@ function Journey() {
   return (
     <section id="journey" className="border-y border-border bg-background">
       <div className="mx-auto max-w-[1400px] px-4 pt-10 sm:px-6 lg:px-10">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
-          <span className="font-display text-[13px] uppercase tracking-[0.1em] sm:text-[15px]">
-            CREATOR<span className="px-2 font-mono text-[12px] font-normal text-muted-foreground">\</span><span className="text-primary">JOURNEY</span>
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-4 sm:gap-3">
+          <span className="font-display text-[12px] uppercase tracking-[0.1em] sm:text-[15px]">
+            CREATOR<span className="px-2 font-mono text-[11px] font-normal text-muted-foreground sm:text-[12px]">\</span><span className="text-primary">JOURNEY</span>
           </span>
-          <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Five steps · One reel · Get paid</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">Five steps · One reel · Get paid</span>
         </div>
       </div>
-      <div className="mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <div className="mx-auto max-w-[1400px] px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
         <div className="border border-white/15">
           {/* Header bar */}
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/15 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <span
                 className="inline-flex items-center gap-2 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[#0e1226]"
                 style={{ background: blue }}
@@ -527,7 +527,7 @@ function Journey() {
                 <span className="inline-block h-1.5 w-1.5 rotate-45 bg-white" />
                 The Run
               </span>
-              <h2 className="font-display text-[22px] uppercase leading-none tracking-tight text-foreground">
+              <h2 className="font-display text-[18px] uppercase leading-none tracking-tight text-foreground sm:text-[22px]">
                 From apply to{" "}
                 <span className="font-serif italic normal-case" style={{ color: blue }}>
                   applause
@@ -535,7 +535,7 @@ function Journey() {
                 <span style={{ color: blue }}>.</span>
               </h2>
             </div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+            <p className="hidden font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:block">
               Five steps · One reel · All the glory
             </p>
           </div>
@@ -623,19 +623,19 @@ function Guidelines() {
   return (
     <section id="rules" className="border-y border-border bg-background">
       <div className="mx-auto max-w-[1400px] px-4 pt-10 sm:px-6 lg:px-10">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
-          <span className="font-display text-[13px] uppercase tracking-[0.1em] sm:text-[15px]">
-            CREATOR<span className="px-2 font-mono text-[12px] font-normal text-muted-foreground">\</span><span className="text-primary">RULES</span>
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-4 sm:gap-3">
+          <span className="font-display text-[12px] uppercase tracking-[0.1em] sm:text-[15px]">
+            CREATOR<span className="px-2 font-mono text-[11px] font-normal text-muted-foreground sm:text-[12px]">\</span><span className="text-primary">RULES</span>
           </span>
-          <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Read once · Then ship</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">Read once · Then ship</span>
         </div>
       </div>
-      <div className="mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <div className="mx-auto max-w-[1400px] px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
         {/* Single compact box */}
         <div className="border border-white/15">
           {/* Header bar */}
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/15 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <span
                 className="inline-flex items-center gap-2 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[#0e1226]"
                 style={{ background: blue }}
@@ -643,7 +643,7 @@ function Guidelines() {
                 <span className="inline-block h-1.5 w-1.5 rotate-45 bg-white" />
                 Playbook
               </span>
-              <h2 className="font-display text-[22px] uppercase leading-none tracking-tight text-foreground">
+              <h2 className="font-display text-[18px] uppercase leading-none tracking-tight text-foreground sm:text-[22px]">
                 Rules of{" "}
                 <span className="font-serif italic normal-case" style={{ color: blue }}>
                   play
@@ -651,7 +651,7 @@ function Guidelines() {
                 <span style={{ color: blue }}>.</span>
               </h2>
             </div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+            <p className="hidden font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:block">
               Six things · Read once · Then ship
             </p>
           </div>
@@ -783,14 +783,14 @@ function SignupSection() {
   return (
     <section id="signup" className="border-b border-border">
       <div className="mx-auto max-w-[1400px] px-4 pt-10 sm:px-6 lg:px-10">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
-          <span className="font-display text-[13px] uppercase tracking-[0.1em] sm:text-[15px]">
-            CREATOR<span className="px-2 font-mono text-[12px] font-normal text-muted-foreground">\</span><span className="text-primary">SUBMIT</span>
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-4 sm:gap-3">
+          <span className="font-display text-[12px] uppercase tracking-[0.1em] sm:text-[15px]">
+            CREATOR<span className="px-2 font-mono text-[11px] font-normal text-muted-foreground sm:text-[12px]">\</span><span className="text-primary">SUBMIT</span>
           </span>
-          <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Drop your handle · Get on the list</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">Drop your handle · Get on the list</span>
         </div>
       </div>
-      <div className="mx-auto max-w-[1400px] px-4 py-14 sm:px-6 sm:py-20 md:py-24 lg:px-8">
+      <div className="mx-auto max-w-[1400px] px-4 py-10 sm:px-6 sm:py-20 md:py-24 lg:px-8">
         <div className="relative overflow-hidden rounded-2xl border-2 border-primary/30 gradient-card p-5 sm:rounded-[32px] sm:p-8 md:p-14 shadow-[0_50px_120px_-20px_rgba(0,0,0,0.95),0_0_0_1px_rgba(255,255,255,0.04),0_25px_60px_-15px_var(--primary)] ring-1 ring-white/5">
           <div className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full bg-primary/30 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-pop-violet/30 blur-3xl" />
@@ -824,7 +824,7 @@ function SignupSection() {
                 </div>
 
                 <Field label="University" icon={GraduationCap}>
-                  <div className="grid grid-cols-3 gap-3 pt-2">
+                  <div className="grid grid-cols-1 gap-3 pt-2 sm:grid-cols-3">
                     {UNIVERSITIES.map((u) => (
                       <label key={u} className="group cursor-pointer">
                         <input type="radio" name="university" value={u} className="peer sr-only" required />
