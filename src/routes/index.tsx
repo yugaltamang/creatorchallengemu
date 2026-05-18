@@ -140,19 +140,19 @@ function Hero() {
           <div className="relative">
             <div className="mb-4 flex items-end gap-3 sm:mb-6">
               <span className="font-display text-[clamp(56px,9vw,140px)] leading-[0.85] text-primary">
-                26
+                ₹
               </span>
               <span className="pb-3 font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground sm:pb-5">
-                Issue / Spring · Vol 01
+                Get paid · Get discovered · Go big
               </span>
             </div>
 
             <h1 className="relative z-10 -mt-2 font-display leading-[0.84] tracking-[-0.04em]">
               <span className="block text-[clamp(64px,13vw,200px)] text-foreground">
-                CREATOR
+                MAKE REELS.
               </span>
               <span className="block text-[clamp(64px,13vw,200px)] text-primary">
-                CHALLENGE
+                MAKE MONEY.
               </span>
             </h1>
 
@@ -161,7 +161,7 @@ function Hero() {
               <div className="relative aspect-[3/4] overflow-hidden">
                 <img
                   src={creatorGirl}
-                  alt="Student creator shooting an Instagram reel"
+                  alt="Creator filming an Instagram reel"
                   className="absolute inset-0 h-full w-full object-cover object-top mix-blend-luminosity opacity-90"
                 />
                 <div
@@ -175,32 +175,37 @@ function Hero() {
             </div>
           </div>
 
-          {/* Floating editorial cards row — like the Messi story cards */}
+          {/* Sub-headline */}
+          <p className="relative z-10 mt-8 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
+            The platform that turns your phone into a paycheck. Create reels for real brands, get paid for every brief you ship, and grow into the next big creator on the feed.
+          </p>
+
+          {/* Floating editorial cards row */}
           <div className="relative z-10 mt-12 grid gap-5 sm:mt-16 sm:grid-cols-12">
-            {/* Card 1 — outlined "story" card */}
+            {/* Card 1 — outlined "how it works" card */}
             <article className="corner-tick group relative border-2 border-primary/70 bg-background/40 p-6 backdrop-blur-sm transition hover:bg-background/70 sm:col-span-5">
               <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-primary">
-                Brief / 01
+                How it works / 01
               </span>
               <h3 className="mt-4 font-display text-[22px] uppercase leading-[1.05] tracking-tight sm:text-[26px]">
-                Two real brands.
-                <br />One vertical reel.
+                Pick a brand brief.
+                <br />Ship a vertical reel.
               </h3>
               <p className="mt-3 max-w-xs text-[13px] leading-relaxed text-muted-foreground">
-                Pick PERMEA or JustPour. Build a 15–30s reel impossible to scroll past.
+                Browse live briefs from real brands. Shoot 15–30s vertical. Submit. Get paid when it ships.
               </p>
               <a
                 href="#brands"
                 className="mt-6 inline-flex items-center gap-2 border border-primary/60 px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-primary transition group-hover:bg-primary group-hover:text-primary-foreground"
               >
-                ▸ Full brief
+                ▸ See live briefs
                 <span className="ml-1 inline-grid h-5 w-5 place-items-center border border-primary/60 text-[10px]">
                   +
                 </span>
               </a>
             </article>
 
-            {/* Card 2 — white "feature" card with video preview, the highlighted one */}
+            {/* Card 2 — white "feature" card with video preview */}
             <article className="group relative bg-foreground p-6 text-background shadow-pop sm:col-span-4 sm:-translate-y-6">
               <div className="relative -mx-6 -mt-6 mb-5 aspect-[4/3] overflow-hidden bg-primary/30">
                 <img
@@ -215,43 +220,42 @@ function Hero() {
                 </div>
               </div>
               <h3 className="font-display text-[20px] uppercase leading-[1.05] tracking-tight sm:text-[22px]">
-                Creators take centre stage<span className="text-primary">.</span>
+                Your phone is the studio<span className="text-primary">.</span>
               </h3>
               <a
                 href="#signup"
                 className="mt-5 inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-background"
               >
-                ▸ Enter now
+                ▸ Start earning
                 <span className="ml-1 inline-grid h-5 w-5 place-items-center border border-background/40 text-[10px]">
                   +
                 </span>
               </a>
             </article>
 
-            {/* Card 3 — solid gold "prize" card */}
+            {/* Card 3 — solid gold "payout" card */}
             <article className="relative bg-primary p-6 text-primary-foreground shadow-pop sm:col-span-3">
               <span className="font-mono text-[10px] uppercase tracking-[0.28em] opacity-70">
-                Prize pool
+                What you earn
               </span>
               <h3 className="mt-4 font-display text-[22px] uppercase leading-[1.0] tracking-tight sm:text-[26px]">
-                Cash, gear, brand deals — and a feature on
-                the brand handle.
+                Cash payouts, brand deals & a feature on the brand handle.
               </h3>
               <a
                 href="#journey"
                 className="mt-6 inline-flex items-center gap-2 border border-primary-foreground/40 px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.22em] transition hover:bg-primary-foreground hover:text-primary"
               >
-                ▸ See the run
+                ▸ See payouts
               </a>
             </article>
           </div>
 
           {/* Bottom meta strip */}
           <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-border pt-5 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-            <span className="ticker-dot text-foreground">Live now</span>
-            <span>3 campuses</span>
-            <span>2 brands</span>
-            <span>Masters' Union · LPU · Tetr</span>
+            <span className="ticker-dot text-foreground">Briefs live now</span>
+            <span>Open to all creators</span>
+            <span>Paid per reel</span>
+            <span>Instagram-first</span>
             <span className="ml-auto text-primary">↓ scroll</span>
           </div>
         </div>
