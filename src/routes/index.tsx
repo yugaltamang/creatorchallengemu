@@ -824,7 +824,7 @@ function SignupSection() {
                 </div>
 
                 <Field label="University" icon={GraduationCap}>
-                  <div className="grid grid-cols-3 gap-3 pt-2">
+                  <div className="grid grid-cols-1 gap-3 pt-2 sm:grid-cols-3">
                     {UNIVERSITIES.map((u) => (
                       <label key={u} className="group cursor-pointer">
                         <input type="radio" name="university" value={u} className="peer sr-only" required />
