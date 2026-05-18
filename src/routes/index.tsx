@@ -148,10 +148,10 @@ function Hero() {
             </div>
 
             <h1 className="relative z-10 -mt-2 font-display leading-[0.84] tracking-[-0.04em]">
-              <span className="block text-[clamp(40px,7vw,110px)] text-foreground">
+              <span className="block text-[clamp(32px,7vw,110px)] text-foreground">
                 BECOME THE NEXT BIG
               </span>
-              <span className="block text-[clamp(64px,13vw,200px)] text-primary">
+              <span className="block text-[clamp(48px,12vw,200px)] text-primary">
                 CREATOR ON REELS
               </span>
             </h1>
