@@ -486,7 +486,7 @@ function Guidelines() {
                 >
                   <span
                     className="font-mono text-[13px] leading-none pt-1"
-                    style={{ color: isAccent ? "rgba(255,255,255,0.9)" : blue }}
+                    style={{ color: isAccent ? "rgba(14,18,38,0.75)" : blue }}
                   >
                     /{r.n}
                   </span>
@@ -494,18 +494,18 @@ function Guidelines() {
                     <div className="flex items-baseline justify-between gap-3">
                       <h3 className="font-display text-[16px] uppercase leading-tight tracking-tight">
                         {r.t}
-                        <span style={{ color: isAccent ? "#000" : blue }}>.</span>
+                        <span style={{ color: isAccent ? "#0e1226" : blue }}>.</span>
                       </h3>
                       <span
                         className="font-mono text-[9px] font-bold uppercase tracking-[0.18em]"
-                        style={{ color: isAccent ? "rgba(255,255,255,0.85)" : muted }}
+                        style={{ color: isAccent ? "rgba(14,18,38,0.75)" : muted }}
                       >
                         {r.chip}
                       </span>
                     </div>
                     <p
                       className="mt-1.5 text-[12.5px] leading-snug"
-                      style={{ color: isAccent ? "rgba(255,255,255,0.95)" : muted }}
+                      style={{ color: isAccent ? "rgba(14,18,38,0.9)" : muted }}
                     >
                       {r.d}
                     </p>
