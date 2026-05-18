@@ -429,11 +429,11 @@ function Brands() {
       blurb="Browse the briefs. Pick the brand whose story you can tell best. Ship one 15–30s vertical reel and get paid when it goes live."
     >
       {/* Player-style portrait panels with overlay type (Messi carousel feel) */}
-      <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
+      <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
         {brands.map((b) => (
           <article
             key={b.name}
-            className="group relative aspect-[3/4] overflow-hidden border border-border bg-card transition hover:border-primary/60"
+            className="group relative aspect-[4/5] overflow-hidden border border-border bg-card transition hover:border-primary/60 sm:aspect-[3/4]"
           >
             <img
               src={b.image}
