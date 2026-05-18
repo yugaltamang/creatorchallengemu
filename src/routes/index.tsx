@@ -104,9 +104,9 @@ function Hero() {
         }}
       />
 
-      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pb-20 pt-6 sm:px-6 sm:pb-28 sm:pt-8 lg:px-10 lg:pb-36">
-        {/* LEFT — vertical section nav (sidebar) */}
-        <aside className="col-span-12 md:col-span-2">
+      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pb-16 pt-4 sm:px-6 sm:pb-28 sm:pt-8 lg:px-10 lg:pb-36">
+        {/* LEFT — vertical section nav (sidebar) — hidden on mobile */}
+        <aside className="hidden md:col-span-2 md:block">
           <div className="relative pl-4">
             <span aria-hidden className="absolute left-0 top-1 block h-12 w-[2px] bg-primary" />
             <ul className="space-y-3 font-display text-[13px] uppercase tracking-[0.12em]">
