@@ -405,18 +405,16 @@ function Brands() {
       number: "01",
       tagline: "Skincare that actually gets in.",
       image: brand1,
-      summary:
-        "India's first absorption-focused skincare brand. Advanced delivery tech drives actives up to 20× deeper than typical skincare — so what you apply truly absorbs.",
-      angles: ["Absorption science", "Visible results", "Everyday ritual"],
+      hook: "Actives 20× deeper.",
+      angles: ["Absorption science", "Visible results"],
     },
     {
       name: "JustPour",
       number: "02",
       tagline: "Coffee, on your terms.",
       image: brand2,
-      summary:
-        "Total control over how you drink your coffee — without being limited by time, money, or effort. Cafe-quality at home, on the go, any time of day.",
-      angles: ["Morning ritual", "On-the-go brew", "Cafe-quality at home"],
+      hook: "Cafe-quality, anywhere.",
+      angles: ["Morning ritual", "On-the-go brew"],
     },
   ];
 
