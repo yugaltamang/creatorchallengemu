@@ -465,8 +465,8 @@ function Brands() {
               <p className="mt-2 font-display text-[16px] uppercase tracking-[0.05em] text-primary sm:text-[18px]">
                 {b.tagline}
               </p>
-              <p className="mt-3 max-w-md text-[13px] leading-relaxed text-foreground/80 sm:text-[14px]">
-                {b.summary}
+              <p className="mt-2 text-[13px] leading-snug text-foreground/75">
+                {b.hook}
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {b.angles.map((a) => (
