@@ -440,7 +440,7 @@ function Guidelines() {
 
   // Editorial poster — pure black, white, signature red.
   const ink = "#000000";
-  const blue = "#ED1C24";
+  const blue = "#E8A838";
   const lime = "#FFFFFF";
   const muted = "rgba(255,255,255,0.62)";
 
