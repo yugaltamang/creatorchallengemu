@@ -428,65 +428,80 @@ function Brands() {
       titleAccent="ONE VERTICAL REEL."
       blurb="Browse the briefs. Pick the brand whose story you can tell best. Ship one 15–30s vertical reel and get paid when it goes live."
     >
-      {/* Player-style portrait panels with overlay type (Messi carousel feel) */}
-      <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
+      {/* Editorial split cards — image left, info right */}
+      <div className="grid gap-5 sm:gap-6 lg:grid-cols-2">
         {brands.map((b) => (
           <article
             key={b.name}
-            className="group relative aspect-[4/5] overflow-hidden border border-border bg-card transition hover:border-primary/60 sm:aspect-[3/4]"
+            className="group relative grid grid-cols-5 overflow-hidden border border-border bg-card transition hover:border-primary/60"
           >
-            <img
-              src={b.image}
-              alt={b.name}
-              loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
-            />
-            {/* Bottom gradient veil */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(180deg, transparent 35%, hsl(230 42% 9% / 0.4) 55%, hsl(230 42% 9%) 100%)",
-              }}
-            />
-            {/* Top badge */}
-            <span className="absolute left-4 top-4 z-10 bg-background/80 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] backdrop-blur">
-              Brief / {b.number}
-            </span>
-            <span className="absolute right-4 top-4 z-10 font-display text-[clamp(40px,5vw,72px)] leading-none text-primary opacity-90">
-              {b.number}
-            </span>
+            {/* Image panel */}
+            <div className="relative col-span-2 overflow-hidden">
+              <img
+                src={b.image}
+                alt={b.name}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover grayscale transition duration-700 group-hover:scale-[1.04] group-hover:grayscale-0"
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(180deg, hsl(230 42% 9% / 0.15) 0%, transparent 40%, hsl(230 42% 9% / 0.55) 100%)",
+                }}
+              />
+              <span className="absolute left-3 top-3 z-10 bg-background/85 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.22em] backdrop-blur">
+                Brief / {b.number}
+              </span>
+            </div>
 
-            {/* Overlay headline — name in white + tagline in gold */}
-            <div className="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-7">
-              <h3 className="font-display text-[clamp(40px,6vw,72px)] leading-[0.85] tracking-[-0.02em] text-foreground">
-                {b.name}
-              </h3>
-              <p className="mt-2 font-display text-[16px] uppercase tracking-[0.05em] text-primary sm:text-[18px]">
-                {b.tagline}
-              </p>
-              <p className="mt-2 text-[13px] leading-snug text-foreground/75">
-                {b.hook}
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {b.angles.map((a) => (
-                  <span
-                    key={a}
-                    className="border border-foreground/30 bg-background/30 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/85 backdrop-blur"
-                  >
-                    {a}
-                  </span>
-                ))}
-              </div>
-              <a
-                href="#signup"
-                className="mt-5 inline-flex items-center gap-2 border border-primary/70 bg-primary/10 px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-primary backdrop-blur transition hover:bg-primary hover:text-primary-foreground"
+            {/* Content panel */}
+            <div className="relative col-span-3 flex flex-col justify-between p-5 sm:p-6 lg:p-7">
+              {/* Giant numeral watermark */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -right-2 -top-4 font-display text-[clamp(90px,14vw,160px)] leading-none text-primary/10 select-none"
               >
-                ▸ Full brief
-                <span className="ml-1 inline-grid h-5 w-5 place-items-center border border-primary/60 text-[10px]">
-                  +
-                </span>
-              </a>
+                {b.number}
+              </span>
+
+              <div className="relative">
+                <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  <span className="h-px w-6 bg-primary" />
+                  Live brief
+                </div>
+                <h3 className="mt-3 font-display text-[clamp(34px,5vw,56px)] leading-[0.9] tracking-[-0.02em] text-foreground">
+                  {b.name}
+                </h3>
+                <p className="mt-2 font-display text-[15px] uppercase tracking-[0.05em] text-primary sm:text-[17px]">
+                  {b.tagline}
+                </p>
+                <p className="mt-3 text-[13px] leading-snug text-foreground/70">
+                  {b.hook}
+                </p>
+              </div>
+
+              <div className="relative mt-5 space-y-4">
+                <div className="flex flex-wrap gap-1.5">
+                  {b.angles.map((a) => (
+                    <span
+                      key={a}
+                      className="border border-border bg-background/40 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/80"
+                    >
+                      {a}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href="#signup"
+                  className="inline-flex w-full items-center justify-between gap-2 border border-primary/70 bg-primary/10 px-3.5 py-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-primary transition hover:bg-primary hover:text-primary-foreground"
+                >
+                  <span>▸ Pick this brief</span>
+                  <span className="inline-grid h-5 w-5 place-items-center border border-primary/60 text-[10px]">
+                    →
+                  </span>
+                </a>
+              </div>
             </div>
           </article>
         ))}
