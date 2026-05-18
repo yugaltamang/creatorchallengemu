@@ -795,6 +795,14 @@ function SignupSection() {
 
   return (
     <section id="signup" className="border-b border-border">
+      <div className="mx-auto max-w-[1400px] px-4 pt-10 sm:px-6 lg:px-10">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
+          <span className="font-display text-[13px] uppercase tracking-[0.1em] sm:text-[15px]">
+            CREATOR<span className="px-2 font-mono text-[12px] font-normal text-muted-foreground">\</span><span className="text-primary">SUBMIT</span>
+          </span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Drop your handle · Get on the list</span>
+        </div>
+      </div>
       <div className="mx-auto max-w-[1400px] px-4 py-14 sm:px-6 sm:py-20 md:py-24 lg:px-8">
         <div className="relative overflow-hidden rounded-2xl border-2 border-primary/30 gradient-card p-5 sm:rounded-[32px] sm:p-8 md:p-14 shadow-[0_50px_120px_-20px_rgba(0,0,0,0.95),0_0_0_1px_rgba(255,255,255,0.04),0_25px_60px_-15px_var(--primary)] ring-1 ring-white/5">
           <div className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full bg-primary/30 blur-3xl" />
