@@ -520,6 +520,14 @@ function Journey() {
 
   return (
     <section id="journey" className="border-y border-border bg-background">
+      <div className="mx-auto max-w-[1400px] px-4 pt-10 sm:px-6 lg:px-10">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
+          <span className="font-display text-[13px] uppercase tracking-[0.1em] sm:text-[15px]">
+            CREATOR<span className="px-2 font-mono text-[12px] font-normal text-muted-foreground">\</span><span className="text-primary">JOURNEY</span>
+          </span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Five steps · One reel · Get paid</span>
+        </div>
+      </div>
       <div className="mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <div className="border border-white/15">
           {/* Header bar */}
