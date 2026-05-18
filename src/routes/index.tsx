@@ -611,12 +611,12 @@ function Journey() {
 
 function Guidelines() {
   const rules = [
-    { n: "01", t: "Eligibility", d: "Open to currently enrolled students of Masters' Union, LPU, or Tetr. Verify with your university email.", chip: "Who can enter" },
+    { n: "01", t: "Eligibility", d: "Open to any creator 16+ with a public Instagram account. Verify with your email to get on the platform.", chip: "Who can enter" },
     { n: "02", t: "Format", d: "One Instagram reel, 15–30 seconds, vertical 9:16. Original or licensed audio only.", chip: "Spec sheet" },
     { n: "03", t: "The brand", d: "Feature the chosen product clearly. Tag the brand and use #CreatorOnReels.", chip: "Brand brief" },
     { n: "04", t: "Originality", d: "Created by you. No reposts, no AI voiceovers without disclosure, no copyrighted footage.", chip: "Be original" },
     { n: "05", t: "Account", d: "Your Instagram profile must be public throughout the judging window.", chip: "Visibility" },
-    { n: "06", t: "Deadline", d: "Submit by midnight, March 30. Winners announced April 15 across all three campuses.", chip: "Timeline" },
+    { n: "06", t: "Deadline", d: "Each brief has its own deadline shown on the brief page. Submit before the buzzer to be eligible for payout.", chip: "Timeline" },
   ];
 
   // Editorial poster — pure black, white, signature red.
@@ -925,7 +925,7 @@ function Footer() {
               <img src={logo} alt="Creator on Reels" className="h-12 w-auto invert" />
             </div>
             <p className="mt-5 max-w-sm text-[14px] leading-relaxed text-muted-foreground">
-              Built with Masters' Union, LPU and Tetr. Powered by real brands and creators who refuse to scroll past.
+              The platform that turns your phone into a paycheck. Real brand briefs, paid reels, and a runway to becoming the next big creator on the feed.
             </p>
           </div>
           <div className="md:col-span-3">
