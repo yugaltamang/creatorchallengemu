@@ -64,35 +64,25 @@ function Landing() {
 
 function Header() {
   return (
-    <header className="relative z-30 border-b border-border">
-      {/* Nav row */}
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 border-b border-border px-4 py-3 sm:gap-8 sm:px-6 sm:py-4 lg:px-8">
-        {/* Logo block */}
-        <Link to="/" className="flex items-center">
-          <img src={logo} alt="Creator Challenge 2026" className="h-8 w-auto invert sm:h-10" />
+    <header className="relative z-30">
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-4 py-5 sm:px-6 sm:py-6 lg:px-10">
+        <Link to="/" className="flex items-center gap-3">
+          <span aria-hidden className="flex flex-col gap-[3px]">
+            <span className="block h-[2px] w-5 bg-foreground" />
+            <span className="block h-[2px] w-5 bg-foreground" />
+            <span className="block h-[2px] w-5 bg-foreground" />
+          </span>
+          <span className="font-display text-[15px] uppercase tracking-[0.08em] sm:text-[17px]">
+            CREATOR<span className="px-2 font-mono text-[13px] font-normal text-muted-foreground">\</span>
+            <span className="text-primary">CHALLENGE 26</span>
+          </span>
         </Link>
 
-        <nav className="hidden flex-wrap items-center gap-7 text-[14px] md:flex">
-          <a href="#brands" className="hover:text-primary">Brands</a>
-          <a href="#rules" className="hover:text-primary">Rules</a>
-          <a href="#prizes" className="hover:text-primary">Prizes</a>
-          <a href="#about" className="hover:text-primary">About</a>
-          <a href="#signup" className="hover:text-primary">Submit</a>
-        </nav>
-
-        <a
-          href="#signup"
-          className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-primary text-center text-[10px] leading-tight text-primary transition hover:bg-primary hover:text-primary-foreground sm:h-14 sm:w-14 sm:text-[11px]"
-        >
-          Enter<br />Now
-        </a>
-      </div>
-
-      <div className="mx-auto hidden max-w-[1400px] items-start justify-end gap-8 px-4 pt-5 pb-5 sm:px-6 md:flex lg:px-8">
-        {/* Right meta */}
-        <div className="text-right text-[13px] leading-tight">
-          <p>India · 3 Campuses</p>
-          <p className="text-muted-foreground">Feb 14 – Mar 30, 2026</p>
+        <div className="flex items-center gap-3 sm:gap-5">
+          <span className="hidden font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground sm:inline">
+            Feb 14 — Mar 30 · 2026
+          </span>
+          <img src={logo} alt="Creator Challenge crest" className="h-9 w-auto invert sm:h-11" />
         </div>
       </div>
     </header>
@@ -101,68 +91,168 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="relative">
-      {/* Sweeping pink arc — AIGA-style */}
-      <svg
-        className="pointer-events-none absolute -bottom-40 -left-40 h-[1100px] w-[1100px] text-primary opacity-90"
-        viewBox="0 0 600 600"
-        fill="none"
+    <section className="relative overflow-hidden">
+      {/* Atmospheric spotlight + stadium grain */}
+      <div className="pointer-events-none absolute inset-0" style={{ background: "var(--gradient-spotlight)" }} aria-hidden />
+      <div className="pointer-events-none absolute inset-0 bp-grid opacity-40" aria-hidden />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
         aria-hidden
-      >
-        <path d="M 600 0 A 600 600 0 0 0 0 600" stroke="currentColor" strokeWidth="3" />
-      </svg>
+        style={{
+          background:
+            "radial-gradient(circle at 70% 30%, var(--primary) 0%, transparent 45%), radial-gradient(circle at 20% 80%, var(--primary) 0%, transparent 50%)",
+        }}
+      />
 
-      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pt-32 pb-16 sm:px-6 sm:pt-40 sm:pb-24 md:pt-24 md:pb-32 lg:px-8">
-        {/* Phone mock / left visual */}
-        <div className="col-span-12 md:col-span-4">
-          <div className="relative mx-auto w-[200px] sm:w-[240px] md:w-[260px]">
-            {/* Girl image breaking out of phone */}
-            <img
-              src={creatorGirl}
-              alt="Student creating an Instagram reel"
-              className="pointer-events-none absolute left-1/2 bottom-[58px] z-20 w-[115%] max-w-none -translate-x-1/2 drop-shadow-[0_25px_40px_rgba(0,0,0,0.6)] sm:w-[130%] md:w-[140%]"
-            />
-            <div className="relative rounded-[36px] border-[3px] border-primary bg-card p-2 shadow-[0_0_0_1px_var(--color-primary)]">
-              <div className="overflow-hidden rounded-[28px] bg-black">
-                <div className="flex items-center justify-between px-4 py-3 text-[11px] tracking-widest text-primary">
-                  <span>● LIVE</span>
-                  <span>REEL · 0:23</span>
-                </div>
-                <div className="relative aspect-[3/4] overflow-hidden bg-primary/20">
-                  <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/80 to-transparent p-3">
-                    <p className="text-[11px] text-foreground">@maya.shoots</p>
-                    <p className="text-[10px] text-muted-foreground">making it for PERMEA</p>
-                  </div>
-                </div>
-                <div className="flex justify-around px-4 py-3 text-primary text-[10px]">
-                  <span>≡</span><span>♡</span><span>▤</span><span>★</span><span>⌕</span>
-                </div>
+      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pb-20 pt-6 sm:px-6 sm:pb-28 sm:pt-8 lg:px-10 lg:pb-36">
+        {/* LEFT — vertical section nav (sidebar) */}
+        <aside className="col-span-12 md:col-span-2">
+          <div className="relative pl-4">
+            <span aria-hidden className="absolute left-0 top-1 block h-12 w-[2px] bg-primary" />
+            <ul className="space-y-3 font-display text-[13px] uppercase tracking-[0.12em]">
+              {[
+                { href: "#brands", label: "Brands", active: true },
+                { href: "#journey", label: "Journey" },
+                { href: "#rules", label: "Rules" },
+                { href: "#signup", label: "Submit" },
+                { href: "#about", label: "About" },
+              ].map((i) => (
+                <li key={i.label}>
+                  <a
+                    href={i.href}
+                    className={
+                      i.active
+                        ? "text-primary"
+                        : "text-foreground/85 transition hover:text-primary"
+                    }
+                  >
+                    {i.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+
+        {/* CENTER — Hero image + dramatic poster type */}
+        <div className="relative col-span-12 md:col-span-10">
+          {/* Massive poster type */}
+          <div className="relative">
+            <div className="mb-4 flex items-end gap-3 sm:mb-6">
+              <span className="font-display text-[clamp(56px,9vw,140px)] leading-[0.85] text-primary">
+                26
+              </span>
+              <span className="pb-3 font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground sm:pb-5">
+                Issue / Spring · Vol 01
+              </span>
+            </div>
+
+            <h1 className="relative z-10 -mt-2 font-display leading-[0.84] tracking-[-0.04em]">
+              <span className="block text-[clamp(64px,13vw,200px)] text-foreground">
+                CREATOR
+              </span>
+              <span className="block text-[clamp(64px,13vw,200px)] text-primary">
+                CHALLENGE
+              </span>
+            </h1>
+
+            {/* Floating creator image on the right */}
+            <div className="pointer-events-none absolute -right-4 -top-6 z-0 hidden w-[44%] md:block lg:-right-2 lg:w-[42%]">
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <img
+                  src={creatorGirl}
+                  alt="Student creator shooting an Instagram reel"
+                  className="absolute inset-0 h-full w-full object-cover object-top mix-blend-luminosity opacity-90"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, transparent 30%, hsl(230 42% 9% / 0.4) 70%, hsl(230 42% 9%) 100%)",
+                  }}
+                />
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Big headline */}
-        <div className="col-span-12 md:col-span-8 md:pt-6">
-          <div className="mb-6 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
-            <span className="h-px w-10 bg-primary" />
-            <span>Issue 01 · Creator Challenge 26</span>
+          {/* Floating editorial cards row — like the Messi story cards */}
+          <div className="relative z-10 mt-12 grid gap-5 sm:mt-16 sm:grid-cols-12">
+            {/* Card 1 — outlined "story" card */}
+            <article className="corner-tick group relative border-2 border-primary/70 bg-background/40 p-6 backdrop-blur-sm transition hover:bg-background/70 sm:col-span-5">
+              <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-primary">
+                Brief / 01
+              </span>
+              <h3 className="mt-4 font-display text-[22px] uppercase leading-[1.05] tracking-tight sm:text-[26px]">
+                Two real brands.
+                <br />One vertical reel.
+              </h3>
+              <p className="mt-3 max-w-xs text-[13px] leading-relaxed text-muted-foreground">
+                Pick PERMEA or JustPour. Build a 15–30s reel impossible to scroll past.
+              </p>
+              <a
+                href="#brands"
+                className="mt-6 inline-flex items-center gap-2 border border-primary/60 px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-primary transition group-hover:bg-primary group-hover:text-primary-foreground"
+              >
+                ▸ Full brief
+                <span className="ml-1 inline-grid h-5 w-5 place-items-center border border-primary/60 text-[10px]">
+                  +
+                </span>
+              </a>
+            </article>
+
+            {/* Card 2 — white "feature" card with video preview, the highlighted one */}
+            <article className="group relative bg-foreground p-6 text-background shadow-pop sm:col-span-4 sm:-translate-y-6">
+              <div className="relative -mx-6 -mt-6 mb-5 aspect-[4/3] overflow-hidden bg-primary/30">
+                <img
+                  src={creatorGirl}
+                  alt="Reel still"
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 grid place-items-center">
+                  <span className="grid h-14 w-14 place-items-center rounded-full border-2 border-foreground/90 bg-background/30 text-foreground backdrop-blur transition group-hover:scale-110">
+                    ▶
+                  </span>
+                </div>
+              </div>
+              <h3 className="font-display text-[20px] uppercase leading-[1.05] tracking-tight sm:text-[22px]">
+                Creators take centre stage<span className="text-primary">.</span>
+              </h3>
+              <a
+                href="#signup"
+                className="mt-5 inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-background"
+              >
+                ▸ Enter now
+                <span className="ml-1 inline-grid h-5 w-5 place-items-center border border-background/40 text-[10px]">
+                  +
+                </span>
+              </a>
+            </article>
+
+            {/* Card 3 — solid gold "prize" card */}
+            <article className="relative bg-primary p-6 text-primary-foreground shadow-pop sm:col-span-3">
+              <span className="font-mono text-[10px] uppercase tracking-[0.28em] opacity-70">
+                Prize pool
+              </span>
+              <h3 className="mt-4 font-display text-[22px] uppercase leading-[1.0] tracking-tight sm:text-[26px]">
+                Cash, gear, brand deals — and a feature on
+                the brand handle.
+              </h3>
+              <a
+                href="#journey"
+                className="mt-6 inline-flex items-center gap-2 border border-primary-foreground/40 px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.22em] transition hover:bg-primary-foreground hover:text-primary"
+              >
+                ▸ See the run
+              </a>
+            </article>
           </div>
-          <h2 className="font-display text-[clamp(56px,12vw,180px)] leading-[0.82] tracking-[-0.04em]">
-            <span className="block relative z-10 mb-2 md:mb-4">Let<span className="text-primary">'</span>s</span>
-            <span className="block">
-              <span className="mu-gradient-text">build</span>
-            </span>
-            <span className="block font-serif italic font-normal tracking-[-0.02em] text-foreground">
-              stories<span className="text-primary">,</span>
-            </span>
-            <span className="block text-outline-strong">together.</span>
-          </h2>
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+
+          {/* Bottom meta strip */}
+          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-border pt-5 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
             <span className="ticker-dot text-foreground">Live now</span>
             <span>3 campuses</span>
             <span>2 brands</span>
-            <span className="text-primary">→ scroll</span>
+            <span>Masters' Union · LPU · Tetr</span>
+            <span className="ml-auto text-primary">↓ scroll</span>
           </div>
         </div>
       </div>
