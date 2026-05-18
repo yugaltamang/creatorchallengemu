@@ -623,19 +623,19 @@ function Guidelines() {
   return (
     <section id="rules" className="border-y border-border bg-background">
       <div className="mx-auto max-w-[1400px] px-4 pt-10 sm:px-6 lg:px-10">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
-          <span className="font-display text-[13px] uppercase tracking-[0.1em] sm:text-[15px]">
-            CREATOR<span className="px-2 font-mono text-[12px] font-normal text-muted-foreground">\</span><span className="text-primary">RULES</span>
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-4 sm:gap-3">
+          <span className="font-display text-[12px] uppercase tracking-[0.1em] sm:text-[15px]">
+            CREATOR<span className="px-2 font-mono text-[11px] font-normal text-muted-foreground sm:text-[12px]">\</span><span className="text-primary">RULES</span>
           </span>
-          <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Read once · Then ship</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">Read once · Then ship</span>
         </div>
       </div>
-      <div className="mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <div className="mx-auto max-w-[1400px] px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
         {/* Single compact box */}
         <div className="border border-white/15">
           {/* Header bar */}
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/15 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <span
                 className="inline-flex items-center gap-2 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[#0e1226]"
                 style={{ background: blue }}
@@ -643,7 +643,7 @@ function Guidelines() {
                 <span className="inline-block h-1.5 w-1.5 rotate-45 bg-white" />
                 Playbook
               </span>
-              <h2 className="font-display text-[22px] uppercase leading-none tracking-tight text-foreground">
+              <h2 className="font-display text-[18px] uppercase leading-none tracking-tight text-foreground sm:text-[22px]">
                 Rules of{" "}
                 <span className="font-serif italic normal-case" style={{ color: blue }}>
                   play
@@ -651,7 +651,7 @@ function Guidelines() {
                 <span style={{ color: blue }}>.</span>
               </h2>
             </div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+            <p className="hidden font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:block">
               Six things · Read once · Then ship
             </p>
           </div>
