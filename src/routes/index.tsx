@@ -241,11 +241,11 @@ function Hero() {
           </div>
 
           {/* Bottom meta strip */}
-          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-border pt-5 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          <div className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-border pt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">
             <span className="ticker-dot text-foreground">Briefs live now</span>
             <span>Open to all creators</span>
             <span>Paid per reel</span>
-            <span>Instagram-first</span>
+            <span className="hidden sm:inline">Instagram-first</span>
             <span className="ml-auto text-primary">↓ scroll</span>
           </div>
         </div>
