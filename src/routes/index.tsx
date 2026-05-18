@@ -405,18 +405,16 @@ function Brands() {
       number: "01",
       tagline: "Skincare that actually gets in.",
       image: brand1,
-      summary:
-        "India's first absorption-focused skincare brand. Advanced delivery tech drives actives up to 20× deeper than typical skincare — so what you apply truly absorbs.",
-      angles: ["Absorption science", "Visible results", "Everyday ritual"],
+      hook: "Actives 20× deeper.",
+      angles: ["Absorption science", "Visible results"],
     },
     {
       name: "JustPour",
       number: "02",
       tagline: "Coffee, on your terms.",
       image: brand2,
-      summary:
-        "Total control over how you drink your coffee — without being limited by time, money, or effort. Cafe-quality at home, on the go, any time of day.",
-      angles: ["Morning ritual", "On-the-go brew", "Cafe-quality at home"],
+      hook: "Cafe-quality, anywhere.",
+      angles: ["Morning ritual", "On-the-go brew"],
     },
   ];
 
@@ -467,8 +465,8 @@ function Brands() {
               <p className="mt-2 font-display text-[16px] uppercase tracking-[0.05em] text-primary sm:text-[18px]">
                 {b.tagline}
               </p>
-              <p className="mt-3 max-w-md text-[13px] leading-relaxed text-foreground/80 sm:text-[14px]">
-                {b.summary}
+              <p className="mt-2 text-[13px] leading-snug text-foreground/75">
+                {b.hook}
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {b.angles.map((a) => (
