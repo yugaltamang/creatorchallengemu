@@ -328,7 +328,7 @@ function Brands() {
 }
 
 function Journey() {
-  const blue = "#ED1C24";
+  const blue = "#E8A838";
   const steps = [
     { n: "01", t: "Drop your entry", d: "Pick the brand(s) you'd love to create for and apply with your best reel.", date: "Feb 14", phase: "Applications open" },
     { n: "02", t: "Crack the Top 25", d: "Top 25 entries get shortlisted by the\nbrand.", date: "Mar 02", phase: "Shortlists drop" },
