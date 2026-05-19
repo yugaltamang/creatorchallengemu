@@ -150,10 +150,10 @@ function Hero() {
             <h1
               className="relative z-10 -mt-2 font-display leading-[0.84] tracking-[-0.04em]"
             >
-              <span className="block text-foreground text-3xl">
+              <span className="block text-foreground text-xl sm:text-2xl md:text-3xl">
                 BECOME THE NEXT BIG
               </span>
-              <span className="block text-primary font-bold text-8xl whitespace-pre-line">
+              <span className="block text-primary font-bold text-5xl sm:text-7xl md:text-8xl whitespace-pre-line">
                 {"CREATOR\nON REELS"}
               </span>
             </h1>
