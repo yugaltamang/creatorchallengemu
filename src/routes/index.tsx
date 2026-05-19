@@ -153,8 +153,8 @@ function Hero() {
               <span className="block text-foreground text-3xl">
                 BECOME THE NEXT BIG
               </span>
-              <span className="block text-primary font-bold text-8xl">
-                CREATOR ON REELS
+              <span className="block text-primary font-bold text-8xl whitespace-pre-line">
+                {"CREATOR\nON REELS"}
               </span>
             </h1>
 
