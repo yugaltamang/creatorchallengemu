@@ -435,10 +435,10 @@ function Brands() {
         {brands.map((b) => (
           <article
             key={b.name}
-            className="group relative grid grid-cols-5 overflow-hidden border border-border bg-card transition hover:border-primary/60"
+            className="group relative grid grid-cols-1 sm:grid-cols-5 overflow-hidden border border-border bg-card transition hover:border-primary/60"
           >
             {/* Image panel */}
-            <div className="relative col-span-2 overflow-hidden">
+            <div className="relative sm:col-span-2 aspect-[4/3] sm:aspect-auto overflow-hidden">
               <img
                 src={b.image}
                 alt={b.name}
@@ -458,7 +458,7 @@ function Brands() {
             </div>
 
             {/* Content panel */}
-            <div className="relative col-span-3 flex flex-col justify-between p-5 sm:p-6 lg:p-7">
+            <div className="relative sm:col-span-3 flex flex-col justify-between p-5 sm:p-6 lg:p-7">
               {/* Giant numeral watermark */}
               <span
                 aria-hidden
