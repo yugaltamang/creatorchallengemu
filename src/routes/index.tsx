@@ -153,7 +153,7 @@ function Hero() {
               <span className="block text-foreground text-3xl">
                 BECOME THE NEXT BIG
               </span>
-              <span className="block text-[clamp(48px,12vw,200px)] text-primary font-bold">
+              <span className="block text-primary font-bold text-8xl">
                 CREATOR ON REELS
               </span>
             </h1>
