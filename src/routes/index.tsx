@@ -147,7 +147,10 @@ function Hero() {
               </span>
             </div>
 
-            <h1 className="relative z-10 -mt-2 font-display leading-[0.84] tracking-[-0.04em]">
+            <h1
+              className="relative z-10 -mt-2 font-display leading-[0.84] tracking-[-0.04em]"
+              style={{ WebkitTextStroke: "2px currentColor" }}
+            >
               <span className="block text-[clamp(32px,7vw,110px)] text-foreground">
                 BECOME THE NEXT BIG
               </span>
