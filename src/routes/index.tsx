@@ -51,7 +51,7 @@ function Landing() {
       <Toaster theme="dark" />
       <Header />
       <Hero />
-      <ImageStrip />
+      
       <SocialBar />
       <Brands />
       <Journey />
