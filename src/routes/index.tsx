@@ -693,48 +693,45 @@ function SignupSection() {
           <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">Drop your handle · Get on the list</span>
         </div>
       </div>
-      <div className="mx-auto max-w-[1400px] px-4 py-10 sm:px-6 sm:py-20 md:py-24 lg:px-8">
-        <div className="relative overflow-hidden rounded-2xl border-2 border-primary/30 gradient-card p-5 sm:rounded-[32px] sm:p-8 md:p-14 shadow-[0_50px_120px_-20px_rgba(0,0,0,0.95),0_0_0_1px_rgba(255,255,255,0.04)] ring-1 ring-white/5">
-          <div className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full bg-primary/30 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-pop-violet/30 blur-3xl" />
+      <div className="mx-auto max-w-[1400px] px-4 py-8 sm:px-6 sm:py-14 lg:px-8">
+        <div className="relative overflow-hidden border-2 border-primary/30 gradient-card p-4 sm:p-6 md:p-8 shadow-[0_40px_100px_-25px_rgba(0,0,0,0.9)] ring-1 ring-white/5">
+          <div className="pointer-events-none absolute -top-32 -right-32 h-72 w-72 rounded-full bg-primary/30 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-32 -left-32 h-72 w-72 rounded-full bg-pop-violet/30 blur-3xl" />
 
-          <div className="relative grid gap-10 md:grid-cols-12">
+          <div className="relative grid gap-6 md:grid-cols-12 md:gap-8">
             <div className="md:col-span-5">
-              <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[12px] uppercase tracking-[0.18em] text-primary">
+              <span className="inline-flex items-center gap-2 border border-primary/40 bg-primary/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-primary">
                 <Instagram className="h-3.5 w-3.5" /> Submit
               </span>
-              <h2 className="mt-5 font-display text-[clamp(48px,7vw,96px)] leading-[0.9] text-slate-50">
+              <h2 className="mt-4 font-display text-[clamp(36px,5.5vw,64px)] leading-[0.9] text-slate-50">
                 Drop your{" "}
                 <span className="bg-gradient-to-r from-primary to-pop-cyan bg-clip-text text-transparent">
                   handle.
                 </span>
               </h2>
-              <p className="mt-6 max-w-sm text-[14px] leading-relaxed text-muted-foreground">
+              <p className="mt-4 max-w-sm text-[13px] leading-relaxed text-muted-foreground">
                 Submit your details and the Instagram profile we should review. Update your reel any
                 time before the deadline — we'll always pull the latest version.
               </p>
             </div>
 
             <form onSubmit={handleSubmit} method="post" action="#" className="md:col-span-7">
-              <div className="rounded-2xl border border-white/10 bg-background/70 p-4 backdrop-blur-md sm:rounded-3xl sm:p-6 md:p-8 space-y-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_30px_80px_-20px_rgba(0,0,0,0.8)]">
-                <div className="grid gap-5 md:grid-cols-2">
+              <div className="border border-white/10 bg-background/70 p-4 backdrop-blur-md sm:p-5 space-y-4">
+                <div className="grid gap-4 md:grid-cols-2">
                   <Field label="Full name" icon={User} withInputIcon>
-                    <Input name="full_name" required placeholder="Your name" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
+                    <Input name="full_name" required placeholder="Your name" className="h-10 rounded-none border border-border bg-background/60 pl-10 pr-3 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-1 focus-visible:ring-primary/30" />
                   </Field>
                   <Field label="University email" icon={Mail} withInputIcon>
-                    <Input name="email" type="email" required placeholder="you@university.edu" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
+                    <Input name="email" type="email" required placeholder="you@university.edu" className="h-10 rounded-none border border-border bg-background/60 pl-10 pr-3 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-1 focus-visible:ring-primary/30" />
                   </Field>
                 </div>
 
                 <Field label="University" icon={GraduationCap}>
-                  <div className="grid grid-cols-1 gap-3 pt-2 sm:grid-cols-3">
+                  <div className="grid grid-cols-3 gap-2 pt-1">
                     {UNIVERSITIES.map((u) => (
                       <label key={u} className="group cursor-pointer">
                         <input type="radio" name="university" value={u} className="peer sr-only" required />
-                        <div className="relative flex h-14 items-center justify-center rounded-xl border border-border bg-background/60 px-3 text-center text-[13px] font-medium transition hover:border-primary/50 hover:-translate-y-0.5 peer-checked:border-primary peer-checked:bg-gradient-to-br peer-checked:from-primary peer-checked:to-pop-violet peer-checked:text-primary-foreground peer-checked:shadow-pop">
-                          <span className="absolute right-2 top-2 hidden h-4 w-4 items-center justify-center rounded-full bg-background/30">
-                            <Check className="h-3 w-3" />
-                          </span>
+                        <div className="relative flex h-10 items-center justify-center border border-border bg-background/60 px-2 text-center text-[12px] font-medium transition hover:border-primary/50 peer-checked:border-primary peer-checked:bg-gradient-to-br peer-checked:from-primary peer-checked:to-pop-violet peer-checked:text-primary-foreground">
                           {u}
                         </div>
                       </label>
@@ -743,11 +740,11 @@ function SignupSection() {
                 </Field>
 
                 <Field label="Brand you're creating for" icon={Sparkles}>
-                  <div className="grid grid-cols-2 gap-3 pt-2">
+                  <div className="grid grid-cols-2 gap-2 pt-1">
                     {BRANDS.map((b) => (
                       <label key={b} className="group cursor-pointer">
                         <input type="radio" name="brand_choice" value={b} className="peer sr-only" required />
-                        <div className="relative flex h-16 items-center justify-center rounded-xl border border-border bg-background/60 px-4 text-center text-[14px] font-medium transition hover:border-primary/50 hover:-translate-y-0.5 peer-checked:border-primary peer-checked:bg-gradient-to-br peer-checked:from-primary peer-checked:to-pop-violet peer-checked:text-primary-foreground peer-checked:shadow-pop">
+                        <div className="relative flex h-11 items-center justify-center border border-border bg-background/60 px-3 text-center text-[13px] font-medium transition hover:border-primary/50 peer-checked:border-primary peer-checked:bg-gradient-to-br peer-checked:from-primary peer-checked:to-pop-violet peer-checked:text-primary-foreground">
                           {b}
                         </div>
                       </label>
@@ -755,24 +752,24 @@ function SignupSection() {
                   </div>
                 </Field>
 
-                <Field label="Instagram handle" icon={AtSign} withInputIcon>
-                  <Input name="instagram_handle" required placeholder="yourhandle" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
-                </Field>
-
-                <Field label="WhatsApp number" icon={Phone} withInputIcon>
-                  <Input name="whatsapp_number" type="tel" required inputMode="tel" pattern="^\+?[0-9\s\-()]{7,20}$" placeholder="+91 98765 43210" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
-                  <p className="mt-1.5 text-[12px] text-muted-foreground">Used to intimate you if you are shortlisted.</p>
-                </Field>
+                <div className="grid gap-4 md:grid-cols-2">
+                  <Field label="Instagram handle" icon={AtSign} withInputIcon>
+                    <Input name="instagram_handle" required placeholder="yourhandle" className="h-10 rounded-none border border-border bg-background/60 pl-10 pr-3 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-1 focus-visible:ring-primary/30" />
+                  </Field>
+                  <Field label="WhatsApp number" icon={Phone} withInputIcon>
+                    <Input name="whatsapp_number" type="tel" required inputMode="tel" pattern="^\+?[0-9\s\-()]{7,20}$" placeholder="+91 98765 43210" className="h-10 rounded-none border border-border bg-background/60 pl-10 pr-3 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-1 focus-visible:ring-primary/30" />
+                  </Field>
+                </div>
 
                 <Field label="Link to your best reel" icon={LinkIcon} withInputIcon>
-                  <Input name="notes" type="url" required placeholder="https://instagram.com/reel/…" className="h-12 rounded-xl border border-border bg-background/60 pl-11 pr-4 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30" />
+                  <Input name="notes" type="url" required placeholder="https://instagram.com/reel/…" className="h-10 rounded-none border border-border bg-background/60 pl-10 pr-3 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-1 focus-visible:ring-primary/30" />
                 </Field>
 
-                <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
-                  <p className="text-[12px] text-muted-foreground">
+                <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+                  <p className="text-[11px] text-muted-foreground">
                     By submitting you agree to the contest rules.
                   </p>
-                  <Button type="submit" disabled={submitting} className="group h-14 rounded-full gradient-pop px-8 text-[14px] font-semibold tracking-wide text-primary-foreground shadow-pop transition hover:opacity-95 hover:shadow-[0_25px_60px_-15px_var(--primary)] disabled:opacity-80 bg-slate-600">
+                  <Button type="submit" disabled={submitting} className="group h-11 rounded-none gradient-pop px-6 text-[13px] font-semibold tracking-wide text-primary-foreground shadow-pop transition hover:opacity-95 disabled:opacity-80 bg-slate-600">
                     {submitting ? (
                       <span className="flex items-center gap-2">
                         <Loader2 className="h-4 w-4 animate-spin" />
