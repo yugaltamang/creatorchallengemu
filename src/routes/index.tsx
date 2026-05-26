@@ -865,7 +865,7 @@ function Footer() {
         </div>
         <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6 text-[13px] text-muted-foreground">
           <p>© 2026 Creator on Reels</p>
-          <p>May 28 – Jun 20, 2026</p>
+          
         </div>
       </div>
     </footer>
