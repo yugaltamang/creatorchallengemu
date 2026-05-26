@@ -91,22 +91,13 @@ function Header() {
     <header className="relative z-30">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-4 py-5 sm:px-6 sm:py-6 lg:px-10">
         <Link to="/" className="flex items-center gap-3">
-          <span aria-hidden className="flex flex-col gap-[3px]">
-            <span className="block h-[2px] w-5 bg-foreground" />
-            <span className="block h-[2px] w-5 bg-foreground" />
-            <span className="block h-[2px] w-5 bg-foreground" />
-          </span>
-          <span className="font-display text-[15px] uppercase tracking-[0.08em] sm:text-[17px]">
-            CREATOR<br />
-            <span className="text-primary">ON REELS</span>
-          </span>
+          <img src={mastersUnionLogo} alt="Masters' Union" className="h-9 w-auto sm:h-11" />
         </Link>
 
         <div className="flex items-center gap-3 sm:gap-5">
           <span className="hidden font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground sm:inline">
-            Feb 14 — Mar 30 · 2026
+            May 28 — Jun 20 · 2026
           </span>
-          <img src={mastersUnionLogo} alt="Masters' Union" className="h-8 w-auto sm:h-10" />
           <img src={logo} alt="Creator on Reels" className="h-9 w-auto invert sm:h-11" />
         </div>
       </div>
@@ -894,7 +885,7 @@ function Footer() {
         </div>
         <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6 text-[13px] text-muted-foreground">
           <p>© 2026 Creator on Reels</p>
-          <p>Feb 14 – Mar 30, 2026</p>
+          <p>May 28 – Jun 20, 2026</p>
         </div>
       </div>
     </footer>
