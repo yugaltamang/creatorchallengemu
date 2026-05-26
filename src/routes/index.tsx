@@ -194,10 +194,10 @@ function Hero() {
               </p>
               <a
                 href="#signup"
-                className="mt-6 inline-flex items-center gap-2 border border-primary/60 px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-primary transition group-hover:bg-primary group-hover:text-primary-foreground"
+                className="mt-6 inline-flex items-center gap-2 rounded-full gradient-pop bg-slate-600 px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-primary-foreground shadow-pop transition hover:opacity-95 hover:shadow-[0_25px_60px_-15px_var(--primary)]"
               >
                 ▸ Apply now
-                <span className="ml-1 inline-grid h-5 w-5 place-items-center border border-primary/60 text-[10px]">
+                <span className="ml-1 inline-grid h-5 w-5 place-items-center border border-primary-foreground/40 text-[10px]">
                   +
                 </span>
               </a>
