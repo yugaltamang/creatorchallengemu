@@ -51,13 +51,20 @@ function Landing() {
       <Toaster theme="dark" />
       <Header />
       <Hero />
-      
-      <SocialBar />
-      <Brands />
-      <Journey />
-      
-      <SignupSection />
-      <Footer />
+
+      <div
+        className="relative"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 0%, hsl(210 95% 60% / 0.06), transparent 60%), radial-gradient(ellipse 70% 50% at 90% 100%, hsl(330 95% 60% / 0.05), transparent 60%), hsl(230 40% 7%)",
+        }}
+      >
+        <SocialBar />
+        <Brands />
+        <Journey />
+        <SignupSection />
+        <Footer />
+      </div>
     </div>
   );
 }
