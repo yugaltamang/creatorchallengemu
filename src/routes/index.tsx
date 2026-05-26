@@ -603,7 +603,7 @@ function Journey() {
                       Deadline
                     </span>
                     <span
-                      className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white px-1.5 py-0.5"
+                      className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-foreground px-1.5 py-0.5"
                       style={{ background: blue }}
                     >
                       {s.date}
