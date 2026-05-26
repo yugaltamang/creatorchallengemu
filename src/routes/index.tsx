@@ -341,9 +341,9 @@ function SectionMast({
 
           {/* Body — poster headline + content */}
           <div className="relative col-span-12 md:col-span-10">
-            <h2 className="relative font-display leading-[0.88] tracking-[-0.03em]">
-              <span className="block text-[clamp(32px,7vw,110px)] text-foreground">{title}</span>
-              <span className={`block text-[clamp(32px,7vw,110px)] ${accentClass}`}>{titleAccent}</span>
+            <h2 className="relative font-display font-black leading-[0.88] tracking-[-0.03em]">
+              <span className="block text-[clamp(32px,7vw,110px)] font-black text-foreground">{title}</span>
+              <span className={`block text-[clamp(32px,7vw,110px)] font-black ${accentClass}`}>{titleAccent}</span>
             </h2>
             {blurb ? (
               <p className="mt-5 max-w-xl text-[14px] leading-relaxed text-muted-foreground sm:mt-6 sm:text-[16px]">
