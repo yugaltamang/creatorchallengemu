@@ -113,7 +113,7 @@ function Hero() {
               {[
                 { href: "#brands", label: "Brands", active: true },
                 { href: "#journey", label: "Journey" },
-                { href: "#rules", label: "Rules" },
+                
                 { href: "#signup", label: "Submit" },
                 { href: "#about", label: "About" },
               ].map((i) => (
@@ -297,7 +297,7 @@ function SectionMast({
   blurb?: string;
   children: React.ReactNode;
 }) {
-  const items = ["Brands", "Journey", "Rules", "Submit", "About"];
+  const items = ["Brands", "Journey", "Submit", "About"];
   return (
     <section id={id} className="relative overflow-hidden border-t border-border">
       <div className="pointer-events-none absolute inset-0 bp-grid opacity-30" aria-hidden />
