@@ -58,7 +58,7 @@ function Landing() {
           aria-hidden
           style={{
             background:
-              "radial-gradient(ellipse 60% 30% at 20% 10%, hsl(210 95% 60% / 0.07), transparent 70%), radial-gradient(ellipse 50% 25% at 85% 35%, hsl(330 95% 60% / 0.06), transparent 70%), radial-gradient(ellipse 55% 30% at 30% 65%, hsl(48 95% 58% / 0.05), transparent 70%), radial-gradient(ellipse 50% 30% at 80% 90%, hsl(210 95% 60% / 0.06), transparent 70%)",
+              "radial-gradient(ellipse 90% 18% at 50% 0%, hsl(330 95% 60% / 0.14), transparent 70%), radial-gradient(ellipse 80% 22% at 50% 32%, hsl(210 95% 60% / 0.09), transparent 72%), radial-gradient(ellipse 75% 20% at 50% 66%, hsl(48 95% 58% / 0.07), transparent 72%), radial-gradient(ellipse 85% 20% at 50% 100%, hsl(330 95% 60% / 0.09), transparent 74%)",
           }}
         />
         <div className="relative">
@@ -512,7 +512,7 @@ function Journey() {
   ];
 
   return (
-    <section id="journey" className="border-y border-border bg-background">
+    <section id="journey" className="border-y border-border">
       <div className="mx-auto max-w-[1400px] px-4 pt-10 sm:px-6 lg:px-10">
         <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-b border-border pb-4 sm:gap-3">
           <span className="font-display text-[12px] uppercase tracking-[0.08em] sm:text-[15px] sm:tracking-[0.1em]">
