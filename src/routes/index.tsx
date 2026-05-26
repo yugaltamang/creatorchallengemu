@@ -846,7 +846,7 @@ function Footer() {
             <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Explore</p>
             <ul className="mt-4 space-y-2 text-[14px]">
               <li><a href="#brands" className="hover:text-primary">Brands</a></li>
-              <li><a href="#rules" className="hover:text-primary">Rules</a></li>
+              
               <li><a href="#signup" className="hover:text-primary">Submit</a></li>
             </ul>
           </div>
