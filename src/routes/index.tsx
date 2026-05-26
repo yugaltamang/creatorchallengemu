@@ -31,6 +31,7 @@ import brand1 from "@/assets/permea-logo.jpg";
 import brand2 from "@/assets/justpour.jpg";
 import creatorGirl from "@/assets/creator-duo.png";
 import logo from "@/assets/logo.svg";
+import mastersUnionLogo from "@/assets/masters-union-logo.png";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -105,6 +106,7 @@ function Header() {
           <span className="hidden font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground sm:inline">
             Feb 14 — Mar 30 · 2026
           </span>
+          <img src={mastersUnionLogo} alt="Masters' Union" className="h-8 w-auto sm:h-10" />
           <img src={logo} alt="Creator on Reels" className="h-9 w-auto invert sm:h-11" />
         </div>
       </div>
@@ -864,8 +866,9 @@ function Footer() {
       <div className="mx-auto max-w-[1400px] px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">
-            <div className="flex items-center">
+            <div className="flex items-center gap-4">
               <img src={logo} alt="Creator on Reels" className="h-12 w-auto invert" />
+              <img src={mastersUnionLogo} alt="Masters' Union" className="h-10 w-auto" />
             </div>
             <p className="mt-5 max-w-sm text-[14px] leading-relaxed text-muted-foreground">
               The platform that turns your phone into a paycheck. Real brand briefs, paid reels, and a runway to becoming the next big creator on the feed.
