@@ -639,7 +639,7 @@ function Guidelines() {
       <div className="mx-auto max-w-[1400px] px-4 pt-10 sm:px-6 lg:px-10">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-4 sm:gap-3">
           <span className="font-display text-[12px] uppercase tracking-[0.1em] sm:text-[15px]">
-            CREATOR<span className="px-2 font-mono text-[11px] font-normal text-muted-foreground sm:text-[12px]">\</span><span className="text-primary">RULES</span>
+            CREATOR<span className="px-2 font-mono text-[11px] font-normal text-muted-foreground sm:text-[12px]">\</span><span className="text-pop-cyan">RULES</span>
           </span>
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">Read once · Then ship</span>
         </div>
