@@ -55,7 +55,7 @@ function Landing() {
       <SocialBar />
       <Brands />
       <Journey />
-      <Guidelines />
+      
       <SignupSection />
       <Footer />
     </div>
@@ -513,7 +513,7 @@ function Brands() {
 }
 
 function Journey() {
-  const blue = "hsl(330 95% 60%)";
+  const blue = "#006A4E";
   const steps = [
     { n: "01", t: "Drop your entry", d: "Pick the brand(s) you'd love to create for and apply with your best reel.", date: "May 28", phase: "Applications open" },
     { n: "02", t: "Crack the Top 25", d: "Top 25 entries get shortlisted by the\nbrand.", date: "Jun 05", phase: "Shortlists drop" },
@@ -538,7 +538,7 @@ function Journey() {
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/15 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
             <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <span
-                className="inline-flex items-center gap-2 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[#0e1226]"
+                className="inline-flex items-center gap-2 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white"
                 style={{ background: blue }}
               >
                 <span className="inline-block h-1.5 w-1.5 rotate-45 bg-white" />
@@ -604,7 +604,7 @@ function Journey() {
                       Due
                     </span>
                     <span
-                      className="flex items-center gap-1.5 px-2.5 py-1 font-display text-[13px] font-bold uppercase leading-none tracking-[0.04em] text-[#0e1226] sm:text-[14px]"
+                      className="flex items-center gap-1.5 px-2.5 py-1 font-display text-[13px] font-bold uppercase leading-none tracking-[0.04em] text-white sm:text-[14px]"
                       style={{ background: blue }}
                     >
                       <Calendar className="h-3 w-3" aria-hidden />
