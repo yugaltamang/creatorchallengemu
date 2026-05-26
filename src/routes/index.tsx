@@ -683,56 +683,63 @@ function SignupSection() {
         </div>
       </div>
       <div className="mx-auto max-w-[1400px] px-4 py-8 sm:px-6 sm:py-14 lg:px-8">
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#08080a] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)]">
-          {/* Decorative blooms */}
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-[#EBE8E0] bg-white shadow-[0_24px_80px_-15px_rgba(0,0,0,0.08)]">
+          {/* Soft blooms */}
           <div className="pointer-events-none absolute inset-0 overflow-hidden">
-            <div className="absolute -top-1/2 -left-1/4 h-[600px] w-[600px] rounded-full bg-pop-cyan/10 blur-[120px]" />
-            <div className="absolute -bottom-1/2 -right-1/4 h-[600px] w-[600px] rounded-full bg-primary/10 blur-[120px]" />
+            <div className="absolute -top-[10%] -left-[10%] h-[40%] w-[40%] rounded-full bg-primary/5 blur-[120px]" />
+            <div className="absolute -bottom-[10%] -right-[10%] h-[40%] w-[40%] rounded-full bg-pop-cyan/5 blur-[120px]" />
           </div>
 
-          <div className="relative grid lg:grid-cols-[40%_60%]">
+          <div className="relative grid lg:grid-cols-[38%_62%]">
             {/* Left: Hero */}
-            <div className="flex flex-col justify-center border-b border-white/5 p-8 sm:p-12 lg:border-b-0 lg:border-r lg:p-16">
-              <div className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1">
-                <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/60">Submit Entry</span>
+            <div className="flex flex-col justify-between gap-12 border-b border-[#F3F1ED] bg-gradient-to-br from-white to-[#FAF9F6] p-8 sm:p-12 lg:border-b-0 lg:border-r lg:p-14">
+              <div className="space-y-8">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#EBE8E0] bg-white px-3 py-1 shadow-sm">
+                  <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Submit Entry</span>
+                </div>
+                <div className="space-y-4">
+                  <h2 className="font-display text-[clamp(44px,5.5vw,72px)] font-bold leading-[0.95] tracking-tight text-foreground">
+                    Drop your<br />
+                    <span className="bg-gradient-to-r from-primary via-pop-violet to-pop-cyan bg-clip-text text-transparent">handle.</span>
+                  </h2>
+                  <p className="max-w-xs text-base leading-relaxed text-muted-foreground">
+                    Submit your details and the Instagram profile we should review. Update your reel any time before the deadline.
+                  </p>
+                </div>
               </div>
-              <h2 className="mb-6 font-display text-[clamp(40px,5.5vw,64px)] font-bold leading-[1.05] tracking-tight text-white">
-                Drop your<br />
-                <span className="bg-gradient-to-r from-pop-cyan via-pop-violet to-primary bg-clip-text text-transparent">handle.</span>
-              </h2>
-              <p className="max-w-sm text-sm leading-relaxed text-white/40">
-                Submit your details and the Instagram profile we should review. Update your reel any time before the deadline — we'll always pull the latest version.
-              </p>
+              <div className="hidden lg:flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
+                <span>CREATOR</span>
+                <span className="text-border">\</span>
+                <span className="text-primary">SUBMIT</span>
+              </div>
             </div>
 
             {/* Right: Form */}
-            <div className="bg-white/[0.02] p-6 backdrop-blur-sm sm:p-10 lg:p-14">
-              <form onSubmit={handleSubmit} method="post" action="#" className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                {/* Full Name */}
-                <div className="space-y-2">
-                  <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-pop-cyan/80">
-                    <User className="h-3 w-3" /> Full Name
-                  </label>
-                  <Input name="full_name" required placeholder="Your name" className="h-auto w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/20 transition-all focus-visible:border-pop-cyan/50 focus-visible:ring-1 focus-visible:ring-pop-cyan/20" />
+            <div className="bg-white p-6 sm:p-10 lg:p-14">
+              <form onSubmit={handleSubmit} method="post" action="#" className="space-y-8">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  <div className="space-y-2">
+                    <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                      <User className="h-3 w-3 text-pop-cyan" /> Full Name
+                    </label>
+                    <Input name="full_name" required placeholder="Your name" className="h-auto w-full rounded-2xl border border-[#EBE8E0] bg-[#F9F8F6] px-5 py-4 text-foreground placeholder:text-muted-foreground/50 transition-all focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                      <Mail className="h-3 w-3 text-pop-cyan" /> University Email
+                    </label>
+                    <Input name="email" type="email" required placeholder="you@university.edu" className="h-auto w-full rounded-2xl border border-[#EBE8E0] bg-[#F9F8F6] px-5 py-4 text-foreground placeholder:text-muted-foreground/50 transition-all focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20" />
+                  </div>
                 </div>
 
-                {/* University Email */}
-                <div className="space-y-2">
-                  <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-pop-violet/80">
-                    <Mail className="h-3 w-3" /> University Email
-                  </label>
-                  <Input name="email" type="email" required placeholder="you@university.edu" className="h-auto w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/20 transition-all focus-visible:border-pop-violet/50 focus-visible:ring-1 focus-visible:ring-pop-violet/20" />
-                </div>
-
-                {/* University radio pills */}
-                <div className="space-y-3 md:col-span-2">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-white/40">University Selection</label>
+                <div className="space-y-3">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">University Selection</label>
                   <div className="flex flex-wrap gap-2">
                     {UNIVERSITIES.map((u) => (
                       <label key={u} className="cursor-pointer">
                         <input type="radio" name="university" value={u} className="peer sr-only" required />
-                        <span className="inline-block rounded-full border border-white/10 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white/60 transition-all hover:border-white/30 peer-checked:border-white peer-checked:bg-white peer-checked:text-black">
+                        <span className="inline-block rounded-full border border-[#EBE8E0] bg-[#F9F8F6] px-6 py-2 text-sm font-medium text-muted-foreground transition-all hover:border-foreground/30 peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary">
                           {u}
                         </span>
                       </label>
@@ -740,14 +747,13 @@ function SignupSection() {
                   </div>
                 </div>
 
-                {/* Brand pills */}
-                <div className="space-y-3 md:col-span-2">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-primary/80">Brand You're Creating For</label>
-                  <div className="grid grid-cols-2 gap-3">
+                <div className="space-y-3">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-primary">Brand You're Creating For</label>
+                  <div className="grid grid-cols-2 gap-4">
                     {BRANDS.map((b) => (
                       <label key={b} className="cursor-pointer">
                         <input type="radio" name="brand_choice" value={b} className="peer sr-only" required />
-                        <span className="flex items-center justify-center rounded-xl border border-white/10 bg-white/5 py-3 text-[11px] font-bold uppercase tracking-widest text-white/80 transition-all hover:bg-white/10 peer-checked:border-primary peer-checked:bg-gradient-to-br peer-checked:from-primary peer-checked:to-pop-violet peer-checked:text-white">
+                        <span className="relative flex items-center justify-center rounded-2xl border border-[#EBE8E0] bg-white p-4 text-xs font-bold uppercase tracking-widest text-foreground transition-all hover:bg-[#F9F8F6] peer-checked:border-2 peer-checked:border-primary peer-checked:text-primary">
                           {b}
                         </span>
                       </label>
@@ -755,42 +761,39 @@ function SignupSection() {
                   </div>
                 </div>
 
-                {/* Instagram */}
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  <div className="space-y-2">
+                    <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                      <AtSign className="h-3 w-3 text-pop-violet" /> Instagram Handle
+                    </label>
+                    <Input name="instagram_handle" required placeholder="@yourhandle" className="h-auto w-full rounded-2xl border border-[#EBE8E0] bg-[#F9F8F6] px-5 py-4 text-foreground placeholder:text-muted-foreground/50 transition-all focus-visible:border-pop-violet focus-visible:ring-2 focus-visible:ring-pop-violet/20" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                      <Phone className="h-3 w-3 text-pop-violet" /> WhatsApp Number
+                    </label>
+                    <Input name="whatsapp_number" type="tel" required inputMode="tel" pattern="^\+?[0-9\s\-()]{7,20}$" placeholder="+91 98765 43210" className="h-auto w-full rounded-2xl border border-[#EBE8E0] bg-[#F9F8F6] px-5 py-4 text-foreground placeholder:text-muted-foreground/50 transition-all focus-visible:border-pop-violet focus-visible:ring-2 focus-visible:ring-pop-violet/20" />
+                  </div>
+                </div>
+
                 <div className="space-y-2">
-                  <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-pop-cyan/80">
-                    <AtSign className="h-3 w-3" /> Instagram Handle
+                  <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                    <LinkIcon className="h-3 w-3 text-primary" /> Link to your best reel
                   </label>
-                  <Input name="instagram_handle" required placeholder="@yourhandle" className="h-auto w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/20 transition-all focus-visible:border-pop-cyan/50" />
+                  <Input name="notes" type="url" required placeholder="https://instagram.com/reel/…" className="h-auto w-full rounded-2xl border border-[#EBE8E0] bg-[#F9F8F6] px-5 py-4 text-foreground placeholder:text-muted-foreground/50 transition-all focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20" />
                 </div>
 
-                {/* WhatsApp */}
-                <div className="space-y-2">
-                  <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-pop-violet/80">
-                    <Phone className="h-3 w-3" /> WhatsApp Number
-                  </label>
-                  <Input name="whatsapp_number" type="tel" required inputMode="tel" pattern="^\+?[0-9\s\-()]{7,20}$" placeholder="+91 98765 43210" className="h-auto w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/20 transition-all focus-visible:border-pop-violet/50" />
-                </div>
-
-                {/* Reel link */}
-                <div className="space-y-2 md:col-span-2">
-                  <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-primary/80">
-                    <LinkIcon className="h-3 w-3" /> Link to your best reel
-                  </label>
-                  <Input name="notes" type="url" required placeholder="https://instagram.com/reel/…" className="h-auto w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/20 transition-all focus-visible:border-primary/50" />
-                </div>
-
-                {/* Footer */}
-                <div className="flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-6 md:col-span-2 md:flex-row">
-                  <p className="text-[10px] uppercase tracking-widest text-white/30">
+                <div className="flex flex-col items-center justify-between gap-6 pt-6 md:flex-row">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60">
                     By submitting you agree to the contest rules.
                   </p>
-                  <Button type="submit" disabled={submitting} className="group relative h-auto overflow-hidden rounded-xl bg-gradient-to-r from-pop-cyan via-pop-violet to-primary px-8 py-4 shadow-[0_10px_30px_-10px_rgba(236,72,153,0.4)] transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-80">
+                  <Button type="submit" disabled={submitting} className="group h-auto w-full rounded-2xl bg-gradient-to-r from-primary via-pop-violet to-pop-cyan px-10 py-5 text-sm font-bold uppercase tracking-widest text-white shadow-[0_20px_40px_-10px_rgba(236,72,153,0.3)] transition-all hover:-translate-y-0.5 hover:shadow-[0_25px_50px_-12px_rgba(236,72,153,0.4)] disabled:opacity-80 md:w-auto">
                     {submitting ? (
-                      <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-white">
+                      <span className="flex items-center gap-2">
                         <Loader2 className="h-4 w-4 animate-spin" /> Submitting…
                       </span>
                     ) : (
-                      <span className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-white">
+                      <span className="flex items-center gap-3">
                         Submit my profile
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </span>
@@ -801,6 +804,8 @@ function SignupSection() {
             </div>
           </div>
         </div>
+      </div>
+
       </div>
 
 
