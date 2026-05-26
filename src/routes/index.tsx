@@ -29,7 +29,7 @@ import Phone from "lucide-react/dist/esm/icons/phone";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import brand1 from "@/assets/permea-logo.jpg";
 import brand2 from "@/assets/justpour.jpg";
-import creatorGirl from "@/assets/creator-girl.webp";
+import creatorGirl from "@/assets/creator-girl.png";
 import logo from "@/assets/logo.svg";
 
 export const Route = createFileRoute("/")({
