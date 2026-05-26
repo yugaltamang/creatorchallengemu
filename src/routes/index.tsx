@@ -160,12 +160,12 @@ function Hero() {
 
 
             {/* Floating creator image on the right */}
-            <div className="pointer-events-none absolute -right-4 -top-6 z-0 hidden w-[44%] md:block lg:-right-2 lg:w-[42%]">
+            <div className="pointer-events-none absolute -right-8 -top-20 z-0 hidden w-[62%] md:block lg:-right-6 lg:-top-28 lg:w-[60%] xl:-right-10 xl:w-[58%]">
               <div className="relative aspect-[3/4]">
                 <img
                   src={creatorGirl}
                   alt="Creators filming an Instagram reel"
-                  className="absolute inset-0 h-full w-full object-contain object-bottom"
+                  className="absolute inset-0 h-full w-full object-contain object-bottom drop-shadow-[0_30px_60px_rgba(255,62,165,0.25)]"
                 />
               </div>
             </div>
