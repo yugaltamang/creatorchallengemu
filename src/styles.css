@@ -151,11 +151,11 @@
 
 .text-outline {
   color: transparent;
-  -webkit-text-stroke: 1px hsl(0 0% 100% / 0.14);
+  -webkit-text-stroke: 1px hsl(0 0% 0% / 0.25);
 }
 .text-outline-strong {
   color: transparent;
-  -webkit-text-stroke: 1.5px hsl(0 0% 100% / 0.28);
+  -webkit-text-stroke: 1.5px hsl(0 0% 0% / 0.45);
 }
 
 .tape {
