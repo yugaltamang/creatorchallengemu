@@ -56,9 +56,9 @@ function Landing() {
         className="relative"
         style={{
           backgroundImage: [
-            "radial-gradient(60% 50% at 85% 0%, hsl(330 95% 60% / 0.18), transparent 70%)",
-            "radial-gradient(50% 40% at 0% 100%, hsl(330 95% 60% / 0.12), transparent 65%)",
-            "linear-gradient(to bottom, hsl(330 40% 98%), hsl(330 30% 96%))",
+            "radial-gradient(60% 50% at 85% 0%, hsl(145 65% 50% / 0.18), transparent 70%)",
+            "radial-gradient(50% 40% at 0% 100%, hsl(145 65% 50% / 0.12), transparent 65%)",
+            "linear-gradient(to bottom, hsl(145 40% 98%), hsl(145 30% 96%))",
           ].join(", "),
         }}
       >
