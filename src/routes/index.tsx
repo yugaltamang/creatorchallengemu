@@ -572,7 +572,7 @@ function Journey() {
                 >
                   {/* Row 1 — Giant outlined number */}
                   <span
-                    className="text-outline-strong font-display leading-[0.85] tracking-tight transition-colors duration-300 group-hover:text-white"
+                    className="text-outline-strong font-display leading-[0.85] tracking-tight transition-colors duration-300 group-hover:text-foreground"
                     style={{ fontSize: "clamp(72px, 11vw, 140px)" }}
                   >
                     {s.n}
