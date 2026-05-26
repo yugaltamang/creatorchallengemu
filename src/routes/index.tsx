@@ -51,7 +51,6 @@ function Landing() {
     <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
       <Toaster theme="dark" />
       <Header />
-      <StickySideNav />
       <Hero />
 
       <div
@@ -84,31 +83,6 @@ function Landing() {
       </div>
 
     </div>
-  );
-}
-
-function StickySideNav() {
-  const items = [
-    { href: "#brands", label: "Brands" },
-    { href: "#journey", label: "Journey" },
-    { href: "#signup", label: "Submit" },
-    { href: "#about", label: "About" },
-  ];
-  return (
-    <aside className="pointer-events-none fixed left-4 top-1/2 z-30 hidden -translate-y-1/2 md:block lg:left-6">
-      <div className="pointer-events-auto relative pl-4">
-        <span aria-hidden className="absolute left-0 top-1 block h-12 w-[2px] bg-primary" />
-        <ul className="space-y-3 font-display text-[13px] uppercase tracking-[0.12em]">
-          {items.map((i) => (
-            <li key={i.label}>
-              <a href={i.href} className="text-foreground/85 transition hover:text-primary">
-                {i.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </aside>
   );
 }
 
@@ -147,8 +121,37 @@ function Hero() {
       />
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pb-12 pt-2 sm:px-6 sm:pb-28 sm:pt-8 lg:px-10 lg:pb-36">
+        {/* LEFT — vertical section nav (sidebar) — hidden on mobile */}
+        <aside className="hidden md:col-span-2 md:block">
+          <div className="relative pl-4">
+            <span aria-hidden className="absolute left-0 top-1 block h-12 w-[2px] bg-primary" />
+            <ul className="space-y-3 font-display text-[13px] uppercase tracking-[0.12em]">
+              {[
+                { href: "#brands", label: "Brands", active: true },
+                { href: "#journey", label: "Journey" },
+                
+                { href: "#signup", label: "Submit" },
+                { href: "#about", label: "About" },
+              ].map((i) => (
+                <li key={i.label}>
+                  <a
+                    href={i.href}
+                    className={
+                      i.active
+                        ? "text-primary"
+                        : "text-foreground/85 transition hover:text-primary"
+                    }
+                  >
+                    {i.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+
         {/* CENTER — Hero image + dramatic poster type */}
-        <div className="relative col-span-12">
+        <div className="relative col-span-12 md:col-span-10">
           {/* Massive poster type */}
           <div className="relative">
             <div className="mb-4 flex items-end gap-3 sm:mb-6">
@@ -288,7 +291,7 @@ function SectionMast({
   blurb?: string;
   children: React.ReactNode;
 }) {
-  
+  const items = ["Brands", "Journey", "Submit", "About"];
   return (
     <section id={id} className="relative overflow-hidden border-t border-border">
       <div className="pointer-events-none absolute inset-0 bp-grid opacity-30" aria-hidden />
@@ -306,8 +309,31 @@ function SectionMast({
         </div>
 
         <div className="grid grid-cols-12 gap-6">
+          {/* Sidebar mini-nav — hidden on mobile */}
+          <aside className="hidden md:col-span-2 md:block">
+            <div className="relative pl-4">
+              <span aria-hidden className="absolute left-0 top-1 block h-12 w-[2px] bg-primary" />
+              <ul className="space-y-3 font-display text-[13px] uppercase tracking-[0.12em]">
+                {items.map((label) => (
+                  <li key={label}>
+                    <a
+                      href={`#${label.toLowerCase()}`}
+                      className={
+                        label.toLowerCase() === active.toLowerCase()
+                          ? "text-primary"
+                          : "text-foreground/85 transition hover:text-primary"
+                      }
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+
           {/* Body — poster headline + content */}
-          <div className="relative col-span-12">
+          <div className="relative col-span-12 md:col-span-10">
             <h2 className="relative font-display font-black leading-[0.88] tracking-[-0.03em]">
               <span className="block text-[clamp(32px,7vw,110px)] font-black text-foreground">{title}</span>
               <span className={`block text-[clamp(32px,7vw,110px)] font-black ${accentClass}`}>{titleAccent}</span>
