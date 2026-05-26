@@ -424,6 +424,7 @@ function Brands() {
       tag="Live briefs · 02 open"
       title="TWO BRANDS."
       titleAccent="ONE VERTICAL REEL."
+      accentClass="text-pop-cyan"
       blurb="Browse the briefs. Pick the brand whose story you can tell best. Ship one 15–30s vertical reel and get paid when it goes live."
     >
       {/* Editorial split cards — image left, info right */}
