@@ -787,7 +787,7 @@ function SignupSection() {
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60">
                     By submitting you agree to the contest rules.
                   </p>
-                  <Button type="submit" disabled={submitting} className="group h-auto w-full rounded-2xl bg-gradient-to-r from-primary via-pop-violet to-pop-cyan px-10 py-5 text-sm font-bold uppercase tracking-widest text-white shadow-[0_20px_40px_-10px_rgba(236,72,153,0.3)] transition-all hover:-translate-y-0.5 hover:shadow-[0_25px_50px_-12px_rgba(236,72,153,0.4)] disabled:opacity-80 md:w-auto">
+                  <Button type="submit" disabled={submitting} className="group h-auto w-full rounded-full gradient-pop bg-slate-600 px-6 py-3 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-primary-foreground shadow-pop transition hover:opacity-95 hover:shadow-[0_25px_60px_-15px_var(--primary)] disabled:opacity-80 md:w-auto">
                     {submitting ? (
                       <span className="flex items-center gap-2">
                         <Loader2 className="h-4 w-4 animate-spin" /> Submitting…
