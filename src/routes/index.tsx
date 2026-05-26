@@ -177,6 +177,15 @@ function Hero() {
               </span>
             </h1>
 
+            {/* Mobile hero image */}
+            <div className="mt-6 block md:hidden">
+              <img
+                src={creatorGirl}
+                alt="Creators filming an Instagram reel"
+                className="mx-auto h-auto w-full max-w-sm object-contain drop-shadow-[0_20px_40px_rgba(255,62,165,0.25)]"
+              />
+            </div>
+
 
             {/* Floating creator image on the right */}
             <div className="pointer-events-none absolute -right-8 -top-20 z-0 hidden w-[62%] md:block lg:-right-6 lg:-top-28 lg:w-[60%] xl:-right-10 xl:w-[58%]">
