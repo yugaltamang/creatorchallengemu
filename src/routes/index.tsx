@@ -850,8 +850,10 @@ function Footer() {
           <div className="md:col-span-3">
             <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Follow</p>
             <ul className="mt-4 space-y-2 text-[14px]">
-              <li className="flex items-center gap-2"><Instagram className="h-4 w-4 text-primary" /> @creatoronreels</li>
-              <li className="flex items-center gap-2"><Twitter className="h-4 w-4 text-primary" /> @cc26</li>
+              <li className="flex items-center gap-2">
+                <Instagram className="h-4 w-4 text-primary" />
+                <a href="https://instagram.com/mastersunion" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition">@mastersunion</a>
+              </li>
             </ul>
           </div>
         </div>
