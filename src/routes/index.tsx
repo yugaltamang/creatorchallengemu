@@ -55,7 +55,7 @@ function Landing() {
       <SocialBar />
       <Brands />
       <Journey />
-      <Guidelines />
+      
       <SignupSection />
       <Footer />
     </div>
@@ -113,7 +113,7 @@ function Hero() {
               {[
                 { href: "#brands", label: "Brands", active: true },
                 { href: "#journey", label: "Journey" },
-                { href: "#rules", label: "Rules" },
+                
                 { href: "#signup", label: "Submit" },
                 { href: "#about", label: "About" },
               ].map((i) => (
@@ -297,7 +297,7 @@ function SectionMast({
   blurb?: string;
   children: React.ReactNode;
 }) {
-  const items = ["Brands", "Journey", "Rules", "Submit", "About"];
+  const items = ["Brands", "Journey", "Submit", "About"];
   return (
     <section id={id} className="relative overflow-hidden border-t border-border">
       <div className="pointer-events-none absolute inset-0 bp-grid opacity-30" aria-hidden />
@@ -513,7 +513,7 @@ function Brands() {
 }
 
 function Journey() {
-  const blue = "hsl(330 95% 60%)";
+  const blue = "#006A4E";
   const steps = [
     { n: "01", t: "Drop your entry", d: "Pick the brand(s) you'd love to create for and apply with your best reel.", date: "May 28", phase: "Applications open" },
     { n: "02", t: "Crack the Top 25", d: "Top 25 entries get shortlisted by the\nbrand.", date: "Jun 05", phase: "Shortlists drop" },
@@ -538,7 +538,7 @@ function Journey() {
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/15 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
             <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <span
-                className="inline-flex items-center gap-2 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[#0e1226]"
+                className="inline-flex items-center gap-2 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white"
                 style={{ background: blue }}
               >
                 <span className="inline-block h-1.5 w-1.5 rotate-45 bg-white" />
@@ -604,7 +604,7 @@ function Journey() {
                       Due
                     </span>
                     <span
-                      className="flex items-center gap-1.5 px-2.5 py-1 font-display text-[13px] font-bold uppercase leading-none tracking-[0.04em] text-[#0e1226] sm:text-[14px]"
+                      className="flex items-center gap-1.5 px-2.5 py-1 font-display text-[13px] font-bold uppercase leading-none tracking-[0.04em] text-white sm:text-[14px]"
                       style={{ background: blue }}
                     >
                       <Calendar className="h-3 w-3" aria-hidden />
@@ -622,122 +622,7 @@ function Journey() {
 }
 
 
-function Guidelines() {
-  const rules = [
-    { n: "01", t: "Eligibility", d: "Open to any creator 16+ with a public Instagram account. Verify with your email to get on the platform.", chip: "Who can enter" },
-    { n: "02", t: "Format", d: "One Instagram reel, 15–30 seconds, vertical 9:16. Original or licensed audio only.", chip: "Spec sheet" },
-    { n: "03", t: "The brand", d: "Feature the chosen product clearly. Tag the brand and use #CreatorOnReels.", chip: "Brand brief" },
-    { n: "04", t: "Originality", d: "Created by you. No reposts, no AI voiceovers without disclosure, no copyrighted footage.", chip: "Be original" },
-    { n: "05", t: "Account", d: "Your Instagram profile must be public throughout the judging window.", chip: "Visibility" },
-    { n: "06", t: "Deadline", d: "Each brief has its own deadline shown on the brief page. Submit before the buzzer to be eligible for payout.", chip: "Timeline" },
-  ];
 
-  // Editorial poster — pure black, white, signature red.
-  const ink = "#000000";
-  const blue = "hsl(210 95% 60%)";
-  const lime = "#FFFFFF";
-  const muted = "rgba(0,0,0,0.65)";
-
-  return (
-    <section id="rules" className="border-y border-border bg-background">
-      <div className="mx-auto max-w-[1400px] px-4 pt-10 sm:px-6 lg:px-10">
-        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-b border-border pb-4 sm:gap-3">
-          <span className="font-display text-[12px] uppercase tracking-[0.08em] sm:text-[15px] sm:tracking-[0.1em]">
-            CREATOR<span className="px-1.5 font-mono text-[10px] font-normal text-muted-foreground sm:px-2 sm:text-[12px]">\</span><span className="text-pop-cyan">RULES</span>
-          </span>
-          <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">Read once · Then ship</span>
-        </div>
-      </div>
-      <div className="mx-auto max-w-[1400px] px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
-        {/* Single compact box */}
-        <div className="border border-white/15">
-          {/* Header bar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/15 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-              <span
-                className="inline-flex items-center gap-2 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[#0e1226]"
-                style={{ background: blue }}
-              >
-                <span className="inline-block h-1.5 w-1.5 rotate-45 bg-white" />
-                Playbook
-              </span>
-              <h2 className="font-display text-[18px] uppercase leading-none tracking-tight text-foreground sm:text-[22px]">
-                Rules of{" "}
-                <span className="font-serif italic normal-case" style={{ color: blue }}>
-                  play
-                </span>
-                <span style={{ color: blue }}>.</span>
-              </h2>
-            </div>
-            <p className="hidden font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:block">
-              Six things · Read once · Then ship
-            </p>
-          </div>
-
-          {/* Compact rule rows */}
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {rules.map((r, i) => {
-              const isAccent = i === 2;
-              return (
-                <li
-                  key={r.n}
-                  className={`group relative flex gap-4 border-border p-5 [&:not(:last-child)]:border-b md:[&:nth-child(odd)]:border-r md:[&:nth-last-child(2)]:border-b-0 lg:[&]:border-b-0 lg:[&:not(:nth-child(3n))]:border-r lg:[&:nth-child(-n+3)]:border-b lg:[&:nth-child(odd)]:border-r ${
-                    isAccent ? "" : "hover:bg-foreground/[0.03]"
-                  }`}
-                  style={{ background: isAccent ? blue : "transparent", color: "#0e1226" }}
-                >
-                  <span
-                    className="font-mono text-[13px] leading-none pt-1"
-                    style={{ color: isAccent ? "rgba(14,18,38,0.75)" : blue }}
-                  >
-                    /{r.n}
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-baseline justify-between gap-3">
-                      <h3 className="font-display text-[16px] uppercase leading-tight tracking-tight">
-                        {r.t}
-                        <span style={{ color: isAccent ? "#0e1226" : blue }}>.</span>
-                      </h3>
-                      <span
-                        className="font-mono text-[9px] font-bold uppercase tracking-[0.18em]"
-                        style={{ color: isAccent ? "rgba(14,18,38,0.75)" : muted }}
-                      >
-                        {r.chip}
-                      </span>
-                    </div>
-                    <p
-                      className="mt-1.5 text-[12.5px] leading-snug"
-                      style={{ color: isAccent ? "rgba(14,18,38,0.9)" : muted }}
-                    >
-                      {r.d}
-                    </p>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-
-          {/* Footer strip */}
-          <div
-            className="flex flex-wrap items-center justify-between gap-3 border-t border-border px-4 py-3 sm:gap-4 sm:px-6 sm:py-4"
-            style={{ background: ink, color: "#000" }}
-          >
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/70">
-              Miss a rule · We disqualify quietly
-            </p>
-            <a
-              href="#signup"
-              className="inline-flex items-center gap-2 px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] transition hover:opacity-90"
-              style={{ background: blue, color: "#0e1226" }}
-            >
-              I'm in <span aria-hidden>→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function SignupSection() {
   const [submitting, setSubmitting] = useState(false);
@@ -961,7 +846,7 @@ function Footer() {
             <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Explore</p>
             <ul className="mt-4 space-y-2 text-[14px]">
               <li><a href="#brands" className="hover:text-primary">Brands</a></li>
-              <li><a href="#rules" className="hover:text-primary">Rules</a></li>
+              
               <li><a href="#signup" className="hover:text-primary">Submit</a></li>
             </ul>
           </div>
