@@ -634,7 +634,7 @@ function Guidelines() {
   const ink = "#000000";
   const blue = "#E8A838";
   const lime = "#FFFFFF";
-  const muted = "rgba(255,255,255,0.62)";
+  const muted = "rgba(0,0,0,0.65)";
 
   return (
     <section id="rules" className="border-y border-border bg-background">
