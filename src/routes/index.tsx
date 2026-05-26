@@ -73,7 +73,7 @@ function Header() {
             <span className="block h-[2px] w-5 bg-foreground" />
           </span>
           <span className="font-display text-[15px] uppercase tracking-[0.08em] sm:text-[17px]">
-            CREATOR<span className="px-2 font-mono text-[13px] font-normal text-muted-foreground">\</span>
+            CREATOR<br />
             <span className="text-primary">ON REELS</span>
           </span>
         </Link>
