@@ -262,7 +262,7 @@ function ImageStrip() {
   ];
   const loop = [...items, ...items];
   return (
-    <section className="relative overflow-hidden border-y border-border py-3 sm:py-5 bg-blue-500">
+    <section className="relative overflow-hidden border-y border-border py-3 sm:py-5" style={{ background: "hsl(48 95% 58%)" }}>
       <div className="flex w-max animate-marquee gap-6 whitespace-nowrap font-display text-base text-primary-foreground sm:gap-12 sm:text-2xl">
         {loop.map((t, i) => (
           <span key={i} className="flex items-center gap-3">
@@ -513,7 +513,7 @@ function Brands() {
 }
 
 function Journey() {
-  const blue = "#E8A838";
+  const blue = "hsl(330 95% 60%)";
   const steps = [
     { n: "01", t: "Drop your entry", d: "Pick the brand(s) you'd love to create for and apply with your best reel.", date: "May 28", phase: "Applications open" },
     { n: "02", t: "Crack the Top 25", d: "Top 25 entries get shortlisted by the\nbrand.", date: "Jun 05", phase: "Shortlists drop" },
@@ -634,7 +634,7 @@ function Guidelines() {
 
   // Editorial poster — pure black, white, signature red.
   const ink = "#000000";
-  const blue = "#E8A838";
+  const blue = "hsl(210 95% 60%)";
   const lime = "#FFFFFF";
   const muted = "rgba(0,0,0,0.65)";
 
