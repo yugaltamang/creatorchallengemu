@@ -369,6 +369,7 @@ function SocialBar() {
       tag="The platform · Live now"
       title="A REEL THAT PAYS."
       titleAccent="A SHOT AT GOING BIG."
+      accentClass="text-pop-yellow"
       blurb="Creator on Reels is the platform that connects creators with real brand briefs. Pick a brief, ship a 15–30s reel, get paid when it goes live, and grow into the next big name on the feed."
     >
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
