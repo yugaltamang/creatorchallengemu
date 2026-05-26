@@ -231,8 +231,8 @@ function Hero() {
                 </span>
               </div>
               <h3 className="mt-4 font-display text-[28px] uppercase leading-[0.95] tracking-tight sm:text-[40px]">
-                Get paid, get gifted,
-                <br />get on the feed.
+                Cash in hand,
+                <br />spotlight on you.
               </h3>
               <div className="mt-6 grid grid-cols-2 gap-3 border-t border-primary-foreground/20 pt-5">
                 <div>
