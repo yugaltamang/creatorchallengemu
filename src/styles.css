@@ -38,26 +38,27 @@
 
 :root {
   --radius: 0.125rem;
-  /* MIDNIGHT EDITORIAL — deep navy with gold accent (FCB Messi vibe) */
-  --background: hsl(230 42% 9%);
-  --foreground: hsl(40 30% 96%);
-  --card: hsl(230 38% 12%);
-  --card-foreground: hsl(40 30% 96%);
-  --popover: hsl(230 38% 12%);
-  --popover-foreground: hsl(40 30% 96%);
+  /* Light background, keep widget accent colors intact */
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(230 42% 9%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(230 42% 9%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(230 42% 9%);
   --primary: hsl(330 95% 60%);
-  --primary-foreground: hsl(230 50% 10%);
-  --secondary: hsl(230 35% 15%);
-  --secondary-foreground: hsl(330 30% 96%);
-  --muted: hsl(230 30% 16%);
-  --muted-foreground: hsl(330 12% 72%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(230 30% 96%);
+  --secondary-foreground: hsl(230 42% 9%);
+  --muted: hsl(230 20% 96%);
+  --muted-foreground: hsl(230 15% 40%);
   --accent: hsl(330 95% 60%);
-  --accent-foreground: hsl(230 50% 10%);
+  --accent-foreground: hsl(0 0% 100%);
   --destructive: hsl(0 72% 51%);
   --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(230 28% 22%);
-  --input: hsl(230 28% 22%);
+  --border: hsl(230 20% 88%);
+  --input: hsl(230 20% 88%);
   --ring: hsl(330 95% 60%);
+
 
   --pop-cyan: hsl(210 95% 60%);
   --pop-lime: hsl(48 95% 58%);
