@@ -679,10 +679,10 @@ function Guidelines() {
               return (
                 <li
                   key={r.n}
-                  className={`group relative flex gap-4 border-white/15 p-5 [&:not(:last-child)]:border-b md:[&:nth-child(odd)]:border-r md:[&:nth-last-child(2)]:border-b-0 lg:[&]:border-b-0 lg:[&:not(:nth-child(3n))]:border-r lg:[&:nth-child(-n+3)]:border-b lg:[&:nth-child(odd)]:border-r ${
-                    isAccent ? "" : "hover:bg-white/[0.03]"
+                  className={`group relative flex gap-4 border-border p-5 [&:not(:last-child)]:border-b md:[&:nth-child(odd)]:border-r md:[&:nth-last-child(2)]:border-b-0 lg:[&]:border-b-0 lg:[&:not(:nth-child(3n))]:border-r lg:[&:nth-child(-n+3)]:border-b lg:[&:nth-child(odd)]:border-r ${
+                    isAccent ? "" : "hover:bg-foreground/[0.03]"
                   }`}
-                  style={{ background: isAccent ? blue : "transparent", color: isAccent ? "#0e1226" : "#fff" }}
+                  style={{ background: isAccent ? blue : "transparent", color: "#0e1226" }}
                 >
                   <span
                     className="font-mono text-[13px] leading-none pt-1"
