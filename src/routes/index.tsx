@@ -683,100 +683,126 @@ function SignupSection() {
         </div>
       </div>
       <div className="mx-auto max-w-[1400px] px-4 py-8 sm:px-6 sm:py-14 lg:px-8">
-        <div className="relative overflow-hidden border-2 border-primary/30 gradient-card p-4 sm:p-6 md:p-8 shadow-[0_40px_100px_-25px_rgba(0,0,0,0.9)] ring-1 ring-white/5">
-          <div className="pointer-events-none absolute -top-32 -right-32 h-72 w-72 rounded-full bg-primary/30 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-32 -left-32 h-72 w-72 rounded-full bg-pop-violet/30 blur-3xl" />
+        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#08080a] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)]">
+          {/* Decorative blooms */}
+          <div className="pointer-events-none absolute inset-0 overflow-hidden">
+            <div className="absolute -top-1/2 -left-1/4 h-[600px] w-[600px] rounded-full bg-pop-cyan/10 blur-[120px]" />
+            <div className="absolute -bottom-1/2 -right-1/4 h-[600px] w-[600px] rounded-full bg-primary/10 blur-[120px]" />
+          </div>
 
-          <div className="relative grid gap-6 md:grid-cols-12 md:gap-8">
-            <div className="md:col-span-5">
-              <span className="inline-flex items-center gap-2 border border-primary/40 bg-primary/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-primary">
-                <Instagram className="h-3.5 w-3.5" /> Submit
-              </span>
-              <h2 className="mt-4 font-display text-[clamp(36px,5.5vw,64px)] leading-[0.9] text-slate-50">
-                Drop your{" "}
-                <span className="bg-gradient-to-r from-primary to-pop-cyan bg-clip-text text-transparent">
-                  handle.
-                </span>
+          <div className="relative grid lg:grid-cols-[40%_60%]">
+            {/* Left: Hero */}
+            <div className="flex flex-col justify-center border-b border-white/5 p-8 sm:p-12 lg:border-b-0 lg:border-r lg:p-16">
+              <div className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/60">Submit Entry</span>
+              </div>
+              <h2 className="mb-6 font-display text-[clamp(40px,5.5vw,64px)] font-bold leading-[1.05] tracking-tight text-white">
+                Drop your<br />
+                <span className="bg-gradient-to-r from-pop-cyan via-pop-violet to-primary bg-clip-text text-transparent">handle.</span>
               </h2>
-              <p className="mt-4 max-w-sm text-[13px] leading-relaxed text-muted-foreground">
-                Submit your details and the Instagram profile we should review. Update your reel any
-                time before the deadline — we'll always pull the latest version.
+              <p className="max-w-sm text-sm leading-relaxed text-white/40">
+                Submit your details and the Instagram profile we should review. Update your reel any time before the deadline — we'll always pull the latest version.
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} method="post" action="#" className="md:col-span-7">
-              <div className="border border-white/10 bg-background/70 p-4 backdrop-blur-md sm:p-5 space-y-4">
-                <div className="grid gap-4 md:grid-cols-2">
-                  <Field label="Full name" icon={User} withInputIcon>
-                    <Input name="full_name" required placeholder="Your name" className="h-10 rounded-none border border-border bg-background/60 pl-10 pr-3 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-1 focus-visible:ring-primary/30" />
-                  </Field>
-                  <Field label="University email" icon={Mail} withInputIcon>
-                    <Input name="email" type="email" required placeholder="you@university.edu" className="h-10 rounded-none border border-border bg-background/60 pl-10 pr-3 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-1 focus-visible:ring-primary/30" />
-                  </Field>
+            {/* Right: Form */}
+            <div className="bg-white/[0.02] p-6 backdrop-blur-sm sm:p-10 lg:p-14">
+              <form onSubmit={handleSubmit} method="post" action="#" className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                {/* Full Name */}
+                <div className="space-y-2">
+                  <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-pop-cyan/80">
+                    <User className="h-3 w-3" /> Full Name
+                  </label>
+                  <Input name="full_name" required placeholder="Your name" className="h-auto w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/20 transition-all focus-visible:border-pop-cyan/50 focus-visible:ring-1 focus-visible:ring-pop-cyan/20" />
                 </div>
 
-                <Field label="University" icon={GraduationCap}>
-                  <div className="grid grid-cols-3 gap-2 pt-1">
+                {/* University Email */}
+                <div className="space-y-2">
+                  <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-pop-violet/80">
+                    <Mail className="h-3 w-3" /> University Email
+                  </label>
+                  <Input name="email" type="email" required placeholder="you@university.edu" className="h-auto w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/20 transition-all focus-visible:border-pop-violet/50 focus-visible:ring-1 focus-visible:ring-pop-violet/20" />
+                </div>
+
+                {/* University radio pills */}
+                <div className="space-y-3 md:col-span-2">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-white/40">University Selection</label>
+                  <div className="flex flex-wrap gap-2">
                     {UNIVERSITIES.map((u) => (
-                      <label key={u} className="group cursor-pointer">
+                      <label key={u} className="cursor-pointer">
                         <input type="radio" name="university" value={u} className="peer sr-only" required />
-                        <div className="relative flex h-10 items-center justify-center border border-border bg-background/60 px-2 text-center text-[12px] font-medium transition hover:border-primary/50 peer-checked:border-primary peer-checked:bg-gradient-to-br peer-checked:from-primary peer-checked:to-pop-violet peer-checked:text-primary-foreground">
+                        <span className="inline-block rounded-full border border-white/10 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white/60 transition-all hover:border-white/30 peer-checked:border-white peer-checked:bg-white peer-checked:text-black">
                           {u}
-                        </div>
+                        </span>
                       </label>
                     ))}
                   </div>
-                </Field>
-
-                <Field label="Brand you're creating for" icon={Sparkles}>
-                  <div className="grid grid-cols-2 gap-2 pt-1">
-                    {BRANDS.map((b) => (
-                      <label key={b} className="group cursor-pointer">
-                        <input type="radio" name="brand_choice" value={b} className="peer sr-only" required />
-                        <div className="relative flex h-11 items-center justify-center border border-border bg-background/60 px-3 text-center text-[13px] font-medium transition hover:border-primary/50 peer-checked:border-primary peer-checked:bg-gradient-to-br peer-checked:from-primary peer-checked:to-pop-violet peer-checked:text-primary-foreground">
-                          {b}
-                        </div>
-                      </label>
-                    ))}
-                  </div>
-                </Field>
-
-                <div className="grid gap-4 md:grid-cols-2">
-                  <Field label="Instagram handle" icon={AtSign} withInputIcon>
-                    <Input name="instagram_handle" required placeholder="yourhandle" className="h-10 rounded-none border border-border bg-background/60 pl-10 pr-3 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-1 focus-visible:ring-primary/30" />
-                  </Field>
-                  <Field label="WhatsApp number" icon={Phone} withInputIcon>
-                    <Input name="whatsapp_number" type="tel" required inputMode="tel" pattern="^\+?[0-9\s\-()]{7,20}$" placeholder="+91 98765 43210" className="h-10 rounded-none border border-border bg-background/60 pl-10 pr-3 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-1 focus-visible:ring-primary/30" />
-                  </Field>
                 </div>
 
-                <Field label="Link to your best reel" icon={LinkIcon} withInputIcon>
-                  <Input name="notes" type="url" required placeholder="https://instagram.com/reel/…" className="h-10 rounded-none border border-border bg-background/60 pl-10 pr-3 transition focus-visible:border-primary focus-visible:bg-background focus-visible:ring-1 focus-visible:ring-primary/30" />
-                </Field>
+                {/* Brand pills */}
+                <div className="space-y-3 md:col-span-2">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-primary/80">Brand You're Creating For</label>
+                  <div className="grid grid-cols-2 gap-3">
+                    {BRANDS.map((b) => (
+                      <label key={b} className="cursor-pointer">
+                        <input type="radio" name="brand_choice" value={b} className="peer sr-only" required />
+                        <span className="flex items-center justify-center rounded-xl border border-white/10 bg-white/5 py-3 text-[11px] font-bold uppercase tracking-widest text-white/80 transition-all hover:bg-white/10 peer-checked:border-primary peer-checked:bg-gradient-to-br peer-checked:from-primary peer-checked:to-pop-violet peer-checked:text-white">
+                          {b}
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
 
-                <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
-                  <p className="text-[11px] text-muted-foreground">
+                {/* Instagram */}
+                <div className="space-y-2">
+                  <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-pop-cyan/80">
+                    <AtSign className="h-3 w-3" /> Instagram Handle
+                  </label>
+                  <Input name="instagram_handle" required placeholder="@yourhandle" className="h-auto w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/20 transition-all focus-visible:border-pop-cyan/50" />
+                </div>
+
+                {/* WhatsApp */}
+                <div className="space-y-2">
+                  <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-pop-violet/80">
+                    <Phone className="h-3 w-3" /> WhatsApp Number
+                  </label>
+                  <Input name="whatsapp_number" type="tel" required inputMode="tel" pattern="^\+?[0-9\s\-()]{7,20}$" placeholder="+91 98765 43210" className="h-auto w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/20 transition-all focus-visible:border-pop-violet/50" />
+                </div>
+
+                {/* Reel link */}
+                <div className="space-y-2 md:col-span-2">
+                  <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-primary/80">
+                    <LinkIcon className="h-3 w-3" /> Link to your best reel
+                  </label>
+                  <Input name="notes" type="url" required placeholder="https://instagram.com/reel/…" className="h-auto w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/20 transition-all focus-visible:border-primary/50" />
+                </div>
+
+                {/* Footer */}
+                <div className="flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-6 md:col-span-2 md:flex-row">
+                  <p className="text-[10px] uppercase tracking-widest text-white/30">
                     By submitting you agree to the contest rules.
                   </p>
-                  <Button type="submit" disabled={submitting} className="group h-11 rounded-none gradient-pop px-6 text-[13px] font-semibold tracking-wide text-primary-foreground shadow-pop transition hover:opacity-95 disabled:opacity-80 bg-slate-600">
+                  <Button type="submit" disabled={submitting} className="group relative h-auto overflow-hidden rounded-xl bg-gradient-to-r from-pop-cyan via-pop-violet to-primary px-8 py-4 shadow-[0_10px_30px_-10px_rgba(236,72,153,0.4)] transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-80">
                     {submitting ? (
-                      <span className="flex items-center gap-2">
-                        <Loader2 className="h-4 w-4 animate-spin" />
-                        Submitting…
+                      <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-white">
+                        <Loader2 className="h-4 w-4 animate-spin" /> Submitting…
                       </span>
                     ) : (
-                      <span className="flex items-center gap-2">
+                      <span className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-white">
                         Submit my profile
-                        <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </span>
                     )}
                   </Button>
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
+
 
       <Dialog open={successOpen} onOpenChange={setSuccessOpen}>
         <DialogContent className="sm:max-w-md rounded-3xl border border-white/10 bg-background/95 backdrop-blur-xl">
