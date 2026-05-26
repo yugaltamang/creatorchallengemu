@@ -599,14 +599,15 @@ function Journey() {
                     {s.d}
                   </p>
                   {/* Row 5 — Deadline pinned bottom */}
-                  <div className="mt-4 flex items-center gap-1.5">
-                    <span className="font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-muted-foreground">
-                      Deadline
+                  <div className="mt-5 inline-flex items-stretch border border-white/15 bg-background/40 backdrop-blur-sm">
+                    <span className="flex items-center px-2 font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-muted-foreground">
+                      Due
                     </span>
                     <span
-                      className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-foreground px-1.5 py-0.5"
+                      className="flex items-center gap-1.5 px-2.5 py-1 font-display text-[13px] font-bold uppercase leading-none tracking-[0.04em] text-[#0e1226] sm:text-[14px]"
                       style={{ background: blue }}
                     >
+                      <Calendar className="h-3 w-3" aria-hidden />
                       {s.date}
                     </span>
                   </div>
