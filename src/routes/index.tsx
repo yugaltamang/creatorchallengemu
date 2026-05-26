@@ -242,9 +242,9 @@ function Hero() {
                   </div>
                 </div>
                 <div>
-                  <div className="font-display text-[28px] leading-none sm:text-[34px]">₹50K</div>
+                  <div className="font-display text-[28px] leading-none sm:text-[34px]">+</div>
                   <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] opacity-80">
-                    Scholarships on courses
+                    Loads of gift hampers
                   </div>
                 </div>
               </div>
