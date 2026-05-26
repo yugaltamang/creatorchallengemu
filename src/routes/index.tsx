@@ -288,7 +288,7 @@ function SectionMast({
   blurb?: string;
   children: React.ReactNode;
 }) {
-  const items = ["Brands", "Journey", "Submit", "About"];
+  
   return (
     <section id={id} className="relative overflow-hidden border-t border-border">
       <div className="pointer-events-none absolute inset-0 bp-grid opacity-30" aria-hidden />
