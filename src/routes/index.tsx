@@ -280,6 +280,7 @@ function SectionMast({
   tag,
   title,
   titleAccent,
+  accentClass = "text-primary",
   blurb,
   children,
 }: {
@@ -289,6 +290,7 @@ function SectionMast({
   tag: string;
   title: string;
   titleAccent: string;
+  accentClass?: string;
   blurb?: string;
   children: React.ReactNode;
 }) {
@@ -337,7 +339,7 @@ function SectionMast({
           <div className="relative col-span-12 md:col-span-10">
             <h2 className="relative font-display leading-[0.88] tracking-[-0.03em]">
               <span className="block text-[clamp(32px,7vw,110px)] text-foreground">{title}</span>
-              <span className="block text-[clamp(32px,7vw,110px)] text-primary">{titleAccent}</span>
+              <span className={`block text-[clamp(32px,7vw,110px)] ${accentClass}`}>{titleAccent}</span>
             </h2>
             {blurb ? (
               <p className="mt-5 max-w-xl text-[14px] leading-relaxed text-muted-foreground sm:mt-6 sm:text-[16px]">
@@ -367,6 +369,7 @@ function SocialBar() {
       tag="The platform · Live now"
       title="A REEL THAT PAYS."
       titleAccent="A SHOT AT GOING BIG."
+      accentClass="text-pop-yellow"
       blurb="Creator on Reels is the platform that connects creators with real brand briefs. Pick a brief, ship a 15–30s reel, get paid when it goes live, and grow into the next big name on the feed."
     >
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -421,6 +424,7 @@ function Brands() {
       tag="Live briefs · 02 open"
       title="TWO BRANDS."
       titleAccent="ONE VERTICAL REEL."
+      accentClass="text-pop-cyan"
       blurb="Browse the briefs. Pick the brand whose story you can tell best. Ship one 15–30s vertical reel and get paid when it goes live."
     >
       {/* Editorial split cards — image left, info right */}
@@ -520,7 +524,7 @@ function Journey() {
       <div className="mx-auto max-w-[1400px] px-4 pt-10 sm:px-6 lg:px-10">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-4 sm:gap-3">
           <span className="font-display text-[12px] uppercase tracking-[0.1em] sm:text-[15px]">
-            CREATOR<span className="px-2 font-mono text-[11px] font-normal text-muted-foreground sm:text-[12px]">\</span><span className="text-primary">JOURNEY</span>
+            CREATOR<span className="px-2 font-mono text-[11px] font-normal text-muted-foreground sm:text-[12px]">\</span><span className="text-pop-yellow">JOURNEY</span>
           </span>
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">Five steps · One reel · Get paid</span>
         </div>
@@ -635,7 +639,7 @@ function Guidelines() {
       <div className="mx-auto max-w-[1400px] px-4 pt-10 sm:px-6 lg:px-10">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-4 sm:gap-3">
           <span className="font-display text-[12px] uppercase tracking-[0.1em] sm:text-[15px]">
-            CREATOR<span className="px-2 font-mono text-[11px] font-normal text-muted-foreground sm:text-[12px]">\</span><span className="text-primary">RULES</span>
+            CREATOR<span className="px-2 font-mono text-[11px] font-normal text-muted-foreground sm:text-[12px]">\</span><span className="text-pop-cyan">RULES</span>
           </span>
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">Read once · Then ship</span>
         </div>
