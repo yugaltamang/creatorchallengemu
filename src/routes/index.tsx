@@ -310,27 +310,8 @@ function SectionMast({
 
         <div className="grid grid-cols-12 gap-6">
           {/* Sidebar mini-nav — hidden on mobile */}
-          <aside className="hidden md:col-span-2 md:block">
-            <div className="relative pl-4">
-              <span aria-hidden className="absolute left-0 top-1 block h-12 w-[2px] bg-primary" />
-              <ul className="space-y-3 font-display text-[13px] uppercase tracking-[0.12em]">
-                {items.map((label) => (
-                  <li key={label}>
-                    <a
-                      href={`#${label.toLowerCase()}`}
-                      className={
-                        label.toLowerCase() === active.toLowerCase()
-                          ? "text-primary"
-                          : "text-foreground/85 transition hover:text-primary"
-                      }
-                    >
-                      {label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </aside>
+          <aside className="hidden md:col-span-2 md:block" aria-hidden />
+
 
           {/* Body — poster headline + content */}
           <div className="relative col-span-12 md:col-span-10">
