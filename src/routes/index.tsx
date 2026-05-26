@@ -29,7 +29,7 @@ import Phone from "lucide-react/dist/esm/icons/phone";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import brand1 from "@/assets/permea-logo.jpg";
 import brand2 from "@/assets/justpour.jpg";
-import creatorGirl from "@/assets/creator-girl.webp";
+import creatorGirl from "@/assets/creator-girl.png";
 import logo from "@/assets/logo.svg";
 
 export const Route = createFileRoute("/")({
@@ -161,18 +161,11 @@ function Hero() {
 
             {/* Floating creator image on the right */}
             <div className="pointer-events-none absolute -right-4 -top-6 z-0 hidden w-[44%] md:block lg:-right-2 lg:w-[42%]">
-              <div className="relative aspect-[3/4] overflow-hidden">
+              <div className="relative aspect-[3/4]">
                 <img
                   src={creatorGirl}
-                  alt="Creator filming an Instagram reel"
-                  className="absolute inset-0 h-full w-full object-cover object-top mix-blend-luminosity opacity-90"
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, transparent 30%, hsl(230 42% 9% / 0.4) 70%, hsl(230 42% 9%) 100%)",
-                  }}
+                  alt="Creators filming an Instagram reel"
+                  className="absolute inset-0 h-full w-full object-contain object-bottom"
                 />
               </div>
             </div>
