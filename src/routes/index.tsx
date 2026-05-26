@@ -62,11 +62,12 @@ function Landing() {
           }}
         />
         <div className="relative">
-        <SocialBar />
-        <Brands />
-        <Journey />
-        <SignupSection />
-        <Footer />
+          <SocialBar />
+          <Brands />
+          <Journey />
+          <SignupSection />
+          <Footer />
+        </div>
       </div>
     </div>
   );
