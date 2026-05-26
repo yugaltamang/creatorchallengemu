@@ -87,6 +87,31 @@ function Landing() {
   );
 }
 
+function StickySideNav() {
+  const items = [
+    { href: "#brands", label: "Brands" },
+    { href: "#journey", label: "Journey" },
+    { href: "#signup", label: "Submit" },
+    { href: "#about", label: "About" },
+  ];
+  return (
+    <aside className="pointer-events-none fixed left-4 top-1/2 z-30 hidden -translate-y-1/2 md:block lg:left-6">
+      <div className="pointer-events-auto relative pl-4">
+        <span aria-hidden className="absolute left-0 top-1 block h-12 w-[2px] bg-primary" />
+        <ul className="space-y-3 font-display text-[13px] uppercase tracking-[0.12em]">
+          {items.map((i) => (
+            <li key={i.label}>
+              <a href={i.href} className="text-foreground/85 transition hover:text-primary">
+                {i.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </aside>
+  );
+}
+
 function Header() {
   return (
     <header className="relative z-30">
@@ -122,37 +147,8 @@ function Hero() {
       />
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pb-12 pt-2 sm:px-6 sm:pb-28 sm:pt-8 lg:px-10 lg:pb-36">
-        {/* LEFT — vertical section nav (sidebar) — hidden on mobile */}
-        <aside className="hidden md:col-span-2 md:block">
-          <div className="relative pl-4">
-            <span aria-hidden className="absolute left-0 top-1 block h-12 w-[2px] bg-primary" />
-            <ul className="space-y-3 font-display text-[13px] uppercase tracking-[0.12em]">
-              {[
-                { href: "#brands", label: "Brands", active: true },
-                { href: "#journey", label: "Journey" },
-                
-                { href: "#signup", label: "Submit" },
-                { href: "#about", label: "About" },
-              ].map((i) => (
-                <li key={i.label}>
-                  <a
-                    href={i.href}
-                    className={
-                      i.active
-                        ? "text-primary"
-                        : "text-foreground/85 transition hover:text-primary"
-                    }
-                  >
-                    {i.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </aside>
-
         {/* CENTER — Hero image + dramatic poster type */}
-        <div className="relative col-span-12 md:col-span-10">
+        <div className="relative col-span-12">
           {/* Massive poster type */}
           <div className="relative">
             <div className="mb-4 flex items-end gap-3 sm:mb-6">
