@@ -717,10 +717,10 @@ function Guidelines() {
 
           {/* Footer strip */}
           <div
-            className="flex flex-wrap items-center justify-between gap-3 border-t border-white/15 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4"
-            style={{ background: ink, color: "#fff" }}
+            className="flex flex-wrap items-center justify-between gap-3 border-t border-border px-4 py-3 sm:gap-4 sm:px-6 sm:py-4"
+            style={{ background: ink, color: "#000" }}
           >
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/70">
               Miss a rule · We disqualify quietly
             </p>
             <a
