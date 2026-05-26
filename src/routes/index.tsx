@@ -816,7 +816,7 @@ function SignupSection() {
               <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[12px] uppercase tracking-[0.18em] text-primary">
                 <Instagram className="h-3.5 w-3.5" /> Submit
               </span>
-              <h2 className="mt-5 font-display text-[clamp(48px,7vw,96px)] leading-[0.9]">
+              <h2 className="mt-5 font-display text-[clamp(48px,7vw,96px)] leading-[0.9] text-slate-50">
                 Drop your{" "}
                 <span className="bg-gradient-to-r from-primary to-pop-cyan bg-clip-text text-transparent">
                   handle.
