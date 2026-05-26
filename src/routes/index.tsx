@@ -572,7 +572,7 @@ function Journey() {
                 >
                   {/* Row 1 — Giant outlined number */}
                   <span
-                    className="text-outline-strong font-display leading-[0.85] tracking-tight transition-colors duration-300 group-hover:text-white"
+                    className="text-outline-strong font-display leading-[0.85] tracking-tight transition-colors duration-300 group-hover:text-foreground"
                     style={{ fontSize: "clamp(72px, 11vw, 140px)" }}
                   >
                     {s.n}
@@ -603,7 +603,7 @@ function Journey() {
                       Deadline
                     </span>
                     <span
-                      className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white px-1.5 py-0.5"
+                      className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-foreground px-1.5 py-0.5"
                       style={{ background: blue }}
                     >
                       {s.date}
@@ -717,10 +717,10 @@ function Guidelines() {
 
           {/* Footer strip */}
           <div
-            className="flex flex-wrap items-center justify-between gap-3 border-t border-white/15 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4"
-            style={{ background: ink, color: "#fff" }}
+            className="flex flex-wrap items-center justify-between gap-3 border-t border-border px-4 py-3 sm:gap-4 sm:px-6 sm:py-4"
+            style={{ background: ink, color: "#000" }}
           >
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/70">
               Miss a rule · We disqualify quietly
             </p>
             <a
