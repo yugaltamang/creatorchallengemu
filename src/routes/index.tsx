@@ -104,7 +104,7 @@ function Hero() {
         }}
       />
 
-      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pb-16 pt-4 sm:px-6 sm:pb-28 sm:pt-8 lg:px-10 lg:pb-36">
+      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pb-12 pt-2 sm:px-6 sm:pb-28 sm:pt-8 lg:px-10 lg:pb-36">
         {/* LEFT — vertical section nav (sidebar) — hidden on mobile */}
         <aside className="hidden md:col-span-2 md:block">
           <div className="relative pl-4">
@@ -262,12 +262,12 @@ function ImageStrip() {
   ];
   const loop = [...items, ...items];
   return (
-    <section className="relative overflow-hidden border-y border-border py-4 sm:py-5 bg-blue-500">
-      <div className="flex w-max animate-marquee gap-8 whitespace-nowrap font-display text-lg text-primary-foreground sm:gap-12 sm:text-2xl">
+    <section className="relative overflow-hidden border-y border-border py-3 sm:py-5 bg-blue-500">
+      <div className="flex w-max animate-marquee gap-6 whitespace-nowrap font-display text-base text-primary-foreground sm:gap-12 sm:text-2xl">
         {loop.map((t, i) => (
           <span key={i} className="flex items-center gap-3">
             {t}
-            <span className="font-mono text-[12px] opacity-70 sm:text-[14px]">/</span>
+            <span className="font-mono text-[11px] opacity-70 sm:text-[14px]">/</span>
           </span>
         ))}
       </div>
@@ -303,13 +303,13 @@ function SectionMast({
       <div className="pointer-events-none absolute inset-0 bp-grid opacity-30" aria-hidden />
       <div className="relative mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
         {/* Top breadcrumb row */}
-        <div className="mb-8 flex flex-wrap items-center justify-between gap-2 border-b border-border pb-4 sm:mb-10 sm:gap-3">
-          <span className="font-display text-[12px] uppercase tracking-[0.1em] sm:text-[15px]">
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-b border-border pb-4 sm:mb-10 sm:gap-3">
+          <span className="font-display text-[12px] uppercase tracking-[0.08em] sm:text-[15px] sm:tracking-[0.1em]">
             CREATOR
-            <span className="px-2 font-mono text-[11px] font-normal text-muted-foreground sm:text-[12px]">\</span>
+            <span className="px-1.5 font-mono text-[10px] font-normal text-muted-foreground sm:px-2 sm:text-[12px]">\</span>
             <span className="text-primary">{crumb}</span>
           </span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">
+          <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">
             {tag}
           </span>
         </div>
@@ -525,11 +525,11 @@ function Journey() {
   return (
     <section id="journey" className="border-y border-border bg-background">
       <div className="mx-auto max-w-[1400px] px-4 pt-10 sm:px-6 lg:px-10">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-4 sm:gap-3">
-          <span className="font-display text-[12px] uppercase tracking-[0.1em] sm:text-[15px]">
-            CREATOR<span className="px-2 font-mono text-[11px] font-normal text-muted-foreground sm:text-[12px]">\</span><span className="text-pop-yellow">JOURNEY</span>
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-b border-border pb-4 sm:gap-3">
+          <span className="font-display text-[12px] uppercase tracking-[0.08em] sm:text-[15px] sm:tracking-[0.1em]">
+            CREATOR<span className="px-1.5 font-mono text-[10px] font-normal text-muted-foreground sm:px-2 sm:text-[12px]">\</span><span className="text-pop-yellow">JOURNEY</span>
           </span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">Five steps · One reel · Get paid</span>
+          <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">Five steps · One reel · Get paid</span>
         </div>
       </div>
       <div className="mx-auto max-w-[1400px] px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
@@ -574,7 +574,7 @@ function Journey() {
                   {/* Row 1 — Giant outlined number */}
                   <span
                     className="text-outline-strong font-display leading-[0.85] tracking-tight transition-colors duration-300 group-hover:text-foreground"
-                    style={{ fontSize: "clamp(72px, 11vw, 140px)" }}
+                    style={{ fontSize: "clamp(60px, 11vw, 140px)" }}
                   >
                     {s.n}
                   </span>
@@ -641,11 +641,11 @@ function Guidelines() {
   return (
     <section id="rules" className="border-y border-border bg-background">
       <div className="mx-auto max-w-[1400px] px-4 pt-10 sm:px-6 lg:px-10">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-4 sm:gap-3">
-          <span className="font-display text-[12px] uppercase tracking-[0.1em] sm:text-[15px]">
-            CREATOR<span className="px-2 font-mono text-[11px] font-normal text-muted-foreground sm:text-[12px]">\</span><span className="text-pop-cyan">RULES</span>
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-b border-border pb-4 sm:gap-3">
+          <span className="font-display text-[12px] uppercase tracking-[0.08em] sm:text-[15px] sm:tracking-[0.1em]">
+            CREATOR<span className="px-1.5 font-mono text-[10px] font-normal text-muted-foreground sm:px-2 sm:text-[12px]">\</span><span className="text-pop-cyan">RULES</span>
           </span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">Read once · Then ship</span>
+          <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">Read once · Then ship</span>
         </div>
       </div>
       <div className="mx-auto max-w-[1400px] px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
@@ -801,11 +801,11 @@ function SignupSection() {
   return (
     <section id="signup" className="border-b border-border">
       <div className="mx-auto max-w-[1400px] px-4 pt-10 sm:px-6 lg:px-10">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-4 sm:gap-3">
-          <span className="font-display text-[12px] uppercase tracking-[0.1em] sm:text-[15px]">
-            CREATOR<span className="px-2 font-mono text-[11px] font-normal text-muted-foreground sm:text-[12px]">\</span><span className="text-primary">SUBMIT</span>
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-b border-border pb-4 sm:gap-3">
+          <span className="font-display text-[12px] uppercase tracking-[0.08em] sm:text-[15px] sm:tracking-[0.1em]">
+            CREATOR<span className="px-1.5 font-mono text-[10px] font-normal text-muted-foreground sm:px-2 sm:text-[12px]">\</span><span className="text-primary">SUBMIT</span>
           </span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">Drop your handle · Get on the list</span>
+          <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground sm:text-[11px] sm:tracking-[0.22em]">Drop your handle · Get on the list</span>
         </div>
       </div>
       <div className="mx-auto max-w-[1400px] px-4 py-10 sm:px-6 sm:py-20 md:py-24 lg:px-8">

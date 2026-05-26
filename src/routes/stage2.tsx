@@ -148,18 +148,18 @@ function Hero() {
         <path d="M 600 0 A 600 600 0 0 0 0 600" stroke="currentColor" strokeWidth="3" />
       </svg>
 
-      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pt-32 pb-16 sm:px-6 sm:pt-40 sm:pb-24 md:pt-24 md:pb-32 lg:px-8">
+      <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pt-10 pb-12 sm:px-6 sm:pt-20 sm:pb-24 md:pt-24 md:pb-32 lg:px-8">
         {/* Phone mock — matches homepage hero */}
         <div className="col-span-12 md:col-span-4">
-          <div className="relative mx-auto w-[200px] sm:w-[240px] md:w-[260px]">
+          <div className="relative mx-auto w-[170px] sm:w-[220px] md:w-[260px]">
             <img
               src={creatorGirl}
               alt="Student creating an Instagram reel"
               className="pointer-events-none absolute left-1/2 bottom-[58px] z-20 w-[115%] max-w-none -translate-x-1/2 drop-shadow-[0_25px_40px_rgba(0,0,0,0.6)] sm:w-[130%] md:w-[140%]"
             />
-            <div className="relative rounded-[36px] border-[3px] border-primary bg-card p-2 shadow-[0_0_0_1px_var(--color-primary)]">
-              <div className="overflow-hidden rounded-[28px] bg-black">
-                <div className="flex items-center justify-between px-4 py-3 text-[11px] tracking-widest text-primary">
+            <div className="relative rounded-[32px] border-[3px] border-primary bg-card p-2 shadow-[0_0_0_1px_var(--color-primary)] sm:rounded-[36px]">
+              <div className="overflow-hidden rounded-[24px] bg-black sm:rounded-[28px]">
+                <div className="flex items-center justify-between px-3 py-2 text-[10px] tracking-widest text-primary sm:px-4 sm:py-3 sm:text-[11px]">
                   <span>● FINAL</span>
                   <span>STAGE · 02</span>
                 </div>
@@ -169,7 +169,7 @@ function Hero() {
                     <p className="text-[10px] text-muted-foreground">up to 3 per brand</p>
                   </div>
                 </div>
-                <div className="flex justify-around px-4 py-3 text-primary text-[10px]">
+                <div className="flex justify-around px-3 py-2 text-primary text-[10px] sm:px-4 sm:py-3">
                   <span>≡</span><span>♡</span><span>▤</span><span>★</span><span>⌕</span>
                 </div>
               </div>
