@@ -52,18 +52,22 @@ function Landing() {
       <Header />
       <Hero />
 
-      <div
-        className="relative"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 0%, hsl(210 95% 60% / 0.06), transparent 60%), radial-gradient(ellipse 70% 50% at 90% 100%, hsl(330 95% 60% / 0.05), transparent 60%), hsl(230 40% 7%)",
-        }}
-      >
-        <SocialBar />
-        <Brands />
-        <Journey />
-        <SignupSection />
-        <Footer />
+      <div className="relative bg-background">
+        <div
+          className="pointer-events-none absolute inset-0"
+          aria-hidden
+          style={{
+            background:
+              "radial-gradient(ellipse at top, hsl(330 95% 60% / 0.08), hsl(210 95% 60% / 0.05) 40%, transparent 70%)",
+          }}
+        />
+        <div className="relative">
+          <SocialBar />
+          <Brands />
+          <Journey />
+          <SignupSection />
+          <Footer />
+        </div>
       </div>
     </div>
   );
