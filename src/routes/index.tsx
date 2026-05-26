@@ -155,7 +155,8 @@ function Hero() {
               </span>
               <span className="block font-bold text-5xl sm:text-7xl md:text-8xl">
                 <span className="text-primary">CREATOR</span>
-                <span className="text-pop-yellow">{" "}ON{" "}</span>
+                <br />
+                <span className="text-pop-yellow">ON{" "}</span>
                 <span className="text-pop-cyan">REELS</span>
               </span>
             </h1>
