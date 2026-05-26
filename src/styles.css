@@ -59,17 +59,17 @@
   --input: hsl(230 28% 22%);
   --ring: hsl(330 95% 60%);
 
-  --pop-cyan: hsl(330 30% 96%);
-  --pop-lime: hsl(330 30% 96%);
-  --pop-yellow: hsl(330 95% 60%);
-  --pop-violet: hsl(330 95% 60%);
+  --pop-cyan: hsl(210 95% 60%);
+  --pop-lime: hsl(48 95% 58%);
+  --pop-yellow: hsl(48 95% 58%);
+  --pop-violet: hsl(210 95% 60%);
   --pop-peach: hsl(330 95% 60%);
 
-  --gradient-pop: linear-gradient(135deg, hsl(330 95% 60%), hsl(320 90% 50%));
-  --gradient-sun: hsl(330 95% 60%);
+  --gradient-pop: linear-gradient(135deg, hsl(330 95% 60%), hsl(210 95% 60%) 55%, hsl(48 95% 58%));
+  --gradient-sun: hsl(48 95% 58%);
   --gradient-ocean: hsl(230 42% 9%);
   --gradient-card: linear-gradient(180deg, hsl(230 38% 12%), hsl(230 42% 9%));
-  --gradient-spotlight: radial-gradient(ellipse at top, hsl(330 95% 60% / 0.22), transparent 65%);
+  --gradient-spotlight: radial-gradient(ellipse at top, hsl(330 95% 60% / 0.22), hsl(210 95% 60% / 0.14) 40%, transparent 70%);
 
   --shadow-pop: 0 30px 80px -30px hsl(0 0% 0% / 0.9);
   --shadow-soft: 0 1px 0 hsl(0 0% 100% / 0.04), 0 24px 60px -28px hsl(0 0% 0% / 0.85);
