@@ -806,7 +806,7 @@ function SignupSection() {
         </div>
       </div>
 
-      </div>
+
 
 
       <Dialog open={successOpen} onOpenChange={setSuccessOpen}>
