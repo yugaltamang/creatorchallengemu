@@ -839,7 +839,6 @@ function Footer() {
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">
             <div className="flex items-center gap-4">
-              <img src={logo} alt="Creator on Reels" className="h-12 w-auto invert" />
               <img src={mastersUnionLogo} alt="Masters' Union" className="h-10 w-auto" />
             </div>
             <p className="mt-5 max-w-sm text-[14px] leading-relaxed text-muted-foreground">
