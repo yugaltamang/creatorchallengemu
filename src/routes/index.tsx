@@ -52,13 +52,24 @@ function Landing() {
       <Header />
       <Hero />
 
-      <div className="relative bg-background">
+      <div
+        className="relative"
+        style={{
+          backgroundImage: [
+            "radial-gradient(60% 50% at 85% 0%, hsl(330 95% 60% / 0.18), transparent 70%)",
+            "radial-gradient(50% 40% at 0% 100%, hsl(330 95% 60% / 0.12), transparent 65%)",
+            "linear-gradient(to bottom, hsl(330 40% 98%), hsl(330 30% 96%))",
+          ].join(", "),
+        }}
+      >
+        {/* Subtle grid overlay */}
         <div
-          className="pointer-events-none absolute inset-0"
           aria-hidden
+          className="pointer-events-none absolute inset-0 text-foreground opacity-[0.05]"
           style={{
-            background:
-              "radial-gradient(ellipse 90% 18% at 50% 0%, hsl(330 95% 60% / 0.14), transparent 70%), radial-gradient(ellipse 80% 22% at 50% 32%, hsl(210 95% 60% / 0.09), transparent 72%), radial-gradient(ellipse 75% 20% at 50% 66%, hsl(48 95% 58% / 0.07), transparent 72%), radial-gradient(ellipse 85% 20% at 50% 100%, hsl(330 95% 60% / 0.09), transparent 74%)",
+            backgroundImage:
+              "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
           }}
         />
         <div className="relative">
@@ -69,6 +80,7 @@ function Landing() {
           <Footer />
         </div>
       </div>
+
     </div>
   );
 }
