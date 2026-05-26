@@ -51,6 +51,7 @@ function Landing() {
     <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
       <Toaster theme="dark" />
       <Header />
+      <StickySideNav />
       <Hero />
 
       <div
