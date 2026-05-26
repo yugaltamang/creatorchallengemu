@@ -58,7 +58,7 @@ function Landing() {
           aria-hidden
           style={{
             background:
-              "radial-gradient(ellipse at top, hsl(330 95% 60% / 0.08), hsl(210 95% 60% / 0.05) 40%, transparent 70%)",
+              "radial-gradient(ellipse 60% 30% at 20% 10%, hsl(210 95% 60% / 0.07), transparent 70%), radial-gradient(ellipse 50% 25% at 85% 35%, hsl(330 95% 60% / 0.06), transparent 70%), radial-gradient(ellipse 55% 30% at 30% 65%, hsl(48 95% 58% / 0.05), transparent 70%), radial-gradient(ellipse 50% 30% at 80% 90%, hsl(210 95% 60% / 0.06), transparent 70%)",
           }}
         />
         <div className="relative">
