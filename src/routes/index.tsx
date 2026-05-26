@@ -227,12 +227,12 @@ function Hero() {
                   Prize pool / 02
                 </span>
                 <span className="font-mono text-[10px] uppercase tracking-[0.28em] opacity-80">
-                  Total ₹1,00,000
+                  Cash · Hampers · Perks
                 </span>
               </div>
               <h3 className="mt-4 font-display text-[28px] uppercase leading-[0.95] tracking-tight sm:text-[40px]">
-                Earn up to <span className="italic">₹1L</span> in
-                <br />total prize money.
+                Get paid, get gifted,
+                <br />get on the feed.
               </h3>
               <div className="mt-6 grid grid-cols-2 gap-3 border-t border-primary-foreground/20 pt-5">
                 <div>
