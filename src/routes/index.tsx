@@ -280,6 +280,7 @@ function SectionMast({
   tag,
   title,
   titleAccent,
+  accentClass = "text-primary",
   blurb,
   children,
 }: {
@@ -289,6 +290,7 @@ function SectionMast({
   tag: string;
   title: string;
   titleAccent: string;
+  accentClass?: string;
   blurb?: string;
   children: React.ReactNode;
 }) {
