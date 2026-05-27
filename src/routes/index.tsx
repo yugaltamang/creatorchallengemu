@@ -501,7 +501,7 @@ function Journey() {
   const steps = [
     { n: "01", t: "Drop your entry", d: "Pick the brand(s) you'd love to create for and apply with your best reel.", date: "May 28", phase: "Applications open" },
     { n: "02", t: "Crack the Top 25", d: "Top 25 entries get shortlisted by the\nbrand.", date: "Jun 05", phase: "Shortlists drop" },
-    { n: "03", t: "Brief in your DMs", d: "Shortlisted creators get the product, brand brief and creative guardrails.", date: "Jun 07", phase: "Brief released" },
+    { n: "03", t: "Brief in your DMs", d: "Shortlisted creators get the sample product, brand brief and creative guardrails.", date: "Jun 07", phase: "Brief released" },
     { n: "04", t: "Shoot. Edit. Ship.", d: "Make the reel, tag the brand, hit submit before the buzzer.", date: "Jun 15", phase: "Submission deadline" },
     { n: "05", t: "Win the spotlight", d: "Cash, gear, brand deals, and campus-wide bragging rights.", date: "Jun 23", phase: "Winners announced" },
   ];
