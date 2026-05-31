@@ -497,6 +497,65 @@ function Brands() {
   );
 }
 
+function ReelExamples() {
+  const reels = [
+    { id: "DXtO9TKCKBb", brand: "PERMEA", caption: "Skincare reel — absorption angle" },
+    { id: "DWrCEB-gU-Z", brand: "JustPour", caption: "Coffee reel — on-the-go ritual" },
+  ];
+  return (
+    <SectionMast
+      id="examples"
+      crumb="EXAMPLES"
+      active="brands"
+      tag="Reference reels · From the feed"
+      title="THE VIBE."
+      titleAccent="REELS THAT LAND."
+      accentClass="text-pop-cyan"
+      blurb="A taste of the kind of reels these brands are after. Watch, get the tone, then make it yours."
+    >
+      <div className="grid gap-5 sm:gap-6 lg:grid-cols-2">
+        {reels.map((r) => (
+          <article
+            key={r.id}
+            className="group relative overflow-hidden border border-border bg-card transition hover:border-primary/60"
+          >
+            <div className="flex items-center justify-between border-b border-border px-4 py-3">
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                Reference · {r.brand}
+              </span>
+              <a
+                href={`https://www.instagram.com/reel/${r.id}/`}
+                target="_blank"
+                rel="noreferrer"
+                className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary hover:underline"
+              >
+                Open on Instagram ↗
+              </a>
+            </div>
+            <div className="relative mx-auto w-full max-w-[420px] p-3 sm:p-4">
+              <div className="relative w-full" style={{ aspectRatio: "9 / 16" }}>
+                <iframe
+                  src={`https://www.instagram.com/reel/${r.id}/embed`}
+                  title={`${r.brand} reference reel`}
+                  loading="lazy"
+                  allow="encrypted-media; picture-in-picture; web-share"
+                  allowFullScreen
+                  scrolling="no"
+                  className="absolute inset-0 h-full w-full border border-border bg-background"
+                />
+              </div>
+            </div>
+            <p className="border-t border-border px-4 py-3 text-[12px] text-foreground/70">
+              {r.caption}
+            </p>
+          </article>
+        ))}
+      </div>
+    </SectionMast>
+  );
+}
+
+
 function Journey() {
   const blue = "#006A4E";
   const steps = [
