@@ -76,6 +76,7 @@ function Landing() {
         <div className="relative">
           <SocialBar />
           <Brands />
+          <ReelExamples />
           <Journey />
           <SignupSection />
           <Footer />
