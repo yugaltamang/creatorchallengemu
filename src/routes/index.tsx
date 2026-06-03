@@ -545,7 +545,7 @@ function Journey() {
                 className="inline-flex items-center gap-2 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white"
                 style={{ background: blue }}
               >
-                <span className="inline-block h-1.5 w-1.5 rotate-45 bg-white" />
+                <span className="inline-block h-1.5 w-1.5 rotate-45 bg-card" />
                 The Run
               </span>
               <h2 className="font-display text-[18px] uppercase leading-none tracking-tight text-foreground sm:text-[22px]">
@@ -698,7 +698,7 @@ function SignupSection() {
         </div>
       </div>
       <div className="mx-auto max-w-[1400px] px-4 py-8 sm:px-6 sm:py-14 lg:px-8">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-[#EBE8E0] bg-white shadow-[0_24px_80px_-15px_rgba(0,0,0,0.08)]">
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-border bg-card shadow-[0_24px_80px_-15px_rgba(0,0,0,0.08)]">
           {/* Soft blooms */}
           <div className="pointer-events-none absolute inset-0 overflow-hidden">
             <div className="absolute -top-[10%] -left-[10%] h-[40%] w-[40%] rounded-full bg-primary/5 blur-[120px]" />
@@ -707,9 +707,9 @@ function SignupSection() {
 
           <div className="relative grid lg:grid-cols-[38%_62%]">
             {/* Left: Hero */}
-            <div className="flex flex-col justify-between gap-12 border-b border-[#F3F1ED] bg-gradient-to-br from-white to-[#FAF9F6] p-8 sm:p-12 lg:border-b-0 lg:border-r lg:p-14">
+            <div className="flex flex-col justify-between gap-12 border-b border-border bg-gradient-to-br from-card to-background p-8 sm:p-12 lg:border-b-0 lg:border-r lg:p-14">
               <div className="space-y-8">
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#EBE8E0] bg-white px-3 py-1 shadow-sm">
+                <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 shadow-sm">
                   <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
                   <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Submit Entry</span>
                 </div>
@@ -731,20 +731,20 @@ function SignupSection() {
             </div>
 
             {/* Right: Form */}
-            <div className="bg-white p-6 sm:p-10 lg:p-14">
+            <div className="bg-card p-6 sm:p-10 lg:p-14">
               <form onSubmit={handleSubmit} method="post" action="#" className="space-y-8">
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div className="space-y-2">
                     <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                       <User className="h-3 w-3 text-pop-cyan" /> Full Name
                     </label>
-                    <Input name="full_name" required placeholder="Your name" className="h-auto w-full rounded-2xl border border-[#EBE8E0] bg-[#F9F8F6] px-5 py-4 text-foreground placeholder:text-muted-foreground/50 transition-all focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20" />
+                    <Input name="full_name" required placeholder="Your name" className="h-auto w-full rounded-2xl border border-border bg-muted px-5 py-4 text-foreground placeholder:text-muted-foreground/50 transition-all focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20" />
                   </div>
                   <div className="space-y-2">
                     <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                       <Mail className="h-3 w-3 text-pop-cyan" /> University Email
                     </label>
-                    <Input name="email" type="email" required placeholder="you@university.edu" className="h-auto w-full rounded-2xl border border-[#EBE8E0] bg-[#F9F8F6] px-5 py-4 text-foreground placeholder:text-muted-foreground/50 transition-all focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20" />
+                    <Input name="email" type="email" required placeholder="you@university.edu" className="h-auto w-full rounded-2xl border border-border bg-muted px-5 py-4 text-foreground placeholder:text-muted-foreground/50 transition-all focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20" />
                   </div>
                 </div>
 
@@ -754,7 +754,7 @@ function SignupSection() {
                     {UNIVERSITIES.map((u) => (
                       <label key={u} className="cursor-pointer">
                         <input type="radio" name="university" value={u} className="peer sr-only" required />
-                        <span className="inline-block rounded-full border border-[#EBE8E0] bg-[#F9F8F6] px-6 py-2 text-sm font-medium text-muted-foreground transition-all hover:border-foreground/30 peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary">
+                        <span className="inline-block rounded-full border border-border bg-muted px-6 py-2 text-sm font-medium text-muted-foreground transition-all hover:border-foreground/30 peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary">
                           {u}
                         </span>
                       </label>
@@ -768,7 +768,7 @@ function SignupSection() {
                     {BRANDS.map((b) => (
                       <label key={b} className="cursor-pointer">
                         <input type="radio" name="brand_choice" value={b} className="peer sr-only" required />
-                        <span className="relative flex items-center justify-center rounded-2xl border border-[#EBE8E0] bg-white p-4 text-xs font-bold uppercase tracking-widest text-foreground transition-all hover:bg-[#F9F8F6] peer-checked:border-2 peer-checked:border-primary peer-checked:text-primary">
+                        <span className="relative flex items-center justify-center rounded-2xl border border-border bg-card p-4 text-xs font-bold uppercase tracking-widest text-foreground transition-all hover:bg-muted peer-checked:border-2 peer-checked:border-primary peer-checked:text-primary">
                           {b}
                         </span>
                       </label>
@@ -781,13 +781,13 @@ function SignupSection() {
                     <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                       <AtSign className="h-3 w-3 text-pop-violet" /> Instagram Handle
                     </label>
-                    <Input name="instagram_handle" required placeholder="@yourhandle" className="h-auto w-full rounded-2xl border border-[#EBE8E0] bg-[#F9F8F6] px-5 py-4 text-foreground placeholder:text-muted-foreground/50 transition-all focus-visible:border-pop-violet focus-visible:ring-2 focus-visible:ring-pop-violet/20" />
+                    <Input name="instagram_handle" required placeholder="@yourhandle" className="h-auto w-full rounded-2xl border border-border bg-muted px-5 py-4 text-foreground placeholder:text-muted-foreground/50 transition-all focus-visible:border-pop-violet focus-visible:ring-2 focus-visible:ring-pop-violet/20" />
                   </div>
                   <div className="space-y-2">
                     <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                       <Phone className="h-3 w-3 text-pop-violet" /> WhatsApp Number
                     </label>
-                    <Input name="whatsapp_number" type="tel" required inputMode="tel" pattern="^\+?[0-9\s\-()]{7,20}$" placeholder="+91 98765 43210" className="h-auto w-full rounded-2xl border border-[#EBE8E0] bg-[#F9F8F6] px-5 py-4 text-foreground placeholder:text-muted-foreground/50 transition-all focus-visible:border-pop-violet focus-visible:ring-2 focus-visible:ring-pop-violet/20" />
+                    <Input name="whatsapp_number" type="tel" required inputMode="tel" pattern="^\+?[0-9\s\-()]{7,20}$" placeholder="+91 98765 43210" className="h-auto w-full rounded-2xl border border-border bg-muted px-5 py-4 text-foreground placeholder:text-muted-foreground/50 transition-all focus-visible:border-pop-violet focus-visible:ring-2 focus-visible:ring-pop-violet/20" />
                   </div>
                 </div>
 
@@ -795,7 +795,7 @@ function SignupSection() {
                   <label className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                     <LinkIcon className="h-3 w-3 text-primary" /> Link to your best reel
                   </label>
-                  <Input name="notes" type="url" required placeholder="https://instagram.com/reel/…" className="h-auto w-full rounded-2xl border border-[#EBE8E0] bg-[#F9F8F6] px-5 py-4 text-foreground placeholder:text-muted-foreground/50 transition-all focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20" />
+                  <Input name="notes" type="url" required placeholder="https://instagram.com/reel/…" className="h-auto w-full rounded-2xl border border-border bg-muted px-5 py-4 text-foreground placeholder:text-muted-foreground/50 transition-all focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20" />
                 </div>
 
                 <div className="flex flex-col items-center justify-between gap-6 pt-6 md:flex-row">
