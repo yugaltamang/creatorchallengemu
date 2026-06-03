@@ -38,42 +38,46 @@
 
 :root {
   --radius: 0.125rem;
-  /* Light background, keep widget accent colors intact */
-  --background: hsl(0 0% 100%);
-  --foreground: hsl(230 42% 9%);
-  --card: hsl(0 0% 100%);
-  --card-foreground: hsl(230 42% 9%);
-  --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(230 42% 9%);
-  --primary: hsl(330 95% 60%);
+  /* Dark theme with gradient tints of pink/blue/yellow accents */
+  --background: hsl(230 42% 6%);
+  --foreground: hsl(40 30% 96%);
+  --card: hsl(230 38% 10%);
+  --card-foreground: hsl(40 30% 96%);
+  --popover: hsl(230 38% 10%);
+  --popover-foreground: hsl(40 30% 96%);
+  --primary: hsl(330 95% 62%);
   --primary-foreground: hsl(0 0% 100%);
-  --secondary: hsl(230 30% 96%);
-  --secondary-foreground: hsl(230 42% 9%);
-  --muted: hsl(230 20% 96%);
-  --muted-foreground: hsl(230 15% 40%);
-  --accent: hsl(330 95% 60%);
+  --secondary: hsl(230 30% 14%);
+  --secondary-foreground: hsl(40 30% 96%);
+  --muted: hsl(230 25% 14%);
+  --muted-foreground: hsl(230 15% 70%);
+  --accent: hsl(210 95% 62%);
   --accent-foreground: hsl(0 0% 100%);
   --destructive: hsl(0 72% 51%);
   --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(230 20% 88%);
-  --input: hsl(230 20% 88%);
-  --ring: hsl(330 95% 60%);
+  --border: hsl(230 25% 20%);
+  --input: hsl(230 25% 20%);
+  --ring: hsl(330 95% 62%);
 
 
-  --pop-cyan: hsl(210 95% 60%);
-  --pop-lime: hsl(48 95% 58%);
-  --pop-yellow: hsl(48 95% 58%);
-  --pop-violet: hsl(210 95% 60%);
-  --pop-peach: hsl(330 95% 60%);
+  --pop-cyan: hsl(210 95% 62%);
+  --pop-lime: hsl(48 95% 60%);
+  --pop-yellow: hsl(48 95% 60%);
+  --pop-violet: hsl(210 95% 62%);
+  --pop-peach: hsl(330 95% 62%);
 
   --gradient-pop: linear-gradient(135deg, hsl(330 95% 60%), hsl(210 95% 60%) 55%, hsl(48 95% 58%));
-  --gradient-sun: hsl(48 95% 58%);
-  --gradient-ocean: hsl(230 42% 9%);
-  --gradient-card: linear-gradient(180deg, hsl(230 38% 12%), hsl(230 42% 9%));
-  --gradient-spotlight: radial-gradient(ellipse at top, hsl(330 95% 60% / 0.22), hsl(210 95% 60% / 0.14) 40%, transparent 70%);
+  --gradient-sun: linear-gradient(135deg, hsl(48 90% 50% / 0.18), hsl(330 90% 50% / 0.12));
+  --gradient-ocean: linear-gradient(180deg, hsl(230 50% 8%), hsl(230 42% 5%));
+  --gradient-card: linear-gradient(180deg, hsl(230 38% 12%), hsl(230 42% 8%));
+  --gradient-spotlight: radial-gradient(ellipse at top, hsl(330 95% 60% / 0.28), hsl(210 95% 60% / 0.18) 40%, transparent 70%);
+  --gradient-bg: radial-gradient(1200px 600px at 15% -10%, hsl(330 95% 50% / 0.18), transparent 60%),
+                 radial-gradient(1000px 500px at 90% 10%, hsl(210 95% 50% / 0.16), transparent 60%),
+                 radial-gradient(900px 600px at 50% 110%, hsl(48 95% 50% / 0.10), transparent 60%),
+                 linear-gradient(180deg, hsl(230 45% 7%), hsl(230 42% 5%));
 
-  --shadow-pop: 0 30px 80px -30px hsl(0 0% 0% / 0.9);
-  --shadow-soft: 0 1px 0 hsl(0 0% 100% / 0.04), 0 24px 60px -28px hsl(0 0% 0% / 0.85);
+  --shadow-pop: 0 30px 80px -30px hsl(330 95% 50% / 0.45);
+  --shadow-soft: 0 1px 0 hsl(0 0% 100% / 0.04), 0 24px 60px -28px hsl(210 95% 40% / 0.5);
 }
 
 @theme inline {
