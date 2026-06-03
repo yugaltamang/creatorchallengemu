@@ -57,9 +57,9 @@ function Guidelines() {
     { n: "06", t: "Deadline", d: "Each brief has its own deadline shown on the brief page. Submit before the buzzer to be eligible for payout.", chip: "Timeline" },
   ];
 
-  const ink = "#000000";
-  const blue = "hsl(210 95% 60%)";
-  const muted = "rgba(0,0,0,0.65)";
+  const ink = "hsl(230 42% 6%)";
+  const blue = "hsl(210 95% 62%)";
+  const muted = "hsl(230 15% 70%)";
 
   return (
     <section id="rules" className="border-y border-border bg-background">
@@ -104,7 +104,7 @@ function Guidelines() {
                   className={`group relative flex gap-4 border-border p-5 [&:not(:last-child)]:border-b md:[&:nth-child(odd)]:border-r md:[&:nth-last-child(2)]:border-b-0 lg:[&]:border-b-0 lg:[&:not(:nth-child(3n))]:border-r lg:[&:nth-child(-n+3)]:border-b lg:[&:nth-child(odd)]:border-r ${
                     isAccent ? "" : "hover:bg-foreground/[0.03]"
                   }`}
-                  style={{ background: isAccent ? blue : "transparent", color: "#0e1226" }}
+                  style={{ background: isAccent ? blue : "transparent", color: isAccent ? "#0e1226" : "hsl(40 30% 96%)" }}
                 >
                   <span
                     className="font-mono text-[13px] leading-none pt-1"
@@ -139,7 +139,7 @@ function Guidelines() {
 
           <div
             className="flex flex-wrap items-center justify-between gap-3 border-t border-border px-4 py-3 sm:gap-4 sm:px-6 sm:py-4"
-            style={{ background: ink, color: "#000" }}
+            style={{ background: ink }}
           >
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/70">
               Miss a rule · We disqualify quietly

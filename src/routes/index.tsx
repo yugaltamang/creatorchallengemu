@@ -53,10 +53,7 @@ function Landing() {
       <Header />
       <Hero />
 
-      <div
-        className="relative"
-        style={{ backgroundColor: "hsl(145 35% 94%)" }}
-      >
+      <div className="relative bg-background">
         <div className="relative">
           <SocialBar />
           <Brands />
@@ -517,7 +514,7 @@ function ReelExamples() {
 
 
 function Journey() {
-  const blue = "#006A4E";
+  const blue = "hsl(210 95% 62%)";
   const steps = [
     { n: "01", t: "Drop your entry", d: "Pick the brand(s) you'd love to create for and apply with your best reel.", date: "May 28", phase: "Applications open" },
     { n: "02", t: "Crack the Top 25", d: "Top 25 entries get shortlisted by the\nbrand.", date: "Jun 05", phase: "Shortlists drop" },
