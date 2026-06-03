@@ -92,7 +92,7 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden" style={{ backgroundColor: "hsl(340 60% 95%)" }}>
+    <section className="relative overflow-hidden bg-background">
 
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pb-12 pt-2 sm:px-6 sm:pb-28 sm:pt-8 lg:px-10 lg:pb-36">
@@ -191,7 +191,7 @@ function Hero() {
               </p>
               <a
                 href="#signup"
-                className="mt-6 inline-flex items-center gap-2 rounded-full gradient-pop bg-slate-600 px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-primary-foreground shadow-pop transition hover:opacity-95 hover:shadow-[0_25px_60px_-15px_var(--primary)]"
+                className="mt-6 inline-flex items-center gap-2 rounded-full gradient-pop px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-primary-foreground shadow-pop transition hover:opacity-95 hover:shadow-[0_25px_60px_-15px_var(--primary)]"
               >
                 ▸ Apply now
                 <span className="ml-1 inline-grid h-5 w-5 place-items-center border border-primary-foreground/40 text-[10px]">
@@ -802,7 +802,7 @@ function SignupSection() {
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60">
                     By submitting you agree to the contest rules.
                   </p>
-                  <Button type="submit" disabled={submitting} className="group h-auto w-full rounded-full gradient-pop bg-slate-600 px-6 py-3 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-primary-foreground shadow-pop transition hover:opacity-95 hover:shadow-[0_25px_60px_-15px_var(--primary)] disabled:opacity-80 md:w-auto">
+                  <Button type="submit" disabled={submitting} className="group h-auto w-full rounded-full gradient-pop px-6 py-3 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-primary-foreground shadow-pop transition hover:opacity-95 hover:shadow-[0_25px_60px_-15px_var(--primary)] disabled:opacity-80 md:w-auto">
                     {submitting ? (
                       <span className="flex items-center gap-2">
                         <Loader2 className="h-4 w-4 animate-spin" /> Submitting…
