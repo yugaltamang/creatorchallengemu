@@ -499,8 +499,10 @@ function Brands() {
 
 function ReelExamples() {
   const reels = [
-    { id: "DXtO9TKCKBb", brand: "PERMEA", caption: "Skincare reel — absorption angle" },
-    { id: "DWrCEB-gU-Z", brand: "JustPour", caption: "Coffee reel — on-the-go ritual" },
+    { id: "C_vOzOKhbdJ", brand: "PERMEA", caption: "Skincare reel — absorption angle" },
+    { id: "DNSvE16pr8R", brand: "JustPour", caption: "Coffee reel — on-the-go ritual" },
+    { id: "DXBq0LRjVu5", brand: "PERMEA", caption: "Skincare reel — routine hook" },
+    { id: "DMxI0FCyDOv", brand: "JustPour", caption: "Coffee reel — morning energy" },
   ];
   return (
     <SectionMast
