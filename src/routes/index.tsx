@@ -517,40 +517,19 @@ function ReelExamples() {
     >
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
         {reels.map((r) => (
-          <article
-            key={r.id}
-            className="group relative overflow-hidden border border-border bg-card transition hover:border-primary/60"
-          >
-            <div className="flex items-center justify-between border-b border-border px-2.5 py-2">
-              <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground">
-                {r.brand}
-              </span>
-              <a
-                href={`https://www.instagram.com/reel/${r.id}/`}
-                target="_blank"
-                rel="noreferrer"
-                className="font-mono text-[9px] uppercase tracking-[0.18em] text-primary hover:underline"
-              >
-                Open ↗
-              </a>
+          <div key={r.id} className="relative">
+            <div className="relative w-full max-h-[320px]" style={{ aspectRatio: "9 / 16" }}>
+              <iframe
+                src={`https://www.instagram.com/reel/${r.id}/embed`}
+                title={`${r.brand} reference reel`}
+                loading="lazy"
+                allow="encrypted-media; picture-in-picture; web-share"
+                allowFullScreen
+                scrolling="no"
+                className="absolute inset-0 h-full w-full"
+              />
             </div>
-            <div className="relative mx-auto w-full p-2 sm:p-3">
-              <div className="relative w-full max-h-[320px]" style={{ aspectRatio: "9 / 16" }}>
-                <iframe
-                  src={`https://www.instagram.com/reel/${r.id}/embed`}
-                  title={`${r.brand} reference reel`}
-                  loading="lazy"
-                  allow="encrypted-media; picture-in-picture; web-share"
-                  allowFullScreen
-                  scrolling="no"
-                  className="absolute inset-0 h-full w-full border border-border bg-background"
-                />
-              </div>
-            </div>
-            <p className="border-t border-border px-2.5 py-2 text-[11px] text-foreground/70">
-              {r.caption}
-            </p>
-          </article>
+          </div>
         ))}
       </div>
     </SectionMast>
