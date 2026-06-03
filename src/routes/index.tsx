@@ -292,7 +292,6 @@ function SectionMast({
   const items = ["Brands", "Journey", "Submit", "About"];
   return (
     <section id={id} className="relative overflow-hidden border-t border-border">
-      <div className="pointer-events-none absolute inset-0 bp-grid opacity-30" aria-hidden />
       <div className="relative mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
         {/* Top breadcrumb row */}
         <div className="mb-8 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-b border-border pb-4 sm:mb-10 sm:gap-3">
