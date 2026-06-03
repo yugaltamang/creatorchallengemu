@@ -48,12 +48,12 @@ const BRANDS = ["PERMEA", "JustPour"] as const;
 
 function Landing() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
+    <div className="relative min-h-screen overflow-hidden text-foreground">
       <Toaster theme="dark" />
       <Header />
       <Hero />
 
-      <div className="relative bg-background">
+      <div className="relative">
         <div className="relative">
           <SocialBar />
           <Brands />
