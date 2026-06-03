@@ -55,24 +55,8 @@ function Landing() {
 
       <div
         className="relative"
-        style={{
-          backgroundImage: [
-            "radial-gradient(60% 50% at 85% 0%, hsl(145 65% 50% / 0.18), transparent 70%)",
-            "radial-gradient(50% 40% at 0% 100%, hsl(145 65% 50% / 0.12), transparent 65%)",
-            "linear-gradient(to bottom, hsl(145 40% 98%), hsl(145 30% 96%))",
-          ].join(", "),
-        }}
+        style={{ backgroundColor: "hsl(145 35% 94%)" }}
       >
-        {/* Subtle grid overlay */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 text-foreground opacity-[0.05]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
-            backgroundSize: "56px 56px",
-          }}
-        />
         <div className="relative">
           <SocialBar />
           <Brands />
@@ -108,18 +92,8 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      {/* Atmospheric spotlight + stadium grain */}
-      <div className="pointer-events-none absolute inset-0" style={{ background: "var(--gradient-spotlight)" }} aria-hidden />
-      <div className="pointer-events-none absolute inset-0 bp-grid opacity-40" aria-hidden />
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.18]"
-        aria-hidden
-        style={{
-          background:
-            "radial-gradient(circle at 70% 30%, var(--primary) 0%, transparent 45%), radial-gradient(circle at 20% 80%, var(--primary) 0%, transparent 50%), radial-gradient(circle at 85% 85%, hsl(145 70% 50%) 0%, transparent 45%), radial-gradient(circle at 10% 15%, hsl(155 65% 45%) 0%, transparent 50%)",
-        }}
-      />
+    <section className="relative overflow-hidden" style={{ backgroundColor: "hsl(340 60% 95%)" }}>
+
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pb-12 pt-2 sm:px-6 sm:pb-28 sm:pt-8 lg:px-10 lg:pb-36">
         {/* LEFT — vertical section nav (sidebar) — hidden on mobile */}
@@ -318,7 +292,6 @@ function SectionMast({
   const items = ["Brands", "Journey", "Submit", "About"];
   return (
     <section id={id} className="relative overflow-hidden border-t border-border">
-      <div className="pointer-events-none absolute inset-0 bp-grid opacity-30" aria-hidden />
       <div className="relative mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
         {/* Top breadcrumb row */}
         <div className="mb-8 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-b border-border pb-4 sm:mb-10 sm:gap-3">
