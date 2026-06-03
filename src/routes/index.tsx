@@ -253,12 +253,22 @@ function Hero() {
           </div>
 
           {/* Bottom meta strip */}
-          <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 border-t-2 border-primary/30 pt-5 font-mono text-[12px] font-bold uppercase tracking-[0.2em] text-muted-foreground sm:text-[14px] sm:tracking-[0.22em]">
-            <span className="ticker-dot rounded-full bg-primary px-3 py-1 text-primary-foreground">Briefs live now</span>
-            <span className="text-foreground">Open to all creators</span>
-            <span className="text-foreground">Paid per reel</span>
-            <span className="hidden text-foreground sm:inline">Instagram-first</span>
-            <span className="ml-auto rounded-full bg-pop-yellow px-3 py-1 text-[12px] font-extrabold text-pop-yellow-foreground">↓ scroll</span>
+          <div className="mt-10 flex flex-wrap items-center gap-3 border-t-2 border-primary/30 pt-6 sm:gap-4">
+            {[
+              "Get Shortlisted",
+              "Pick a brief",
+              "Ship Your Video",
+              "Make Money",
+            ].map((step, i, arr) => (
+              <div key={step} className="flex items-center gap-2 sm:gap-3">
+                <span className="inline-flex items-center rounded-full border-2 border-primary/80 bg-primary/10 px-4 py-2 font-mono text-[13px] font-bold uppercase tracking-[0.18em] text-foreground shadow-sm">
+                  {step}
+                </span>
+                {i < arr.length - 1 && (
+                  <span className="font-mono text-[18px] font-extrabold text-primary">→</span>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
