@@ -515,26 +515,26 @@ function ReelExamples() {
       accentClass="text-pop-cyan"
       blurb="A taste of the kind of reels these brands are after. Watch, get the tone, then make it yours."
     >
-      <div className="grid gap-5 sm:gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {reels.map((r) => (
           <article
             key={r.id}
             className="group relative overflow-hidden border border-border bg-card transition hover:border-primary/60"
           >
-            <div className="flex items-center justify-between border-b border-border px-4 py-3">
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                Reference · {r.brand}
+            <div className="flex items-center justify-between border-b border-border px-2.5 py-2">
+              <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground">
+                {r.brand}
               </span>
               <a
                 href={`https://www.instagram.com/reel/${r.id}/`}
                 target="_blank"
                 rel="noreferrer"
-                className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary hover:underline"
+                className="font-mono text-[9px] uppercase tracking-[0.18em] text-primary hover:underline"
               >
-                Open on Instagram ↗
+                Open ↗
               </a>
             </div>
-            <div className="relative mx-auto w-full max-w-[420px] p-3 sm:p-4">
+            <div className="relative mx-auto w-full max-w-[240px] p-2 sm:p-3">
               <div className="relative w-full" style={{ aspectRatio: "9 / 16" }}>
                 <iframe
                   src={`https://www.instagram.com/reel/${r.id}/embed`}
@@ -547,7 +547,7 @@ function ReelExamples() {
                 />
               </div>
             </div>
-            <p className="border-t border-border px-4 py-3 text-[12px] text-foreground/70">
+            <p className="border-t border-border px-2.5 py-2 text-[11px] text-foreground/70">
               {r.caption}
             </p>
           </article>
