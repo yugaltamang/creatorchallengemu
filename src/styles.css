@@ -71,9 +71,11 @@
   --gradient-ocean: linear-gradient(180deg, hsl(230 50% 8%), hsl(230 42% 5%));
   --gradient-card: linear-gradient(180deg, hsl(230 38% 12%), hsl(230 42% 8%));
   --gradient-spotlight: radial-gradient(ellipse at top, hsl(330 95% 60% / 0.28), hsl(210 95% 60% / 0.18) 40%, transparent 70%);
-  --gradient-bg: radial-gradient(1200px 600px at 15% -10%, hsl(330 95% 50% / 0.18), transparent 60%),
-                 radial-gradient(1000px 500px at 90% 10%, hsl(210 95% 50% / 0.16), transparent 60%),
-                 radial-gradient(900px 600px at 50% 110%, hsl(48 95% 50% / 0.10), transparent 60%),
+  --gradient-bg: radial-gradient(900px 700px at 10% -5%, hsl(330 95% 55% / 0.45), transparent 55%),
+                 radial-gradient(900px 700px at 95% 15%, hsl(210 95% 55% / 0.42), transparent 55%),
+                 radial-gradient(800px 600px at 80% 95%, hsl(48 95% 55% / 0.32), transparent 55%),
+                 radial-gradient(900px 700px at 20% 85%, hsl(280 90% 55% / 0.30), transparent 55%),
+                 radial-gradient(700px 500px at 50% 50%, hsl(170 80% 50% / 0.18), transparent 60%),
                  linear-gradient(180deg, hsl(230 45% 7%), hsl(230 42% 5%));
 
   --shadow-pop: 0 30px 80px -30px hsl(330 95% 50% / 0.45);
