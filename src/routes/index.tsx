@@ -48,12 +48,12 @@ const BRANDS = ["PERMEA", "JustPour"] as const;
 
 function Landing() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
+    <div className="relative min-h-screen overflow-hidden text-foreground">
       <Toaster theme="dark" />
       <Header />
       <Hero />
 
-      <div className="relative bg-background">
+      <div className="relative">
         <div className="relative">
           <SocialBar />
           <Brands />
@@ -89,7 +89,7 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-background">
+    <section className="relative overflow-hidden">
 
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pb-12 pt-2 sm:px-6 sm:pb-28 sm:pt-8 lg:px-10 lg:pb-36">
