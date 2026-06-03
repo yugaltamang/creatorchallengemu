@@ -174,24 +174,6 @@ function Hero() {
             </div>
           </div>
 
-          {/* Step flow */}
-          <div className="relative z-10 mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
-            {[
-              "Get Shortlisted",
-              "Pick a brief",
-              "Ship Your Video",
-              "Make Money",
-            ].map((step, i, arr) => (
-              <div key={step} className="flex items-center gap-2 sm:gap-3">
-                <span className="inline-flex items-center rounded-full border-2 border-primary/80 bg-primary/10 px-4 py-2 font-mono text-[13px] font-bold uppercase tracking-[0.18em] text-foreground shadow-sm">
-                  {step}
-                </span>
-                {i < arr.length - 1 && (
-                  <span className="font-mono text-[18px] font-extrabold text-primary">→</span>
-                )}
-              </div>
-            ))}
-          </div>
 
           {/* Floating editorial cards row */}
           <div className="relative z-10 mt-12 grid gap-5 sm:mt-16 sm:grid-cols-12">
