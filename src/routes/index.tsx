@@ -92,18 +92,8 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      {/* Atmospheric spotlight + stadium grain */}
-      <div className="pointer-events-none absolute inset-0" style={{ background: "var(--gradient-spotlight)" }} aria-hidden />
-      <div className="pointer-events-none absolute inset-0 bp-grid opacity-40" aria-hidden />
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.18]"
-        aria-hidden
-        style={{
-          background:
-            "radial-gradient(circle at 70% 30%, var(--primary) 0%, transparent 45%), radial-gradient(circle at 20% 80%, var(--primary) 0%, transparent 50%), radial-gradient(circle at 85% 85%, hsl(145 70% 50%) 0%, transparent 45%), radial-gradient(circle at 10% 15%, hsl(155 65% 45%) 0%, transparent 50%)",
-        }}
-      />
+    <section className="relative overflow-hidden" style={{ backgroundColor: "hsl(340 60% 95%)" }}>
+
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-4 pb-12 pt-2 sm:px-6 sm:pb-28 sm:pt-8 lg:px-10 lg:pb-36">
         {/* LEFT — vertical section nav (sidebar) — hidden on mobile */}
