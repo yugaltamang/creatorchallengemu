@@ -213,7 +213,7 @@ function Hero() {
                   {step}
                 </span>
                 {i < arr.length - 1 && (
-                  <span className="font-mono text-[14px] text-muted-foreground">→</span>
+                  <span className="font-mono text-[16px] font-bold text-foreground">→</span>
                 )}
               </div>
             ))}
