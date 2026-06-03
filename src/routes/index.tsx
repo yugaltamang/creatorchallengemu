@@ -515,7 +515,7 @@ function ReelExamples() {
       accentClass="text-pop-cyan"
       blurb="A taste of the kind of reels these brands are after. Watch, get the tone, then make it yours."
     >
-      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
         {reels.map((r) => (
           <article
             key={r.id}
@@ -534,8 +534,8 @@ function ReelExamples() {
                 Open ↗
               </a>
             </div>
-            <div className="relative mx-auto w-full max-w-[240px] p-2 sm:p-3">
-              <div className="relative w-full" style={{ aspectRatio: "9 / 16" }}>
+            <div className="relative mx-auto w-full p-2 sm:p-3">
+              <div className="relative w-full max-h-[320px]" style={{ aspectRatio: "9 / 16" }}>
                 <iframe
                   src={`https://www.instagram.com/reel/${r.id}/embed`}
                   title={`${r.brand} reference reel`}
