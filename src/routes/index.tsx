@@ -200,10 +200,24 @@ function Hero() {
             </div>
           </div>
 
-          {/* Sub-headline */}
-          <p className="relative z-10 mt-8 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
-            The platform that turns your phone into a paycheck. Create reels for real brands, get paid for every brief you ship, and grow into the next big creator on the feed.
-          </p>
+          {/* Step flow */}
+          <div className="relative z-10 mt-8 flex flex-wrap items-center gap-2 sm:gap-3">
+            {[
+              { label: "Get Shortlisted", color: "bg-pop-yellow text-pop-yellow-foreground" },
+              { label: "Pick a brief", color: "bg-pop-cyan text-pop-cyan-foreground" },
+              { label: "Ship Your Video", color: "bg-pop-pink text-pop-pink-foreground" },
+              { label: "Make Money", color: "bg-primary text-primary-foreground" },
+            ].map((step, i, arr) => (
+              <div key={step.label} className="flex items-center gap-2 sm:gap-3">
+                <span className={`inline-flex items-center rounded-full px-3.5 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.18em] ${step.color} shadow-sm`}>
+                  {step.label}
+                </span>
+                {i < arr.length - 1 && (
+                  <span className="font-mono text-[14px] text-muted-foreground">→</span>
+                )}
+              </div>
+            ))}
+          </div>
 
           {/* Floating editorial cards row */}
           <div className="relative z-10 mt-12 grid gap-5 sm:mt-16 sm:grid-cols-12">
