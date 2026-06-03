@@ -55,24 +55,8 @@ function Landing() {
 
       <div
         className="relative"
-        style={{
-          backgroundImage: [
-            "radial-gradient(60% 50% at 85% 0%, hsl(145 65% 50% / 0.18), transparent 70%)",
-            "radial-gradient(50% 40% at 0% 100%, hsl(145 65% 50% / 0.12), transparent 65%)",
-            "linear-gradient(to bottom, hsl(145 40% 98%), hsl(145 30% 96%))",
-          ].join(", "),
-        }}
+        style={{ backgroundColor: "hsl(145 35% 94%)" }}
       >
-        {/* Subtle grid overlay */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 text-foreground opacity-[0.05]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
-            backgroundSize: "56px 56px",
-          }}
-        />
         <div className="relative">
           <SocialBar />
           <Brands />
